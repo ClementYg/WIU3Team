@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "com.h8man.2d.navmeshplus": "https://github.com/h8man/NavMeshPlus.git",
     "com.unity.cinemachine": "3.1.7",
     "com.unity.feature.2d": "2.0.2",
+    "com.unity.inputsystem": "1.20.0",
     "com.unity.multiplayer.center": "1.0.1",
     "com.unity.ugui": "2.0.0",
     "com.unity.modules.accessibility": "1.0.0",
