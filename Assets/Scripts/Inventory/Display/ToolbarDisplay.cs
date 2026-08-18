@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ToolbarDisplay : MonoBehaviour
+public class ToolbarDisplay : ItemDisplay
 {
     // Store a reference to the toolbar inventory row
     [SerializeField] InventoryRow toolbar;
@@ -36,12 +36,16 @@ public class ToolbarDisplay : MonoBehaviour
         UpdateSlotSelection();
     }
 
-    public void AddItem(ItemInstance item)
+    public override bool TryAddItem(ItemInstance item)
     {
+        // Check if the capacity is full
+        if (toolbar.IsCapacityFull) return false;
+
         toolbar.AddItem(item);
+        return true;
     }
 
-    public bool RemoveItem(string itemName)
+    public override bool TryRemoveItem(string itemName)
     {
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)

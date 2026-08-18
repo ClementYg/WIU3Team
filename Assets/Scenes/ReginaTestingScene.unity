@@ -6315,6 +6315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185062482}
   - component: {fileID: 1185062483}
+  - component: {fileID: 1185062484}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -6349,14 +6350,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74213c4ae726bc54eb8fd5e680765746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  invDisplay: {fileID: 1923074825}
-  tlbDisplay: {fileID: 1923074826}
+  invUI: {fileID: 1185062484}
   maxItems: 36
   items:
   - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 100
     stackCount: 1
+--- !u!114 &1185062484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185062481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf863aa7c2a5c0a4a80f61473572f361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
+  displays:
+  - {fileID: 1923074826}
+  - {fileID: 1923074825}
 --- !u!1 &1194512892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10998,8 +11013,8 @@ GameObject:
   - component: {fileID: 1923074822}
   - component: {fileID: 1923074821}
   - component: {fileID: 1923074820}
-  - component: {fileID: 1923074825}
   - component: {fileID: 1923074826}
+  - component: {fileID: 1923074825}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -11511,7 +11526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 0
+  isCapacityFullAtStart: 1
   slots:
   - slotRectTransform: {fileID: 316171052}
     itemImage: {fileID: 1194512894}

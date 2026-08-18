@@ -19,8 +19,7 @@ public class InventoryRow : MonoBehaviour
     public int CurrBoxCapacity => currSlotCapacity;
     public bool IsCapacityFull => isCapacityFull; // Checked by inventory script before AddItem() is called
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         isCapacityFull = isCapacityFullAtStart;
     }

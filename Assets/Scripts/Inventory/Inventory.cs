@@ -4,8 +4,7 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour
 {
     [Header("Dependencies")]
-    [SerializeField] InventoryDisplay invDisplay;
-    [SerializeField] ToolbarDisplay tlbDisplay;
+    [SerializeField] InventoryUI invUI;
 
     [Header("Modifiers")]
     [SerializeField] int maxItems = 36;
@@ -20,21 +19,7 @@ public class Inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (items.Count > 0)
-        {
-            foreach (ItemInstance item in items)
-            {
-                // Update the displays
-                if (tlbDisplay.CheckIsCapacityFull() == false)
-                {
-                    tlbDisplay.AddItem(item);
-                }
-                else if (invDisplay.CheckIsCapacityFull() == false)
-                {
-                    invDisplay.AddItem(item);
-                }
-            }
-        }
+        invUI.InitUI(items);
     }
 
     public bool AddItem(ItemInstance item)
@@ -46,16 +31,7 @@ public class Inventory : MonoBehaviour
         }
 
         items.Add(item);
-        
-        // Update the displays
-        if (tlbDisplay.CheckIsCapacityFull() == false)
-        {
-            tlbDisplay.AddItem(item);
-        }
-        else if (invDisplay.CheckIsCapacityFull() == false)
-        {
-            invDisplay.AddItem(item);
-        }
+        invUI.AddItem(item);
 
         return true;
     }
@@ -66,13 +42,10 @@ public class Inventory : MonoBehaviour
         {
             if (items[i].itemData.itemName == itemName)
             {
+                ItemInstance item = items[i];
+
                 items.RemoveAt(i);
-                
-                // Update the displays
-                if (tlbDisplay.RemoveItem(itemName) == false)
-                {
-                    invDisplay.RemoveItem(itemName);
-                }
+                invUI.RemoveItem(item);
 
                 return;
             }

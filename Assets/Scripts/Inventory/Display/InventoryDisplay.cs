@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class InventoryDisplay : MonoBehaviour
+public class InventoryDisplay : ItemDisplay
 {
     // Keep a list of inventory rows
     [SerializeField] List<InventoryRow> rows = new();
@@ -27,19 +27,21 @@ public class InventoryDisplay : MonoBehaviour
         }
     }
 
-    public void AddItem(ItemInstance item)
+    public override bool TryAddItem(ItemInstance item)
     {
         foreach (InventoryRow row in rows)
         {
             if (row.IsCapacityFull == false)
             {
                 row.AddItem(item);
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
-    public bool RemoveItem(string itemName)
+    public override bool TryRemoveItem(string itemName)
     {
         // Check if the item exists in any of the rows
         foreach (InventoryRow row in rows)
