@@ -33,6 +33,5 @@ public class ItemPickUp : MonoBehaviour
     public void PickUp(ItemInstance item)
     {
         inventory.AddItem(item);
-        inventory.DisplayItems();
     }
 }

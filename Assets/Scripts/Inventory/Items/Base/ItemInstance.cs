@@ -8,7 +8,7 @@ public class ItemInstance
 
     [Header("Realtime Change")]
     public int currentDurability = 0;
-    public int stackCount = 1;
+    public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
     public bool isBroken => itemData.hasDurability && currentDurability <= 0; 
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)

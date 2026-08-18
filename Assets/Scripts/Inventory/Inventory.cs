@@ -10,11 +10,31 @@ public class Inventory : MonoBehaviour
     [Header("Modifiers")]
     [SerializeField] int maxItems = 36;
 
-    public readonly List<ItemInstance> items = new();
+    public List<ItemInstance> items = new();
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        if (items.Count > 0)
+        {
+            foreach (ItemInstance item in items)
+            {
+                // Update the displays
+                if (tlbDisplay.CheckIsCapacityFull() == false)
+                {
+                    tlbDisplay.AddItem(item);
+                }
+                else if (invDisplay.CheckIsCapacityFull() == false)
+                {
+                    invDisplay.AddItem(item);
+                }
+            }
+        }
     }
 
     public bool AddItem(ItemInstance item)
@@ -48,6 +68,7 @@ public class Inventory : MonoBehaviour
             {
                 items.RemoveAt(i);
                 
+                // Update the displays
                 if (tlbDisplay.RemoveItem(itemName) == false)
                 {
                     invDisplay.RemoveItem(itemName);
@@ -58,19 +79,32 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool CheckItem(string itemName, out int itemQuantity)
+    public bool CheckItem(string itemName)
     {
         foreach (ItemInstance item in items)
         {
             if (item.itemData.itemName == itemName)
             {
-                itemQuantity = 1;
                 return true;
             }
         }
 
-        itemQuantity = -1;
         return false;
+    }
+
+    public int GetItemQuantity(string itemName)
+    {
+        int itemQuantity = 0;
+
+        foreach (ItemInstance item in items)
+        {
+            if (item.itemData.itemName == itemName)
+            {
+                itemQuantity += item.stackCount;
+            }
+        }
+
+        return itemQuantity;
     }
 
     public void DisplayItems()

@@ -3776,7 +3776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &653714081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6352,6 +6352,11 @@ MonoBehaviour:
   invDisplay: {fileID: 1923074825}
   tlbDisplay: {fileID: 1923074826}
   maxItems: 36
+  items:
+  - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
+    itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
+    currentDurability: 100
+    stackCount: 1
 --- !u!1 &1194512892
 GameObject:
   m_ObjectHideFlags: 0
@@ -7614,8 +7619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   item:
-    itemData: {fileID: 11400000, guid: 834f21f88be02ce4eab951e572479674, type: 2}
+    itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
+    currentDurability: 0
+    stackCount: 0
 --- !u!50 &1397508688
 Rigidbody2D:
   serializedVersion: 5
@@ -9742,7 +9749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1753225124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11504,7 +11511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 1
+  isCapacityFullAtStart: 0
   slots:
   - slotRectTransform: {fileID: 316171052}
     itemImage: {fileID: 1194512894}
