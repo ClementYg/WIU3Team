@@ -28,11 +28,11 @@ public class Inventory : MonoBehaviour
         items.Add(item);
         
         // Update the displays
-        if (!tlbDisplay.IsDisplayFull)
+        if (tlbDisplay.CheckIsCapacityFull() == false)
         {
             tlbDisplay.AddItem(item);
         }
-        else if (!invDisplay.IsDisplayFull)
+        else if (invDisplay.CheckIsCapacityFull() == false)
         {
             invDisplay.AddItem(item);
         }
@@ -52,7 +52,12 @@ public class Inventory : MonoBehaviour
             if (items[i].itemData.itemName == itemName)
             {
                 items.RemoveAt(i);
-                tlbDisplay.RemoveItem(itemName);
+                
+                if (tlbDisplay.RemoveItem(itemName) == false)
+                {
+                    invDisplay.RemoveItem(itemName);
+                }
+
                 return;
             }
         }

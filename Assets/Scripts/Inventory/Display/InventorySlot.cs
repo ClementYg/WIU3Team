@@ -5,7 +5,7 @@ using TMPro;
 [System.Serializable]
 public class InventorySlot
 {
-    public Image slotImage;
+    public RectTransform slotRectTransform; // Used for parenting the selection slot
     public Image itemImage;
     public TextMeshProUGUI quantityText;
 

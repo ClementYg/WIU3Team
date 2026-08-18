@@ -1,24 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class InventoryDisplay : MonoBehaviour
 {
+    // Keep a list of inventory rows
+    [SerializeField] List<InventoryRow> rows = new();
+
     [Header("Dependencies")]
     [SerializeField] Inventory inv;
-    [SerializeField] GameObject inventoryRow1;
-    [SerializeField] GameObject inventoryRow2;
-
-    
-    // Track the first empty slot index
-    int emptySlotIndex = 0;
-
-    // Used to track the current storage states
-    int currSlotCapacity = 0;
-    public readonly int maxSlotCapacity = 12;
-    bool isDisplayFull = false;
-
-    public int CurrSlotCapacity => currSlotCapacity;
-    public bool IsDisplayFull => isDisplayFull; // Checked by inventory script before AddItem() is called
 
     bool isDisplaying = false;
 
@@ -30,20 +20,50 @@ public class InventoryDisplay : MonoBehaviour
         {
             isDisplaying = !isDisplaying;
 
-            if (isDisplaying)
+            foreach (InventoryRow row in rows)
             {
-                inventoryRow1.SetActive(true);
-                inventoryRow2.SetActive(true);
-            }
-            if (!isDisplaying)
-            {
-                inventoryRow1.SetActive(false);
-                inventoryRow2.SetActive(false);
+                row.gameObject.SetActive(isDisplaying);
             }
         }
     }
 
     public void AddItem(ItemInstance item)
     {
+        foreach (InventoryRow row in rows)
+        {
+            if (row.IsCapacityFull == false)
+            {
+                row.AddItem(item);
+                return;
+            }
+        }
+    }
+
+    public bool RemoveItem(string itemName)
+    {
+        // Check if the item exists in any of the rows
+        foreach (InventoryRow row in rows)
+        {
+            for (int i = 0; i < row.slots.Count; ++i)
+            {
+                if (row.slots[i].isOccupied && row.slots[i].itemName == itemName)
+                {
+                    row.RemoveItem(i);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public bool CheckIsCapacityFull()
+    {
+        foreach (InventoryRow row in rows)
+        {
+            if (row.IsCapacityFull == false) return false;
+        }
+
+        return true;
     }
 }
