@@ -19,10 +19,23 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(ItemInstance item)
     {
-        if (items.Count >= maxItems) return false;
+        if (items.Count >= maxItems)
+        {
+            Debug.Log("Inventory: Max capacity reeached.");
+            return false;
+        }
 
         items.Add(item);
-        tlbDisplay.AddItem(item);
+        
+        // Update the displays
+        if (!tlbDisplay.IsDisplayFull)
+        {
+            tlbDisplay.AddItem(item);
+        }
+        else if (!invDisplay.IsDisplayFull)
+        {
+            invDisplay.AddItem(item);
+        }
 
         return true;
     }

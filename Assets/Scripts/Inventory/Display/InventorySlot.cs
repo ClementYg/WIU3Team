@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
-public class ToolbarBox
+public class InventorySlot
 {
-    public Image boxImage;
+    public Image slotImage;
     public Image itemImage;
     public TextMeshProUGUI quantityText;
 

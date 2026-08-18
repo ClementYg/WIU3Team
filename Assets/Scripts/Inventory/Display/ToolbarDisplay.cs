@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Assertions.Must;
 
 public class ToolbarDisplay : MonoBehaviour
 {
@@ -23,52 +24,66 @@ public class ToolbarDisplay : MonoBehaviour
         Key.Equals
     };
 
-    // Keep a list of all the boxes in the toolbar
-    [SerializeField] List<ToolbarBox> boxes = new();
+    // Keep a list of all the slots in the toolbar
+    [SerializeField] List<InventorySlot> slots = new();
 
-    // Store a reference to the red selection box
-    [SerializeField] Image redSelectionBox;
+    // Store a reference to the red selection slot
+    [SerializeField] Image redSelectionSlot;
 
-    // To track the index of the selected box
-    int selectedBoxIndex = 0;
+    // To track the index of the selected slot
+    int selectedSlotIndex = 0;
+
+    // Used to track the current capacity
+    int currSlotCapacity = 0;
+    public readonly int maxSlotCapacity = 12;
+    bool isDisplayFull = false;
+
+    public int CurrBoxCapacity => currSlotCapacity;
+    public bool IsDisplayFull => isDisplayFull; // Checked by inventory script before AddItem() is called
 
     // Update is called once per frame
     void Update()
     {
-        UpdateBoxSelection();
+        UpdateSlotSelection();
     }
 
     public void AddItem(ItemInstance item)
     {
-        for (int i = 0; i < boxes.Count; ++i)
+        for (int i = 0; i < slots.Count; ++i)
         {
-            if (boxes[i].isOccupied && boxes[i].itemName == item.itemData.itemName)
+            if (slots[i].isOccupied && slots[i].itemName == item.itemData.itemName)
             {
                 // Stack the item, just increment the quantity
-                ToolbarBox stackedBox = boxes[i];
+                InventorySlot stackedSlot = slots[i];
 
-                ++stackedBox.itemQuantity;
-                stackedBox.quantityText.text = stackedBox.itemQuantity.ToString();
+                ++stackedSlot.itemQuantity;
+                stackedSlot.quantityText.text = stackedSlot.itemQuantity.ToString();
 
-                boxes[i] = stackedBox;
+                slots[i] = stackedSlot;
 
                 return;
             }
-            else if (!boxes[i].isOccupied)
+            else if (!slots[i].isOccupied)
             {
-                // Display the new item at this unoccupied box
-                ToolbarBox newBox = boxes[i];
+                // Display the new item at this unoccupied slot
+                InventorySlot newSlot = slots[i];
 
-                newBox.itemImage.sprite = item.itemData.itemImage;
-                newBox.itemImage.enabled = true;
-                newBox.quantityText.text = "1";
-                newBox.quantityText.enabled = true;
+                newSlot.itemImage.sprite = item.itemData.itemImage;
+                newSlot.itemImage.enabled = true;
+                newSlot.quantityText.text = "1";
+                newSlot.quantityText.enabled = true;
 
-                newBox.itemName = item.itemData.itemName;
-                newBox.itemQuantity = 1;
-                newBox.isOccupied = true;
+                newSlot.itemName = item.itemData.itemName;
+                newSlot.itemQuantity = 1;
+                newSlot.isOccupied = true;
 
-                boxes[i] = newBox;
+                slots[i] = newSlot;
+
+                ++currSlotCapacity;
+                if (currSlotCapacity >= maxSlotCapacity)
+                {
+                    isDisplayFull = true;
+                }
 
                 return;
             }
@@ -77,29 +92,29 @@ public class ToolbarDisplay : MonoBehaviour
 
     public void RemoveItem(string itemName)
     {
-        for (int i = 0; i < boxes.Count; ++i)
+        for (int i = 0; i < slots.Count; ++i)
         {
-            // Loop through all the boxes and look for the item that we want to remove
-            if (!(boxes[i].isOccupied && boxes[i].itemName == itemName)) continue;
+            // Loop through all the slots and look for the item that we want to remove
+            if (!(slots[i].isOccupied && slots[i].itemName == itemName)) continue;
 
-            ToolbarBox box = boxes[i];
+            InventorySlot slot = slots[i];
 
-            --box.itemQuantity;
-            if (box.itemQuantity <= 0)
+            --slot.itemQuantity;
+            if (slot.itemQuantity <= 0)
             {
-                // No more of this item, unoccupy the box
-                box.itemName = "";
-                box.itemImage.enabled = false;
-                box.quantityText.enabled = false;
-                box.isOccupied = false;
+                // No more of this item, unoccupy the slot
+                slot.itemName = "";
+                slot.itemImage.enabled = false;
+                slot.quantityText.enabled = false;
+                slot.isOccupied = false;
             }
             else
             {
-                // Just update the text of the box to display the new quantity
-                box.quantityText.text = box.itemQuantity.ToString();
+                // Just update the text of the slot to display the new quantity
+                slot.quantityText.text = slot.itemQuantity.ToString();
             }
 
-            boxes[i] = box;
+            slots[i] = slot;
 
             return;
         }
@@ -107,62 +122,67 @@ public class ToolbarDisplay : MonoBehaviour
 
     public string GetSelectedItemName()
     {
-        ToolbarBox selectedBox = boxes[selectedBoxIndex];
-        return selectedBox.itemName;
+        return slots[selectedSlotIndex].itemName;
     }
 
-    private void UpdateBoxSelection()
+    private void UpdateSlotSelection()
     {
-        // Use keyboard to select a box
-        for (int i = 0; i < boxes.Count; ++i)
+        // Use keyboard to select a slot
+        for (int i = 0; i < slots.Count; ++i)
         {
             if (Keyboard.current[toolbarKeys[i]].wasPressedThisFrame)
             {
-                selectedBoxIndex = i;
+                selectedSlotIndex = i;
             }
         }
 
-        // Use scroll wheel to select a box
+        // Use scroll wheel to select a slot
         Vector2 mouseScroll = Mouse.current.scroll.ReadValue();
         if (mouseScroll.y > 0f)
         {
             // Scrolled up
-            if (selectedBoxIndex < boxes.Count - 1) ++selectedBoxIndex;
+            if (selectedSlotIndex < slots.Count - 1) ++selectedSlotIndex;
 
         }
         else if (mouseScroll.y < 0f)
         {
             // Scrolled down
-            if (selectedBoxIndex > 0) --selectedBoxIndex;
+            if (selectedSlotIndex > 0) --selectedSlotIndex;
         }
 
         // Move the selection box accordingly
-        redSelectionBox.rectTransform.SetParent(
-            boxes[selectedBoxIndex].boxImage.rectTransform, false
+        redSelectionSlot.rectTransform.SetParent(
+            slots[selectedSlotIndex].slotImage.rectTransform, false
         );
     }
 
 #if UNITY_EDITOR
-    [ContextMenu("Find All Toolbar Boxes")]
-    private void FindAllToolbarBoxes()
+    [ContextMenu("Find All Toolbar Slots")]
+    private void FindAllToolbarSlots()
     {
-        boxes.Clear();
+        slots.Clear();
 
         // Get the toolbar child
         Transform tlbTransform = transform.GetChild(0);
 
         for (int i = 0; i < tlbTransform.childCount; ++i)
         {
-            Transform boxTransform = tlbTransform.GetChild(i);
+            Transform slotTransform = tlbTransform.GetChild(i);
 
-            ToolbarBox newBox = new ToolbarBox
+            InventorySlot newSlot = new()
             {
-                boxImage = boxTransform.GetComponent<Image>(),
-                itemImage = boxTransform.GetChild(0).GetComponent<Image>(),
-                quantityText = boxTransform.GetChild(1).GetComponent<TextMeshProUGUI>()
+                slotImage = slotTransform.GetComponent<Image>(),
+                itemImage = slotTransform.GetChild(0).GetComponent<Image>(),
+                quantityText = slotTransform.GetChild(1).GetComponent<TextMeshProUGUI>()
             };
 
-            boxes.Add(newBox);
+            // Get the red selection slot
+            if (i == 0)
+            {
+                redSelectionSlot = slotTransform.GetChild(2).GetComponent<Image>();
+            }
+
+            slots.Add(newSlot);
         }
     }
 #endif

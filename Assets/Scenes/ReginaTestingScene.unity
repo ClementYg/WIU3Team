@@ -1559,7 +1559,7 @@ GameObject:
   - component: {fileID: 316171054}
   - component: {fileID: 316171053}
   m_Layer: 5
-  m_Name: Box1
+  m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4717,7 +4717,7 @@ GameObject:
   - component: {fileID: 1012653138}
   - component: {fileID: 1012653137}
   m_Layer: 5
-  m_Name: Box11
+  m_Name: Slot11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5088,7 +5088,7 @@ GameObject:
   - component: {fileID: 1073095029}
   - component: {fileID: 1073095028}
   m_Layer: 5
-  m_Name: Box12
+  m_Name: Slot12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6224,7 +6224,7 @@ GameObject:
   - component: {fileID: 1327294296}
   - component: {fileID: 1327294295}
   m_Layer: 5
-  m_Name: Box5
+  m_Name: Slot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6453,7 +6453,7 @@ GameObject:
   - component: {fileID: 1359047263}
   - component: {fileID: 1359047262}
   m_Layer: 5
-  m_Name: Box2
+  m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6530,7 +6530,7 @@ GameObject:
   - component: {fileID: 1374115825}
   - component: {fileID: 1374115824}
   m_Layer: 5
-  m_Name: Box9
+  m_Name: Slot9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7457,7 +7457,7 @@ GameObject:
   - component: {fileID: 1443540597}
   - component: {fileID: 1443540596}
   m_Layer: 5
-  m_Name: Red Selection Box
+  m_Name: Red Selection Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7669,7 +7669,7 @@ GameObject:
   - component: {fileID: 1492479824}
   - component: {fileID: 1492479823}
   m_Layer: 5
-  m_Name: Box8
+  m_Name: Slot8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8097,7 +8097,7 @@ GameObject:
   - component: {fileID: 1550535092}
   - component: {fileID: 1550535091}
   m_Layer: 5
-  m_Name: Box7
+  m_Name: Slot7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8174,7 +8174,7 @@ GameObject:
   - component: {fileID: 1577800897}
   - component: {fileID: 1577800896}
   m_Layer: 5
-  m_Name: Box10
+  m_Name: Slot10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9589,7 +9589,7 @@ GameObject:
   - component: {fileID: 1741793994}
   - component: {fileID: 1741793993}
   m_Layer: 5
-  m_Name: Box4
+  m_Name: Slot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10732,7 +10732,7 @@ GameObject:
   - component: {fileID: 1902699614}
   - component: {fileID: 1902699613}
   m_Layer: 5
-  m_Name: Box3
+  m_Name: Slot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10930,80 +10930,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f3458658f8b794f9017c5bf98cd0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolbarDisplay
-  boxes:
-  - boxImage: {fileID: 316171053}
+  slots:
+  - slotImage: {fileID: 316171053}
     itemImage: {fileID: 1194512894}
     quantityText: {fileID: 1765610247}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1359047262}
+  - slotImage: {fileID: 1359047262}
     itemImage: {fileID: 1736249558}
     quantityText: {fileID: 1407159893}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1902699613}
+  - slotImage: {fileID: 1902699613}
     itemImage: {fileID: 453370480}
     quantityText: {fileID: 708482039}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1741793993}
+  - slotImage: {fileID: 1741793993}
     itemImage: {fileID: 1340066344}
     quantityText: {fileID: 623025190}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1327294295}
+  - slotImage: {fileID: 1327294295}
     itemImage: {fileID: 209509733}
     quantityText: {fileID: 1316482095}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1999012019}
+  - slotImage: {fileID: 1999012019}
     itemImage: {fileID: 1896245731}
     quantityText: {fileID: 1621151474}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1550535091}
+  - slotImage: {fileID: 1550535091}
     itemImage: {fileID: 790090779}
     quantityText: {fileID: 753255953}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1492479823}
+  - slotImage: {fileID: 1492479823}
     itemImage: {fileID: 860227310}
     quantityText: {fileID: 210689937}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1374115824}
+  - slotImage: {fileID: 1374115824}
     itemImage: {fileID: 1431127903}
     quantityText: {fileID: 1809144416}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1577800896}
+  - slotImage: {fileID: 1577800896}
     itemImage: {fileID: 1011900129}
     quantityText: {fileID: 1253607313}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1012653137}
+  - slotImage: {fileID: 1012653137}
     itemImage: {fileID: 841516747}
     quantityText: {fileID: 2131092783}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  - boxImage: {fileID: 1073095028}
+  - slotImage: {fileID: 1073095028}
     itemImage: {fileID: 1803865226}
     quantityText: {fileID: 1082510598}
     itemName: 
     itemQuantity: 0
     isOccupied: 0
-  redSelectionBox: {fileID: 1443540596}
+  redSelectionSlot: {fileID: 1443540596}
 --- !u!1 &1968414042
 GameObject:
   m_ObjectHideFlags: 0
@@ -11103,7 +11103,7 @@ GameObject:
   - component: {fileID: 1999012020}
   - component: {fileID: 1999012019}
   m_Layer: 5
-  m_Name: Box6
+  m_Name: Slot6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
