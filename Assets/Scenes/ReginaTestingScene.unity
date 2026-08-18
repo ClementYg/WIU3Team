@@ -5621,8 +5621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74213c4ae726bc54eb8fd5e680765746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  toolbar: {fileID: 1923074824}
-  maxItems: 12
+  invDisplay: {fileID: 1923074825}
+  tlbDisplay: {fileID: 1923074826}
+  maxItems: 36
 --- !u!1 &1194512892
 GameObject:
   m_ObjectHideFlags: 0
@@ -7443,7 +7444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
   inventory: {fileID: 1185062483}
-  toolbar: {fileID: 1923074824}
+  tlbDisplay: {fileID: 0}
 --- !u!1 &1443540594
 GameObject:
   m_ObjectHideFlags: 0
@@ -10808,8 +10809,8 @@ GameObject:
   - component: {fileID: 1923074822}
   - component: {fileID: 1923074821}
   - component: {fileID: 1923074820}
-  - component: {fileID: 1923074824}
   - component: {fileID: 1923074825}
+  - component: {fileID: 1923074826}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10902,7 +10903,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1923074824
+--- !u!114 &1923074825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10911,9 +10912,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923074819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 567a0f5e9df7a6f49b3047dd86642171, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a93a584869c9e8478bc57f2447156c6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Toolbar
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryDisplay
+  inv: {fileID: 1185062483}
+  inventoryRow1: {fileID: 1217412260}
+  inventoryRow2: {fileID: 2128593687}
+--- !u!114 &1923074826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923074819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f3458658f8b794f9017c5bf98cd0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolbarDisplay
   boxes:
   - boxImage: {fileID: 316171053}
     itemImage: {fileID: 1194512894}
@@ -10988,20 +11004,6 @@ MonoBehaviour:
     itemQuantity: 0
     isOccupied: 0
   redSelectionBox: {fileID: 1443540596}
---- !u!114 &1923074825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923074819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a93a584869c9e8478bc57f2447156c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryDisplay
-  inventoryRow1: {fileID: 1217412260}
-  inventoryRow2: {fileID: 2128593687}
 --- !u!1 &1968414042
 GameObject:
   m_ObjectHideFlags: 0

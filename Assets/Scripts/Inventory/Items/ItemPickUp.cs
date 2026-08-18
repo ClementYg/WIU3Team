@@ -5,7 +5,7 @@ public class ItemPickUp : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] Inventory inventory;
-    [SerializeField] Toolbar toolbar;
+    [SerializeField] ToolbarDisplay tlbDisplay;
 
     // Update is called once per frame
     void Update()
@@ -14,7 +14,7 @@ public class ItemPickUp : MonoBehaviour
         if (interactAction.WasPressedThisFrame())
         {
             // Get the name of the selected item
-            string itemName = toolbar.GetSelectedItemName();
+            string itemName = tlbDisplay.GetSelectedItemName();
             if (itemName == "") return; // No item is selected
 
             // Get the item instance

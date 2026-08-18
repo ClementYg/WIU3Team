@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
 
-public class Toolbar : MonoBehaviour
+public class ToolbarDisplay : MonoBehaviour
 {
     // Keep a list of all the keybinds that will be used to select a box in the toolbar
     readonly Key[] toolbarKeys =
@@ -28,48 +29,13 @@ public class Toolbar : MonoBehaviour
     // Store a reference to the red selection box
     [SerializeField] Image redSelectionBox;
 
+    // To track the index of the selected box
     int selectedBoxIndex = 0;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     // Update is called once per frame
     void Update()
     {
         UpdateBoxSelection();
-    }
-
-    private void UpdateBoxSelection()
-    {
-        // Use keyboard to select a box
-        for (int i = 0; i < boxes.Count; ++i)
-        {
-            if (Keyboard.current[toolbarKeys[i]].wasPressedThisFrame)
-            {
-                selectedBoxIndex = i;
-            }
-        }
-
-        // Use scroll wheel to select a box
-        Vector2 mouseScroll = Mouse.current.scroll.ReadValue();
-        if (mouseScroll.y > 0f)
-        {
-            // Scrolled up
-            if (selectedBoxIndex < boxes.Count - 1) ++selectedBoxIndex;
-
-        }
-        else if (mouseScroll.y < 0f)
-        {
-            // Scrolled down
-            if (selectedBoxIndex > 0) --selectedBoxIndex;
-        }
-
-        // Move the selection box accordingly
-        redSelectionBox.rectTransform.SetParent(
-            boxes[selectedBoxIndex].boxImage.rectTransform, false
-        );
     }
 
     public void AddItem(ItemInstance item)
@@ -144,4 +110,60 @@ public class Toolbar : MonoBehaviour
         ToolbarBox selectedBox = boxes[selectedBoxIndex];
         return selectedBox.itemName;
     }
+
+    private void UpdateBoxSelection()
+    {
+        // Use keyboard to select a box
+        for (int i = 0; i < boxes.Count; ++i)
+        {
+            if (Keyboard.current[toolbarKeys[i]].wasPressedThisFrame)
+            {
+                selectedBoxIndex = i;
+            }
+        }
+
+        // Use scroll wheel to select a box
+        Vector2 mouseScroll = Mouse.current.scroll.ReadValue();
+        if (mouseScroll.y > 0f)
+        {
+            // Scrolled up
+            if (selectedBoxIndex < boxes.Count - 1) ++selectedBoxIndex;
+
+        }
+        else if (mouseScroll.y < 0f)
+        {
+            // Scrolled down
+            if (selectedBoxIndex > 0) --selectedBoxIndex;
+        }
+
+        // Move the selection box accordingly
+        redSelectionBox.rectTransform.SetParent(
+            boxes[selectedBoxIndex].boxImage.rectTransform, false
+        );
+    }
+
+#if UNITY_EDITOR
+    [ContextMenu("Find All Toolbar Boxes")]
+    private void FindAllToolbarBoxes()
+    {
+        boxes.Clear();
+
+        // Get the toolbar child
+        Transform tlbTransform = transform.GetChild(0);
+
+        for (int i = 0; i < tlbTransform.childCount; ++i)
+        {
+            Transform boxTransform = tlbTransform.GetChild(i);
+
+            ToolbarBox newBox = new ToolbarBox
+            {
+                boxImage = boxTransform.GetComponent<Image>(),
+                itemImage = boxTransform.GetChild(0).GetComponent<Image>(),
+                quantityText = boxTransform.GetChild(1).GetComponent<TextMeshProUGUI>()
+            };
+
+            boxes.Add(newBox);
+        }
+    }
+#endif
 }

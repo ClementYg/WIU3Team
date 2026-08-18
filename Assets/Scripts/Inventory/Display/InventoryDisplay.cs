@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class InventoryDisplay : MonoBehaviour
 {
     [Header("Dependencies")]
+    [SerializeField] Inventory inv;
     [SerializeField] GameObject inventoryRow1;
     [SerializeField] GameObject inventoryRow2;
 

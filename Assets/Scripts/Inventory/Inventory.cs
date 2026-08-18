@@ -4,12 +4,13 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour
 {
     [Header("Dependencies")]
-    [SerializeField] Toolbar toolbar;
+    [SerializeField] InventoryDisplay invDisplay;
+    [SerializeField] ToolbarDisplay tlbDisplay;
 
     [Header("Modifiers")]
-    [SerializeField] int maxItems = 12;
+    [SerializeField] int maxItems = 36;
 
-    List<ItemInstance> items = new();
+    public readonly List<ItemInstance> items = new();
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class Inventory : MonoBehaviour
         if (items.Count >= maxItems) return false;
 
         items.Add(item);
-        toolbar.AddItem(item);
+        tlbDisplay.AddItem(item);
 
         return true;
     }
@@ -38,7 +39,7 @@ public class Inventory : MonoBehaviour
             if (items[i].itemData.itemName == itemName)
             {
                 items.RemoveAt(i);
-                toolbar.RemoveItem(itemName);
+                tlbDisplay.RemoveItem(itemName);
                 return;
             }
         }
