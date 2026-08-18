@@ -40,11 +40,6 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void RemoveItem(int index)
-    {
-        items.RemoveAt(index);
-    }
-
     public void RemoveItem(string itemName)
     {
         for (int i = 0; i < items.Count; ++i)
@@ -61,6 +56,21 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public bool CheckItem(string itemName, out int itemQuantity)
+    {
+        foreach (ItemInstance item in items)
+        {
+            if (item.itemData.itemName == itemName)
+            {
+                itemQuantity = 1;
+                return true;
+            }
+        }
+
+        itemQuantity = -1;
+        return false;
     }
 
     public void DisplayItems()
