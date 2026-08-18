@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Toolbar : MonoBehaviour
 {
-    // To make it easier to update selection
+    // Keep a list of all the keybinds that will be used to select a box in the toolbar
     readonly Key[] toolbarKeys =
     {
         Key.Digit1,
@@ -44,14 +44,32 @@ public class Toolbar : MonoBehaviour
     private void UpdateBoxSelection()
     {
         // Use keyboard to select a box
-        for (int i = 0; i < toolbarKeys.Length; ++i)
+        for (int i = 0; i < boxes.Count; ++i)
         {
             if (Keyboard.current[toolbarKeys[i]].wasPressedThisFrame)
             {
-                redSelectionBox.rectTransform.SetParent(boxes[i].boxImage.rectTransform, false);
                 selectedBoxIndex = i;
             }
         }
+
+        // Use scroll wheel to select a box
+        Vector2 mouseScroll = Mouse.current.scroll.ReadValue();
+        if (mouseScroll.y > 0f)
+        {
+            // Scrolled up
+            if (selectedBoxIndex < boxes.Count - 1) ++selectedBoxIndex;
+
+        }
+        else if (mouseScroll.y < 0f)
+        {
+            // Scrolled down
+            if (selectedBoxIndex > 0) --selectedBoxIndex;
+        }
+
+        // Move the selection box accordingly
+        redSelectionBox.rectTransform.SetParent(
+            boxes[selectedBoxIndex].boxImage.rectTransform, false
+        );
     }
 
     public void AddItem(ItemInstance item)
