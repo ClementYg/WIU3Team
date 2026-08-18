@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] PointEffector2D itemCollector;
 
     [Header("Modifiers")]
     [SerializeField] float moveSpeed = 10f;
@@ -21,5 +22,15 @@ public class PlayerController : MonoBehaviour
         if (isLeftPressed) finalVelX -= moveSpeed;
 
         rb.linearVelocityX = finalVelX;
+    }
+
+    public void EnableItemCollector()
+    {
+        itemCollector.enabled = true;
+    }
+
+    public void DisableItemCollector()
+    {
+        itemCollector.enabled = false;
     }
 }

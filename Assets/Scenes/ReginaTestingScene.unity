@@ -6358,6 +6358,37 @@ MonoBehaviour:
     currentDurability: 100
     stackCount: 1
   maxCapacity: 36
+  numberOfItemsAtStart: 36
+  onInventoryFull:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1435673671}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DisableItemCollector
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onInventoryFreed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1435673671}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableItemCollector
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185062484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8264,6 +8295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rb: {fileID: 1435673670}
+  itemCollector: {fileID: 370303163}
   moveSpeed: 10
 --- !u!58 &1435673672
 CircleCollider2D:
@@ -11124,7 +11156,6 @@ MonoBehaviour:
   rows:
   - {fileID: 653714084}
   - {fileID: 1753225127}
-  inv: {fileID: 1185062483}
 --- !u!114 &1923074826
 MonoBehaviour:
   m_ObjectHideFlags: 0

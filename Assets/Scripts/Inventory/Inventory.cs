@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
@@ -10,7 +11,13 @@ public class Inventory : MonoBehaviour
     [Header("Modifiers")]
     [SerializeField] int maxCapacity = 36;
 
+    [Header("Testing")]
+    [SerializeField] int numberOfItemsAtStart = 0;
+
     public bool IsFull => (items.Count >= maxCapacity);
+
+    public UnityEvent onInventoryFull;
+    public UnityEvent onInventoryFreed;
 
     private void Awake()
     {
@@ -20,6 +27,14 @@ public class Inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (numberOfItemsAtStart > 0)
+        {
+            for (int i = 0; i < numberOfItemsAtStart; ++i)
+            {
+                items.Add(new ItemInstance(new ItemData()));
+            }
+        }
+
         invUI.InitUI(items);
     }
 
@@ -27,6 +42,7 @@ public class Inventory : MonoBehaviour
     {
         if (IsFull)
         {
+            onInventoryFull?.Invoke();
             Debug.Log("Inventory: Max capacity reached.");
             return false;
         }
@@ -48,10 +64,14 @@ public class Inventory : MonoBehaviour
         {
             if (items[i].itemData.itemName == itemName)
             {
-                ItemInstance item = items[i];
+                invUI.RemoveItem(items[i]);
+                items.RemoveAt(i);  // All code referencing items[i] to be placed before this
 
-                items.RemoveAt(i);
-                invUI.RemoveItem(item);
+                if (!IsFull)
+                {
+                    onInventoryFreed?.Invoke();
+                    Debug.Log("event invoked");
+                }
 
                 return;
             }

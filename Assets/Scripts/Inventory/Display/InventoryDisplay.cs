@@ -7,9 +7,6 @@ public class InventoryDisplay : ItemDisplay
     // Keep a list of inventory rows
     [SerializeField] List<InventoryRow> rows = new();
 
-    [Header("Dependencies")]
-    [SerializeField] Inventory inv;
-
     bool isDisplaying = false;
 
     // Update is called once per frame
