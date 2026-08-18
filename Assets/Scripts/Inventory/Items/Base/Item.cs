@@ -8,9 +8,7 @@ public class Item : MonoBehaviour
     {
         if (collision.TryGetComponent(out ItemPickUp itmPickUp))
         {
-            if (item == null) return;
-
-            itmPickUp.PickUp(item);
+            if (item == null || itmPickUp.PickUp(item) == false) return;
             Destroy(gameObject);
         }
     }

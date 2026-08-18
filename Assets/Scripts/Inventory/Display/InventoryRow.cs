@@ -7,21 +7,48 @@ public class InventoryRow : MonoBehaviour
 {
     [Header("Testing")]
     [SerializeField] bool isCapacityFullAtStart = false;
+    [SerializeField] bool isDisplayedAtStart = true;
 
     // Keep a list of all the slots in the row
     public List<InventorySlot> slots = new();
 
-    // Used to track the current capacity
-    int currSlotCapacity = 0;
-    public readonly int maxSlotCapacity = 12;
-    bool isCapacityFull = false;
+    bool isDisplaying = true;
 
-    public int CurrBoxCapacity => currSlotCapacity;
-    public bool IsCapacityFull => isCapacityFull; // Checked by inventory script before AddItem() is called
+    // Used to track the current capacity
+    public readonly int maxRowCapacity = 12;
+    
+    public int CurrRowCapacity
+    {
+        get
+        {
+            int capacity = 0;
+
+            foreach (InventorySlot slot in slots)
+            {
+                if (slot.isOccupied) ++capacity;
+            }
+
+            return capacity;
+        }
+    }
+
+    public bool IsCapacityFull => (CurrRowCapacity >= maxRowCapacity);
 
     private void Awake()
     {
-        isCapacityFull = isCapacityFullAtStart;
+        if (isCapacityFullAtStart)
+        {
+            foreach (InventorySlot slot in slots)
+            {
+                slot.isOccupied = true;
+            }
+        }
+
+        isDisplaying = isDisplayedAtStart;
+        if (!isDisplaying)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void AddItem(ItemInstance item)
@@ -55,12 +82,6 @@ public class InventoryRow : MonoBehaviour
                 newSlot.isOccupied = true;
 
                 slots[i] = newSlot;
-
-                ++currSlotCapacity;
-                if (currSlotCapacity >= maxSlotCapacity)
-                {
-                    isCapacityFull = true;
-                }
 
                 return;
             }

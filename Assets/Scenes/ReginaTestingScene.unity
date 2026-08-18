@@ -3776,7 +3776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &653714081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3858,80 +3858,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 0
+  isCapacityFullAtStart: 1
+  isDisplayedAtStart: 0
   slots:
   - slotRectTransform: {fileID: 1917786344}
     itemImage: {fileID: 1915175737}
     quantityText: {fileID: 1052634890}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 197223738}
     itemImage: {fileID: 519718279}
     quantityText: {fileID: 103298815}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 395094870}
     itemImage: {fileID: 977661312}
     quantityText: {fileID: 142739734}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 547758692}
     itemImage: {fileID: 1573786952}
     quantityText: {fileID: 16138348}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 420881217}
     itemImage: {fileID: 421302567}
     quantityText: {fileID: 1894101012}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 905281922}
     itemImage: {fileID: 236049279}
     quantityText: {fileID: 158080918}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1568869088}
     itemImage: {fileID: 1337891892}
     quantityText: {fileID: 234958709}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 2115323343}
     itemImage: {fileID: 1638817836}
     quantityText: {fileID: 14165199}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 267383167}
     itemImage: {fileID: 1288338894}
     quantityText: {fileID: 885701569}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1146715171}
     itemImage: {fileID: 645706586}
     quantityText: {fileID: 230598868}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1728248891}
     itemImage: {fileID: 1348879419}
     quantityText: {fileID: 402097104}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 2132983431}
     itemImage: {fileID: 1406964208}
     quantityText: {fileID: 298505100}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
 --- !u!1 &677211879
 GameObject:
   m_ObjectHideFlags: 0
@@ -6351,12 +6352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   invUI: {fileID: 1185062484}
-  maxItems: 36
   items:
   - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 100
     stackCount: 1
+  maxCapacity: 36
 --- !u!114 &1185062484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9764,7 +9765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1753225124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9846,80 +9847,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 0
+  isCapacityFullAtStart: 1
+  isDisplayedAtStart: 0
   slots:
   - slotRectTransform: {fileID: 1651099509}
     itemImage: {fileID: 1949748315}
     quantityText: {fileID: 1386574549}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1634657528}
     itemImage: {fileID: 1577023841}
     quantityText: {fileID: 1966816642}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1861105712}
     itemImage: {fileID: 510941998}
     quantityText: {fileID: 2052740832}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1627354661}
     itemImage: {fileID: 838345305}
     quantityText: {fileID: 248336611}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 522232823}
     itemImage: {fileID: 1399870682}
     quantityText: {fileID: 231098776}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1851778160}
     itemImage: {fileID: 1742039331}
     quantityText: {fileID: 969733268}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 263035625}
     itemImage: {fileID: 1008120504}
     quantityText: {fileID: 359232969}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 651301032}
     itemImage: {fileID: 754184045}
     quantityText: {fileID: 1250720609}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 612557124}
     itemImage: {fileID: 820468117}
     quantityText: {fileID: 922356835}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1964207731}
     itemImage: {fileID: 1523177221}
     quantityText: {fileID: 1159225447}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 677211880}
     itemImage: {fileID: 2055913457}
     quantityText: {fileID: 558350630}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1647440683}
     itemImage: {fileID: 416897940}
     quantityText: {fileID: 1807090721}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
 --- !u!1 &1765610245
 GameObject:
   m_ObjectHideFlags: 0
@@ -11527,79 +11529,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
   isCapacityFullAtStart: 1
+  isDisplayedAtStart: 1
   slots:
   - slotRectTransform: {fileID: 316171052}
     itemImage: {fileID: 1194512894}
     quantityText: {fileID: 1765610247}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1359047261}
     itemImage: {fileID: 1736249558}
     quantityText: {fileID: 1407159893}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1902699612}
     itemImage: {fileID: 453370480}
     quantityText: {fileID: 708482039}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1741793992}
     itemImage: {fileID: 1340066344}
     quantityText: {fileID: 623025190}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1327294294}
     itemImage: {fileID: 209509733}
     quantityText: {fileID: 1316482095}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1999012018}
     itemImage: {fileID: 1896245731}
     quantityText: {fileID: 1621151474}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1550535090}
     itemImage: {fileID: 790090779}
     quantityText: {fileID: 753255953}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1492479822}
     itemImage: {fileID: 860227310}
     quantityText: {fileID: 210689937}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1374115823}
     itemImage: {fileID: 1431127903}
     quantityText: {fileID: 1809144416}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1577800895}
     itemImage: {fileID: 1011900129}
     quantityText: {fileID: 1253607313}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1012653136}
     itemImage: {fileID: 841516747}
     quantityText: {fileID: 2131092783}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
   - slotRectTransform: {fileID: 1073095027}
     itemImage: {fileID: 1803865226}
     quantityText: {fileID: 1082510598}
+    isOccupied: 0
     itemName: 
     itemQuantity: 0
-    isOccupied: 0
 --- !u!1 &1999012017
 GameObject:
   m_ObjectHideFlags: 0

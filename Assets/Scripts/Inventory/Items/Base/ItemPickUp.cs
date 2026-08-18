@@ -30,8 +30,8 @@ public class ItemPickUp : MonoBehaviour
         }
     }
 
-    public void PickUp(ItemInstance item)
+    public bool PickUp(ItemInstance item)
     {
-        inventory.AddItem(item);
+        return inventory.AddItem(item);
     }
 }

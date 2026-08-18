@@ -5,11 +5,12 @@ public class Inventory : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] InventoryUI invUI;
+    public List<ItemInstance> items = new();
 
     [Header("Modifiers")]
-    [SerializeField] int maxItems = 36;
+    [SerializeField] int maxCapacity = 36;
 
-    public List<ItemInstance> items = new();
+    public bool IsFull => (items.Count >= maxCapacity);
 
     private void Awake()
     {
@@ -24,14 +25,19 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(ItemInstance item)
     {
-        if (items.Count >= maxItems)
+        if (IsFull)
         {
-            Debug.Log("Inventory: Max capacity reeached.");
+            Debug.Log("Inventory: Max capacity reached.");
+            return false;
+        }
+
+        if (invUI.AddItem(item) == false)
+        {
+            Debug.Log("Inventory: UI could not display item.");
             return false;
         }
 
         items.Add(item);
-        invUI.AddItem(item);
 
         return true;
     }
