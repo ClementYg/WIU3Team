@@ -3786,12 +3786,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 2f91321eb9ff8a64bb5ecf538327f482, type: 3}
+  m_Sprite: {fileID: 1915830334, guid: 20daf8f301d03ae4987ec54b4f3cb425, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.3333335, y: 5.3333335}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3830,7 +3830,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3852,18 +3852,18 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: d8a3143cfc31d084f896a2ba9c892483, type: 2}
   rb: {fileID: 1575234103}
   animator: {fileID: 1575234106}
-  sprite: {fileID: 0}
+  sprite: {fileID: 1575234104}
   dashSFX: {fileID: 0}
   OnSFXRequestEvent: {fileID: 11400000, guid: 50eb203cdc43840428f6f2edd692a29e, type: 2}
   OnSpeedBoostEvent: {fileID: 11400000, guid: 494285f9e7b77c84f8d5c16ca31b9174, type: 2}
-  walkForce: 5
-  sprintForce: 8
-  maxWalkSpeed: 2
-  maxSprintSpeed: 10
+  walkForce: 50
+  sprintForce: 16
+  maxWalkSpeed: 4
+  maxSprintSpeed: 20
   airControlMult: 0.6
-  extraJumps: 0
-  initialJumpForce: 2
-  continuedJumpForce: 1
+  extraJumps: 1
+  initialJumpForce: 4
+  continuedJumpForce: 2
   coyoteDuration: 0.2
   jumpBufferDuration: 0.15
   maxDashCharges: 1
