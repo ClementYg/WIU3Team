@@ -10,6 +10,6 @@ public class InventorySlot
     public TextMeshProUGUI quantityText;
     public bool isOccupied;
 
-    [HideInInspector] public string itemName = "";
+    [HideInInspector] public string itemName = null;
     [HideInInspector] public int itemQuantity;
 }

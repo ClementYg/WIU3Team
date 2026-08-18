@@ -39,6 +39,19 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
+    public string GetSelectedItemName()
+    {
+        foreach (ItemDisplay display in displays)
+        {
+            if (display is ToolbarDisplay tlbDisplay)
+            {
+                return tlbDisplay.GetSelectedItemName();
+            }
+        }
+
+        return null;
+    }
+
 #if UNITY_EDITOR
     [ContextMenu("Find All Item Displays")]
     private void FindAllItemDisplays()

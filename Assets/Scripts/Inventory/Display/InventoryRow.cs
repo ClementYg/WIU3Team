@@ -96,7 +96,7 @@ public class InventoryRow : MonoBehaviour
         if (slot.itemQuantity <= 0)
         {
             // No more of this item, unoccupy the slot
-            slot.itemName = "";
+            slot.itemName = null;
             slot.itemImage.enabled = false;
             slot.quantityText.enabled = false;
             slot.isOccupied = false;

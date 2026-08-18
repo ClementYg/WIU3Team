@@ -58,24 +58,46 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void RemoveItem(string itemName)
+    public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
     {
-        for (int i = 0; i < items.Count; ++i)
+        string selectedItemName = invUI.GetSelectedItemName();
+        if (selectedItemName == null) return false;
+
+        ItemInstance item = GetItem(selectedItemName);
+        if (item == null) return false;
+
+        item.itemEffect.Use(user);
+
+        bool shouldReduceStack = false;
+        
+        if (item.itemData.hasDurability)
         {
-            if (items[i].itemData.itemName == itemName)
+            item.TakeDurabilityDamage(durabilityDamage);
+
+            if (item.isBroken && item.itemData.isStackable)
             {
-                invUI.RemoveItem(items[i]);
-                items.RemoveAt(i);  // All code referencing items[i] to be placed before this
-
-                if (!IsFull)
-                {
-                    onInventoryFreed?.Invoke();
-                    Debug.Log("event invoked");
-                }
-
-                return;
+                shouldReduceStack = true;
             }
         }
+        else if (item.itemData.isStackable)
+        {
+            shouldReduceStack = true;
+        }
+        else
+        {
+            RemoveItem(item);
+        }
+
+        if (shouldReduceStack)
+        {
+            --item.stackCount;
+            if (item.stackCount <= 0)
+            {
+                RemoveItem(item);
+            }
+        }
+
+        return true;
     }
 
     public bool CheckItem(string itemName)
@@ -133,5 +155,23 @@ public class Inventory : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void RemoveItem(ItemInstance item)
+    {
+        bool wasItemFull = IsFull;
+
+        items.Remove(item);
+        invUI.RemoveItem(item);
+
+        if (wasItemFull && !IsFull)
+        {
+            onInventoryFreed?.Invoke();
+        }
+    }
+
+    private void RemoveItem(string itemName)
+    {
+        RemoveItem(GetItem(itemName));
     }
 }
