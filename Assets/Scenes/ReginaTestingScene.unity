@@ -3776,7 +3776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &653714081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3805,7 +3805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -325, y: -205}
+  m_AnchoredPosition: {x: -325, y: -135}
   m_SizeDelta: {x: 782, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653714082
@@ -3858,6 +3858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
+  isCapacityFullAtStart: 0
   slots:
   - slotRectTransform: {fileID: 1917786344}
     itemImage: {fileID: 1915175737}
@@ -9741,7 +9742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1753225124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9770,7 +9771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -325, y: -135}
+  m_AnchoredPosition: {x: -325, y: -205}
   m_SizeDelta: {x: 782, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753225125
@@ -9823,6 +9824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
+  isCapacityFullAtStart: 0
   slots:
   - slotRectTransform: {fileID: 1651099509}
     itemImage: {fileID: 1949748315}
@@ -11502,6 +11504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
+  isCapacityFullAtStart: 1
   slots:
   - slotRectTransform: {fileID: 316171052}
     itemImage: {fileID: 1194512894}

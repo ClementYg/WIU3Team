@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class InventoryRow : MonoBehaviour
 {
+    [Header("Testing")]
+    [SerializeField] bool isCapacityFullAtStart = false;
+
     // Keep a list of all the slots in the row
     public List<InventorySlot> slots = new();
 
@@ -15,6 +18,12 @@ public class InventoryRow : MonoBehaviour
 
     public int CurrBoxCapacity => currSlotCapacity;
     public bool IsCapacityFull => isCapacityFull; // Checked by inventory script before AddItem() is called
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        isCapacityFull = isCapacityFullAtStart;
+    }
 
     public void AddItem(ItemInstance item)
     {
