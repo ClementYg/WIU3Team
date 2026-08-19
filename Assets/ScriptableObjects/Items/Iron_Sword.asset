@@ -25,5 +25,7 @@ MonoBehaviour:
   statModifiers:
   - statType: 1
     value: 15
+  - statType: 1
+    value: 15
   weaponPrefab: {fileID: 0}
   attackCooldown: 0.5
