@@ -68,7 +68,7 @@ public class InventoryUI : MonoBehaviour
     {
         displays.Clear();
 
-        GameObject canvas = GameObject.Find("Canvas");
+        GameObject canvas = GameObject.Find("Inventory Canvas");
 
         // Add the toolbar display first, it gets item fill precedence
         if (canvas.transform.TryGetComponent<ToolbarDisplay>(out ToolbarDisplay tlbDisplay))
