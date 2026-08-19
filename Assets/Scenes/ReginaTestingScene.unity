@@ -6358,7 +6358,7 @@ MonoBehaviour:
     currentDurability: 100
     stackCount: 1
   maxCapacity: 36
-  numberOfItemsAtStart: 36
+  numberOfItemsAtStart: 0
   onInventoryFull:
     m_PersistentCalls:
       m_Calls:
