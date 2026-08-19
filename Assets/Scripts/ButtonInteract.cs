@@ -14,7 +14,7 @@ public class ButtonInteract : Interactable
             maxDividerDistance = 0.2f;
             textContent = "Press";
             fontSize = 1f;
-            initialDistanceFromCenter = 1.6f;
+            initialDistanceFromCenter = 0f;
         }
 
         base.Start();

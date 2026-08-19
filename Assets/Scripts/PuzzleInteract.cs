@@ -11,7 +11,7 @@ public class PuzzleInteract : Interactable
             maxDividerDistance = 0.15f;
             textContent = "Solve";
             fontSize = 1f;
-            initialDistanceFromCenter = 1.7f;
+            initialDistanceFromCenter = 0f;
         }
 
         base.Start();

@@ -45,8 +45,8 @@ public abstract class Interactable : MonoBehaviour
         leftTransform = leftDivider.GetComponent<RectTransform>();
         rightTransform = rightDivider.GetComponent<RectTransform>();
 
-        leftInitialPosition = new Vector3(-initialDistanceFromCenter, leftTransform.position.y, leftTransform.position.z);
-        rightInitialPosition = new Vector3(initialDistanceFromCenter, rightTransform.position.y, rightTransform.position.z);
+        leftInitialPosition = new Vector3(leftTransform.position.x - initialDistanceFromCenter, leftTransform.position.y, leftTransform.position.z);
+        rightInitialPosition = new Vector3(rightTransform.position.x + initialDistanceFromCenter, rightTransform.position.y, rightTransform.position.z);
 
         leftTransform.position = leftInitialPosition;
         rightTransform.position = rightInitialPosition;

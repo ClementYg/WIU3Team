@@ -11,7 +11,7 @@ public class ItemInteract : Interactable
             maxDividerDistance = 0.15f;
             textContent = "Collect";
             fontSize = 1f;
-            initialDistanceFromCenter = 2f;
+            initialDistanceFromCenter = 0f;
         }
         
         base.Start();

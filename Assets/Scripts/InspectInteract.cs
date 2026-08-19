@@ -14,7 +14,7 @@ public class InspectInteract : Interactable
             maxDividerDistance = 0.2f;
             textContent = "Inspect";
             fontSize = 1f;
-            initialDistanceFromCenter = 2f;
+            initialDistanceFromCenter = 0f;
         }
 
         base.Start();

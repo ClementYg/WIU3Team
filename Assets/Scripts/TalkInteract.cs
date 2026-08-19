@@ -11,7 +11,7 @@ public class TalkInteract : Interactable
             maxDividerDistance = 0.15f;
             textContent = "Talk";
             fontSize = 1f;
-            initialDistanceFromCenter = 1.5f;
+            initialDistanceFromCenter = 0f;
         }
 
         base.Start();
