@@ -159,6 +159,8 @@ public class Inventory : MonoBehaviour
 
     private void RemoveItem(ItemInstance item)
     {
+        // Add that players cannot delete key items (Do a check!)
+
         bool wasItemFull = IsFull;
 
         items.Remove(item);
