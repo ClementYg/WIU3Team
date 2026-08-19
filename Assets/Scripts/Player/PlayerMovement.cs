@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private AudioClip dashSFX;
+    [SerializeField] private PointEffector2D magnet;
 
     [Header("Event Channels")]
     [SerializeField] private EventAudioClip OnSFXRequestEvent;
@@ -279,5 +280,15 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", !isGrounded && rb.linearVelocityY > 0.1f);
         animator.SetBool("IsFalling", !isGrounded && rb.linearVelocityY < -0.1f);
         animator.SetBool("IsWallSliding", isWallSliding);
+    }
+
+    public void EnableItemCollector()
+    {
+        magnet.enabled = true;
+    }
+
+    public void DisableItemCollector()
+    {
+        magnet.enabled = false;
     }
 }

@@ -10,10 +10,10 @@ public class ItemPickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InputAction interactAction = InputSystem.actions.FindAction("Interact");
+        InputAction interactAction = InputSystem.actions.FindAction("Use");
         if (interactAction.WasPressedThisFrame())
         {
-            if (inventory = null) return;
+            if (inventory == null) return;
             inventory.UseSelectedItem(this.gameObject);
         }
     }

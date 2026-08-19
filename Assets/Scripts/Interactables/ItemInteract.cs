@@ -1,7 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemInteract : Interactable
 {
+    [Header("Dependencies")]
+    [SerializeField] private ItemInstance item;
+    [SerializeField] private Inventory inventory;
+    
     protected override void Start()
     {
         if (useDefaultValues)
@@ -19,6 +24,14 @@ public class ItemInteract : Interactable
     
     public override void Interact()
     {
-        // Code to add item into inventory maybe?
+        if (player != null)
+        {
+            if (player.TryGetComponent<ItemPickUp>(out ItemPickUp itemPickup))
+            {
+                if (itemPickup == null || itemPickup.PickUp(item) == false) return;
+
+                Destroy(gameObject);
+            }
+        }
     }
 }
