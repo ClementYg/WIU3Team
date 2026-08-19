@@ -4,12 +4,15 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
-    [Header("Dependencies")]
-    [SerializeField] InventoryUI invUI;
+    [Header("Inventory")]
     public List<ItemInstance> items = new();
-
-    [Header("Modifiers")]
     [SerializeField] int maxCapacity = 36;
+
+    [Header("UI")]
+    [SerializeField] InventoryUI invUI;
+
+    [Header("Event Channels")]
+    [SerializeField] EventInventorySlot OnInventoryClickEvent;
 
     [Header("Testing")]
     [SerializeField] int numberOfItemsAtStart = 0;
@@ -27,15 +30,20 @@ public class Inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Default initialise the number of items in the inventory at the start of the game
         if (numberOfItemsAtStart > 0)
         {
             for (int i = 0; i < numberOfItemsAtStart; ++i)
             {
-                items.Add(new ItemInstance(new ItemData()));
+                items.Add(new ItemInstance(ScriptableObject.CreateInstance<ItemData>()));
             }
         }
 
+        // Initialise UI
         invUI.InitUI(items);
+
+        // Subscribe to event channels
+        OnInventoryClickEvent.Subscribe(TryLiftPlaceItem);
     }
 
     public bool AddItem(ItemInstance item)
@@ -157,6 +165,11 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
+    private void TryLiftPlaceItem(InventorySlot slotClicked)
+    {
+        invUI.RemoveStack(slotClicked.itemName);
+    }
+
     private void RemoveItem(ItemInstance item)
     {
         // Add that players cannot delete key items (Do a check!)
@@ -164,7 +177,7 @@ public class Inventory : MonoBehaviour
         bool wasItemFull = IsFull;
 
         items.Remove(item);
-        invUI.RemoveItem(item);
+        invUI.RemoveItem(item.itemData.itemName);
 
         if (wasItemFull && !IsFull)
         {

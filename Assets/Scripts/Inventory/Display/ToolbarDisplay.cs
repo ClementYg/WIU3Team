@@ -60,6 +60,22 @@ public class ToolbarDisplay : ItemDisplay
         return false;
     }
 
+    public override bool TryRemoveStack(string itemName)
+    {
+        // Check if the item exists in the toolbar
+        for (int i = 0; i < toolbar.slots.Count; ++i)
+        {
+            if (toolbar.slots[i].isOccupied && toolbar.slots[i].itemName == itemName)
+            {
+                InventorySlot toEmpty = toolbar.slots[i];
+                toolbar.EmptySlot(ref toEmpty);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public string GetSelectedItemName()
     {
         return toolbar.slots[selectedSlotIndex].itemName;

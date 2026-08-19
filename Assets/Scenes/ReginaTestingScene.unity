@@ -1313,13 +1313,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74213c4ae726bc54eb8fd5e680765746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  invUI: {fileID: 1185062484}
   items:
   - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 100
     stackCount: 1
   maxCapacity: 36
+  invUI: {fileID: 1185062484}
+  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   numberOfItemsAtStart: 0
   onInventoryFull:
     m_PersistentCalls:

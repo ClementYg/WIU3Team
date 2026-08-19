@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 
 public class InventoryRow : MonoBehaviour
@@ -89,26 +87,31 @@ public class InventoryRow : MonoBehaviour
         }
     }
 
-    public void RemoveItem(int itemIndex)
+    public void RemoveItem(int slotIndex)
     {
-        InventorySlot slot = slots[itemIndex];
+        InventorySlot toRemove = slots[slotIndex];
 
-        --slot.itemQuantity;
-        if (slot.itemQuantity <= 0)
+        --toRemove.itemQuantity;
+        if (toRemove.itemQuantity <= 0)
         {
-            // No more of this item, unoccupy the slot
-            slot.itemName = null;
-            slot.itemImage.enabled = false;
-            slot.quantityText.enabled = false;
-            slot.isOccupied = false;
+            EmptySlot(ref toRemove);
         }
         else
         {
             // Just update the text of the slot to display the new quantity
-            slot.quantityText.text = slot.itemQuantity.ToString();
+            toRemove.quantityText.text = toRemove.itemQuantity.ToString();
         }
 
-        slots[itemIndex] = slot;
+        slots[slotIndex] = toRemove;
+    }
+
+    public void EmptySlot(ref InventorySlot toEmpty)
+    {
+        // No more of this item, unoccupy the slot
+        toEmpty.itemName = null;
+        toEmpty.itemImage.enabled = false;
+        toEmpty.quantityText.enabled = false;
+        toEmpty.itemQuantity = 0;
     }
 
 #if UNITY_EDITOR
