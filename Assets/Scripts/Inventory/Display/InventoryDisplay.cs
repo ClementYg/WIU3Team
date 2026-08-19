@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class InventoryDisplay : ItemDisplay
+public class InventoryDisplay : RowDisplay
 {
     // Keep a list of inventory rows
     [Header("Inventory Rows")]

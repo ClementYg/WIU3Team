@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ToolbarDisplay : ItemDisplay
+public class ToolbarDisplay : RowDisplay
 {
     // Store a reference to the toolbar inventory row
     [SerializeField] InventoryRow toolbar;

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
-    [Header("Dependencies")]
+    [Header("Row Displays")]
     // Order the displays by item fill precedence, i.e. When both displays are empty,
     // the preferred display for an item to be added to should be serialized first.
-    [SerializeField] List<ItemDisplay> displays = new();
+    [SerializeField] List<RowDisplay> displays = new();
 
     public void InitUI(List<ItemInstance> items)
     {
@@ -21,7 +21,7 @@ public class InventoryUI : MonoBehaviour
 
     public bool AddItem(ItemInstance item)
     {
-        foreach (ItemDisplay display in displays)
+        foreach (RowDisplay display in displays)
         {
             if (display.TryAddItem(item)) return true;
         }
@@ -31,7 +31,7 @@ public class InventoryUI : MonoBehaviour
 
     public bool RemoveItem(string itemName)
     {
-        foreach (ItemDisplay display in displays)
+        foreach (RowDisplay display in displays)
         {
             if (display.TryRemoveItem(itemName)) return true;
         }
@@ -41,7 +41,7 @@ public class InventoryUI : MonoBehaviour
 
     public bool RemoveStack(string itemName)
     {
-        foreach (ItemDisplay display in displays)
+        foreach (RowDisplay display in displays)
         {
             if (display.TryRemoveStack(itemName)) return true;
         }
@@ -51,7 +51,7 @@ public class InventoryUI : MonoBehaviour
 
     public string GetSelectedItemName()
     {
-        foreach (ItemDisplay display in displays)
+        foreach (RowDisplay display in displays)
         {
             if (display is ToolbarDisplay tlbDisplay)
             {
@@ -63,20 +63,41 @@ public class InventoryUI : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    [ContextMenu("Find All Item Displays")]
-    private void FindAllItemDisplays()
+    [ContextMenu("Find All Row Displays")]
+    private void FindAllRowDisplays()
     {
         displays.Clear();
 
         GameObject canvas = GameObject.Find("Canvas");
-        
-        // Add the toolbar display first, it gets item fill precedence
-        ToolbarDisplay tlbDisplay = canvas.transform.GetComponent<ToolbarDisplay>();
-        displays.Add(tlbDisplay);
 
-        // Add the inventory displays
-        InventoryDisplay invDisplay = canvas.transform.GetComponent<InventoryDisplay>();
-        displays.Add(invDisplay);
+        // Add the toolbar display first, it gets item fill precedence
+        if (canvas.transform.TryGetComponent<ToolbarDisplay>(out ToolbarDisplay tlbDisplay))
+        {
+            displays.Add(tlbDisplay);
+        }
+        else
+        {
+            Debug.LogWarning("InventoryUI: Failed to find toolbar display component.");
+        }
+
+        // Add the inventory display
+        if (canvas.transform.TryGetComponent<InventoryDisplay>(out InventoryDisplay invDisplay))
+        {
+            displays.Add(invDisplay);
+        }
+        else
+        {
+            Debug.LogWarning("InventoryUI: Failed to find inventory display component.");
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (displays.Count <= 0)
+        {
+            Debug.LogWarning("InventoryUI: Please add references to the displays.");
+            return;
+        }
     }
 #endif
 }
