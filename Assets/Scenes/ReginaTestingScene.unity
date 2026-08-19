@@ -3858,7 +3858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 1
+  isCapacityFullAtStart: 0
   isDisplayedAtStart: 0
   slots:
   - slotRectTransform: {fileID: 1917786344}
@@ -9879,7 +9879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 1
+  isCapacityFullAtStart: 0
   isDisplayedAtStart: 0
   slots:
   - slotRectTransform: {fileID: 1651099509}
@@ -11559,7 +11559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
-  isCapacityFullAtStart: 1
+  isCapacityFullAtStart: 0
   isDisplayedAtStart: 1
   slots:
   - slotRectTransform: {fileID: 316171052}
