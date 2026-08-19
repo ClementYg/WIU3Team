@@ -5,12 +5,13 @@ using System.Collections.Generic;
 
 public class InventoryRow : MonoBehaviour
 {
+    // Keep a list of all the slots in the row
+    [Header("Inventory Slots")]
+    public List<InventorySlot> slots = new();
+
     [Header("Testing")]
     [SerializeField] bool isCapacityFullAtStart = false;
     [SerializeField] bool isDisplayedAtStart = true;
-
-    // Keep a list of all the slots in the row
-    public List<InventorySlot> slots = new();
 
     bool isDisplaying = true;
 
@@ -116,17 +117,11 @@ public class InventoryRow : MonoBehaviour
     {
         slots.Clear();
 
-        for (int i = 0; i < transform.childCount; ++i)
+        Transform slotParentTransform = transform.Find("Inventory Slots");
+        for (int i = 0; i < slotParentTransform.childCount; ++i)
         {
-            Transform slotTransform = transform.GetChild(i);
-
-            InventorySlot newSlot = new()
-            {
-                slotRectTransform = slotTransform.GetComponent<RectTransform>(),
-                itemImage = slotTransform.GetChild(0).GetComponent<Image>(),
-                quantityText = slotTransform.GetChild(1).GetComponent<TextMeshProUGUI>()
-            };
-
+            Transform slotTransform = slotParentTransform.GetChild(i);
+            InventorySlot newSlot = slotTransform.GetComponent<InventorySlot>();
             slots.Add(newSlot);
         }
     }

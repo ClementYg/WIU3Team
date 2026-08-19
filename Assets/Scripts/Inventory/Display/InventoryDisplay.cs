@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class InventoryDisplay : ItemDisplay
 {
     // Keep a list of inventory rows
+    [Header("Inventory Rows")]
     [SerializeField] List<InventoryRow> rows = new();
 
     bool isDisplaying = false;
@@ -15,12 +16,7 @@ public class InventoryDisplay : ItemDisplay
         bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
         if (isToggleDisplayPressed)
         {
-            isDisplaying = !isDisplaying;
-
-            foreach (InventoryRow row in rows)
-            {
-                row.gameObject.SetActive(isDisplaying);
-            }
+            ToggleInventoryDisplay();
         }
     }
 
@@ -64,5 +60,31 @@ public class InventoryDisplay : ItemDisplay
         }
 
         return true;
+    }
+
+    private void ToggleInventoryDisplay()
+    {
+        // Toggle the inventory display
+        isDisplaying = !isDisplaying;
+
+        foreach (InventoryRow row in rows)
+        {
+            row.gameObject.SetActive(isDisplaying);
+        }
+
+        // Toggle input action maps
+        InputActionMap playerMap = InputSystem.actions.FindActionMap("Player");
+        InputActionMap UIMap = InputSystem.actions.FindActionMap("UI");
+
+        if (isDisplaying)
+        {
+            playerMap.Disable();
+            UIMap.Enable();
+        }
+        else
+        {
+            playerMap.Enable();
+            UIMap.Disable();
+        }
     }
 }
