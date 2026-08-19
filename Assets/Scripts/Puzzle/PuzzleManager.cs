@@ -18,7 +18,7 @@ public class PuzzleManager : PersistentSingleton<PuzzleManager>
         return true;
     }
 
-    public void ExitPuzzle(Puzzle puzzle)
+    public void ExitPuzzle()
     {
         currentPuzzle = null; 
     }
