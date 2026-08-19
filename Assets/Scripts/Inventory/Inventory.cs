@@ -11,9 +11,6 @@ public class Inventory : MonoBehaviour
     [Header("UI")]
     [SerializeField] InventoryUI invUI;
 
-    [Header("Event Channels")]
-    [SerializeField] EventInventorySlot OnInventoryClickEvent;
-
     [Header("Testing")]
     [SerializeField] int numberOfItemsAtStart = 0;
 
@@ -41,9 +38,6 @@ public class Inventory : MonoBehaviour
 
         // Initialise UI
         invUI.InitUI(items);
-
-        // Subscribe to event channels
-        OnInventoryClickEvent.Subscribe(TryLiftPlaceItem);
     }
 
     public bool AddItem(ItemInstance item)
@@ -163,11 +157,6 @@ public class Inventory : MonoBehaviour
         }
 
         return null;
-    }
-
-    private void TryLiftPlaceItem(InventorySlot slotClicked)
-    {
-        invUI.RemoveStack(slotClicked.itemName);
     }
 
     private void RemoveItem(ItemInstance item)

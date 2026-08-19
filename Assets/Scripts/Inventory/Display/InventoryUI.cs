@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
@@ -8,8 +11,36 @@ public class InventoryUI : MonoBehaviour
     // the preferred display for an item to be added to should be serialized first.
     [SerializeField] List<RowDisplay> displays = new();
 
+    [Header("Event Channels")]
+    [SerializeField] EventInventorySlot OnInventoryClickEvent;
+
+    // For lifting and placing items in the display
+    [Header("Carrying Items")]
+    [SerializeField] GameObject itemToCarry;
+    [SerializeField] SlotUI UIToCarry;
+    bool isPointerCarryingItem = false;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // Subscribe to event channels
+        OnInventoryClickEvent.Subscribe(CheckIsLift);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isPointerCarryingItem)
+        {
+            // The UI should follow pointer position
+            Vector2 pointerPos = Mouse.current.position.ReadValue();
+            itemToCarry.transform.position = pointerPos;
+        }
+    }
+
     public void InitUI(List<ItemInstance> items)
     {
+        // This function is called from Inventory
         if (items.Count > 0)
         {
             foreach (ItemInstance item in items)
@@ -62,6 +93,30 @@ public class InventoryUI : MonoBehaviour
         return null;
     }
 
+    private void CheckIsLift(InventorySlot slotClicked)
+    {
+        isPointerCarryingItem = !isPointerCarryingItem;
+        if (isPointerCarryingItem)
+        {
+            PlaceItem(slotClicked);
+        }
+        else
+        {
+            LiftItem(slotClicked);
+        }
+    }
+
+    private void LiftItem(InventorySlot slotClicked)
+    {
+        RemoveStack(slotClicked.itemName);
+        UIToCarry = slotClicked.UI;
+    }
+
+    private void PlaceItem(InventorySlot slotClicked)
+    {
+        UIToCarry = null;
+    }
+
 #if UNITY_EDITOR
     [ContextMenu("Find All Row Displays")]
     private void FindAllRowDisplays()
@@ -75,19 +130,11 @@ public class InventoryUI : MonoBehaviour
         {
             displays.Add(tlbDisplay);
         }
-        else
-        {
-            Debug.LogWarning("InventoryUI: Failed to find toolbar display component.");
-        }
-
+        
         // Add the inventory display
         if (canvas.transform.TryGetComponent<InventoryDisplay>(out InventoryDisplay invDisplay))
         {
             displays.Add(invDisplay);
-        }
-        else
-        {
-            Debug.LogWarning("InventoryUI: Failed to find inventory display component.");
         }
     }
 

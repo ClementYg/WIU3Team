@@ -911,8 +911,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 3106239438552792138}
-  itemImage: {fileID: 4209857737901029818}
-  quantityText: {fileID: 3002806200648249485}
+  UI:
+    itemImage: {fileID: 4209857737901029818}
+    quantityText: {fileID: 3002806200648249485}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -1145,8 +1146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 4374530281848703591}
-  itemImage: {fileID: 8361825110794218705}
-  quantityText: {fileID: 8385286570704820944}
+  UI:
+    itemImage: {fileID: 8361825110794218705}
+    quantityText: {fileID: 8385286570704820944}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -1242,8 +1244,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 3696730537740479025}
-  itemImage: {fileID: 3004157494482376149}
-  quantityText: {fileID: 7338742064325995174}
+  UI:
+    itemImage: {fileID: 3004157494482376149}
+    quantityText: {fileID: 7338742064325995174}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -1838,8 +1841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 1368908722036670287}
-  itemImage: {fileID: 5020098300880842559}
-  quantityText: {fileID: 5717416428581529192}
+  UI:
+    itemImage: {fileID: 5020098300880842559}
+    quantityText: {fileID: 5717416428581529192}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -1935,8 +1939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 5182889581584145372}
-  itemImage: {fileID: 7980263945745205141}
-  quantityText: {fileID: 7851558608890367200}
+  UI:
+    itemImage: {fileID: 7980263945745205141}
+    quantityText: {fileID: 7851558608890367200}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -2107,8 +2112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 6693627098863213153}
-  itemImage: {fileID: 7199380972244659466}
-  quantityText: {fileID: 1687116415990538330}
+  UI:
+    itemImage: {fileID: 7199380972244659466}
+    quantityText: {fileID: 1687116415990538330}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -2628,8 +2634,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 2139785656179883344}
-  itemImage: {fileID: 4107397498608196181}
-  quantityText: {fileID: 3797363762552340566}
+  UI:
+    itemImage: {fileID: 4107397498608196181}
+    quantityText: {fileID: 3797363762552340566}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -2725,8 +2732,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 8561422120172511361}
-  itemImage: {fileID: 8539257549083031002}
-  quantityText: {fileID: 1420052509986235514}
+  UI:
+    itemImage: {fileID: 8539257549083031002}
+    quantityText: {fileID: 1420052509986235514}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -2822,8 +2830,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 4083100516647534296}
-  itemImage: {fileID: 1963935872597343024}
-  quantityText: {fileID: 3975811721338703606}
+  UI:
+    itemImage: {fileID: 1963935872597343024}
+    quantityText: {fileID: 3975811721338703606}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -2994,8 +3003,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 8953014836893849094}
-  itemImage: {fileID: 7495963298201716112}
-  quantityText: {fileID: 8309021574353848010}
+  UI:
+    itemImage: {fileID: 7495963298201716112}
+    quantityText: {fileID: 8309021574353848010}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -3515,8 +3525,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 8721663519466449080}
-  itemImage: {fileID: 4180730948909020529}
-  quantityText: {fileID: 5596461790646826372}
+  UI:
+    itemImage: {fileID: 4180730948909020529}
+    quantityText: {fileID: 5596461790646826372}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 
@@ -3612,8 +3623,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   slotRectTransform: {fileID: 955690766325211282}
-  itemImage: {fileID: 6827938554006680359}
-  quantityText: {fileID: 630845993107616880}
+  UI:
+    itemImage: {fileID: 6827938554006680359}
+    quantityText: {fileID: 630845993107616880}
   isOccupied: 0
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemName: 

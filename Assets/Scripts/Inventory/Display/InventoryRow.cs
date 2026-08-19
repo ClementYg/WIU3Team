@@ -60,7 +60,7 @@ public class InventoryRow : MonoBehaviour
                 InventorySlot stackedSlot = slots[i];
 
                 ++stackedSlot.itemQuantity;
-                stackedSlot.quantityText.text = stackedSlot.itemQuantity.ToString();
+                stackedSlot.UI.quantityText.text = stackedSlot.itemQuantity.ToString();
 
                 slots[i] = stackedSlot;
 
@@ -70,11 +70,12 @@ public class InventoryRow : MonoBehaviour
             {
                 // Display the new item at this unoccupied slot
                 InventorySlot newSlot = slots[i];
+                SlotUI newSlotUI = newSlot.UI;
 
-                newSlot.itemImage.sprite = item.itemData.itemImage;
-                newSlot.itemImage.enabled = true;
-                newSlot.quantityText.text = "1";
-                newSlot.quantityText.enabled = true;
+                newSlotUI.itemImage.sprite = item.itemData.itemImage;
+                newSlotUI.itemImage.enabled = true;
+                newSlotUI.quantityText.text = "1";
+                newSlotUI.quantityText.enabled = true;
 
                 newSlot.itemName = item.itemData.itemName;
                 newSlot.itemQuantity = 1;
@@ -99,7 +100,7 @@ public class InventoryRow : MonoBehaviour
         else
         {
             // Just update the text of the slot to display the new quantity
-            toRemove.quantityText.text = toRemove.itemQuantity.ToString();
+            toRemove.UI.quantityText.text = toRemove.itemQuantity.ToString();
         }
 
         slots[slotIndex] = toRemove;
@@ -108,9 +109,11 @@ public class InventoryRow : MonoBehaviour
     public void EmptySlot(ref InventorySlot toEmpty)
     {
         // No more of this item, unoccupy the slot
+        SlotUI toEmptyUI = toEmpty.UI;
+
         toEmpty.itemName = null;
-        toEmpty.itemImage.enabled = false;
-        toEmpty.quantityText.enabled = false;
+        toEmptyUI.itemImage.enabled = false;
+        toEmptyUI.quantityText.enabled = false;
         toEmpty.itemQuantity = 0;
     }
 
