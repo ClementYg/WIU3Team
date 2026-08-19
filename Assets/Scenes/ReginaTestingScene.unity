@@ -3805,7 +3805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -325, y: -135}
+  m_AnchoredPosition: {x: -125, y: -110}
   m_SizeDelta: {x: 782, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653714082
@@ -5535,7 +5535,7 @@ GameObject:
   - component: {fileID: 1039469341}
   - component: {fileID: 1039469340}
   - component: {fileID: 1039469342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6358,12 +6358,12 @@ MonoBehaviour:
     currentDurability: 100
     stackCount: 1
   maxCapacity: 36
-  numberOfItemsAtStart: 36
+  numberOfItemsAtStart: 0
   onInventoryFull:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1435673671}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1595124042}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: DisableItemCollector
         m_Mode: 1
         m_Arguments:
@@ -6377,8 +6377,8 @@ MonoBehaviour:
   onInventoryFreed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1435673671}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1595124042}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: EnableItemCollector
         m_Mode: 1
         m_Arguments:
@@ -7647,7 +7647,7 @@ Transform:
   m_GameObject: {fileID: 1397508684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -2.25, z: 0}
+  m_LocalPosition: {x: -5.23, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8179,7 +8179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1435673668
 SpriteRenderer:
   serializedVersion: 2
@@ -8955,6 +8955,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577800894}
   m_CullTransparentMesh: 1
+--- !u!1001 &1595124037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 822732352266489706, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354857566738239595, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1185062483}
+    - target: {fileID: 7354857566738239595, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: tlbDisplay
+      value: 
+      objectReference: {fileID: 1923074826}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.765358
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1174862
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+--- !u!114 &1595124042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+  m_PrefabInstance: {fileID: 1595124037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce631ef10429f6489f73ee24d3c8914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &1621151472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9826,7 +9902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -325, y: -205}
+  m_AnchoredPosition: {x: -125, y: -180}
   m_SizeDelta: {x: 782, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753225125
@@ -11085,12 +11161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -11506,7 +11582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -325, y: -275}
+  m_AnchoredPosition: {x: -125, y: -250}
   m_SizeDelta: {x: 782, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968414044
@@ -12226,3 +12302,4 @@ SceneRoots:
   - {fileID: 1397508686}
   - {fileID: 1039469341}
   - {fileID: 1054530668}
+  - {fileID: 1595124037}

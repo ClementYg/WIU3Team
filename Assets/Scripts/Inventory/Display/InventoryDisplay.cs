@@ -12,7 +12,7 @@ public class InventoryDisplay : ItemDisplay
     // Update is called once per frame
     void Update()
     {
-        bool isToggleDisplayPressed = InputSystem.actions["Toggle Inventory Display"].WasPressedThisFrame();
+        bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
         if (isToggleDisplayPressed)
         {
             isDisplaying = !isDisplaying;
