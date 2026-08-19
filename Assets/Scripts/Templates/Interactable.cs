@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public abstract class Interactable : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject player;
+    [SerializeField] protected GameObject player;
     [SerializeField] private GameObject frame;
     [SerializeField] private GameObject leftDivider;
     [SerializeField] private GameObject rightDivider;
