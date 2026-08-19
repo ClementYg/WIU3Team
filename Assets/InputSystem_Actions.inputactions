@@ -57,26 +57,6 @@
                     "priority": 0
                 },
                 {
-                    "name": "Withdraw",
-                    "type": "Button",
-                    "id": "ed0bc9b2-baf9-413e-b2b5-5babc9767b5a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
-                    "name": "Extend",
-                    "type": "Button",
-                    "id": "d63822c2-a8cf-476a-b9ab-7f4969293b1b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
                     "name": "ScrollHotbar",
                     "type": "Value",
                     "id": "171bdbbe-01ac-46dc-8e50-ca4b5dceca10",
@@ -90,6 +70,16 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "79648e8e-2be1-47e9-843d-498997dc5a1a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "ToggleInventory",
+                    "type": "Button",
+                    "id": "ec725986-f6e7-4722-ac70-a0bf2a97f59e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -254,28 +244,6 @@
                 },
                 {
                     "name": "",
-                    "id": "2e4b2ff5-a9a8-45d6-8486-7ba3b4ea24e4",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Withdraw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2225e34d-1bf9-40a7-b1e6-fbb3b9f27516",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Extend",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "abdbecff-2ae9-400d-b29e-df8b2ee2a670",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
@@ -293,6 +261,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ef352eb-f517-4372-9556-b7bebd0cec53",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
