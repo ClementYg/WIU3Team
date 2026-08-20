@@ -156,8 +156,7 @@ public class Inventory : PersistentSingleton<Inventory>
         {
             for (int i = 0; i < item.numberToAdd; ++i)
             {
-                inventoryItems.Add(item.instance);
-                invUI.AddItem(item.instance);
+                AddItem(item.instance);
             }
         }
     }

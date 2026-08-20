@@ -2910,8 +2910,8 @@ MonoBehaviour:
       itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
       itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
       currentDurability: 0
-      stackCount: 0
-    numberToAdd: 20
+      stackCount: 10
+    numberToAdd: 10
   onInventoryFull:
     m_PersistentCalls:
       m_Calls:

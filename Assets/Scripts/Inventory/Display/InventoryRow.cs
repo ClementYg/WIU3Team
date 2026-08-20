@@ -41,7 +41,7 @@ public class InventoryRow : MonoBehaviour
     public void AddItem(ItemInstance item)
     {
         int itemsToAdd = item.stackCount;
-
+        
         if (item.itemData.isStackable)
         {
             for (int i = 0; i < slots.Count && itemsToAdd > 0; ++i)
