@@ -5,16 +5,16 @@ using System.Collections.Generic;
 public class Inventory : PersistentSingleton<Inventory>
 {
     [Header("Inventory")]
-    public List<ItemInstance> items = new();
+    public List<ItemInstance> inventoryItems = new();
     [SerializeField] int maxCapacity = 36;
 
     [Header("UI")]
     [SerializeField] InventoryUI invUI;
 
     [Header("Testing")]
-    [SerializeField] List<ItemInstance> itemsToAddAtStart = new();
+    [SerializeField] List<StartItem> startItems = new();
 
-    public bool IsFull => (items.Count >= maxCapacity);
+    public bool IsInventoryFull => (inventoryItems.Count >= maxCapacity);
 
     public UnityEvent onInventoryFull;
     public UnityEvent onInventoryFreed;
@@ -22,19 +22,16 @@ public class Inventory : PersistentSingleton<Inventory>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Default initialise the number of items in the inventory at the start of the game
-        foreach (ItemInstance item in itemsToAddAtStart)
-        {
-            items.Add(item);
-        }
+        // Setup testing environment
+        SetupTests();
 
         // Initialise UI
-        invUI.InitUI(items);
+        invUI.InitUI(inventoryItems);
     }
 
     public bool AddItem(ItemInstance item)
     {
-        if (IsFull)
+        if (IsInventoryFull)
         {
             onInventoryFull?.Invoke();
             Debug.Log("Inventory: Max capacity reached.");
@@ -47,7 +44,7 @@ public class Inventory : PersistentSingleton<Inventory>
             return false;
         }
 
-        items.Add(item);
+        inventoryItems.Add(item);
 
         return true;
     }
@@ -97,7 +94,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public bool CheckItem(string itemName)
     {
-        foreach (ItemInstance item in items)
+        foreach (ItemInstance item in inventoryItems)
         {
             if (item.itemData.itemName == itemName)
             {
@@ -112,7 +109,7 @@ public class Inventory : PersistentSingleton<Inventory>
     {
         int itemQuantity = 0;
 
-        foreach (ItemInstance item in items)
+        foreach (ItemInstance item in inventoryItems)
         {
             if (item.itemData.itemName == itemName)
             {
@@ -125,7 +122,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public void DisplayItems()
     {
-        foreach (ItemInstance item in items)
+        foreach (ItemInstance item in inventoryItems)
         {
             Debug.Log($"Item Name: {item.itemData.itemName}");
         }
@@ -133,35 +130,48 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public ItemInstance GetItem(int index)
     {
-        if (items.Count <= 0) return null;
-        return items[index];
+        if (inventoryItems.Count <= 0) return null;
+        return inventoryItems[index];
     }
 
     public ItemInstance GetItem(string itemName)
     {
-        if (items.Count <= 0) return null;
+        if (inventoryItems.Count <= 0) return null;
 
-        for (int i = 0; i < items.Count; ++i)
+        for (int i = 0; i < inventoryItems.Count; ++i)
         {
-            if (items[i].itemData.itemName == itemName)
+            if (inventoryItems[i].itemData.itemName == itemName)
             {
-                return items[i];
+                return inventoryItems[i];
             }
         }
 
         return null;
     }
 
+    private void SetupTests()
+    {
+        // Setup the initial testing environment for UI
+        foreach (StartItem item in startItems)
+        {
+            for (int i = 0; i < item.numberToAdd; ++i)
+            {
+                inventoryItems.Add(item.instance);
+                invUI.AddItem(item.instance);
+            }
+        }
+    }
+
     private void RemoveItem(ItemInstance item)
     {
         // Add that players cannot delete key items (Do a check!)
 
-        bool wasItemFull = IsFull;
+        bool wasInventoryFull = IsInventoryFull;
 
-        items.Remove(item);
+        inventoryItems.Remove(item);
         invUI.RemoveItem(item);
 
-        if (wasItemFull && !IsFull)
+        if (wasInventoryFull && !IsInventoryFull)
         {
             onInventoryFreed?.Invoke();
         }

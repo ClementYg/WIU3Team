@@ -1785,7 +1785,6 @@ MonoBehaviour:
   - {fileID: 1886137555}
   - {fileID: 1645146528}
   - {fileID: 2024906680}
-  isCapacityFullAtStart: 0
   rowID: 0
 --- !u!1 &659020574
 GameObject:
@@ -2903,14 +2902,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74213c4ae726bc54eb8fd5e680765746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  items: []
+  inventoryItems: []
   maxCapacity: 36
   invUI: {fileID: 1185062484}
-  itemsToAddAtStart:
-  - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
-    itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
-    currentDurability: 0
-    stackCount: 0
+  startItems:
+  - instance:
+      itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
+      itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
+      currentDurability: 0
+      stackCount: 0
+    numberToAdd: 20
   onInventoryFull:
     m_PersistentCalls:
       m_Calls:
@@ -4401,7 +4402,6 @@ MonoBehaviour:
   - {fileID: 456764637}
   - {fileID: 1469786933}
   - {fileID: 1181382719}
-  isCapacityFullAtStart: 0
   rowID: 0
 --- !u!1 &1824205001
 GameObject:
@@ -4614,10 +4614,10 @@ GameObject:
   - component: {fileID: 1923074821}
   - component: {fileID: 1923074820}
   - component: {fileID: 1923074827}
+  - component: {fileID: 1923074828}
   - component: {fileID: 1923074826}
   - component: {fileID: 1923074824}
   - component: {fileID: 1923074825}
-  - component: {fileID: 1923074828}
   m_Layer: 5
   m_Name: Inventory Canvas
   m_TagString: Untagged
@@ -5074,7 +5074,6 @@ MonoBehaviour:
   - {fileID: 1395690523862382183}
   - {fileID: 295022135945688074}
   - {fileID: 6678007850068639621}
-  isCapacityFullAtStart: 0
   rowID: 0
 --- !u!114 &2024906680 stripped
 MonoBehaviour:

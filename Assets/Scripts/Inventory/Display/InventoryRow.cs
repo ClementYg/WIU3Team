@@ -7,9 +7,6 @@ public class InventoryRow : MonoBehaviour
     [Header("Inventory Slots")]
     public List<InventorySlot> slots = new();
 
-    [Header("Testing")]
-    [SerializeField] bool isCapacityFullAtStart = false;
-
     [HideInInspector] public int rowID;
 
     // Used to track the current capacity
@@ -34,14 +31,6 @@ public class InventoryRow : MonoBehaviour
 
     private void Awake()
     {
-        //if (isCapacityFullAtStart)
-        //{
-        //    foreach (InventorySlot slot in slots)
-        //    {
-        //        slot.IsOccupied = true;
-        //    }
-        //}
-
         // Assign an ID to each slot
         for (int i = 0; i < slots.Count; ++i)
         {
