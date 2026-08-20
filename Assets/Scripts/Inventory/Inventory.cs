@@ -14,7 +14,8 @@ public class Inventory : PersistentSingleton<Inventory>
     [SerializeField] List<StartItem> startItems = new();
 
     List<ItemInstance> inventoryItems = new();
-    public bool IsInventoryFull => (inventoryItems.Count >= maxStackCapacity);
+    public int currInvCapacity => inventoryItems.Count;
+    public bool IsInventoryFull => (currInvCapacity >= maxStackCapacity);
 
     public UnityEvent onInventoryFull;
     public UnityEvent onInventoryFreed;
@@ -108,6 +109,9 @@ public class Inventory : PersistentSingleton<Inventory>
             }
             else
             {
+                Debug.Log("item name: " + item.itemData.itemName);
+                Debug.Log("slot attached: " + item.slotAttached);
+
                 // Update the quantity text
                 invUI.UpdateSlotUI(item.slotAttached.UI, item.stackCount.ToString());
             }
@@ -181,8 +185,11 @@ public class Inventory : PersistentSingleton<Inventory>
             for (int i = 0; i < item.numberToAdd; ++i)
             {
                 AddItem(item.instance);
+                Debug.Log("add item called");
             }
         }
+
+        Debug.Log("current capacity: " + currInvCapacity);
     }
 
     private void RemoveItem(ItemInstance item)

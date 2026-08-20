@@ -52,7 +52,7 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (InventoryDisplay display in displays)
         {
-            if (display.TryAddItem(item)) return true;
+            if (display.AddItem(item)) return true;
         }
 
         return false;
@@ -67,7 +67,7 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (InventoryDisplay display in displays)
         {
-            if (display.TryRemoveItem(itemName)) return true;
+            if (display.RemoveItem(itemName)) return true;
         }
 
         return false;
@@ -77,7 +77,7 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (InventoryDisplay display in displays)
         {
-            if (display.TryRemoveStack(itemName)) return true;
+            if (display.RemoveStack(itemName)) return true;
         }
 
         return false;

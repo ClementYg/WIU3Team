@@ -7,7 +7,7 @@ public class InventoryDisplay : MonoBehaviour
     [Header("Inventory Rows")]
     public List<InventoryRow> rows = new();
 
-    public bool TryAddItem(ItemInstance item)
+    public bool AddItem(ItemInstance item)
     {
         foreach (InventoryRow row in rows)
         {
@@ -21,7 +21,7 @@ public class InventoryDisplay : MonoBehaviour
         return false;
     }
 
-    public bool TryRemoveItem(ItemInstance itemName)
+    public bool RemoveItem(ItemInstance itemName)
     {
         // Check if the item exists in any of the rows and remove it if so
         foreach (InventoryRow row in rows)
@@ -40,7 +40,7 @@ public class InventoryDisplay : MonoBehaviour
         return false;
     }
 
-    public bool TryRemoveStack(ItemInstance itemName)
+    public bool RemoveStack(ItemInstance itemName)
     {
         foreach (InventoryRow row in rows)
         {
