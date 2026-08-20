@@ -52,7 +52,12 @@ public class ToolbarDisplay : RowDisplay
     public override bool TryAddItem(ItemInstance item)
     {
         // Check if the capacity is full
-        if (toolbar.IsCapacityFull) return false;
+        //if (toolbar.IsCapacityFull) return false;
+        if (toolbar.IsCapacityFull)
+        {
+            Debug.Log("capacity is full, try add item failed");
+            return false;
+        }
 
         toolbar.AddItem(item);
         return true;
@@ -91,9 +96,16 @@ public class ToolbarDisplay : RowDisplay
         return false;
     }
 
-    public string GetSelectedItemName()
+    public bool TryGetSelectedItemName(out string itemName)
     {
-        return toolbar.slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
+        if (toolbar.slots[selectedSlotIndex].itemDisplayed == null)
+        {
+            itemName = null;
+            return false;
+        }
+
+        itemName = toolbar.slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
+        return true;
     }
 
     public bool CheckIsCapacityFull()

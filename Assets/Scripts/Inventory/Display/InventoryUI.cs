@@ -100,7 +100,10 @@ public class InventoryUI : MonoBehaviour
         {
             if (display is ToolbarDisplay tlbDisplay)
             {
-                return tlbDisplay.GetSelectedItemName();
+                if (tlbDisplay.TryGetSelectedItemName(out string itemName))
+                {
+                    return itemName;
+                }
             }
         }
 
