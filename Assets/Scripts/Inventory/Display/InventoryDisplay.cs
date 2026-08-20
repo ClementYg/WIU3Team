@@ -34,7 +34,7 @@ public class InventoryDisplay : RowDisplay
         return false;
     }
 
-    public override bool TryRemoveItem(string itemName)
+    public override bool TryRemoveItem(ItemInstance itemName)
     {
         // Check if the item exists in any of the rows and remove it if yes
         foreach (InventoryRow row in rows)
@@ -42,7 +42,7 @@ public class InventoryDisplay : RowDisplay
             for (int i = 0; i < row.slots.Count; ++i)
             {
                 if (row.slots[i].IsOccupied &&
-                    row.slots[i].itemDisplayed.itemData.itemName == itemName)
+                    row.slots[i].itemDisplayed == itemName)
                 {
                     row.RemoveItem(i);
                     return true;
@@ -53,14 +53,14 @@ public class InventoryDisplay : RowDisplay
         return false;
     }
 
-    public override bool TryRemoveStack(string itemName)
+    public override bool TryRemoveStack(ItemInstance itemName)
     {
         foreach (InventoryRow row in rows)
         {
             for (int i = 0; i < row.slots.Count; ++i)
             {
                 if (row.slots[i].IsOccupied &&
-                    row.slots[i].itemDisplayed.itemData.itemName == itemName)
+                    row.slots[i].itemDisplayed == itemName)
                 {
                     InventorySlot toEmpty = row.slots[i];
                     row.EmptySlot(ref toEmpty);

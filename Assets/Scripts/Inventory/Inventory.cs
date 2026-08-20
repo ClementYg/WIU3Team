@@ -187,7 +187,7 @@ public class Inventory : MonoBehaviour
         bool wasItemFull = IsFull;
 
         items.Remove(item);
-        invUI.RemoveItem(item.itemData.itemName);
+        invUI.RemoveItem(item);
 
         if (wasItemFull && !IsFull)
         {

@@ -58,6 +58,10 @@ public class ItemData : ScriptableObject
         {
             Debug.LogWarning($"[{name}] isStackable is true but maxStackSize is {maxStackSize}.", this);
         }
+        if (maxStackSize > 1 && !isStackable)
+        {
+            Debug.LogWarning($"[{name}] maxStackSize is {maxStackSize} but isStackable is false", this);
+        }
         if (hasDurability && maxDurability <= 0)
         {
             Debug.LogWarning($"[{name}] hasDurability is true but maxDurability is {maxDurability}.", this);

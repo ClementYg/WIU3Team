@@ -75,7 +75,7 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public bool RemoveItem(string itemName)
+    public bool RemoveItem(ItemInstance itemName)
     {
         foreach (RowDisplay display in displays)
         {
@@ -85,7 +85,7 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public bool RemoveStack(string itemName)
+    public bool RemoveStack(ItemInstance itemName)
     {
         foreach (RowDisplay display in displays)
         {
@@ -144,7 +144,7 @@ public class InventoryUI : MonoBehaviour
 
         slotClicked.ClearUI();
         currentItem = slotClicked.itemDisplayed;
-        RemoveStack(slotClicked.itemDisplayed.itemData.itemName);
+        RemoveStack(slotClicked.itemDisplayed);
     }
     //Same thing for Place item, need to reference Inventory to place item in the different slot.
     private void PlaceItem(InventorySlot slotClicked)
