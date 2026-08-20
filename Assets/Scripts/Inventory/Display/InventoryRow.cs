@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Assertions.Must;
 
 public class InventoryRow : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class InventoryRow : MonoBehaviour
 
     // Used to track the current capacity
     public readonly int maxRowCapacity = 12;
-    
+
     public int CurrRowCapacity
     {
         get
@@ -61,43 +62,62 @@ public class InventoryRow : MonoBehaviour
 
     public void AddItem(ItemInstance item)
     {
-        for (int i = 0; i < slots.Count; ++i)
+        int itemsToAdd = item.stackCount;
+
+        for (int i = 0; i < slots.Count && itemsToAdd > 0; ++i)
         {
+
+
             if (slots[i].IsOccupied &&
                 slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
             {
                 // Stack the item, just increment the quantity
                 InventorySlot stackedSlot = slots[i];
-
-                ++stackedSlot.itemDisplayed.stackCount;
+                int excess = 0;
+                stackedSlot.itemDisplayed.AddStack(itemsToAdd, out excess);
                 stackedSlot.UI.quantityText.text = stackedSlot.itemDisplayed.stackCount.ToString();
 
                 slots[i] = stackedSlot;
-
-                return;
-            }
-            else if (!slots[i].IsOccupied)
-            {
-                // Display the new item at this unoccupied slot
-                InventorySlot newSlot = slots[i];
-                SlotUI newSlotUI = newSlot.UI;
-
-                newSlotUI.itemImage.sprite = item.itemData.itemImage;
-                newSlotUI.itemImage.enabled = true;
-                newSlotUI.quantityText.text = "1";
-                newSlotUI.quantityText.enabled = true;
-
-                newSlot.itemDisplayed = new(item.itemData, item.itemEffect)
-                {
-                    currentDurability = item.currentDurability,
-                    stackCount = 1
-                };
-
-                slots[i] = newSlot;
-
-                return;
+                itemsToAdd = excess;
             }
         }
+
+        while (itemsToAdd > 0)
+        {
+            // Display the new item at this unoccupied slot
+            InventorySlot newSlot = null;
+            for (int j = 0; j < slots.Count; ++j)
+            {
+                if (!slots[j].IsOccupied)
+                {
+                    newSlot = slots[j];
+                    break;
+                }
+            }
+
+            //no more
+            if (newSlot == null)
+            {
+                Debug.Log("Inventory is full. Could not add remaining items: " + itemsToAdd);
+                return;
+            }
+            int stackAmount = Mathf.Min(itemsToAdd, item.itemData.maxStackSize);
+
+            newSlot.UI.itemImage.sprite = item.itemData.itemImage;
+            newSlot.UI.itemImage.enabled = true;
+
+            newSlot.UI.quantityText.text = stackAmount.ToString();
+            newSlot.UI.quantityText.enabled = true;
+
+            newSlot.itemDisplayed = new ItemInstance(item.itemData, item.itemEffect)
+            {
+                currentDurability = item.currentDurability,
+                stackCount = stackAmount
+            };
+
+            itemsToAdd -= stackAmount;
+        }
+
     }
 
     public void RemoveItem(int slotIndex)
