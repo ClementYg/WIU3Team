@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] InventoryUI invUI;
 
     [Header("Testing")]
-    [SerializeField] int numberOfItemsAtStart = 0;
+    [SerializeField] List<ItemInstance> itemsToAddAtStart = new();
 
     public bool IsFull => (items.Count >= maxCapacity);
 
@@ -28,12 +28,9 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         // Default initialise the number of items in the inventory at the start of the game
-        if (numberOfItemsAtStart > 0)
+        foreach (ItemInstance item in itemsToAddAtStart)
         {
-            for (int i = 0; i < numberOfItemsAtStart; ++i)
-            {
-                items.Add(new ItemInstance(ScriptableObject.CreateInstance<ItemData>()));
-            }
+            items.Add(item);
         }
 
         // Initialise UI

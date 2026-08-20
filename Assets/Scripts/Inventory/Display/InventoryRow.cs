@@ -27,10 +27,8 @@ public class InventoryRow : MonoBehaviour
             foreach (InventorySlot slot in slots)
             {
                 if (slot.IsOccupied) ++capacity;
-                Debug.Log("is occupied: " + slot.IsOccupied);
             }
 
-            Debug.Log("current capacity: " + capacity);
             return capacity;
         }
     }

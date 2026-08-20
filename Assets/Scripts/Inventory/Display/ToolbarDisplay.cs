@@ -52,12 +52,7 @@ public class ToolbarDisplay : RowDisplay
     public override bool TryAddItem(ItemInstance item)
     {
         // Check if the capacity is full
-        //if (toolbar.IsCapacityFull) return false;
-        if (toolbar.IsCapacityFull)
-        {
-            Debug.Log("capacity is full, try add item failed");
-            return false;
-        }
+        if (toolbar.IsCapacityFull) return false;
 
         toolbar.AddItem(item);
         return true;
