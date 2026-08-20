@@ -63,6 +63,7 @@ public class InventoryRow : MonoBehaviour
     public void AddItem(ItemInstance item)
     {
         int itemsToAdd = item.stackCount;
+
         if (item.itemData.isStackable)
         {
             for (int i = 0; i < slots.Count && itemsToAdd > 0; ++i)
@@ -72,11 +73,10 @@ public class InventoryRow : MonoBehaviour
                     slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
                 {
                     InventorySlot stackedSlot = slots[i];
-
-                    int excess;
-                    stackedSlot.itemDisplayed.AddStack(itemsToAdd,out excess);
+                    stackedSlot.itemDisplayed.AddStack(itemsToAdd, out int excess);
                     stackedSlot.UI.quantityText.text =stackedSlot.itemDisplayed.stackCount.ToString();
                     slots[i] = stackedSlot;
+
                     itemsToAdd = excess;
                 }
             }
@@ -85,6 +85,7 @@ public class InventoryRow : MonoBehaviour
             while (itemsToAdd > 0)
             {
                 InventorySlot newSlot = null;
+
                 for (int i = 0; i < slots.Count; ++i)
                 {
                     if (!slots[i].IsOccupied)
@@ -99,8 +100,10 @@ public class InventoryRow : MonoBehaviour
                     Debug.LogWarning(
                         $"Inventory full. Remaining: {itemsToAdd}"
                     );
+
                     return;
                 }
+
                 int stackAmount = Mathf.Min(itemsToAdd, item.itemData.maxStackSize);
                 newSlot.itemDisplayed =
                     new ItemInstance(item.itemData, item.itemEffect)
@@ -113,14 +116,15 @@ public class InventoryRow : MonoBehaviour
                 newSlot.UI.itemImage.enabled = true;
                 newSlot.UI.quantityText.text = stackAmount.ToString();
                 newSlot.UI.quantityText.enabled = true;
+
                 itemsToAdd -= stackAmount;
             }
+
             return;
         }
         for (int i = 0; i < slots.Count; ++i)
         {
-            if (slots[i].IsOccupied)
-                continue;
+            if (slots[i].IsOccupied) continue;
 
             InventorySlot newSlot = slots[i];
 
@@ -130,11 +134,8 @@ public class InventoryRow : MonoBehaviour
                     stackCount = 1
                 };
 
-            newSlot.UI.itemImage.sprite =
-                item.itemData.itemImage;
-
+            newSlot.UI.itemImage.sprite = item.itemData.itemImage;
             newSlot.UI.itemImage.enabled = true;
-
             newSlot.UI.quantityText.text = "1";
             newSlot.UI.quantityText.enabled = true;
 
@@ -145,6 +146,7 @@ public class InventoryRow : MonoBehaviour
 
         Debug.LogWarning("Inventory full. Could not add non-stackable item.");
     }
+
     public void RemoveItem(int slotIndex)
     {
         InventorySlot toRemove = slots[slotIndex];

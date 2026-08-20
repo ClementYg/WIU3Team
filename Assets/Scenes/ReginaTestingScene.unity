@@ -1890,7 +1890,7 @@ MonoBehaviour:
     itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 0
-    stackCount: 0
+    stackCount: 20
 --- !u!50 &1397508688
 Rigidbody2D:
   serializedVersion: 5

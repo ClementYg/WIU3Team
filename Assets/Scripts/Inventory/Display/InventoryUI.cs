@@ -142,7 +142,7 @@ public class InventoryUI : MonoBehaviour
         UIToCarry.quantityText.transform.SetParent(itemToCarry.transform);
 
         slotClicked.ClearUI();
-        currentItem = slotClicked.itemDisplayed;
+        carriedItem = slotClicked.itemDisplayed;
         RemoveStack(slotClicked.itemDisplayed);
     }
 
