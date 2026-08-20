@@ -119,7 +119,7 @@ public class InventoryUI : MonoBehaviour
         UIToCarry.quantityText.text = slotClicked.UI.quantityText.text;
         UIToCarry.quantityText.enabled = true;
 
-        slotClicked.Clear();
+        slotClicked.ClearUI();
     }
     //Same thing for Place item, need to reference Inventory to place item in the different slot.
     private void PlaceItem(InventorySlot slotClicked)

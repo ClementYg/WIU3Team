@@ -37,16 +37,14 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void SetUI(Sprite sprite, int itemQuantity)
     {
-        this.itemQuantity = itemQuantity;
         UI.itemImage.sprite = sprite;
         UI.itemImage.enabled = true;
         UI.quantityText.text = itemQuantity.ToString();
         UI.quantityText.enabled = true;
     }
 
-    public void Clear()
+    public void ClearUI()
     {
-        itemQuantity = 0;
         UI.itemImage.sprite = null;
         UI.itemImage.enabled = false;
         UI.quantityText.text = itemQuantity.ToString();
