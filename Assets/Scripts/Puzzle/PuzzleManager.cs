@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PuzzleManager : PersistentSingleton<PuzzleManager>
 {
-    private Puzzle currentPuzzle = null;
+    public Puzzle currentPuzzle = null;
     public bool inPuzzle => currentPuzzle != null; 
 
     //Returns true when successfully entered a puzzle
