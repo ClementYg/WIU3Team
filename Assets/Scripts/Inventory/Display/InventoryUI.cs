@@ -14,7 +14,7 @@ public class InventoryUI : MonoBehaviour
 
     // For lifting and placing items in the display
     [Header("Carrying Items")]
-    private ItemInstance currentItem;
+    ItemInstance carriedItem = null;
     [SerializeField] GameObject itemToCarry;
     [SerializeField] SlotUI UIToCarry;
     bool isPointerCarryingItem = false;
@@ -160,8 +160,8 @@ public class InventoryUI : MonoBehaviour
 
         UIToCarry.itemImage.enabled = false;
         UIToCarry.quantityText.enabled = false;
-        slotClicked.itemDisplayed = currentItem;
-        currentItem = null;
+        slotClicked.itemDisplayed = carriedItem;
+        carriedItem = null;
     }
 
 #if UNITY_EDITOR
