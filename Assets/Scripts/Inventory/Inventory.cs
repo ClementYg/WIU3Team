@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour
         ItemInstance item = GetItem(selectedItemName);
         if (item == null) return false;
 
-        //FB: Can possibly add one more check for itemEffect == null
+        if (item.itemEffect == null) return false;
         item.itemEffect.Use(user);
 
         bool shouldReduceStack = false;

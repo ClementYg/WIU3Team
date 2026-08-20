@@ -63,18 +63,17 @@ public class InventoryRow : MonoBehaviour
     public void AddItem(ItemInstance item)
     {
         int itemsToAdd = item.stackCount;
+        if (itemsToAdd <= 0) return;
 
-        for (int i = 0; i < slots.Count && itemsToAdd > 0; ++i)
+        for (int i = 0; i < slots.Count; ++i)
         {
-
-
             if (slots[i].IsOccupied &&
+                slots[i].itemDisplayed.itemData.isStackable &&
                 slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
             {
                 // Stack the item, just increment the quantity
                 InventorySlot stackedSlot = slots[i];
-                int excess = 0;
-                stackedSlot.itemDisplayed.AddStack(itemsToAdd, out excess);
+                stackedSlot.itemDisplayed.AddStack(itemsToAdd, out int excess);
                 stackedSlot.UI.quantityText.text = stackedSlot.itemDisplayed.stackCount.ToString();
 
                 slots[i] = stackedSlot;
@@ -117,7 +116,6 @@ public class InventoryRow : MonoBehaviour
 
             itemsToAdd -= stackAmount;
         }
-
     }
 
     public void RemoveItem(int slotIndex)

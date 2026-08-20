@@ -3,5 +3,6 @@ public enum StatType
 {
     Health,
     Damage,
-    Defense
+    Defense,
+    Cooldown
 }
