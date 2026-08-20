@@ -949,6 +949,7 @@ MonoBehaviour:
   - {fileID: 2024906680}
   isCapacityFullAtStart: 0
   isDisplayedAtStart: 0
+  rowID: 0
 --- !u!114 &661426209 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5061209777594336318, guid: ae3bfe7552b0e214f8da286c6fd03d12, type: 3}
@@ -2519,6 +2520,7 @@ MonoBehaviour:
   - {fileID: 1181382719}
   isCapacityFullAtStart: 0
   isDisplayedAtStart: 0
+  rowID: 0
 --- !u!114 &1886137555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1395690524013543232, guid: ae3bfe7552b0e214f8da286c6fd03d12, type: 3}
@@ -2873,6 +2875,7 @@ MonoBehaviour:
   - {fileID: 6678007850068639621}
   isCapacityFullAtStart: 0
   isDisplayedAtStart: 1
+  rowID: 0
 --- !u!114 &2024906680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6678007849850435234, guid: ae3bfe7552b0e214f8da286c6fd03d12, type: 3}

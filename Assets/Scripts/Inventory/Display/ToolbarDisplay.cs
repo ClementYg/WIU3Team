@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ToolbarDisplay : RowDisplay
 {
     // Store a reference to the toolbar inventory row
-    [SerializeField] InventoryRow toolbar;
+    public InventoryRow toolbar;
 
     // Keep a list of all the keybinds that will be used to select a box in the toolbar
     readonly Key[] toolbarKeys =
@@ -63,7 +63,8 @@ public class ToolbarDisplay : RowDisplay
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
-            if (toolbar.slots[i].IsOccupied && toolbar.slots[i].itemName == itemName)
+            if (toolbar.slots[i].IsOccupied &&
+                toolbar.slots[i].itemDisplayed.itemData.itemName == itemName)
             {
                 toolbar.RemoveItem(i);
                 return true;
@@ -78,7 +79,8 @@ public class ToolbarDisplay : RowDisplay
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
-            if (toolbar.slots[i].IsOccupied && toolbar.slots[i].itemName == itemName)
+            if (toolbar.slots[i].IsOccupied &&
+                toolbar.slots[i].itemDisplayed.itemData.itemName == itemName)
             {
                 InventorySlot toEmpty = toolbar.slots[i];
                 toolbar.EmptySlot(ref toEmpty);
@@ -91,7 +93,7 @@ public class ToolbarDisplay : RowDisplay
 
     public string GetSelectedItemName()
     {
-        return toolbar.slots[selectedSlotIndex].itemName;
+        return toolbar.slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
     }
 
     public bool CheckIsCapacityFull()

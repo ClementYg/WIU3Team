@@ -11,6 +11,8 @@ public class InventoryRow : MonoBehaviour
     [SerializeField] bool isCapacityFullAtStart = false;
     [SerializeField] bool isDisplayedAtStart = true;
 
+    [HideInInspector] public int rowID;
+
     bool isDisplaying = true;
 
     // Used to track the current capacity
@@ -43,6 +45,13 @@ public class InventoryRow : MonoBehaviour
         //    }
         //}
 
+        // Assign an ID to each slot
+        for (int i = 0; i < slots.Count; ++i)
+        {
+            slots[i].slotID = i;
+        }
+
+        // Update visibility at start
         isDisplaying = isDisplayedAtStart;
         if (!isDisplaying)
         {
@@ -54,13 +63,14 @@ public class InventoryRow : MonoBehaviour
     {
         for (int i = 0; i < slots.Count; ++i)
         {
-            if (slots[i].IsOccupied && slots[i].itemName == item.itemData.itemName)
+            if (slots[i].IsOccupied &&
+                slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
             {
                 // Stack the item, just increment the quantity
                 InventorySlot stackedSlot = slots[i];
 
-                ++stackedSlot.itemQuantity;
-                stackedSlot.UI.quantityText.text = stackedSlot.itemQuantity.ToString();
+                ++stackedSlot.itemDisplayed.stackCount;
+                stackedSlot.UI.quantityText.text = stackedSlot.itemDisplayed.stackCount.ToString();
 
                 slots[i] = stackedSlot;
 
@@ -77,8 +87,8 @@ public class InventoryRow : MonoBehaviour
                 newSlotUI.quantityText.text = "1";
                 newSlotUI.quantityText.enabled = true;
 
-                newSlot.itemName = item.itemData.itemName;
-                newSlot.itemQuantity = 1;
+                newSlot.itemDisplayed.itemData.itemName = item.itemData.itemName;
+                newSlot.itemDisplayed.stackCount = 1;
 
                 slots[i] = newSlot;
 
@@ -91,15 +101,15 @@ public class InventoryRow : MonoBehaviour
     {
         InventorySlot toRemove = slots[slotIndex];
 
-        --toRemove.itemQuantity;
-        if (toRemove.itemQuantity <= 0)
+        --toRemove.itemDisplayed.stackCount;
+        if (toRemove.itemDisplayed.stackCount <= 0)
         {
             EmptySlot(ref toRemove);
         }
         else
         {
             // Just update the text of the slot to display the new quantity
-            toRemove.UI.quantityText.text = toRemove.itemQuantity.ToString();
+            toRemove.UI.quantityText.text = toRemove.itemDisplayed.stackCount.ToString();
         }
 
         slots[slotIndex] = toRemove;
@@ -108,11 +118,13 @@ public class InventoryRow : MonoBehaviour
     public void EmptySlot(ref InventorySlot toEmpty)
     {
         // No more of this item, unoccupy the slot
+        // Empty the reference
+        toEmpty.itemDisplayed = null;
+
+        // Empty the UI
         SlotUI toEmptyUI = toEmpty.UI;
-        toEmpty.itemName = null;
         toEmptyUI.itemImage.enabled = false;
         toEmptyUI.quantityText.enabled = false;
-        toEmpty.itemQuantity = 0;
     }
 
 #if UNITY_EDITOR

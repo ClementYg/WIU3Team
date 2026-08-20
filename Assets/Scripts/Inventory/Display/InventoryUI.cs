@@ -18,11 +18,27 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] SlotUI UIToCarry;
     bool isPointerCarryingItem = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         // Subscribe to event channels
         OnInventoryClickEvent.Subscribe(CheckIsLift);
+
+        // Assign an ID to each row
+        int currID = 0;
+        foreach (RowDisplay display in displays)
+        {
+            if (display is ToolbarDisplay tlbDisplay)
+            {
+                tlbDisplay.toolbar.rowID = currID++;
+            }
+            else if (display is InventoryDisplay invDisplay)
+            {
+                foreach (InventoryRow row in invDisplay.rows)
+                {
+                    row.rowID = currID++;
+                }
+            }
+        }
     }
 
     // Update is called once per frame

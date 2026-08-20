@@ -6,7 +6,7 @@ public class InventoryDisplay : RowDisplay
 {
     // Keep a list of inventory rows
     [Header("Inventory Rows")]
-    [SerializeField] List<InventoryRow> rows = new();
+    public List<InventoryRow> rows = new();
 
     bool isDisplaying = false;
 
@@ -41,7 +41,8 @@ public class InventoryDisplay : RowDisplay
         {
             for (int i = 0; i < row.slots.Count; ++i)
             {
-                if (row.slots[i].IsOccupied && row.slots[i].itemName == itemName)
+                if (row.slots[i].IsOccupied &&
+                    row.slots[i].itemDisplayed.itemData.itemName == itemName)
                 {
                     row.RemoveItem(i);
                     return true;
@@ -58,7 +59,8 @@ public class InventoryDisplay : RowDisplay
         {
             for (int i = 0; i < row.slots.Count; ++i)
             {
-                if (row.slots[i].IsOccupied && row.slots[i].itemName == itemName)
+                if (row.slots[i].IsOccupied &&
+                    row.slots[i].itemDisplayed.itemData.itemName == itemName)
                 {
                     InventorySlot toEmpty = row.slots[i];
                     row.EmptySlot(ref toEmpty);
