@@ -6,7 +6,7 @@ using TMPro;
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
     [Header("Inventory Slot")]
-    public ItemInstance itemDisplayed = null;
+    [System.NonSerialized] public ItemInstance itemDisplayed = null;
     public RectTransform slotRectTransform; // Used for parenting the selection slot
     public SlotUI UI;
 

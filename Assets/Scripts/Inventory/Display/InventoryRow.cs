@@ -27,8 +27,10 @@ public class InventoryRow : MonoBehaviour
             foreach (InventorySlot slot in slots)
             {
                 if (slot.IsOccupied) ++capacity;
+                Debug.Log("is occupied: " + slot.IsOccupied);
             }
 
+            Debug.Log("current capacity: " + capacity);
             return capacity;
         }
     }
@@ -87,9 +89,11 @@ public class InventoryRow : MonoBehaviour
                 newSlotUI.quantityText.text = "1";
                 newSlotUI.quantityText.enabled = true;
 
-                newSlot.itemDisplayed = item;
-                newSlot.itemDisplayed.itemData.itemName = item.itemData.itemName;
-                newSlot.itemDisplayed.stackCount = 1;
+                newSlot.itemDisplayed = new(item.itemData, item.itemEffect)
+                {
+                    currentDurability = item.currentDurability,
+                    stackCount = 1
+                };
 
                 slots[i] = newSlot;
 

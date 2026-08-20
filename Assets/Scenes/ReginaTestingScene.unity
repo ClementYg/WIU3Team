@@ -304,8 +304,8 @@ MonoBehaviour:
   textContent: 
   fontSize: 0
   item:
-    itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
-    itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
+    itemData: {fileID: 0}
+    itemEffect: {fileID: 0}
     currentDurability: 0
     stackCount: 0
   inventory: {fileID: 1185062483}
@@ -1554,11 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74213c4ae726bc54eb8fd5e680765746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  items:
-  - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
-    itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
-    currentDurability: 100
-    stackCount: 1
+  items: []
   maxCapacity: 36
   invUI: {fileID: 1185062484}
   numberOfItemsAtStart: 0
