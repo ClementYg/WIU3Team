@@ -47,9 +47,9 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     {
         UI.itemImage.sprite = null;
         UI.itemImage.enabled = false;
+        UI.itemImage.transform.localPosition = new Vector3(0f, 0f, 0f);
         UI.quantityText.text = itemQuantity.ToString();
         UI.quantityText.enabled = false;
-        UI.itemImage.transform.localPosition = new Vector3(0f, 0f, 0f);
     }
 
 #if UNITY_EDITOR

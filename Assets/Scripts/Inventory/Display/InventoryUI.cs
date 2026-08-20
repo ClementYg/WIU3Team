@@ -116,8 +116,11 @@ public class InventoryUI : MonoBehaviour
 
         UIToCarry.itemImage.sprite = slotClicked.UI.itemImage.sprite;
         UIToCarry.itemImage.enabled = true;
+        UIToCarry.itemImage.transform.SetParent(itemToCarry.transform);
+
         UIToCarry.quantityText.text = slotClicked.UI.quantityText.text;
         UIToCarry.quantityText.enabled = true;
+        UIToCarry.quantityText.transform.SetParent(itemToCarry.transform);
 
         slotClicked.ClearUI();
     }
