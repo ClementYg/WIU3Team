@@ -9,6 +9,9 @@ public class InventoryRow : MonoBehaviour
     [SerializeField] bool isCapacityFullAtStart = false;
     [SerializeField] bool isDisplayedAtStart = true;
 
+    [Header("Testing Event Channels")]
+    [SerializeField] private EventBool onToggledInventoryEvent;
+
     // Keep a list of all the slots in the row
     public List<InventorySlot> slots = new();
 
@@ -16,7 +19,31 @@ public class InventoryRow : MonoBehaviour
 
     // Used to track the current capacity
     public readonly int maxRowCapacity = 12;
-    
+
+    private void OnEnable()
+    {
+        onToggledInventoryEvent.Subscribe(OnToggledInventory);
+    }
+
+    private void OnDisable()
+    {
+        onToggledInventoryEvent.Unsubscribe(OnToggledInventory);
+    }
+
+    private void OnToggledInventory(bool isEnabled)
+    {
+        Debug.Log("Received");
+        isDisplaying = isEnabled;
+        if (isDisplaying)
+        {
+            this.gameObject.SetActive(true);
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     public int CurrRowCapacity
     {
         get

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class TalkInteract : Interactable
 {
+    [Header("Dialogue Data")]
+    [SerializeField] private DialogueConversation conversation;
+
     protected override void Start()
     {
         if (useDefaultValues)
@@ -19,6 +22,12 @@ public class TalkInteract : Interactable
 
     public override void Interact()
     {
-        // Code to trigger dialogue
+        if (conversation == null)
+        {
+            Debug.LogError($"[TalkInteract] {name} has no conversation assigned.", this);
+            return;
+        }
+
+        DialogueManager.Instance.StartDialogue(conversation);
     }
 }

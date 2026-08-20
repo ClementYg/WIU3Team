@@ -12,16 +12,16 @@ public class InventoryDisplay : ItemDisplay
     // Update is called once per frame
     void Update()
     {
-        bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
-        if (isToggleDisplayPressed)
-        {
-            isDisplaying = !isDisplaying;
+        //bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
+        //if (isToggleDisplayPressed)
+        //{
+        //    isDisplaying = !isDisplaying;
 
-            foreach (InventoryRow row in rows)
-            {
-                row.gameObject.SetActive(isDisplaying);
-            }
-        }
+        //    foreach (InventoryRow row in rows)
+        //    {
+        //        row.gameObject.SetActive(isDisplaying);
+        //    }
+        //}
     }
 
     public override bool TryAddItem(ItemInstance item)

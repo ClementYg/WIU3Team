@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf06897b0dc44384f80369ae599049be, type: 3}
+  m_Name: HelloDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speaker: {fileID: 11400000, guid: def5e92f12c2bc240b4efd36ff67b544, type: 2}
+  text: Choose an option lil buddy
+  nextNode: {fileID: 0}
+  choices:
+  - choiceText: Yes
+    nextNode: {fileID: 11400000, guid: f08774f82a320ac44889e31238973747, type: 2}
+  - choiceText: No
+    nextNode: {fileID: 11400000, guid: 93022174886a61f45a453a2cf81395b7, type: 2}

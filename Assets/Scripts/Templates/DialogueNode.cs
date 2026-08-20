@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DialogueNode", menuName = "ScriptableObjects/DialogueNode")]
+[CreateAssetMenu(fileName = "DialogueNode", menuName = "ScriptableObjects/Dialogue/DialogueNode")]
 public class DialogueNode : ScriptableObject
 {
     [Header("Speaker")]
@@ -18,7 +18,7 @@ public class DialogueNode : ScriptableObject
     {
         if (choices != null && choices.Length > 3)
         {
-            Debug.LogWarning($"[DialogueNode {name} has more than 3 choices]", this);
+            Debug.LogWarning($"[DialogueNode] {name} has more than 3 choices", this);
             System.Array.Resize(ref choices, 3);
         }
     }

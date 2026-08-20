@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "DialogueConversation", menuName = "ScriptableObjects/Dialogue/DialogueConversation")]
 public class DialogueConversation : ScriptableObject
 {
     [Header("Starting Points")]

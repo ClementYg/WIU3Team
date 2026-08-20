@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 public class UIManager : Singleton<UIManager>
 {
     [Header("Dialogue Box")]
-    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private UIFader dialogueBoxFader;
     [SerializeField] private TextMeshProUGUI speakerNameText;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
@@ -26,22 +26,31 @@ public class UIManager : Singleton<UIManager>
     {
         base.Awake();
         HideAllChoices();
-        dialogueBox.SetActive(false);
     }
 
     private void OnEnable()
     {
-        
+        onDialogueStartedEvent.Subscribe(OnDialogueStarted);
+        onLineStartedEvent.Subscribe(OnLineStarted);
+        onTextUpdatedEvent.Subscribe(OnTextUpdated);
+        onLineFinishedEvent.Subscribe(OnLineFinished);
+        onChoicesAvailableEvent.Subscribe(OnChoicesAvailable);
+        onDialogueEndedEvent.Subscribe(OnDialogueEnded);
     }
 
     private void OnDisable()
     {
-        
+        onDialogueStartedEvent.Unsubscribe(OnDialogueStarted);
+        onLineStartedEvent.Unsubscribe(OnLineStarted);
+        onTextUpdatedEvent.Unsubscribe(OnTextUpdated);
+        onLineFinishedEvent.Unsubscribe(OnLineFinished);
+        onChoicesAvailableEvent.Unsubscribe(OnChoicesAvailable);
+        onDialogueEndedEvent.Unsubscribe(OnDialogueEnded);
     }
 
     private void OnDialogueStarted()
     {
-        dialogueBox.SetActive(true);
+        dialogueBoxFader.FadeIn();
         HideAllChoices();
     }
 
@@ -75,7 +84,7 @@ public class UIManager : Singleton<UIManager>
 
     private void OnDialogueEnded()
     {
-        dialogueBox.SetActive(false);
+        dialogueBoxFader.FadeOut();
         HideAllChoices();
     }
 
