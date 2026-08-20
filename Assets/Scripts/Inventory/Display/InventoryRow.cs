@@ -87,6 +87,7 @@ public class InventoryRow : MonoBehaviour
                 newSlotUI.quantityText.text = "1";
                 newSlotUI.quantityText.enabled = true;
 
+                newSlot.itemDisplayed = item;
                 newSlot.itemDisplayed.itemData.itemName = item.itemData.itemName;
                 newSlot.itemDisplayed.stackCount = 1;
 
