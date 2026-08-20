@@ -8,16 +8,16 @@ public class InventoryDisplay : RowDisplay
     [Header("Inventory Rows")]
     public List<InventoryRow> rows = new();
 
-    bool isDisplaying = false;
+    //bool isDisplaying = false;
 
     // Update is called once per frame
     void Update()
     {
-        bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
-        if (isToggleDisplayPressed)
-        {
-            ToggleInventoryDisplay();
-        }
+        //bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
+        //if (isToggleDisplayPressed)
+        //{
+        //    ToggleInventoryDisplay();
+        //}
     }
 
     public override bool TryAddItem(ItemInstance item)
@@ -82,29 +82,29 @@ public class InventoryDisplay : RowDisplay
         return true;
     }
 
-    private void ToggleInventoryDisplay()
-    {
-        // Toggle the inventory display
-        isDisplaying = !isDisplaying;
+    //private void ToggleInventoryDisplay()
+    //{
+    //    // Toggle the inventory display
+    //    isDisplaying = !isDisplaying;
 
-        foreach (InventoryRow row in rows)
-        {
-            row.gameObject.SetActive(isDisplaying);
-        }
+    //    foreach (InventoryRow row in rows)
+    //    {
+    //        row.gameObject.SetActive(isDisplaying);
+    //    }
 
-        // Toggle input action maps
-        InputActionMap playerMap = InputSystem.actions.FindActionMap("Player");
-        InputActionMap UIMap = InputSystem.actions.FindActionMap("UI");
+    //    // Toggle input action maps
+    //    InputActionMap playerMap = InputSystem.actions.FindActionMap("Player");
+    //    InputActionMap UIMap = InputSystem.actions.FindActionMap("UI");
 
-        if (isDisplaying)
-        {
-            playerMap.Disable();
-            UIMap.Enable();
-        }
-        else
-        {
-            playerMap.Enable();
-            UIMap.Disable();
-        }
-    }
+    //    if (isDisplaying)
+    //    {
+    //        playerMap.Disable();
+    //        UIMap.Enable();
+    //    }
+    //    else
+    //    {
+    //        playerMap.Enable();
+    //        UIMap.Disable();
+    //    }
+    //}
 }

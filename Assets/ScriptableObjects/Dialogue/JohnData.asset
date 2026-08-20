@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8161f455e30c05e4e85a646afb5df569, type: 3}
   m_Name: JohnData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  characterName: 
-  textColor: {r: 1, g: 1, b: 1, a: 1}
-  blipSound: {fileID: 0}
+  characterName: John
+  textColor: {r: 1, g: 1, b: 0, a: 1}
+  blipSound: {fileID: 8300000, guid: c389dc55b040ced48ba39a4a644be30e, type: 3}
   pitchRange: {x: 0.95, y: 1.05}
   blipEveryNCharacters: 2

@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Runtime.CompilerServices;
 
-public class UIManager : Singleton<UIManager>
+public class UIDialogueManager : Singleton<UIDialogueManager>
 {
     [Header("Dialogue Box")]
     [SerializeField] private UIFader dialogueBoxFader;

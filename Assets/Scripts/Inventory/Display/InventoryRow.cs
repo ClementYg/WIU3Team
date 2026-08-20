@@ -10,11 +10,10 @@ public class InventoryRow : MonoBehaviour
 
     [Header("Testing")]
     [SerializeField] bool isCapacityFullAtStart = false;
-    [SerializeField] bool isDisplayedAtStart = true;
 
     [HideInInspector] public int rowID;
 
-    bool isDisplaying = true;
+    //bool isDisplaying = true;
 
     // Used to track the current capacity
     public readonly int maxRowCapacity = 12;
@@ -50,13 +49,6 @@ public class InventoryRow : MonoBehaviour
         for (int i = 0; i < slots.Count; ++i)
         {
             slots[i].slotID = i;
-        }
-
-        // Update visibility at start
-        isDisplaying = isDisplayedAtStart;
-        if (!isDisplaying)
-        {
-            gameObject.SetActive(false);
         }
     }
 

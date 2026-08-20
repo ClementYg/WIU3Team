@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
   m_Name: TestConvo
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
-  firstTimeNode: {fileID: 0}
+  firstTimeNode: {fileID: 11400000, guid: dd62e929d2edb494a9de97c3f6465d81, type: 2}
   repeatNode: {fileID: 0}
   hasBeenSeen: 0

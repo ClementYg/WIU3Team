@@ -8,7 +8,7 @@ public class InputManager : Singleton<InputManager>
     [SerializeField] private EventVoid onDialogueStartedEvent;
     [SerializeField] private EventVoid onDialogueEndedEvent;
 
-    private bool toggledInventory = true;
+    private bool toggledInventory = false;
 
     private void OnEnable()
     {
