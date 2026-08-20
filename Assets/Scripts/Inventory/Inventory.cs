@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class Inventory : PersistentSingleton<Inventory>
 {
     [Header("Inventory")]
-    public List<ItemInstance> inventoryItems = new();
-    [SerializeField] int maxCapacity = 36;
+    [SerializeField] int maxStackCapacity = 36;
 
     [Header("UI")]
     [SerializeField] InventoryUI invUI;
@@ -14,14 +13,16 @@ public class Inventory : PersistentSingleton<Inventory>
     [Header("Testing")]
     [SerializeField] List<StartItem> startItems = new();
 
-    public bool IsInventoryFull => (inventoryItems.Count >= maxCapacity);
+    List<ItemInstance> inventoryItems = new();
+    public bool IsInventoryFull => (inventoryItems.Count >= maxStackCapacity);
 
     public UnityEvent onInventoryFull;
     public UnityEvent onInventoryFreed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         // Setup testing environment
         SetupTests();
 
@@ -51,15 +52,32 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
     {
+        // Get the name of the selected item
         string selectedItemName = invUI.GetSelectedItemName();
-        if (selectedItemName == null) return false;
+        if (selectedItemName == null)
+        {
+            Debug.LogWarning("Failed to use selected item: Invalid item name.");
+            return false;
+        }
 
+        // Get the item instance
         ItemInstance item = GetItem(selectedItemName);
-        if (item == null) return false;
+        if (item == null)
+        {
+            Debug.LogWarning("Failed to use selected item: ItemInstance was null.");
+            return false;
+        }
 
-        if (item.itemEffect == null) return false;
+        // Use the item
+        if (item.itemEffect == null)
+        {
+            Debug.LogWarning("Failed to use selected item: ItemEffect was null.");
+            return false;
+        }
+
         item.itemEffect.Use(user);
 
+        // Update inventory and UI
         bool shouldReduceStack = false;
         
         if (item.itemData.hasDurability)
@@ -85,7 +103,13 @@ public class Inventory : PersistentSingleton<Inventory>
             --item.stackCount;
             if (item.stackCount <= 0)
             {
+                // Item has been used up, remove it
                 RemoveItem(item);
+            }
+            else
+            {
+                // Update the quantity text
+                invUI.UpdateSlotUI(item.slotAttached.UI, item.stackCount.ToString());
             }
         }
 

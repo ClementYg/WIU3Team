@@ -2,11 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ToolbarDisplay : RowDisplay
+public class ToolbarDisplay : InventoryDisplay
 {
-    // Store a reference to the toolbar inventory row
-    public InventoryRow toolbar;
-
     // Keep a list of all the keybinds that will be used to select a box in the toolbar
     readonly Key[] toolbarKeys =
     {
@@ -30,17 +27,17 @@ public class ToolbarDisplay : RowDisplay
     // To track the index of the selected slot
     int selectedSlotIndex = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        // Parent the selection box
-        redSelectionSlot.rectTransform.SetParent(
-            toolbar.slots[selectedSlotIndex].slotRectTransform, false
-        );
+        // Check if the toolbar display has more than one inventory row
+        if (rows.Count > 1)
+        {
+            Debug.LogError("ToolbarDisplay: Toolbar cannot have more than one inventory row.");
+            return;
+        }
 
-        Vector3 newPos = redSelectionSlot.rectTransform.localPosition;
-        newPos = new Vector3(0f, 0f, 0f);
-        redSelectionSlot.rectTransform.localPosition = newPos;
+        // Move the selection slot accordingly
+        MoveSelectionSlot(rows[0].slots[selectedSlotIndex].slotRectTransform);
     }
 
     // Update is called once per frame
@@ -49,69 +46,22 @@ public class ToolbarDisplay : RowDisplay
         UpdateSlotSelection();
     }
 
-    public override bool TryAddItem(ItemInstance item)
-    {
-        // Check if the capacity is full
-        if (toolbar.IsCapacityFull) return false;
-
-        toolbar.AddItem(item);
-        return true;
-    }
-
-    public override bool TryRemoveItem(ItemInstance itemName)
-    {
-        // Check if the item exists in the toolbar
-        for (int i = 0; i < toolbar.slots.Count; ++i)
-        {
-            if (toolbar.slots[i].IsOccupied &&
-                toolbar.slots[i].itemDisplayed == itemName)
-            {
-                toolbar.RemoveItem(i);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public override bool TryRemoveStack(ItemInstance itemName)
-    {
-        // Check if the item exists in the toolbar
-        for (int i = 0; i < toolbar.slots.Count; ++i)
-        {
-            if (toolbar.slots[i].IsOccupied &&
-                toolbar.slots[i].itemDisplayed == itemName)
-            {
-                InventorySlot toEmpty = toolbar.slots[i];
-                toolbar.EmptySlot(ref toEmpty);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     public bool TryGetSelectedItemName(out string itemName)
     {
-        if (toolbar.slots[selectedSlotIndex].itemDisplayed == null)
+        if (rows[0].slots[selectedSlotIndex].itemDisplayed == null)
         {
             itemName = null;
             return false;
         }
 
-        itemName = toolbar.slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
+        itemName = rows[0].slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
         return true;
-    }
-
-    public bool CheckIsCapacityFull()
-    {
-        return toolbar.IsCapacityFull;
     }
 
     private void UpdateSlotSelection()
     {
         // Use keyboard to select a slot
-        for (int i = 0; i < toolbar.slots.Count; ++i)
+        for (int i = 0; i < rows[0].slots.Count; ++i)
         {
             if (Keyboard.current[toolbarKeys[i]].wasPressedThisFrame)
             {
@@ -124,7 +74,7 @@ public class ToolbarDisplay : RowDisplay
         if (mouseScroll.y > 0f)
         {
             // Scrolled up
-            if (selectedSlotIndex < toolbar.slots.Count - 1) ++selectedSlotIndex;
+            if (selectedSlotIndex < rows[0].slots.Count - 1) ++selectedSlotIndex;
 
         }
         else if (mouseScroll.y < 0f)
@@ -133,9 +83,29 @@ public class ToolbarDisplay : RowDisplay
             if (selectedSlotIndex > 0) --selectedSlotIndex;
         }
 
-        // Move the selection box accordingly
-        redSelectionSlot.rectTransform.SetParent(
-            toolbar.slots[selectedSlotIndex].slotRectTransform, false
-        );
+        // Move the selection slot accordingly
+        MoveSelectionSlot(rows[0].slots[selectedSlotIndex].slotRectTransform);
     }
+
+    private void MoveSelectionSlot(Transform newParent)
+    {
+        redSelectionSlot.rectTransform.SetParent(newParent, false);
+
+        Vector3 newPos = redSelectionSlot.rectTransform.localPosition;
+        newPos = new Vector3(0f, 0f, 0f);
+        redSelectionSlot.rectTransform.localPosition = newPos;
+    }
+
+#if UNITY_EDITOR
+    [ContextMenu("Find Toolbar Row")]
+    protected void FindToolbarRow()
+    {
+        rows.Clear();
+
+        Transform rowTransform = transform.Find("Toolbar Row");
+        InventoryRow newRow = rowTransform.GetComponent<InventoryRow>();
+        
+        rows.Add(newRow);
+    }
+#endif
 }

@@ -7,8 +7,6 @@ public class InventoryRow : MonoBehaviour
     [Header("Inventory Slots")]
     public List<InventorySlot> slots = new();
 
-    [HideInInspector] public int rowID;
-
     // Used to track the current capacity
     public readonly int maxRowCapacity = 12;
 
@@ -29,15 +27,6 @@ public class InventoryRow : MonoBehaviour
 
     public bool IsCapacityFull => (CurrRowCapacity >= maxRowCapacity);
 
-    private void Awake()
-    {
-        // Assign an ID to each slot
-        for (int i = 0; i < slots.Count; ++i)
-        {
-            slots[i].slotID = i;
-        }
-    }
-
     public void AddItem(ItemInstance item)
     {
         int itemsToAdd = item.stackCount;
@@ -51,8 +40,10 @@ public class InventoryRow : MonoBehaviour
                     slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
                 {
                     InventorySlot stackedSlot = slots[i];
+
                     stackedSlot.itemDisplayed.AddStack(itemsToAdd, out int excess);
-                    stackedSlot.UI.quantityText.text =stackedSlot.itemDisplayed.stackCount.ToString();
+                    stackedSlot.UI.quantityText.text = stackedSlot.itemDisplayed.stackCount.ToString();
+                    
                     slots[i] = stackedSlot;
 
                     itemsToAdd = excess;
@@ -100,6 +91,7 @@ public class InventoryRow : MonoBehaviour
 
             return;
         }
+
         for (int i = 0; i < slots.Count; ++i)
         {
             if (slots[i].IsOccupied) continue;

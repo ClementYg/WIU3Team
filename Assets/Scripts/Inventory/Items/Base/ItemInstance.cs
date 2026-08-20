@@ -10,7 +10,11 @@ public class ItemInstance
     public int currentDurability = 0;
     public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
-    public bool isBroken => itemData.hasDurability && currentDurability <= 0; 
+    public bool isBroken => itemData.hasDurability && currentDurability <= 0;
+
+    // Note to Clement: This was added by Regina
+    [HideInInspector] public InventorySlot slotAttached;
+
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
     {
         this.itemData = itemData;

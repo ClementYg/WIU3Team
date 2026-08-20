@@ -13,8 +13,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     [Header("Event Channels")]
     [SerializeField] EventInventorySlot OnInventoryClickEvent;
 
-    [HideInInspector] public int slotID;
-
     public bool IsOccupied
     {
         get

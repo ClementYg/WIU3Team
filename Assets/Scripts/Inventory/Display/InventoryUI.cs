@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
     [Header("Row Displays")]
     // Order the displays by item fill precedence, i.e. When both displays are empty,
     // the preferred display for an item to be added to should be serialized first.
-    [SerializeField] List<RowDisplay> displays = new();
+    [SerializeField] List<InventoryDisplay> displays = new();
 
     [Header("Event Channels")]
     [SerializeField] EventInventorySlot OnInventoryClickEvent;
@@ -23,23 +23,6 @@ public class InventoryUI : MonoBehaviour
     {
         // Subscribe to event channels
         OnInventoryClickEvent.Subscribe(CheckIsLift);
-
-        // Assign an ID to each row
-        int currID = 0;
-        foreach (RowDisplay display in displays)
-        {
-            if (display is ToolbarDisplay tlbDisplay)
-            {
-                tlbDisplay.toolbar.rowID = currID++;
-            }
-            else if (display is InventoryDisplay invDisplay)
-            {
-                foreach (InventoryRow row in invDisplay.rows)
-                {
-                    row.rowID = currID++;
-                }
-            }
-        }
     }
 
     // Update is called once per frame
@@ -67,7 +50,7 @@ public class InventoryUI : MonoBehaviour
 
     public bool AddItem(ItemInstance item)
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
             if (display.TryAddItem(item)) return true;
         }
@@ -75,9 +58,14 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
+    public bool UpdateSlotUI(SlotUI toUpdate, string newQuantity)
+    {
+        return false;
+    }
+
     public bool RemoveItem(ItemInstance itemName)
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
             if (display.TryRemoveItem(itemName)) return true;
         }
@@ -87,7 +75,7 @@ public class InventoryUI : MonoBehaviour
 
     public bool RemoveStack(ItemInstance itemName)
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
             if (display.TryRemoveStack(itemName)) return true;
         }
@@ -95,9 +83,19 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
+    private InventorySlot GetSlotByIndex(int displayIndex, int rowIndex, int slotIndex)
+    {
+        InventorySlot slot = null;
+
+        // Get the display
+        InventoryDisplay display = displays[displayIndex];
+
+        return slot;
+    }
+
     public string GetSelectedItemName()
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
             if (display is ToolbarDisplay tlbDisplay)
             {
@@ -170,17 +168,24 @@ public class InventoryUI : MonoBehaviour
         displays.Clear();
 
         GameObject canvas = GameObject.Find("Inventory Canvas");
+        InventoryDisplay[] compDisplays = canvas.transform.GetComponents<InventoryDisplay>();
 
-        // Add the toolbar display first, it gets item fill precedence
-        if (canvas.transform.TryGetComponent<ToolbarDisplay>(out ToolbarDisplay tlbDisplay))
+        // Look for the toolbar display and add it first
+        foreach (InventoryDisplay display in compDisplays)
         {
-            displays.Add(tlbDisplay);
+            if (display is ToolbarDisplay tlbDisplay)
+            {
+                displays.Add(tlbDisplay);
+            }
         }
-        
-        // Add the inventory display
-        if (canvas.transform.TryGetComponent<InventoryDisplay>(out InventoryDisplay invDisplay))
+
+        // Add the rest of the inventory displays
+        foreach (InventoryDisplay display in compDisplays)
         {
-            displays.Add(invDisplay);
+            if (display is not ToolbarDisplay)
+            {
+                displays.Add(display);
+            }
         }
     }
 
