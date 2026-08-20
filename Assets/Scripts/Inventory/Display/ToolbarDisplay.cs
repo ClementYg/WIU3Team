@@ -58,13 +58,13 @@ public class ToolbarDisplay : RowDisplay
         return true;
     }
 
-    public override bool TryRemoveItem(string itemName)
+    public override bool TryRemoveItem(ItemInstance itemName)
     {
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
             if (toolbar.slots[i].IsOccupied &&
-                toolbar.slots[i].itemDisplayed.itemData.itemName == itemName)
+                toolbar.slots[i].itemDisplayed == itemName)
             {
                 toolbar.RemoveItem(i);
                 return true;
@@ -74,13 +74,13 @@ public class ToolbarDisplay : RowDisplay
         return false;
     }
 
-    public override bool TryRemoveStack(string itemName)
+    public override bool TryRemoveStack(ItemInstance itemName)
     {
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
             if (toolbar.slots[i].IsOccupied &&
-                toolbar.slots[i].itemDisplayed.itemData.itemName == itemName)
+                toolbar.slots[i].itemDisplayed == itemName)
             {
                 InventorySlot toEmpty = toolbar.slots[i];
                 toolbar.EmptySlot(ref toEmpty);

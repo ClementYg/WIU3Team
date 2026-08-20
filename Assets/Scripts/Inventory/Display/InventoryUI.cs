@@ -75,7 +75,7 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public bool RemoveItem(string itemName)
+    public bool RemoveItem(ItemInstance itemName)
     {
         foreach (RowDisplay display in displays)
         {
@@ -85,7 +85,7 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public bool RemoveStack(string itemName)
+    public bool RemoveStack(ItemInstance itemName)
     {
         foreach (RowDisplay display in displays)
         {
@@ -142,8 +142,8 @@ public class InventoryUI : MonoBehaviour
         UIToCarry.quantityText.transform.SetParent(itemToCarry.transform);
 
         slotClicked.ClearUI();
-        carriedItem = slotClicked.itemDisplayed;
-        RemoveStack(slotClicked.itemDisplayed.itemData.itemName);
+        currentItem = slotClicked.itemDisplayed;
+        RemoveStack(slotClicked.itemDisplayed);
     }
 
     private void PlaceItem(InventorySlot slotClicked)
