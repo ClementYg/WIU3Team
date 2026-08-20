@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //this is js a example of making a new itemData
-[CreateAssetMenu(fileName = "QuestItemData", menuName = "Scriptable Objects/Items/QuestItemData")]
+[CreateAssetMenu(fileName = "QuestItemData", menuName = "ScriptableObjects/Items/QuestItemData")]
 public class QuestItemData : ItemData
 {
     [Header("Quest Info")]

@@ -2,39 +2,33 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-public class Inventory : MonoBehaviour
+public class Inventory : PersistentSingleton<Inventory>
 {
-    [Header("Dependencies")]
-    [SerializeField] InventoryUI invUI;
+    [Header("Inventory")]
     public List<ItemInstance> items = new();
-
-    [Header("Modifiers")]
     [SerializeField] int maxCapacity = 36;
 
+    [Header("UI")]
+    [SerializeField] InventoryUI invUI;
+
     [Header("Testing")]
-    [SerializeField] int numberOfItemsAtStart = 0;
+    [SerializeField] List<ItemInstance> itemsToAddAtStart = new();
 
     public bool IsFull => (items.Count >= maxCapacity);
 
     public UnityEvent onInventoryFull;
     public UnityEvent onInventoryFreed;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (numberOfItemsAtStart > 0)
+        // Default initialise the number of items in the inventory at the start of the game
+        foreach (ItemInstance item in itemsToAddAtStart)
         {
-            for (int i = 0; i < numberOfItemsAtStart; ++i)
-            {
-                items.Add(new ItemInstance(new ItemData()));
-            }
+            items.Add(item);
         }
 
+        // Initialise UI
         invUI.InitUI(items);
     }
 
@@ -66,6 +60,7 @@ public class Inventory : MonoBehaviour
         ItemInstance item = GetItem(selectedItemName);
         if (item == null) return false;
 
+        if (item.itemEffect == null) return false;
         item.itemEffect.Use(user);
 
         bool shouldReduceStack = false;

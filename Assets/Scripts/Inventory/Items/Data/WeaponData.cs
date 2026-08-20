@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //this is js a example of making a new itemData
-[CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Items/WeaponData")]
+[CreateAssetMenu(fileName = "WeaponData", menuName = "ScriptableObjects/Items/WeaponData")]
 public class WeaponData : ItemData
 {
 

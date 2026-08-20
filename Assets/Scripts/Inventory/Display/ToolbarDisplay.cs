@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ToolbarDisplay : ItemDisplay
+public class ToolbarDisplay : RowDisplay
 {
     // Store a reference to the toolbar inventory row
-    [SerializeField] InventoryRow toolbar;
+    public InventoryRow toolbar;
 
     // Keep a list of all the keybinds that will be used to select a box in the toolbar
     readonly Key[] toolbarKeys =
@@ -30,6 +30,19 @@ public class ToolbarDisplay : ItemDisplay
     // To track the index of the selected slot
     int selectedSlotIndex = 0;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // Parent the selection box
+        redSelectionSlot.rectTransform.SetParent(
+            toolbar.slots[selectedSlotIndex].slotRectTransform, false
+        );
+
+        Vector3 newPos = redSelectionSlot.rectTransform.localPosition;
+        newPos = new Vector3(0f, 0f, 0f);
+        redSelectionSlot.rectTransform.localPosition = newPos;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,12 +58,13 @@ public class ToolbarDisplay : ItemDisplay
         return true;
     }
 
-    public override bool TryRemoveItem(string itemName)
+    public override bool TryRemoveItem(ItemInstance itemName)
     {
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
-            if (toolbar.slots[i].isOccupied && toolbar.slots[i].itemName == itemName)
+            if (toolbar.slots[i].IsOccupied &&
+                toolbar.slots[i].itemDisplayed == itemName)
             {
                 toolbar.RemoveItem(i);
                 return true;
@@ -60,9 +74,33 @@ public class ToolbarDisplay : ItemDisplay
         return false;
     }
 
-    public string GetSelectedItemName()
+    public override bool TryRemoveStack(ItemInstance itemName)
     {
-        return toolbar.slots[selectedSlotIndex].itemName;
+        // Check if the item exists in the toolbar
+        for (int i = 0; i < toolbar.slots.Count; ++i)
+        {
+            if (toolbar.slots[i].IsOccupied &&
+                toolbar.slots[i].itemDisplayed == itemName)
+            {
+                InventorySlot toEmpty = toolbar.slots[i];
+                toolbar.EmptySlot(ref toEmpty);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool TryGetSelectedItemName(out string itemName)
+    {
+        if (toolbar.slots[selectedSlotIndex].itemDisplayed == null)
+        {
+            itemName = null;
+            return false;
+        }
+
+        itemName = toolbar.slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
+        return true;
     }
 
     public bool CheckIsCapacityFull()
