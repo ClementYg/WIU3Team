@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using Pathfinding.Ionic.Zip;
 
 public class Inventory : MonoBehaviour
 {
@@ -57,6 +58,29 @@ public class Inventory : MonoBehaviour
 
         items.Add(item);
 
+        //FB: I cant lie i cant really see if the item stacking is implemented here? It sort of works in game but it might be display thing too
+        //Just need to add this section at the top so that itll add to the stack, but doesnt split the stack yet. 
+        //if (item.itemData.isStackable)
+        //{
+        //    //search thru entire inventory
+        //    foreach (ItemInstance item_ in items)
+        //    {
+        //        if (item_.itemData == item.itemData && item_.stackCount < item_.itemData.maxStackSize)
+        //        {
+        //            item_.AddStack(item.stackCount, out int leftover);
+
+        //            if (leftover <= 0)
+        //            {
+        //                //everything fit into the existing stack, nothing new to add
+        //                return true;
+        //            }
+
+        //            item.stackCount = leftover;
+        //        }    
+        //    }
+
+        //}
+
         return true;
     }
 
@@ -68,6 +92,7 @@ public class Inventory : MonoBehaviour
         ItemInstance item = GetItem(selectedItemName);
         if (item == null) return false;
 
+        //FB: Can possibly add one more check for itemEffect == null
         item.itemEffect.Use(user);
 
         bool shouldReduceStack = false;

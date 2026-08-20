@@ -103,7 +103,8 @@ public class InventoryUI : MonoBehaviour
             PlaceItem(slotClicked);
         }
     }
-
+    //Place and lift isnt really working I think?
+    //Most likely need a reference to Inventory and have a removeItem there
     private void LiftItem(InventorySlot slotClicked)
     {
         RemoveStack(slotClicked.itemName);
@@ -111,7 +112,7 @@ public class InventoryUI : MonoBehaviour
         UIToCarry.itemImage.enabled = true;
         UIToCarry.quantityText.enabled = true;
     }
-
+    //Same thing for Place item, need to reference Inventory to place item in the different slot.
     private void PlaceItem(InventorySlot slotClicked)
     {
         UIToCarry.itemImage.enabled = false;
