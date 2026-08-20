@@ -110,7 +110,7 @@ public class InventoryUI : MonoBehaviour
         if (!slotClicked.IsOccupied)
         {
             // Nothing there to lift
-            isPointerCarryingItem = false;
+            isPointerCarryingItem = !isPointerCarryingItem;
             return;
         }
 
@@ -127,6 +127,13 @@ public class InventoryUI : MonoBehaviour
     //Same thing for Place item, need to reference Inventory to place item in the different slot.
     private void PlaceItem(InventorySlot slotClicked)
     {
+        if (slotClicked.IsOccupied)
+        {
+            // For now, don't place on an occupied slot
+            isPointerCarryingItem = !isPointerCarryingItem;
+            return;
+        }
+
         slotClicked.SetUI(UIToCarry.itemImage.sprite, int.Parse(UIToCarry.quantityText.text));
 
         UIToCarry.itemImage.enabled = false;
