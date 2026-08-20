@@ -6,20 +6,18 @@ using TMPro;
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
     [Header("Inventory Slot")]
+    public ItemInstance itemDisplayed = null;
     public RectTransform slotRectTransform; // Used for parenting the selection slot
     public SlotUI UI;
 
     [Header("Event Channels")]
     [SerializeField] EventInventorySlot OnInventoryClickEvent;
 
-    [HideInInspector] public string itemName = null;
-    [HideInInspector] public int itemQuantity;
-
     public bool IsOccupied
     {
         get
         {
-            if (UI == null || itemName == null || itemQuantity == 0)
+            if (itemDisplayed == null)
             {
                 return false;
             }
@@ -48,7 +46,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         UI.itemImage.sprite = null;
         UI.itemImage.enabled = false;
         UI.itemImage.transform.localPosition = new Vector3(0f, 0f, 0f);
-        UI.quantityText.text = itemQuantity.ToString();
+        UI.quantityText.text = itemDisplayed.stackCount.ToString();
         UI.quantityText.enabled = false;
     }
 

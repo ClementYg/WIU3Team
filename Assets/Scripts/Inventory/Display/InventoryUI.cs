@@ -123,6 +123,7 @@ public class InventoryUI : MonoBehaviour
         UIToCarry.quantityText.transform.SetParent(itemToCarry.transform);
 
         slotClicked.ClearUI();
+        RemoveStack(slotClicked.itemDisplayed.itemData.itemName);
     }
     //Same thing for Place item, need to reference Inventory to place item in the different slot.
     private void PlaceItem(InventorySlot slotClicked)
