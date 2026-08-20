@@ -1,7 +1,7 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
@@ -33,6 +33,25 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         OnInventoryClickEvent.Raise(this);
+    }
+
+    public void SetUI(Sprite sprite, int itemQuantity)
+    {
+        this.itemQuantity = itemQuantity;
+        UI.itemImage.sprite = sprite;
+        UI.itemImage.enabled = true;
+        UI.quantityText.text = itemQuantity.ToString();
+        UI.quantityText.enabled = true;
+    }
+
+    public void Clear()
+    {
+        itemQuantity = 0;
+        UI.itemImage.sprite = null;
+        UI.itemImage.enabled = false;
+        UI.quantityText.text = itemQuantity.ToString();
+        UI.quantityText.enabled = false;
+        UI.itemImage.transform.localPosition = new Vector3(0f, 0f, 0f);
     }
 
 #if UNITY_EDITOR

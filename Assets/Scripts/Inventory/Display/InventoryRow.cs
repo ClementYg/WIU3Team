@@ -109,7 +109,6 @@ public class InventoryRow : MonoBehaviour
     {
         // No more of this item, unoccupy the slot
         SlotUI toEmptyUI = toEmpty.UI;
-
         toEmpty.itemName = null;
         toEmptyUI.itemImage.enabled = false;
         toEmptyUI.quantityText.enabled = false;

@@ -107,17 +107,27 @@ public class InventoryUI : MonoBehaviour
     //Most likely need a reference to Inventory and have a removeItem there
     private void LiftItem(InventorySlot slotClicked)
     {
-        RemoveStack(slotClicked.itemName);
-        UIToCarry = slotClicked.UI;
+        if (!slotClicked.IsOccupied)
+        {
+            // Nothing there to lift
+            isPointerCarryingItem = false;
+            return;
+        }
+
+        UIToCarry.itemImage.sprite = slotClicked.UI.itemImage.sprite;
         UIToCarry.itemImage.enabled = true;
+        UIToCarry.quantityText.text = slotClicked.UI.quantityText.text;
         UIToCarry.quantityText.enabled = true;
+
+        slotClicked.Clear();
     }
     //Same thing for Place item, need to reference Inventory to place item in the different slot.
     private void PlaceItem(InventorySlot slotClicked)
     {
+        slotClicked.SetUI(UIToCarry.itemImage.sprite, int.Parse(UIToCarry.quantityText.text));
+
         UIToCarry.itemImage.enabled = false;
         UIToCarry.quantityText.enabled = false;
-        UIToCarry = null;
     }
 
 #if UNITY_EDITOR
