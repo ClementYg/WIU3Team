@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Assertions.Must;
 
 public class InventoryRow : MonoBehaviour
 {
@@ -12,8 +11,6 @@ public class InventoryRow : MonoBehaviour
     [SerializeField] bool isCapacityFullAtStart = false;
 
     [HideInInspector] public int rowID;
-
-    //bool isDisplaying = true;
 
     // Used to track the current capacity
     public readonly int maxRowCapacity = 12;

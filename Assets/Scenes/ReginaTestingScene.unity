@@ -566,6 +566,9 @@ MonoBehaviour:
   text: {fileID: 848751073}
   distance: 2
   useDistanceSquared: 0
+  detectMask:
+    serializedVersion: 2
+    m_Bits: 192
   useDefaultValues: 1
   fadeSpeed: 1
   moveSpeed: 1
@@ -4957,6 +4960,9 @@ MonoBehaviour:
   text: {fileID: 1627151451}
   distance: 2
   useDistanceSquared: 0
+  detectMask:
+    serializedVersion: 2
+    m_Bits: 192
   useDefaultValues: 1
   fadeSpeed: 1
   moveSpeed: 1
