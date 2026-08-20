@@ -41,7 +41,7 @@ public class InventoryDisplay : RowDisplay
         {
             for (int i = 0; i < row.slots.Count; ++i)
             {
-                if (row.slots[i].isOccupied && row.slots[i].itemName == itemName)
+                if (row.slots[i].IsOccupied && row.slots[i].itemName == itemName)
                 {
                     row.RemoveItem(i);
                     return true;
@@ -58,7 +58,7 @@ public class InventoryDisplay : RowDisplay
         {
             for (int i = 0; i < row.slots.Count; ++i)
             {
-                if (row.slots[i].isOccupied && row.slots[i].itemName == itemName)
+                if (row.slots[i].IsOccupied && row.slots[i].itemName == itemName)
                 {
                     InventorySlot toEmpty = row.slots[i];
                     row.EmptySlot(ref toEmpty);

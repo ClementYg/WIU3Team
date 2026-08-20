@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
@@ -98,11 +96,11 @@ public class InventoryUI : MonoBehaviour
         isPointerCarryingItem = !isPointerCarryingItem;
         if (isPointerCarryingItem)
         {
-            PlaceItem(slotClicked);
+            LiftItem(slotClicked);
         }
         else
         {
-            LiftItem(slotClicked);
+            PlaceItem(slotClicked);
         }
     }
 
@@ -110,10 +108,14 @@ public class InventoryUI : MonoBehaviour
     {
         RemoveStack(slotClicked.itemName);
         UIToCarry = slotClicked.UI;
+        UIToCarry.itemImage.enabled = true;
+        UIToCarry.quantityText.enabled = true;
     }
 
     private void PlaceItem(InventorySlot slotClicked)
     {
+        UIToCarry.itemImage.enabled = false;
+        UIToCarry.quantityText.enabled = false;
         UIToCarry = null;
     }
 

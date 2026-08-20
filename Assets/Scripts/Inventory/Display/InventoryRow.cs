@@ -24,7 +24,7 @@ public class InventoryRow : MonoBehaviour
 
             foreach (InventorySlot slot in slots)
             {
-                if (slot.isOccupied) ++capacity;
+                if (slot.IsOccupied) ++capacity;
             }
 
             return capacity;
@@ -35,13 +35,13 @@ public class InventoryRow : MonoBehaviour
 
     private void Awake()
     {
-        if (isCapacityFullAtStart)
-        {
-            foreach (InventorySlot slot in slots)
-            {
-                slot.isOccupied = true;
-            }
-        }
+        //if (isCapacityFullAtStart)
+        //{
+        //    foreach (InventorySlot slot in slots)
+        //    {
+        //        slot.IsOccupied = true;
+        //    }
+        //}
 
         isDisplaying = isDisplayedAtStart;
         if (!isDisplaying)
@@ -54,7 +54,7 @@ public class InventoryRow : MonoBehaviour
     {
         for (int i = 0; i < slots.Count; ++i)
         {
-            if (slots[i].isOccupied && slots[i].itemName == item.itemData.itemName)
+            if (slots[i].IsOccupied && slots[i].itemName == item.itemData.itemName)
             {
                 // Stack the item, just increment the quantity
                 InventorySlot stackedSlot = slots[i];
@@ -66,7 +66,7 @@ public class InventoryRow : MonoBehaviour
 
                 return;
             }
-            else if (!slots[i].isOccupied)
+            else if (!slots[i].IsOccupied)
             {
                 // Display the new item at this unoccupied slot
                 InventorySlot newSlot = slots[i];
@@ -79,7 +79,6 @@ public class InventoryRow : MonoBehaviour
 
                 newSlot.itemName = item.itemData.itemName;
                 newSlot.itemQuantity = 1;
-                newSlot.isOccupied = true;
 
                 slots[i] = newSlot;
 

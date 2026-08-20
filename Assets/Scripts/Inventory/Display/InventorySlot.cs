@@ -8,13 +8,27 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     [Header("Inventory Slot")]
     public RectTransform slotRectTransform; // Used for parenting the selection slot
     public SlotUI UI;
-    public bool isOccupied;
 
     [Header("Event Channels")]
     [SerializeField] EventInventorySlot OnInventoryClickEvent;
 
     [HideInInspector] public string itemName = null;
     [HideInInspector] public int itemQuantity;
+
+    public bool IsOccupied
+    {
+        get
+        {
+            if (UI == null || itemName == null || itemQuantity == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

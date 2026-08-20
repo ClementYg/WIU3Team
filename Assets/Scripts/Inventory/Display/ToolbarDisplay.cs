@@ -30,6 +30,19 @@ public class ToolbarDisplay : RowDisplay
     // To track the index of the selected slot
     int selectedSlotIndex = 0;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // Parent the selection box
+        redSelectionSlot.rectTransform.SetParent(
+            toolbar.slots[selectedSlotIndex].slotRectTransform, false
+        );
+
+        Vector3 newPos = redSelectionSlot.rectTransform.localPosition;
+        newPos = new Vector3(0f, 0f, 0f);
+        redSelectionSlot.rectTransform.localPosition = newPos;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -50,7 +63,7 @@ public class ToolbarDisplay : RowDisplay
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
-            if (toolbar.slots[i].isOccupied && toolbar.slots[i].itemName == itemName)
+            if (toolbar.slots[i].IsOccupied && toolbar.slots[i].itemName == itemName)
             {
                 toolbar.RemoveItem(i);
                 return true;
@@ -65,7 +78,7 @@ public class ToolbarDisplay : RowDisplay
         // Check if the item exists in the toolbar
         for (int i = 0; i < toolbar.slots.Count; ++i)
         {
-            if (toolbar.slots[i].isOccupied && toolbar.slots[i].itemName == itemName)
+            if (toolbar.slots[i].IsOccupied && toolbar.slots[i].itemName == itemName)
             {
                 InventorySlot toEmpty = toolbar.slots[i];
                 toolbar.EmptySlot(ref toEmpty);
