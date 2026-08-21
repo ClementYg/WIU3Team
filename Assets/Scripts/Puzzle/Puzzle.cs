@@ -9,7 +9,7 @@ public abstract class Puzzle : MonoBehaviour
     [Header("Event Channels")]
     [SerializeField] protected EventVoid OnPuzzleFinishEvent;
     [SerializeField] protected EventVoid OnPuzzleStartEvent;
-    [SerializeField] protected EventVoid OnPuzzleEndEvent;
+    [SerializeField] protected EventVoid OnPuzzleExitEvent;
 
     protected virtual void CompletePuzzle()
     {
@@ -32,6 +32,6 @@ public abstract class Puzzle : MonoBehaviour
         //possibly add a event for onExit
 
         PuzzleManager.Instance.ExitPuzzle();
-        OnPuzzleEndEvent.Raise();
+        OnPuzzleExitEvent.Raise();
     }
 }
