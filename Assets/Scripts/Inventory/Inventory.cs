@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class Inventory : PersistentSingleton<Inventory>
@@ -10,6 +9,10 @@ public class Inventory : PersistentSingleton<Inventory>
     [Header("UI")]
     [SerializeField] InventoryUI invUI;
 
+    [Header("Event Channels")]
+    [SerializeField] EventVoid OnInventoryFullEvent;
+    [SerializeField] EventVoid OnInventoryFreedEvent;
+
     [Header("Testing")]
     [SerializeField] List<ItemInstance> startItems = new();
 
@@ -17,9 +20,6 @@ public class Inventory : PersistentSingleton<Inventory>
     List<ItemInstance> inventoryItems = new();
     public int currInvCapacity => inventoryItems.Count;
     public bool IsInventoryFull => (currInvCapacity >= maxStackCapacity);
-
-    public UnityEvent onInventoryFull;
-    public UnityEvent onInventoryFreed;
 
     protected override void Awake()
     {
@@ -36,7 +36,7 @@ public class Inventory : PersistentSingleton<Inventory>
     {
         if (IsInventoryFull)
         {
-            onInventoryFull?.Invoke();
+            OnInventoryFullEvent.Raise();
             return false;
         }
 
@@ -169,7 +169,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
         if (wasInventoryFull && !IsInventoryFull)
         {
-            onInventoryFreed?.Invoke();
+            OnInventoryFreedEvent?.Raise();
         }
     }
 

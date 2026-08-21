@@ -20,10 +20,14 @@ public class InventoryUI : MonoBehaviour
     ItemInstance carriedItem = null;
     bool isPointerCarryingItem = false;
 
-    private void Awake()
+    private void OnEnable()
     {
-        // Subscribe to event channels
         OnInventoryClickEvent.Subscribe(CheckIsLift);
+    }
+
+    private void OnDisable()
+    {
+        OnInventoryClickEvent.Unsubscribe(CheckIsLift);
     }
 
     // Update is called once per frame
