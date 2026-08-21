@@ -28,6 +28,6 @@ public class TalkInteract : Interactable
             return;
         }
 
-        DialogueManager.Instance.StartDialogue(conversation);
+        DialogueManager.Instance.StartConversation(conversation);
     }
 }

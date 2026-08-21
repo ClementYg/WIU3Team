@@ -1,7 +1,10 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
+[System.Serializable]
 public abstract class CutsceneStep
 {
     public bool blocking = true;
-    public abstract System.Collections.IEnumerator Execute(CutsceneManager ctx);
+    public abstract IEnumerator Execute();
 }

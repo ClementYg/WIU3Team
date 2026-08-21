@@ -26,7 +26,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public bool IsDialogueActive { get; private set; }
 
-    public void StartDialogue(DialogueConversation conversation)
+    public void StartConversation(DialogueConversation conversation)
     {
         if (conversation == null || conversation.GetStartNode() == null)
         {
