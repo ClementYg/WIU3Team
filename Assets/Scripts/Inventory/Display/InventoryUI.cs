@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
-using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -100,6 +99,8 @@ public class InventoryUI : MonoBehaviour
 
     private void CheckIsLift(InventorySlot slotClicked)
     {
+        Debug.Log("InventoryUI: checking is lift");
+
         isPointerCarryingItem = !isPointerCarryingItem;
         if (isPointerCarryingItem)
         {
@@ -113,6 +114,8 @@ public class InventoryUI : MonoBehaviour
 
     private void LiftItem(InventorySlot slotClicked)
     {
+        Debug.Log("InventoryUI: lifting the item");
+
         if (!slotClicked.IsOccupied)
         {
             // Nothing there to lift
@@ -135,6 +138,8 @@ public class InventoryUI : MonoBehaviour
 
     private void PlaceItem(InventorySlot slotClicked)
     {
+        Debug.Log("InventoryUI: placing item");
+
         if (slotClicked.IsOccupied)
         {
             // For now, don't place on an occupied slot

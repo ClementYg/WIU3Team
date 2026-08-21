@@ -37,27 +37,21 @@ public class Inventory : PersistentSingleton<Inventory>
         if (IsInventoryFull)
         {
             onInventoryFull?.Invoke();
-            Debug.Log("Inventory: Max capacity reached.");
             return false;
         }
 
         if (invUI.AddItem(item) == false)
         {
-            Debug.Log("Inventory: UI could not display item.");
             return false;
         }
 
         inventoryItems.Add(item);
-
-        Debug.Log("current capacity: " + currInvCapacity);
 
         return true;
     }
 
     public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
     {
-        Debug.Log("Invntory: using selected item");
-
         if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
         
         ItemInstance selectedItem = selectedSlot.itemDisplayed;
@@ -74,41 +68,25 @@ public class Inventory : PersistentSingleton<Inventory>
         }
 
         // Update inventory and UI
-        bool shouldReduceStack = false;
-        
         if (selectedItem.itemData.hasDurability)
         {
             // Take durability damage
-            Debug.Log("Inventory: item has durability");
             selectedItem.TakeDurabilityDamage(durabilityDamage);
-
             if (selectedItem.IsBroken && selectedItem.itemData.isStackable)
             {
-                shouldReduceStack = true;
+                selectedSlot.ReduceStack(1);
             }
-        }
-        else if (selectedItem.itemData.isStackable)
-        {
-            // Reduce the stack
-            Debug.Log("Inventory: item is stackable");
-            shouldReduceStack = true;
         }
         else
         {
-            // This is a singular item, just remove it
-            Debug.Log("Inventory: singular item");
-            RemoveItem(selectedItem);
+            // This item is either stackable or just a singular item, reduce the stack
+            selectedSlot.ReduceStack(1);
         }
 
-        if (shouldReduceStack)
+        // Remove item if it has been used up
+        if (selectedItem.IsFinished)
         {
-            // Reduce the stack
-            selectedSlot.ReduceStack(1);
-            if (selectedItem.IsFinished)
-            {
-                // Remove item if it has been used up
-                RemoveItem(selectedItem);
-            }
+            RemoveItem(selectedItem);
         }
 
         return true;
