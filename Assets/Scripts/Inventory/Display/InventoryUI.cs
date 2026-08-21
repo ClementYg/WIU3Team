@@ -7,39 +7,27 @@ public class InventoryUI : MonoBehaviour
     [Header("Row Displays")]
     // Order the displays by item fill precedence, i.e. When both displays are empty,
     // the preferred display for an item to be added to should be serialized first.
-    [SerializeField] List<RowDisplay> displays = new();
+    [SerializeField] List<InventoryDisplay> displays = new();
 
     [Header("Event Channels")]
     [SerializeField] EventInventorySlot OnInventoryClickEvent;
 
     // For lifting and placing items in the display
     [Header("Carrying Items")]
-    ItemInstance carriedItem = null;
     [SerializeField] GameObject itemToCarry;
     [SerializeField] SlotUI UIToCarry;
+
+    ItemInstance carriedItem = null;
     bool isPointerCarryingItem = false;
 
-    private void Awake()
+    private void OnEnable()
     {
-        // Subscribe to event channels
         OnInventoryClickEvent.Subscribe(CheckIsLift);
+    }
 
-        // Assign an ID to each row
-        int currID = 0;
-        foreach (RowDisplay display in displays)
-        {
-            if (display is ToolbarDisplay tlbDisplay)
-            {
-                tlbDisplay.toolbar.rowID = currID++;
-            }
-            else if (display is InventoryDisplay invDisplay)
-            {
-                foreach (InventoryRow row in invDisplay.rows)
-                {
-                    row.rowID = currID++;
-                }
-            }
-        }
+    private void OnDisable()
+    {
+        OnInventoryClickEvent.Unsubscribe(CheckIsLift);
     }
 
     // Update is called once per frame
@@ -67,9 +55,9 @@ public class InventoryUI : MonoBehaviour
 
     public bool AddItem(ItemInstance item)
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
-            if (display.TryAddItem(item)) return true;
+            if (display.AddItem(item)) return true;
         }
 
         return false;
@@ -77,9 +65,9 @@ public class InventoryUI : MonoBehaviour
 
     public bool RemoveItem(ItemInstance itemName)
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
-            if (display.TryRemoveItem(itemName)) return true;
+            if (display.RemoveItem(itemName)) return true;
         }
 
         return false;
@@ -87,28 +75,31 @@ public class InventoryUI : MonoBehaviour
 
     public bool RemoveStack(ItemInstance itemName)
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
-            if (display.TryRemoveStack(itemName)) return true;
+            if (display.RemoveStack(itemName)) return true;
         }
 
         return false;
     }
 
-    public string GetSelectedItemName()
+    public InventorySlot GetSelectedSlot()
     {
-        foreach (RowDisplay display in displays)
+        foreach (InventoryDisplay display in displays)
         {
             if (display is ToolbarDisplay tlbDisplay)
             {
-                if (tlbDisplay.TryGetSelectedItemName(out string itemName))
-                {
-                    return itemName;
-                }
+                return tlbDisplay.GetSelectedSlot();
             }
         }
 
         return null;
+    }
+
+    public string GetSelectedItemName()
+    {
+        InventorySlot selectedSlot = GetSelectedSlot();
+        return selectedSlot.itemDisplayed.itemData.itemName;
     }
 
     private void CheckIsLift(InventorySlot slotClicked)
@@ -133,16 +124,20 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        UIToCarry.itemImage.sprite = slotClicked.UI.itemImage.sprite;
-        UIToCarry.itemImage.enabled = true;
-        UIToCarry.itemImage.transform.SetParent(itemToCarry.transform);
+        // Set the UI to carry
+        UIToCarry.SetUI(
+            itemToCarry.transform,
+            slotClicked.UI.itemImage.sprite, slotClicked.UI.quantityText.text,
+            true
+        );
 
-        UIToCarry.quantityText.text = slotClicked.UI.quantityText.text;
-        UIToCarry.quantityText.enabled = true;
-        UIToCarry.quantityText.transform.SetParent(itemToCarry.transform);
-
+        // Clear the slot clicked UI
         slotClicked.ClearUI();
+
+        // Set the carried item
         carriedItem = slotClicked.itemDisplayed;
+
+        // Visually remove the stack
         RemoveStack(slotClicked.itemDisplayed);
     }
 
@@ -155,11 +150,15 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
+        // Set the slot clicked back
         slotClicked.SetUI(UIToCarry.itemImage.sprite, int.Parse(UIToCarry.quantityText.text));
+        slotClicked.itemDisplayed = carriedItem;
 
+        // Set the UI to carry
         UIToCarry.itemImage.enabled = false;
         UIToCarry.quantityText.enabled = false;
-        slotClicked.itemDisplayed = carriedItem;
+
+        // Set the carried item
         carriedItem = null;
     }
 
@@ -170,17 +169,24 @@ public class InventoryUI : MonoBehaviour
         displays.Clear();
 
         GameObject canvas = GameObject.Find("Inventory Canvas");
+        InventoryDisplay[] compDisplays = canvas.transform.GetComponents<InventoryDisplay>();
 
-        // Add the toolbar display first, it gets item fill precedence
-        if (canvas.transform.TryGetComponent<ToolbarDisplay>(out ToolbarDisplay tlbDisplay))
+        // Look for the toolbar display and add it first
+        foreach (InventoryDisplay display in compDisplays)
         {
-            displays.Add(tlbDisplay);
+            if (display is ToolbarDisplay tlbDisplay)
+            {
+                displays.Add(tlbDisplay);
+            }
         }
-        
-        // Add the inventory display
-        if (canvas.transform.TryGetComponent<InventoryDisplay>(out InventoryDisplay invDisplay))
+
+        // Add the rest of the inventory displays
+        foreach (InventoryDisplay display in compDisplays)
         {
-            displays.Add(invDisplay);
+            if (display is not ToolbarDisplay)
+            {
+                displays.Add(display);
+            }
         }
     }
 
