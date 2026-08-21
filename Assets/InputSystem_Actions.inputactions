@@ -75,6 +75,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "f8d8eac2-cdbc-4d67-924c-f7a116bd17ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -256,12 +266,12 @@
                 },
                 {
                     "name": "",
-                    "id": "70ae5a5b-152d-4c28-bd2e-cbbbbda49ccf",
-                    "path": "<Keyboard>/e",
+                    "id": "f486c324-bf05-4d91-9650-26995bd14142",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Toggle Inventory Display",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
