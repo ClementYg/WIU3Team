@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ItemInteract : Interactable
 {
     [Header("Dependencies")]
     [SerializeField] private ItemInstance item;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private ComponentCache playerCache;
     
     protected override void Start()
     {
@@ -24,14 +24,11 @@ public class ItemInteract : Interactable
     
     public override void Interact()
     {
-        if (player != null)
-        {
-            if (player.TryGetComponent<ItemPickUp>(out ItemPickUp itemPickup))
-            {
-                if (itemPickup == null || itemPickup.PickUp(item) == false) return;
+        if (player == null) return;
 
-                Destroy(gameObject);
-            }
-        }
+        ItemPickup itmPickup = playerCache.Get<ItemPickup>();
+        if (itmPickup == null || itmPickup.PickUp(item) == false) return;
+
+        Destroy(gameObject);
     }
 }

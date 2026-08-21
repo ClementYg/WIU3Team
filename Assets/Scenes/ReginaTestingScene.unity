@@ -583,6 +583,7 @@ MonoBehaviour:
     currentDurability: 0
     stackCount: 0
   inventory: {fileID: 1185062483}
+  playerCache: {fileID: 1425624243}
 --- !u!1 &200728336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &506328713
 Transform:
   m_ObjectHideFlags: 0
@@ -2804,8 +2805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74213c4ae726bc54eb8fd5e680765746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  maxStackCapacity: 36
   invUI: {fileID: 1185062484}
+  maxStackCapacity: 36
   OnInventoryFullEvent: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
   OnInventoryFreedEvent: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
   startItems: []
@@ -3459,25 +3460,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1234244120}
-    m_ColliderPaths:
-    - - X: 90000000
-        Y: -48437500
-      - X: 90000000
-        Y: -31562500
-      - X: 88437504
-        Y: -30000000
-      - X: -88437504
-        Y: -30000000
-      - X: -90000000
-        Y: -31562500
-      - X: -90000000
-        Y: -48437500
-      - X: -88437504
-        Y: -50000000
-      - X: 88437504
-        Y: -50000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 8.8437395, y: -5}
@@ -3505,7 +3488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorChannel
   rndrr: {fileID: 1234244117}
-  clr: {r: 1, g: 1, b: 1, a: 1}
+  clr: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
 --- !u!1 &1268938619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,6 +4103,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 822732352266489706, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
   m_PrefabInstance: {fileID: 1595124037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425624243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 629543656942445020, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+  m_PrefabInstance: {fileID: 1595124037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425624236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c957692b55d557b4784547d8a889b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComponentCache
 --- !u!1 &1435673667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,6 +4301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
   inventory: {fileID: 1185062483}
+  cache: {fileID: 0}
 --- !u!1 &1464479652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4632551269417360609, guid: 56fe9825b4e930d40b820d26f566200f, type: 3}
@@ -4603,22 +4598,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3061893275085992808, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: pastContainer
+      value: 
+      objectReference: {fileID: 506328712}
+    - target: {fileID: 3061893275085992808, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: presentContainer
+      value: 
+      objectReference: {fileID: 1971531037}
     - target: {fileID: 7354857566738239595, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1185062483}
-    - target: {fileID: 7354857566738239595, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: tlbDisplay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: OnInventoryFullEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
-    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: OnInventoryFreedEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
     - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.765358
@@ -4808,6 +4799,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675088538}
   m_CullTransparentMesh: 1
+--- !u!114 &1693179418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7269100811187229650, guid: aeefb1771e95c8044876db349d4f07bb, type: 3}
+  m_PrefabInstance: {fileID: 1501752113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
 --- !u!1 &1698522976
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,6 +5107,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1846429559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7269100811187229650, guid: aeefb1771e95c8044876db349d4f07bb, type: 3}
+  m_PrefabInstance: {fileID: 901206767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
 --- !u!1 &1923074819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5227,8 +5240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolbarDisplay
   rows:
-  - {fileID: 0}
-  slctnSlot: {fileID: 0}
+  - {fileID: 1846429559}
+  slctnSlot: {fileID: 1268938621}
 --- !u!114 &1923074826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,7 +5300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryDisplay
   rows:
   - {fileID: 5678476906139975931}
-  - {fileID: 0}
+  - {fileID: 1693179418}
 --- !u!1 &1938188159
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,7 +5504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1971531038
 Transform:
   m_ObjectHideFlags: 0
@@ -5785,7 +5798,25 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1444447311877244088}
+    m_ColliderPaths:
+    - - X: 90000000
+        Y: -48437500
+      - X: 90000000
+        Y: -31562500
+      - X: 88437504
+        Y: -30000000
+      - X: -88437504
+        Y: -30000000
+      - X: -90000000
+        Y: -31562500
+      - X: -90000000
+        Y: -48437500
+      - X: -88437504
+        Y: -50000000
+      - X: 88437504
+        Y: -50000000
   m_CompositePaths:
     m_Paths:
     - - {x: 8.8437395, y: -5}

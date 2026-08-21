@@ -4,16 +4,14 @@ using System.Collections.Generic;
 public class Inventory : PersistentSingleton<Inventory>
 {
     [Header("Inventory")]
-    [SerializeField] int maxStackCapacity = 36;
-
-    [Header("UI")]
     [SerializeField] InventoryUI invUI;
+    [SerializeField] int maxStackCapacity = 36;
 
     [Header("Event Channels")]
     [SerializeField] EventVoid OnInventoryFullEvent;
     [SerializeField] EventVoid OnInventoryFreedEvent;
 
-    [Header("Testing")]
+    [Header("Testing")] // This is broken, avoid using it for now
     [SerializeField] List<ItemInstance> startItems = new();
 
     // Inventory
@@ -50,16 +48,15 @@ public class Inventory : PersistentSingleton<Inventory>
         return true;
     }
 
-    public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
+    public bool UseSelectedItem(GameObject user, ComponentCache userCache, int durabilityDamage = 0)
     {
         if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
         
+        // Get and use the item
         ItemInstance selectedItem = selectedSlot.itemDisplayed;
-
-        // Use the item
         if (selectedItem.itemEffect != null)
         {
-            selectedItem.itemEffect.Use(user);
+            selectedItem.itemEffect.Use(user, userCache);
         }
         else
         {
@@ -77,7 +74,7 @@ public class Inventory : PersistentSingleton<Inventory>
                 selectedSlot.ReduceStack(1);
             }
         }
-        else
+        else if (selectedItem.itemData.isConsumable)
         {
             // This item is either stackable or just a singular item, reduce the stack
             selectedSlot.ReduceStack(1);
