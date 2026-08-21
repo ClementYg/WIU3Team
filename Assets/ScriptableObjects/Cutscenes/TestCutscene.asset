@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestCutscene
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
-  - rid: 175680448312115467
   - rid: 175680448312115469
+  - rid: 175680448312115467
   - rid: 175680448312115459
   references:
     version: 2
