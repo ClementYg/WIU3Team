@@ -18,6 +18,6 @@ public class ColorChannel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mtrl.SetColor("_MainColor", clr);
+        mtrl.color = clr;
     }
 }
