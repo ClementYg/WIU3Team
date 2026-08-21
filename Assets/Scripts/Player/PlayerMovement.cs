@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Event Channels")]
     [SerializeField] private EventAudioClip OnSFXRequestEvent;
     [SerializeField] private EventFloatFloat OnSpeedBoostEvent;
+    [SerializeField] private EventVoid OnInventoryFullEvent;
+    [SerializeField] private EventVoid OnInventoryFreedEvent;
     private Coroutine speedBoostRoutine;
 
     [Header("Movement Attributes")]
@@ -72,11 +74,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         OnSpeedBoostEvent.Subscribe(OnSpeedBoost);
+        OnInventoryFullEvent.Subscribe(DisableMagnet);
+        OnInventoryFreedEvent.Subscribe(EnableMagnet);
     }
 
     private void OnDisable()
     {
         OnSpeedBoostEvent.Unsubscribe(OnSpeedBoost);
+        OnInventoryFullEvent.Unsubscribe(DisableMagnet);
+        OnInventoryFreedEvent.Unsubscribe(EnableMagnet);
     }
 
     private void Start()
@@ -282,12 +288,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsWallSliding", isWallSliding);
     }
 
-    public void EnableItemCollector()
+    public void EnableMagnet()
     {
         magnet.enabled = true;
     }
 
-    public void DisableItemCollector()
+    public void DisableMagnet()
     {
         magnet.enabled = false;
     }

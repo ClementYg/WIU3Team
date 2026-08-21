@@ -795,6 +795,7 @@ MonoBehaviour:
   textContent: 
   fontSize: 0
   item:
+    itemID: 0
     itemData: {fileID: 0}
     itemEffect: {fileID: 0}
     currentDurability: 0
@@ -2812,41 +2813,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   maxStackCapacity: 36
   invUI: {fileID: 1185062484}
-  startItems:
-  - itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
-    itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
-    currentDurability: 0
-    stackCount: 10
-  onInventoryFull:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1595124042}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: DisableItemCollector
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onInventoryFreed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1595124042}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: EnableItemCollector
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  OnInventoryFullEvent: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
+  OnInventoryFreedEvent: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
+  startItems: []
 --- !u!114 &1185062484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,7 +2959,7 @@ GameObject:
   - component: {fileID: 1397508690}
   - component: {fileID: 1397508687}
   m_Layer: 3
-  m_Name: Test Item
+  m_Name: Test Item Pick Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3083,6 +3052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   item:
+    itemID: 0
     itemData: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 0
@@ -3845,6 +3815,14 @@ PrefabInstance:
       propertyPath: tlbDisplay
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: OnInventoryFullEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
+    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: OnInventoryFreedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
     - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.765358
@@ -3890,17 +3868,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
---- !u!114 &1595124042 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-  m_PrefabInstance: {fileID: 1595124037}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425624236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce631ef10429f6489f73ee24d3c8914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!114 &1627151451 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2007740924809462493, guid: 56fe9825b4e930d40b820d26f566200f, type: 3}

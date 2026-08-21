@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PuzzleData", menuName = "Scriptable Objects/Puzzles/PuzzleData")]
+[CreateAssetMenu(fileName = "PuzzleData", menuName = "ScriptableObjects/Puzzles/PuzzleData")]
 public class PuzzleData : ScriptableObject
 {
     [Header("Identity")]
