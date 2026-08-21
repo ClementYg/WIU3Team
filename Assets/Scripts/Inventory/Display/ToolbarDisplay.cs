@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class ToolbarDisplay : InventoryDisplay
 {
+    // Store a reference to the red selection slot
+    [SerializeField] SelectionSlot slctnSlot;
+
+    // Store the selected slot index
+    int selectedSlotIndex = 0;
+
     // Keep a list of all the keybinds that will be used to select a box in the toolbar
     readonly Key[] toolbarKeys =
     {
@@ -21,12 +26,6 @@ public class ToolbarDisplay : InventoryDisplay
         Key.Equals
     };
 
-    // Store a reference to the red selection slot
-    [SerializeField] Image redSelectionSlot;
-
-    // To track the index of the selected slot
-    int selectedSlotIndex = 0;
-
     private void Awake()
     {
         // Check if the toolbar display has more than one inventory row
@@ -36,8 +35,8 @@ public class ToolbarDisplay : InventoryDisplay
             return;
         }
 
-        // Move the selection slot accordingly
-        MoveSelectionSlot(rows[0].slots[selectedSlotIndex].slotRectTransform);
+        // At the start, parent the selection to the first slot
+        slctnSlot.MoveSelectionSlot(rows[0].slots[0]);
     }
 
     // Update is called once per frame
@@ -46,16 +45,9 @@ public class ToolbarDisplay : InventoryDisplay
         UpdateSlotSelection();
     }
 
-    public bool TryGetSelectedItemName(out string itemName)
+    public InventorySlot GetSelectedSlot()
     {
-        if (rows[0].slots[selectedSlotIndex].itemDisplayed == null)
-        {
-            itemName = null;
-            return false;
-        }
-
-        itemName = rows[0].slots[selectedSlotIndex].itemDisplayed.itemData.itemName;
-        return true;
+        return slctnSlot.SelectedSlot;
     }
 
     private void UpdateSlotSelection()
@@ -75,7 +67,6 @@ public class ToolbarDisplay : InventoryDisplay
         {
             // Scrolled up
             if (selectedSlotIndex < rows[0].slots.Count - 1) ++selectedSlotIndex;
-
         }
         else if (mouseScroll.y < 0f)
         {
@@ -84,28 +75,25 @@ public class ToolbarDisplay : InventoryDisplay
         }
 
         // Move the selection slot accordingly
-        MoveSelectionSlot(rows[0].slots[selectedSlotIndex].slotRectTransform);
-    }
-
-    private void MoveSelectionSlot(Transform newParent)
-    {
-        redSelectionSlot.rectTransform.SetParent(newParent, false);
-
-        Vector3 newPos = redSelectionSlot.rectTransform.localPosition;
-        newPos = new Vector3(0f, 0f, 0f);
-        redSelectionSlot.rectTransform.localPosition = newPos;
+        slctnSlot.MoveSelectionSlot(rows[0].slots[selectedSlotIndex]);
     }
 
 #if UNITY_EDITOR
-    [ContextMenu("Find Toolbar Row")]
-    protected void FindToolbarRow()
+    [ContextMenu("Find Toolbar References")]
+    protected void FindToolbarReferences()
     {
-        rows.Clear();
-
         Transform rowTransform = transform.Find("Toolbar Row");
-        InventoryRow newRow = rowTransform.GetComponent<InventoryRow>();
-        
-        rows.Add(newRow);
+
+        // Add the inventory row
+        rows.Clear();
+        InventoryRow tlbRow = rowTransform.GetComponent<InventoryRow>();
+        rows.Add(tlbRow);
+
+        // Get the selection slot
+        slctnSlot = null;
+        Transform slotTransform = rowTransform.Find("Selection Slot");
+        SelectionSlot slotComp = slotTransform.GetComponent<SelectionSlot>();
+        slctnSlot = slotComp;
     }
 #endif
 }

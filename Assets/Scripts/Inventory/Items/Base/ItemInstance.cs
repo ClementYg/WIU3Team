@@ -12,9 +12,6 @@ public class ItemInstance
     //is not one time use and no more durability
     public bool isBroken => itemData.hasDurability && currentDurability <= 0;
 
-    // Note to Clement: This was added by Regina
-    [HideInInspector] public InventorySlot slotAttached;
-
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
     {
         this.itemData = itemData;

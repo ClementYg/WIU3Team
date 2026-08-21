@@ -93,20 +93,23 @@ public class InventoryUI : MonoBehaviour
         return slot;
     }
 
-    public string GetSelectedItemName()
+    public InventorySlot GetSelectedSlot()
     {
         foreach (InventoryDisplay display in displays)
         {
             if (display is ToolbarDisplay tlbDisplay)
             {
-                if (tlbDisplay.TryGetSelectedItemName(out string itemName))
-                {
-                    return itemName;
-                }
+                return tlbDisplay.GetSelectedSlot();
             }
         }
 
         return null;
+    }
+
+    public string GetSelectedItemName()
+    {
+        InventorySlot selectedSlot = GetSelectedSlot();
+        return selectedSlot.itemDisplayed.itemData.itemName;
     }
 
     private void CheckIsLift(InventorySlot slotClicked)

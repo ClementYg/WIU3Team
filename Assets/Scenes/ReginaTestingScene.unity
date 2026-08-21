@@ -799,7 +799,6 @@ MonoBehaviour:
     itemEffect: {fileID: 0}
     currentDurability: 0
     stackCount: 0
-    slotAttached: {fileID: 0}
   inventory: {fileID: 1185062483}
 --- !u!1 &200728336
 GameObject:
@@ -2819,7 +2818,6 @@ MonoBehaviour:
       itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
       currentDurability: 0
       stackCount: 1
-      slotAttached: {fileID: 0}
     numberToAdd: 1
   onInventoryFull:
     m_PersistentCalls:
@@ -3091,7 +3089,6 @@ MonoBehaviour:
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 0
     stackCount: 20
-    slotAttached: {fileID: 0}
 --- !u!50 &1397508688
 Rigidbody2D:
   serializedVersion: 5
@@ -3372,8 +3369,9 @@ GameObject:
   - component: {fileID: 1425947762}
   - component: {fileID: 1425947764}
   - component: {fileID: 1425947763}
+  - component: {fileID: 1425947765}
   m_Layer: 5
-  m_Name: Red Selection Slot
+  m_Name: Selection Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3436,6 +3434,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425947761}
   m_CullTransparentMesh: 1
+--- !u!114 &1425947765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425947761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1929bbbed69e2d74d952874467285bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectionSlot
+  selectionImage: {fileID: 1425947763}
 --- !u!1 &1435673667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,7 +4255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolbarDisplay
   rows:
   - {fileID: 82983098}
-  redSelectionSlot: {fileID: 1425947763}
+  slctnSlot: {fileID: 1425947765}
 --- !u!114 &1923074826
 MonoBehaviour:
   m_ObjectHideFlags: 0

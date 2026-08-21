@@ -53,67 +53,54 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
     {
-        // Get the name of the selected item
-        string selectedItemName = invUI.GetSelectedItemName();
-        if (selectedItemName == null)
-        {
-            Debug.LogWarning("Failed to use selected item: Invalid item name.");
-            return false;
-        }
-
-        // Get the item instance
-        ItemInstance item = GetItem(selectedItemName);
-        if (item == null)
-        {
-            Debug.LogWarning("Failed to use selected item: ItemInstance was null.");
-            return false;
-        }
+        if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
+        
+        ItemInstance selectedItem = selectedSlot.itemDisplayed;
 
         // Use the item
-        if (item.itemEffect == null)
+        if (selectedItem.itemEffect != null)
         {
-            Debug.LogWarning("Failed to use selected item: ItemEffect was null.");
+            selectedItem.itemEffect.Use(user);
+        }
+        else
+        {
+            Debug.LogWarning("Inventory: Failed to use selected item.");
             return false;
         }
-
-        item.itemEffect.Use(user);
 
         // Update inventory and UI
         bool shouldReduceStack = false;
         
-        if (item.itemData.hasDurability)
+        if (selectedItem.itemData.hasDurability)
         {
-            item.TakeDurabilityDamage(durabilityDamage);
+            selectedItem.TakeDurabilityDamage(durabilityDamage);
 
-            if (item.isBroken && item.itemData.isStackable)
+            if (selectedItem.isBroken && selectedItem.itemData.isStackable)
             {
                 shouldReduceStack = true;
             }
         }
-        else if (item.itemData.isStackable)
+        else if (selectedItem.itemData.isStackable)
         {
             shouldReduceStack = true;
         }
         else
         {
-            RemoveItem(item);
+            RemoveItem(selectedItem);
         }
 
         if (shouldReduceStack)
         {
-            --item.stackCount;
-            if (item.stackCount <= 0)
+            --selectedItem.stackCount;
+            if (selectedItem.stackCount <= 0)
             {
                 // Item has been used up, remove it
-                RemoveItem(item);
+                RemoveItem(selectedItem);
             }
             else
             {
-                Debug.Log("item name: " + item.itemData.itemName);
-                Debug.Log("slot attached: " + item.slotAttached);
-
                 // Update the quantity text
-                invUI.UpdateSlotUI(item.slotAttached.UI, item.stackCount.ToString());
+                invUI.UpdateSlotUI(selectedSlot.UI, selectedItem.stackCount.ToString());
             }
         }
 
@@ -210,5 +197,24 @@ public class Inventory : PersistentSingleton<Inventory>
     private void RemoveItem(string itemName)
     {
         RemoveItem(GetItem(itemName));
+    }
+
+    private bool TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)
+    {
+        // Get the selected slot
+        selectedSlot = invUI.GetSelectedSlot();
+        if (selectedSlot != null)
+        {
+            // Check if the slot is occupied
+            if (selectedSlot.IsOccupied)
+            {
+                return true;
+            }
+        }
+
+        Debug.LogWarning("Inventory: Failed to get selected occupied slot.");
+
+        selectedSlot = null;
+        return false;
     }
 }

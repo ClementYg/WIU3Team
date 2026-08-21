@@ -31,8 +31,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public void SetSlot(ItemInstance item)
     {
         itemDisplayed = item;
-        itemDisplayed.slotAttached = this;
-
         SetUI(item.itemData.itemImage, item.stackCount);
     }
 
