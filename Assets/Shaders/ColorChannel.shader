@@ -1,4 +1,4 @@
-Shader "Unlit/TestPastCentralHub"
+Shader "Unlit/ColorChannel"
 {
     Properties
     {
