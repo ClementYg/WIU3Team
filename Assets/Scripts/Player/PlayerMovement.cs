@@ -75,6 +75,9 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpLockTimer;
 
     [Header("Crouching")]
+    [SerializeField] private Transform celingCheck;
+    [SerializeField] private float celingCheckDistance = 0.3f;
+    [SerializeField] private LayerMask celingLayer;
     [SerializeField] private float crouchForce;
     [SerializeField] private float maxCrouchingSpeed;
     [SerializeField] private float maxSlidingSpeed;
@@ -126,6 +129,15 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         moveInput = InputSystem.actions["Move"].ReadValue<Vector2>();
+
+        if (isGrounded && !IsDashing && !isSliding)
+        {
+            rb.linearDamping = 5;
+        }
+        else
+        {
+            rb.linearDamping = 0;
+        }
 
         if (wallJumpLockTimer <= 0f && !isWallSliding)
         {
@@ -210,7 +222,8 @@ public class PlayerMovement : MonoBehaviour
             isCrouched = true;
             isDashing = false;
         }
-        if (!InputSystem.actions["Crouch"].IsPressed() && !isSliding)
+        Debug.DrawRay(celingCheck.position, Vector2.up, color:Color.white,celingCheckDistance);
+        if (!InputSystem.actions["Crouch"].IsPressed() && !isSliding && !Physics2D.Raycast(celingCheck.position, Vector2.up, celingCheckDistance, celingLayer))
         {
             isCrouched = false;
         }
@@ -254,12 +267,9 @@ public class PlayerMovement : MonoBehaviour
             if (isCrouched)
             {
                 float control = isGrounded ? 1f : airControlMult;
-                moveForce = walkForce;
                 maxSpeed = isSliding ? maxSlidingSpeed : maxCrouchingSpeed;
                 rb.AddForce(Vector2.right * moveInput * crouchForce * control);
                 float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
-
-                Debug.Log(rb.linearVelocityX);
                 rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
             }
             else if (!isDashing)
@@ -268,7 +278,6 @@ public class PlayerMovement : MonoBehaviour
                 moveForce = isSprinting ? sprintForce : walkForce;
                 maxSpeed = isSprinting ? maxSprintSpeed : maxWalkSpeed;
                 rb.AddForce(Vector2.right * moveInput * moveForce * control);
-
                 float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
                 rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
             }
@@ -290,6 +299,7 @@ public class PlayerMovement : MonoBehaviour
     private void WallJump()
     {
         rb.linearVelocity = Vector2.zero;
+        Debug.Log("walljumping");
         rb.AddForce(new Vector2(-wallDirection * wallJumpForceX, wallJumpForceY), ForceMode2D.Impulse);
         wallJumpLockTimer = wallJumpLockDuration;
         sprite.flipX = wallDirection > 0;
