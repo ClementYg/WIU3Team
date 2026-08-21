@@ -1,24 +1,34 @@
-using System.Globalization;
 using TMPro;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class EnterCodePuzzle : ScreenPuzzle
+public class EnterCodePuzzle : ScreenPuzzle
 {
-    [Header("Code")]
-    [SerializeField] string correctCode = "1234";
-    [SerializeField] TMP_InputField inputCodeField; 
-
-    public void EnterCode()
+    //Note to self, need to make it work with more numbers and can check any 
+    [SerializeField] int[] correctCodes;
+    [SerializeField] NumberScroller[] digits;
+    public void CheckCode()
     {
-        if (inputCodeField.text == correctCode)
+        if (correctCodes.Length != digits.Length)
         {
+            Debug.Log($"(ECP) Number of Correct Codes [{correctCodes.Length}] does not match Number of Digits [{digits.Length}]");
+        }
+
+        int ansCorrect = 0;
+        for (int i = 0; i < digits.Length; ++i)
+        {
+            if (digits[i] != null && digits[i].GetCurrentNumber() == correctCodes[i])
+            {
+                //Entered Correctly
+                ansCorrect++;
+            }
+        }
+
+        if (ansCorrect == correctCodes.Length)
+        {
+            Debug.Log("Correct");
             CompletePuzzle();
-        }
-        else
-        {
-            Debug.Log("[ECP] Incorrect Code\n");
-            inputCodeField.text = ""; //reset input
-        }
+        }    
     }
 }
