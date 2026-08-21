@@ -4,10 +4,12 @@ using UnityEngine.InputSystem;
 public class InputManager : Singleton<InputManager>
 {
     [Header("Event Channels")]
+    [SerializeField] private EventBool onToggledPauseEvent;
     [SerializeField] private EventBool onToggledInventoryEvent;
     [SerializeField] private EventVoid onDialogueStartedEvent;
     [SerializeField] private EventVoid onDialogueEndedEvent;
 
+    private bool toggledPause = false;
     private bool toggledInventory = false;
 
     private void OnEnable()
@@ -54,6 +56,22 @@ public class InputManager : Singleton<InputManager>
             toggledInventory = !toggledInventory;
             onToggledInventoryEvent.Raise(toggledInventory);
             if (toggledInventory)
+            {
+                InputSystem.actions.FindActionMap("Player").Disable();
+                InputSystem.actions.FindActionMap("UI").Enable();
+            }
+            else
+            {
+                InputSystem.actions.FindActionMap("Player").Enable();
+                InputSystem.actions.FindActionMap("UI").Disable();
+            }
+        }
+
+        if (InputSystem.actions["TogglePause"].WasPressedThisFrame())
+        {
+            toggledPause = !toggledPause;
+            onToggledPauseEvent.Raise(toggledPause);
+            if (toggledPause)
             {
                 InputSystem.actions.FindActionMap("Player").Disable();
                 InputSystem.actions.FindActionMap("UI").Enable();
