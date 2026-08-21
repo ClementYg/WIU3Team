@@ -3463,25 +3463,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 249513344228692029, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 822732352266489706, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: celingCheck
-      value: 
-      objectReference: {fileID: 1680933482}
-    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: celingLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414687179725506691, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: celingCheckDistance
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3677,11 +3661,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1680933482 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 249513344228692029, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-  m_PrefabInstance: {fileID: 264998700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865557783
 GameObject:
   m_ObjectHideFlags: 0

@@ -77,16 +77,6 @@
                     "priority": 0
                 },
                 {
-                    "name": "ToggleInventory",
-                    "type": "Button",
-                    "id": "ec725986-f6e7-4722-ac70-a0bf2a97f59e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
                     "name": "Crouch",
                     "type": "Button",
                     "id": "f8d8eac2-cdbc-4d67-924c-f7a116bd17ad",
@@ -271,28 +261,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4ef352eb-f517-4372-9556-b7bebd0cec53",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleInventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f486c324-bf05-4d91-9650-26995bd14142",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
