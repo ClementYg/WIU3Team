@@ -287,12 +287,12 @@
                 },
                 {
                     "name": "",
-                    "id": "70ae5a5b-152d-4c28-bd2e-cbbbbda49ccf",
-                    "path": "<Keyboard>/e",
+                    "id": "f486c324-bf05-4d91-9650-26995bd14142",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Toggle Inventory Display",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -408,6 +408,16 @@
                     "type": "PassThrough",
                     "id": "9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "LiftPlaceInventoryItem",
+                    "type": "Button",
+                    "id": "410d0cfa-7ec6-404a-a645-987182194841",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false,
@@ -832,6 +842,17 @@
                     "action": "TrackedDeviceOrientation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cbca94bb-79be-4094-93be-f3d6ad53a09d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LiftPlaceInventoryItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -854,11 +875,40 @@
                 {
                     "name": "",
                     "id": "23b3e8d5-0920-470b-bbe4-c011b437e64c",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ToggleInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "fcc579cd-b98b-4c98-9861-c3b51440d694",
+            "actions": [
+                {
+                    "name": "Advance",
+                    "type": "Button",
+                    "id": "5a5ae73b-695e-4130-ba23-cbdda105ca0d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "09d041a9-7644-4986-a9f2-220bcb09d500",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Advance",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

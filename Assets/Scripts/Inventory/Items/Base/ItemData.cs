@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/Inventory/ItemData")]
+[CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/Inventory/ItemData")]
 public class ItemData : ScriptableObject
 {
     [Header("Identifiers")]
@@ -57,6 +57,10 @@ public class ItemData : ScriptableObject
         if (isStackable && maxStackSize <= 1)
         {
             Debug.LogWarning($"[{name}] isStackable is true but maxStackSize is {maxStackSize}.", this);
+        }
+        if (maxStackSize > 1 && !isStackable)
+        {
+            Debug.LogWarning($"[{name}] maxStackSize is {maxStackSize} but isStackable is false", this);
         }
         if (hasDurability && maxDurability <= 0)
         {

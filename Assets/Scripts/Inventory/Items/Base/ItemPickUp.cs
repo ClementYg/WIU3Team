@@ -3,9 +3,8 @@ using UnityEngine.InputSystem;
 
 public class ItemPickUp : MonoBehaviour
 {
-    [Header("Dependencies")]
+    [Header("Inventory")]
     [SerializeField] Inventory inventory;
-    [SerializeField] ToolbarDisplay tlbDisplay;
 
     // Update is called once per frame
     void Update()

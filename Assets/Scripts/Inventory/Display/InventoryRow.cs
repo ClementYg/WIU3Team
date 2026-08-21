@@ -1,22 +1,23 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Assertions.Must;
 
 public class InventoryRow : MonoBehaviour
 {
-    [Header("Testing")]
-    [SerializeField] bool isCapacityFullAtStart = false;
-    [SerializeField] bool isDisplayedAtStart = true;
-
     // Keep a list of all the slots in the row
+    [Header("Inventory Slots")]
     public List<InventorySlot> slots = new();
 
-    bool isDisplaying = true;
+    [Header("Testing")]
+    [SerializeField] bool isCapacityFullAtStart = false;
+
+    [HideInInspector] public int rowID;
+
+    //bool isDisplaying = true;
 
     // Used to track the current capacity
     public readonly int maxRowCapacity = 12;
-    
+
     public int CurrRowCapacity
     {
         get
@@ -25,7 +26,7 @@ public class InventoryRow : MonoBehaviour
 
             foreach (InventorySlot slot in slots)
             {
-                if (slot.isOccupied) ++capacity;
+                if (slot.IsOccupied) ++capacity;
             }
 
             return capacity;
@@ -36,78 +37,136 @@ public class InventoryRow : MonoBehaviour
 
     private void Awake()
     {
-        if (isCapacityFullAtStart)
-        {
-            foreach (InventorySlot slot in slots)
-            {
-                slot.isOccupied = true;
-            }
-        }
+        //if (isCapacityFullAtStart)
+        //{
+        //    foreach (InventorySlot slot in slots)
+        //    {
+        //        slot.IsOccupied = true;
+        //    }
+        //}
 
-        isDisplaying = isDisplayedAtStart;
-        if (!isDisplaying)
+        // Assign an ID to each slot
+        for (int i = 0; i < slots.Count; ++i)
         {
-            gameObject.SetActive(false);
+            slots[i].slotID = i;
         }
     }
 
     public void AddItem(ItemInstance item)
     {
+        int itemsToAdd = item.stackCount;
+
+        if (item.itemData.isStackable)
+        {
+            for (int i = 0; i < slots.Count && itemsToAdd > 0; ++i)
+            {
+                if (slots[i].IsOccupied &&
+                    slots[i].itemDisplayed.itemData.isStackable &&
+                    slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
+                {
+                    InventorySlot stackedSlot = slots[i];
+                    stackedSlot.itemDisplayed.AddStack(itemsToAdd, out int excess);
+                    stackedSlot.UI.quantityText.text =stackedSlot.itemDisplayed.stackCount.ToString();
+                    slots[i] = stackedSlot;
+
+                    itemsToAdd = excess;
+                }
+            }
+
+            // Create new stacks for remaining items
+            while (itemsToAdd > 0)
+            {
+                InventorySlot newSlot = null;
+
+                for (int i = 0; i < slots.Count; ++i)
+                {
+                    if (!slots[i].IsOccupied)
+                    {
+                        newSlot = slots[i];
+                        break;
+                    }
+                }
+
+                if (newSlot == null)
+                {
+                    Debug.LogWarning(
+                        $"Inventory full. Remaining: {itemsToAdd}"
+                    );
+
+                    return;
+                }
+
+                int stackAmount = Mathf.Min(itemsToAdd, item.itemData.maxStackSize);
+                newSlot.itemDisplayed =
+                    new ItemInstance(item.itemData, item.itemEffect)
+                    {
+                        currentDurability = item.currentDurability,
+                        stackCount = stackAmount
+                    };
+
+                newSlot.UI.itemImage.sprite = item.itemData.itemImage;
+                newSlot.UI.itemImage.enabled = true;
+                newSlot.UI.quantityText.text = stackAmount.ToString();
+                newSlot.UI.quantityText.enabled = true;
+
+                itemsToAdd -= stackAmount;
+            }
+
+            return;
+        }
         for (int i = 0; i < slots.Count; ++i)
         {
-            if (slots[i].isOccupied && slots[i].itemName == item.itemData.itemName)
-            {
-                // Stack the item, just increment the quantity
-                InventorySlot stackedSlot = slots[i];
+            if (slots[i].IsOccupied) continue;
 
-                ++stackedSlot.itemQuantity;
-                stackedSlot.quantityText.text = stackedSlot.itemQuantity.ToString();
+            InventorySlot newSlot = slots[i];
 
-                slots[i] = stackedSlot;
+            newSlot.itemDisplayed = new ItemInstance(item.itemData, item.itemEffect)
+                {
+                    currentDurability = item.currentDurability,
+                    stackCount = 1
+                };
 
-                return;
-            }
-            else if (!slots[i].isOccupied)
-            {
-                // Display the new item at this unoccupied slot
-                InventorySlot newSlot = slots[i];
+            newSlot.UI.itemImage.sprite = item.itemData.itemImage;
+            newSlot.UI.itemImage.enabled = true;
+            newSlot.UI.quantityText.text = "1";
+            newSlot.UI.quantityText.enabled = true;
 
-                newSlot.itemImage.sprite = item.itemData.itemImage;
-                newSlot.itemImage.enabled = true;
-                newSlot.quantityText.text = "1";
-                newSlot.quantityText.enabled = true;
+            slots[i] = newSlot;
 
-                newSlot.itemName = item.itemData.itemName;
-                newSlot.itemQuantity = 1;
-                newSlot.isOccupied = true;
-
-                slots[i] = newSlot;
-
-                return;
-            }
+            return;
         }
+
+        Debug.LogWarning("Inventory full. Could not add non-stackable item.");
     }
 
-    public void RemoveItem(int itemIndex)
+    public void RemoveItem(int slotIndex)
     {
-        InventorySlot slot = slots[itemIndex];
+        InventorySlot toRemove = slots[slotIndex];
 
-        --slot.itemQuantity;
-        if (slot.itemQuantity <= 0)
+        --toRemove.itemDisplayed.stackCount;
+        if (toRemove.itemDisplayed.stackCount <= 0)
         {
-            // No more of this item, unoccupy the slot
-            slot.itemName = null;
-            slot.itemImage.enabled = false;
-            slot.quantityText.enabled = false;
-            slot.isOccupied = false;
+            EmptySlot(ref toRemove);
         }
         else
         {
             // Just update the text of the slot to display the new quantity
-            slot.quantityText.text = slot.itemQuantity.ToString();
+            toRemove.UI.quantityText.text = toRemove.itemDisplayed.stackCount.ToString();
         }
 
-        slots[itemIndex] = slot;
+        slots[slotIndex] = toRemove;
+    }
+
+    public void EmptySlot(ref InventorySlot toEmpty)
+    {
+        // No more of this item, unoccupy the slot
+        // Empty the reference
+        toEmpty.itemDisplayed = null;
+
+        // Empty the UI
+        SlotUI toEmptyUI = toEmpty.UI;
+        toEmptyUI.itemImage.enabled = false;
+        toEmptyUI.quantityText.enabled = false;
     }
 
 #if UNITY_EDITOR
@@ -116,17 +175,11 @@ public class InventoryRow : MonoBehaviour
     {
         slots.Clear();
 
-        for (int i = 0; i < transform.childCount; ++i)
+        Transform slotParentTransform = transform.Find("Inventory Slots");
+        for (int i = 0; i < slotParentTransform.childCount; ++i)
         {
-            Transform slotTransform = transform.GetChild(i);
-
-            InventorySlot newSlot = new()
-            {
-                slotRectTransform = slotTransform.GetComponent<RectTransform>(),
-                itemImage = slotTransform.GetChild(0).GetComponent<Image>(),
-                quantityText = slotTransform.GetChild(1).GetComponent<TextMeshProUGUI>()
-            };
-
+            Transform slotTransform = slotParentTransform.GetChild(i);
+            InventorySlot newSlot = slotTransform.GetComponent<InventorySlot>();
             slots.Add(newSlot);
         }
     }

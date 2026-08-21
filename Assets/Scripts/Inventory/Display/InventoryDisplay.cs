@@ -2,26 +2,22 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class InventoryDisplay : ItemDisplay
+public class InventoryDisplay : RowDisplay
 {
     // Keep a list of inventory rows
-    [SerializeField] List<InventoryRow> rows = new();
+    [Header("Inventory Rows")]
+    public List<InventoryRow> rows = new();
 
-    bool isDisplaying = false;
+    //bool isDisplaying = false;
 
     // Update is called once per frame
     void Update()
     {
-        bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
-        if (isToggleDisplayPressed)
-        {
-            isDisplaying = !isDisplaying;
-
-            foreach (InventoryRow row in rows)
-            {
-                row.gameObject.SetActive(isDisplaying);
-            }
-        }
+        //bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
+        //if (isToggleDisplayPressed)
+        //{
+        //    ToggleInventoryDisplay();
+        //}
     }
 
     public override bool TryAddItem(ItemInstance item)
@@ -38,16 +34,36 @@ public class InventoryDisplay : ItemDisplay
         return false;
     }
 
-    public override bool TryRemoveItem(string itemName)
+    public override bool TryRemoveItem(ItemInstance itemName)
     {
-        // Check if the item exists in any of the rows
+        // Check if the item exists in any of the rows and remove it if yes
         foreach (InventoryRow row in rows)
         {
             for (int i = 0; i < row.slots.Count; ++i)
             {
-                if (row.slots[i].isOccupied && row.slots[i].itemName == itemName)
+                if (row.slots[i].IsOccupied &&
+                    row.slots[i].itemDisplayed == itemName)
                 {
                     row.RemoveItem(i);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public override bool TryRemoveStack(ItemInstance itemName)
+    {
+        foreach (InventoryRow row in rows)
+        {
+            for (int i = 0; i < row.slots.Count; ++i)
+            {
+                if (row.slots[i].IsOccupied &&
+                    row.slots[i].itemDisplayed == itemName)
+                {
+                    InventorySlot toEmpty = row.slots[i];
+                    row.EmptySlot(ref toEmpty);
                     return true;
                 }
             }
@@ -65,4 +81,30 @@ public class InventoryDisplay : ItemDisplay
 
         return true;
     }
+
+    //private void ToggleInventoryDisplay()
+    //{
+    //    // Toggle the inventory display
+    //    isDisplaying = !isDisplaying;
+
+    //    foreach (InventoryRow row in rows)
+    //    {
+    //        row.gameObject.SetActive(isDisplaying);
+    //    }
+
+    //    // Toggle input action maps
+    //    InputActionMap playerMap = InputSystem.actions.FindActionMap("Player");
+    //    InputActionMap UIMap = InputSystem.actions.FindActionMap("UI");
+
+    //    if (isDisplaying)
+    //    {
+    //        playerMap.Disable();
+    //        UIMap.Enable();
+    //    }
+    //    else
+    //    {
+    //        playerMap.Enable();
+    //        UIMap.Disable();
+    //    }
+    //}
 }

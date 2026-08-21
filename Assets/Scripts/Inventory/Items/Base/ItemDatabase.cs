@@ -5,7 +5,7 @@ using UnityEditor;
 #endif
 
 //create instance, just need one to store all of the items
-[CreateAssetMenu(fileName = "ItemDatabase", menuName = "Scriptable Objects/Inventory/ItemDatabase")]
+[CreateAssetMenu(fileName = "ItemDatabase", menuName = "ScriptableObjects/Inventory/ItemDatabase")]
 public class ItemDatabase : ScriptableObject
 {
     public List<ItemData> allItems = new();
