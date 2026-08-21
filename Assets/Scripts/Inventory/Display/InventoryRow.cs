@@ -48,7 +48,7 @@ public class InventoryRow : MonoBehaviour
             while (amountToAdd > 0)
             {
                 InventorySlot newSlot = null;
-
+                
                 for (int i = 0; i < slots.Count; ++i)
                 {
                     if (!slots[i].IsOccupied)
@@ -67,7 +67,12 @@ public class InventoryRow : MonoBehaviour
                     return;
                 }
 
-                newSlot.SetSlot(item);
+                ItemInstance newItem = new(item.itemData, item.itemEffect)
+                {
+                    stackCount = amountToAdd
+                };
+
+                newSlot.SetSlot(newItem);
 
                 int stackAmount = Mathf.Min(amountToAdd, item.itemData.maxStackSize);
                 amountToAdd -= stackAmount;

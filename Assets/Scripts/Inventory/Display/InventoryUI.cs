@@ -14,9 +14,10 @@ public class InventoryUI : MonoBehaviour
 
     // For lifting and placing items in the display
     [Header("Carrying Items")]
-    ItemInstance carriedItem = null;
     [SerializeField] GameObject itemToCarry;
     [SerializeField] SlotUI UIToCarry;
+
+    ItemInstance carriedItem = null;
     bool isPointerCarryingItem = false;
 
     private void Awake()
@@ -123,16 +124,20 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        UIToCarry.itemImage.sprite = slotClicked.UI.itemImage.sprite;
-        UIToCarry.itemImage.enabled = true;
-        UIToCarry.itemImage.transform.SetParent(itemToCarry.transform);
+        // Set the UI to carry
+        UIToCarry.SetUI(
+            itemToCarry.transform,
+            slotClicked.UI.itemImage.sprite, slotClicked.UI.quantityText.text,
+            true
+        );
 
-        UIToCarry.quantityText.text = slotClicked.UI.quantityText.text;
-        UIToCarry.quantityText.enabled = true;
-        UIToCarry.quantityText.transform.SetParent(itemToCarry.transform);
-
+        // Clear the slot clicked UI
         slotClicked.ClearUI();
+
+        // Set the carried item
         carriedItem = slotClicked.itemDisplayed;
+
+        // Visually remove the stack
         RemoveStack(slotClicked.itemDisplayed);
     }
 
@@ -147,10 +152,13 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
+        // Set the slot clicked UI back
         slotClicked.SetUI(UIToCarry.itemImage.sprite, int.Parse(UIToCarry.quantityText.text));
 
+        // Set the UI to carry
         UIToCarry.itemImage.enabled = false;
         UIToCarry.quantityText.enabled = false;
+
         slotClicked.itemDisplayed = carriedItem;
         carriedItem = null;
     }
