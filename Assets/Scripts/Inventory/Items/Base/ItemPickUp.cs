@@ -12,6 +12,7 @@ public class ItemPickUp : MonoBehaviour
         InputAction interactAction = InputSystem.actions.FindAction("Use");
         if (interactAction.WasPressedThisFrame())
         {
+            Debug.Log("ItemPickUp: detected click");
             if (inventory == null) return;
             inventory.UseSelectedItem(this.gameObject);
         }

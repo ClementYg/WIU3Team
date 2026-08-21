@@ -11,8 +11,9 @@ public class Inventory : PersistentSingleton<Inventory>
     [SerializeField] InventoryUI invUI;
 
     [Header("Testing")]
-    [SerializeField] List<StartItem> startItems = new();
+    [SerializeField] List<ItemInstance> startItems = new();
 
+    // Inventory
     List<ItemInstance> inventoryItems = new();
     public int currInvCapacity => inventoryItems.Count;
     public bool IsInventoryFull => (currInvCapacity >= maxStackCapacity);
@@ -48,11 +49,15 @@ public class Inventory : PersistentSingleton<Inventory>
 
         inventoryItems.Add(item);
 
+        Debug.Log("current capacity: " + currInvCapacity);
+
         return true;
     }
 
     public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
     {
+        Debug.Log("Invntory: using selected item");
+
         if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
         
         ItemInstance selectedItem = selectedSlot.itemDisplayed;
@@ -73,34 +78,36 @@ public class Inventory : PersistentSingleton<Inventory>
         
         if (selectedItem.itemData.hasDurability)
         {
+            // Take durability damage
+            Debug.Log("Inventory: item has durability");
             selectedItem.TakeDurabilityDamage(durabilityDamage);
 
-            if (selectedItem.isBroken && selectedItem.itemData.isStackable)
+            if (selectedItem.IsBroken && selectedItem.itemData.isStackable)
             {
                 shouldReduceStack = true;
             }
         }
         else if (selectedItem.itemData.isStackable)
         {
+            // Reduce the stack
+            Debug.Log("Inventory: item is stackable");
             shouldReduceStack = true;
         }
         else
         {
+            // This is a singular item, just remove it
+            Debug.Log("Inventory: singular item");
             RemoveItem(selectedItem);
         }
 
         if (shouldReduceStack)
         {
-            --selectedItem.stackCount;
-            if (selectedItem.stackCount <= 0)
+            // Reduce the stack
+            selectedSlot.ReduceStack(1);
+            if (selectedItem.IsFinished)
             {
-                // Item has been used up, remove it
+                // Remove item if it has been used up
                 RemoveItem(selectedItem);
-            }
-            else
-            {
-                // Update the quantity text
-                invUI.UpdateSlotUI(selectedSlot.UI, selectedItem.stackCount.ToString());
             }
         }
 
@@ -167,16 +174,10 @@ public class Inventory : PersistentSingleton<Inventory>
     private void SetupTests()
     {
         // Setup the initial testing environment for UI
-        foreach (StartItem item in startItems)
+        foreach (ItemInstance item in startItems)
         {
-            for (int i = 0; i < item.numberToAdd; ++i)
-            {
-                AddItem(item.instance);
-                Debug.Log("add item called");
-            }
+            AddItem(item);
         }
-
-        Debug.Log("current capacity: " + currInvCapacity);
     }
 
     private void RemoveItem(ItemInstance item)

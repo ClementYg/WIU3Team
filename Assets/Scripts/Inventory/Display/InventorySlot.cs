@@ -28,6 +28,20 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         OnInventoryClickEvent.Raise(this);
     }
 
+    public void AddToStack(ref int amountToAdd)
+    {
+        itemDisplayed.AddToStack(amountToAdd, out int excess);
+        UI.quantityText.text = itemDisplayed.stackCount.ToString();
+
+        amountToAdd = excess;
+    }
+
+    public void ReduceStack(int amountToReduce)
+    {
+        itemDisplayed.ReduceStack(amountToReduce);
+        UI.quantityText.text = itemDisplayed.stackCount.ToString();
+    }
+
     public void SetSlot(ItemInstance item)
     {
         itemDisplayed = item;

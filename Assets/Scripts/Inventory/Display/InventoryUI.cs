@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -58,11 +59,6 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public bool UpdateSlotUI(SlotUI toUpdate, string newQuantity)
-    {
-        return false;
-    }
-
     public bool RemoveItem(ItemInstance itemName)
     {
         foreach (InventoryDisplay display in displays)
@@ -81,16 +77,6 @@ public class InventoryUI : MonoBehaviour
         }
 
         return false;
-    }
-
-    private InventorySlot GetSlotByIndex(int displayIndex, int rowIndex, int slotIndex)
-    {
-        InventorySlot slot = null;
-
-        // Get the display
-        InventoryDisplay display = displays[displayIndex];
-
-        return slot;
     }
 
     public InventorySlot GetSelectedSlot()

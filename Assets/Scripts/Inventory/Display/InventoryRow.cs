@@ -29,8 +29,8 @@ public class InventoryRow : MonoBehaviour
 
     public void AddItem(ItemInstance item)
     {
-        int itemsToAdd = item.stackCount;
-        if (itemsToAdd <= 0) return;
+        int amountToAdd = item.stackCount;
+        if (amountToAdd <= 0) return;
         
         if (item.itemData.isStackable)
         {
@@ -40,19 +40,12 @@ public class InventoryRow : MonoBehaviour
                 if (slots[i].IsOccupied &&
                     slots[i].itemDisplayed.itemData.itemName == item.itemData.itemName)
                 {
-                    InventorySlot stackedSlot = slots[i];
-
-                    stackedSlot.itemDisplayed.AddStack(itemsToAdd, out int excess);
-                    stackedSlot.UI.quantityText.text = stackedSlot.itemDisplayed.stackCount.ToString();
-                    
-                    slots[i] = stackedSlot;
-
-                    itemsToAdd = excess;
+                    slots[i].AddToStack(ref amountToAdd);
                 }
             }
 
             // Create new stacks for remaining items
-            while (itemsToAdd > 0)
+            while (amountToAdd > 0)
             {
                 InventorySlot newSlot = null;
 
@@ -68,7 +61,7 @@ public class InventoryRow : MonoBehaviour
                 if (newSlot == null)
                 {
                     Debug.LogWarning(
-                        $"Inventory full. Remaining: {itemsToAdd}"
+                        $"Inventory full. Remaining: {amountToAdd}"
                     );
 
                     return;
@@ -76,8 +69,8 @@ public class InventoryRow : MonoBehaviour
 
                 newSlot.SetSlot(item);
 
-                int stackAmount = Mathf.Min(itemsToAdd, item.itemData.maxStackSize);
-                itemsToAdd -= stackAmount;
+                int stackAmount = Mathf.Min(amountToAdd, item.itemData.maxStackSize);
+                amountToAdd -= stackAmount;
             }
         }
         else

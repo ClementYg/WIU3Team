@@ -10,7 +10,9 @@ public class ItemInstance
     public int currentDurability = 0;
     public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
-    public bool isBroken => itemData.hasDurability && currentDurability <= 0;
+
+    public bool IsBroken => (itemData.hasDurability && currentDurability <= 0);
+    public bool IsFinished => (stackCount <= 0);
 
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
     {
@@ -18,7 +20,7 @@ public class ItemInstance
         this.itemEffect = itemEffect;
     }
 
-    public bool AddStack(int amount, out int extra)
+    public bool AddToStack(int amount, out int extra)
     {
         extra = 0; 
         //if not stackable just remain as is
@@ -32,6 +34,11 @@ public class ItemInstance
         stackCount = total;
         //if more than one full stack, put out the excess in extra so can split into 2 stacks
         return true;
+    }
+
+    public void ReduceStack(int amount)
+    {
+        stackCount -= amount;
     }
 
     //durability functions
