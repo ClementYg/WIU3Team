@@ -18,6 +18,7 @@ public abstract class Interactable : MonoBehaviour
     [Header("Interaction Distance")]
     [SerializeField] private float distance;
     [SerializeField] private bool useDistanceSquared = false;
+    [SerializeField] private LayerMask detectMask;
     protected bool playerInRange = false;
 
     [Header("Frame Config")]
@@ -60,9 +61,9 @@ public abstract class Interactable : MonoBehaviour
         playerInRange = false;
         
         Vector2 toPlayer = player.transform.position - transform.position;
-        if (toPlayer.magnitude <= (useDistanceSquared ? distance * distance : distance))
+        if ((useDistanceSquared ? toPlayer.sqrMagnitude : toPlayer.magnitude) <= (useDistanceSquared ? distance * distance : distance))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, toPlayer.normalized, distance);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, toPlayer.normalized, distance, detectMask);
             if (hit.collider != null)
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
