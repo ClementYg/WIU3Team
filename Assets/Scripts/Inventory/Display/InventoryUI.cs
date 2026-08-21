@@ -100,8 +100,6 @@ public class InventoryUI : MonoBehaviour
 
     private void CheckIsLift(InventorySlot slotClicked)
     {
-        Debug.Log("InventoryUI: checking is lift");
-
         isPointerCarryingItem = !isPointerCarryingItem;
         if (isPointerCarryingItem)
         {
@@ -115,8 +113,6 @@ public class InventoryUI : MonoBehaviour
 
     private void LiftItem(InventorySlot slotClicked)
     {
-        Debug.Log("InventoryUI: lifting the item");
-
         if (!slotClicked.IsOccupied)
         {
             // Nothing there to lift
@@ -143,8 +139,6 @@ public class InventoryUI : MonoBehaviour
 
     private void PlaceItem(InventorySlot slotClicked)
     {
-        Debug.Log("InventoryUI: placing item");
-
         if (slotClicked.IsOccupied)
         {
             // For now, don't place on an occupied slot
@@ -152,14 +146,15 @@ public class InventoryUI : MonoBehaviour
             return;
         }
 
-        // Set the slot clicked UI back
+        // Set the slot clicked back
         slotClicked.SetUI(UIToCarry.itemImage.sprite, int.Parse(UIToCarry.quantityText.text));
+        slotClicked.itemDisplayed = carriedItem;
 
         // Set the UI to carry
         UIToCarry.itemImage.enabled = false;
         UIToCarry.quantityText.enabled = false;
 
-        slotClicked.itemDisplayed = carriedItem;
+        // Set the carried item
         carriedItem = null;
     }
 

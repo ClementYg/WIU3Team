@@ -25,7 +25,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("InventorySlot: detected mouse click");
         OnInventoryClickEvent.Raise(this);
     }
 
