@@ -8,16 +8,18 @@ public class ColorChannel : MonoBehaviour
     [SerializeField] Color clr;
 
     Material mtrl;
+    int mainColorID;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mtrl = rndrr.material;
+        mainColorID = Shader.PropertyToID("_MainColor");
     }
 
     // Update is called once per frame
     void Update()
     {
-        mtrl.color = clr;
+        mtrl.SetColor(mainColorID, clr);
     }
 }
