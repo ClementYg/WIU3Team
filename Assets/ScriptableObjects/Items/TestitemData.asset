@@ -19,7 +19,7 @@ MonoBehaviour:
   shortDescription: 
   loreDescription: 
   isStackable: 1
-  maxStackSize: 10
+  maxStackSize: 2
   hasDurability: 0
   maxDurability: 100
   statModifiers: []
