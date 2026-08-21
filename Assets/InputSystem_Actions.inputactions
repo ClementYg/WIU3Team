@@ -77,16 +77,6 @@
                     "priority": 0
                 },
                 {
-                    "name": "ToggleInventory",
-                    "type": "Button",
-                    "id": "ec725986-f6e7-4722-ac70-a0bf2a97f59e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
                     "name": "Tilt",
                     "type": "Value",
                     "id": "69a6028d-b9ef-48a5-a2aa-cdcccfec9d31",
