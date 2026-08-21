@@ -1,26 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class InventoryDisplay : RowDisplay
+public class InventoryDisplay : MonoBehaviour
 {
     // Keep a list of inventory rows
     [Header("Inventory Rows")]
     public List<InventoryRow> rows = new();
 
-    //bool isDisplaying = false;
-
-    // Update is called once per frame
-    void Update()
-    {
-        //bool isToggleDisplayPressed = InputSystem.actions["ToggleInventory"].WasPressedThisFrame();
-        //if (isToggleDisplayPressed)
-        //{
-        //    ToggleInventoryDisplay();
-        //}
-    }
-
-    public override bool TryAddItem(ItemInstance item)
+    public bool AddItem(ItemInstance item)
     {
         foreach (InventoryRow row in rows)
         {
@@ -34,9 +21,9 @@ public class InventoryDisplay : RowDisplay
         return false;
     }
 
-    public override bool TryRemoveItem(ItemInstance itemName)
+    public bool RemoveItem(ItemInstance itemName)
     {
-        // Check if the item exists in any of the rows and remove it if yes
+        // Check if the item exists in any of the rows and remove it if so
         foreach (InventoryRow row in rows)
         {
             for (int i = 0; i < row.slots.Count; ++i)
@@ -53,7 +40,7 @@ public class InventoryDisplay : RowDisplay
         return false;
     }
 
-    public override bool TryRemoveStack(ItemInstance itemName)
+    public bool RemoveStack(ItemInstance itemName)
     {
         foreach (InventoryRow row in rows)
         {
@@ -82,29 +69,19 @@ public class InventoryDisplay : RowDisplay
         return true;
     }
 
-    //private void ToggleInventoryDisplay()
-    //{
-    //    // Toggle the inventory display
-    //    isDisplaying = !isDisplaying;
+#if UNITY_EDITOR
+    [ContextMenu("Find All Inventory Rows")]
+    private void FindAllInventoryRows()
+    {
+        rows.Clear();
 
-    //    foreach (InventoryRow row in rows)
-    //    {
-    //        row.gameObject.SetActive(isDisplaying);
-    //    }
-
-    //    // Toggle input action maps
-    //    InputActionMap playerMap = InputSystem.actions.FindActionMap("Player");
-    //    InputActionMap UIMap = InputSystem.actions.FindActionMap("UI");
-
-    //    if (isDisplaying)
-    //    {
-    //        playerMap.Disable();
-    //        UIMap.Enable();
-    //    }
-    //    else
-    //    {
-    //        playerMap.Enable();
-    //        UIMap.Disable();
-    //    }
-    //}
+        Transform rowsTransform = transform.Find("Inventory Rows");
+        for (int i = 0; i < rowsTransform.childCount; ++i)
+        {
+            Transform rowTransform = rowsTransform.GetChild(i);
+            InventoryRow newRow = rowTransform.GetComponent<InventoryRow>();
+            rows.Add(newRow);
+        }
+    }
+#endif
 }

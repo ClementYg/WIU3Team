@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &756333365804273943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249513344228692029}
+  m_Layer: 0
+  m_Name: CelingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249513344228692029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756333365804273943}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8468912234095653395}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822732352266489706
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +70,7 @@ Transform:
   - {fileID: 8964141751271582442}
   - {fileID: 375630508571768451}
   - {fileID: 7734832535890015676}
+  - {fileID: 249513344228692029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6879366720578356367
@@ -78,7 +110,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0dedda74c4ac6b446818caad63332688, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -123,21 +155,26 @@ MonoBehaviour:
   animator: {fileID: 8076053918851293685}
   sprite: {fileID: 5032267501061252474}
   dashSFX: {fileID: 0}
+  capsuleCollider: {fileID: 3607124752696476449}
   magnet: {fileID: 3280578941786506099}
   OnSFXRequestEvent: {fileID: 11400000, guid: 50eb203cdc43840428f6f2edd692a29e, type: 2}
   OnSpeedBoostEvent: {fileID: 11400000, guid: 494285f9e7b77c84f8d5c16ca31b9174, type: 2}
-  walkForce: 50
-  sprintForce: 80
-  maxWalkSpeed: 3
+  OnInventoryFullEvent: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
+  OnInventoryFreedEvent: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
+  walkForce: 10
+  sprintForce: 30
+  maxWalkSpeed: 4
   maxSprintSpeed: 7
   airControlMult: 0.6
-  extraJumps: 0
-  initialJumpForce: 8
-  continuedJumpForce: 0.5
+  standingDimensions: {x: 1, y: 1.4}
+  standingOffset: {x: -0.05, y: -0.2}
+  extraJumps: 1
+  initialJumpForce: 9
+  continuedJumpForce: 0.9
   coyoteDuration: 0.2
   jumpBufferDuration: 0.15
   maxDashCharges: 2
-  dashForce: 10
+  dashForce: 15
   dashDuration: 0.15
   groundCheck: {fileID: 8964141751271582442}
   groundCheckRadius: 0.2
@@ -145,7 +182,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   wallCheck: {fileID: 8898799820320977784}
-  wallCheckDistance: 0.3
+  wallCheckDistance: 0.6
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -153,6 +190,18 @@ MonoBehaviour:
   wallJumpForceX: 8
   wallJumpForceY: 10
   wallJumpLockDuration: 0.15
+  celingCheck: {fileID: 249513344228692029}
+  celingCheckDistance: 0.15
+  celingLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  crouchForce: 8
+  maxCrouchingSpeed: 2
+  maxSlidingSpeed: 7
+  slideImpulse: 10
+  crouchedDimensions: {x: 0.8, y: 0.8}
+  crouchedOffset: {x: -0.05, y: -0.5}
+  slideDuration: 0.5
 --- !u!114 &8787081377142933728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
   inventory: {fileID: 0}
-  tlbDisplay: {fileID: 0}
 --- !u!1 &851216911968657541
 GameObject:
   m_ObjectHideFlags: 0

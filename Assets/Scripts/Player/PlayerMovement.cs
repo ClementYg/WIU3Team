@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private AudioClip dashSFX;
+    [SerializeField] private CapsuleCollider2D capsuleCollider;
     [SerializeField] private PointEffector2D magnet;
 
     [Header("Event Channels")]
     [SerializeField] private EventAudioClip OnSFXRequestEvent;
     [SerializeField] private EventFloatFloat OnSpeedBoostEvent;
+    [SerializeField] private EventVoid OnInventoryFullEvent;
+    [SerializeField] private EventVoid OnInventoryFreedEvent;
     private Coroutine speedBoostRoutine;
 
     [Header("Movement Attributes")]
@@ -23,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxWalkSpeed = 2f;
     [SerializeField] private float maxSprintSpeed = 10f;
     [SerializeField] private float airControlMult = 0.6f;
+    [SerializeField] private Vector2 standingDimensions;
+    [SerializeField] private Vector2 standingOffset;
+
     private Vector2 moveInput;
     private bool isSprinting;
     private float moveForce;
@@ -69,14 +76,33 @@ public class PlayerMovement : MonoBehaviour
     private int wallDirection; // 0 -> None, 1 -> Right, -1 -> Left
     private float wallJumpLockTimer;
 
+    [Header("Crouching")]
+    [SerializeField] private Transform celingCheck;
+    [SerializeField] private float celingCheckDistance = 0.3f;
+    [SerializeField] private LayerMask celingLayer;
+    [SerializeField] private float crouchForce;
+    [SerializeField] private float maxCrouchingSpeed;
+    [SerializeField] private float maxSlidingSpeed;
+    [SerializeField] private float slideImpulse;
+    [SerializeField] private Vector2 crouchedDimensions;
+    [SerializeField] private Vector2 crouchedOffset;
+    [SerializeField] private float slideDuration;
+    private bool isCrouched;
+    private bool isSliding;
+
+
     private void OnEnable()
     {
         OnSpeedBoostEvent.Subscribe(OnSpeedBoost);
+        OnInventoryFullEvent.Subscribe(DisableMagnet);
+        OnInventoryFreedEvent.Subscribe(EnableMagnet);
     }
 
     private void OnDisable()
     {
         OnSpeedBoostEvent.Unsubscribe(OnSpeedBoost);
+        OnInventoryFullEvent.Unsubscribe(DisableMagnet);
+        OnInventoryFreedEvent.Unsubscribe(EnableMagnet);
     }
 
     private void Start()
@@ -92,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         extraJumpsLeft = extraJumps;
         coyoteTimer = coyoteDuration;
         jumpBufferTimer = 0;
-        
+
         isDashing = false;
         canDash = true;
         dashCharges = maxDashCharges;
@@ -100,12 +126,25 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
 
         wallJumpLockTimer = 0f;
+
+        isCrouched = false;
+
+        isSliding = false;
     }
 
     private void Update()
     {
         moveInput = InputSystem.actions["Move"].ReadValue<Vector2>();
-        
+
+        if (isGrounded && !IsDashing && !isSliding)
+        {
+            rb.linearDamping = 5;
+        }
+        else
+        {
+            rb.linearDamping = 0;
+        }
+
         if (wallJumpLockTimer <= 0f && !isWallSliding)
         {
             if (moveInput.x < 0) sprite.flipX = true;
@@ -184,6 +223,17 @@ public class PlayerMovement : MonoBehaviour
             canDash = true;
         }
 
+        if (InputSystem.actions["Crouch"].IsPressed() && isGrounded && !isDashing && !playerAttack.IsAttacking)
+        {
+            isCrouched = true;
+            isDashing = false;
+        }
+        Debug.DrawRay(celingCheck.position, Vector2.up, color:Color.white,celingCheckDistance);
+        if (!InputSystem.actions["Crouch"].IsPressed() && !isSliding && !Physics2D.Raycast(celingCheck.position, Vector2.up, celingCheckDistance, celingLayer))
+        {
+            isCrouched = false;
+        }
+
         if (rb.linearVelocityY < 0f && !isDashing)
         {
             rb.gravityScale = 3f;
@@ -191,6 +241,17 @@ public class PlayerMovement : MonoBehaviour
         else if (!isDashing)
         {
             rb.gravityScale = 2f;
+        }
+
+        if (isCrouched)
+        {
+            capsuleCollider.size = crouchedDimensions;
+            capsuleCollider.offset = crouchedOffset;
+        }
+        else
+        {
+            capsuleCollider.size = standingDimensions;
+            capsuleCollider.offset = standingOffset;
         }
 
         UpdateAnimatorParameters();
@@ -207,16 +268,27 @@ public class PlayerMovement : MonoBehaviour
 
         isWallSliding = isTouchingWall && !isGrounded && !isDashing && rb.linearVelocityY < 0f && Mathf.Sign(moveInput.x) == wallDirection;
 
-        if (!isDashing && wallJumpLockTimer <= 0f)
+        if (wallJumpLockTimer <= 0f)
         {
-            float control = isGrounded ? 1f : airControlMult;
-            moveForce = isSprinting ? sprintForce : walkForce;
-            maxSpeed = isSprinting ? maxSprintSpeed : maxWalkSpeed;
-            rb.AddForce(Vector2.right * moveInput * moveForce * control);
-
-            float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
-            rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
+            if (isCrouched)
+            {
+                float control = isGrounded ? 1f : airControlMult;
+                maxSpeed = isSliding ? maxSlidingSpeed : maxCrouchingSpeed;
+                rb.AddForce(Vector2.right * moveInput * crouchForce * control);
+                float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
+                rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
+            }
+            else if (!isDashing)
+            {
+                float control = isGrounded ? 1f : airControlMult;
+                moveForce = isSprinting ? sprintForce : walkForce;
+                maxSpeed = isSprinting ? maxSprintSpeed : maxWalkSpeed;
+                rb.AddForce(Vector2.right * moveInput * moveForce * control);
+                float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
+                rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
+            }
         }
+
 
         if (isWallSliding)
         {
@@ -233,6 +305,7 @@ public class PlayerMovement : MonoBehaviour
     private void WallJump()
     {
         rb.linearVelocity = Vector2.zero;
+        Debug.Log("walljumping");
         rb.AddForce(new Vector2(-wallDirection * wallJumpForceX, wallJumpForceY), ForceMode2D.Impulse);
         wallJumpLockTimer = wallJumpLockDuration;
         sprite.flipX = wallDirection > 0;
@@ -240,17 +313,37 @@ public class PlayerMovement : MonoBehaviour
 
     private System.Collections.IEnumerator Dash()
     {
-        rb.gravityScale = 0f;
-        isDashing = true;
-        animator.SetBool("IsDashing", true);
+        if (isCrouched)
+        {
+            isSliding = true;
 
-        float direction = sprite.flipX ? -1f : 1f;
-        rb.linearVelocity = new Vector2(direction * dashForce, 0f);
+            float direction = sprite.flipX ? -1f : 1f;
+            rb.linearVelocity = new Vector2(direction * slideImpulse, 0f);
+        }
+        else
+        {
+            rb.gravityScale = 0f;
+            isDashing = true;
+            animator.SetBool("IsDashing", true);
 
-        yield return new WaitForSeconds(dashDuration);
-        isDashing = false;
-        animator.SetBool("IsDashing", false);
-        rb.gravityScale = 2f;
+            float direction = sprite.flipX ? -1f : 1f;
+            rb.linearVelocity = new Vector2(direction * dashForce, 0f);
+        }
+
+        float duration = isSliding ? slideDuration : dashDuration;
+
+        yield return new WaitForSeconds(duration);
+        if (isSliding)
+        {
+            isSliding = false;
+        }
+        else
+        {
+            isDashing = false;
+            animator.SetBool("IsDashing", false);
+            rb.gravityScale = 2f;
+        }
+
     }
 
     private void OnSpeedBoost(float duration, float multiplier)
@@ -280,14 +373,16 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", !isGrounded && rb.linearVelocityY > 0.1f);
         animator.SetBool("IsFalling", !isGrounded && rb.linearVelocityY < -0.1f);
         animator.SetBool("IsWallSliding", isWallSliding);
+        animator.SetBool("IsCrouching", isCrouched);
+        animator.SetBool("IsSliding", isSliding);
     }
 
-    public void EnableItemCollector()
+    public void EnableMagnet()
     {
         magnet.enabled = true;
     }
 
-    public void DisableItemCollector()
+    public void DisableMagnet()
     {
         magnet.enabled = false;
     }
