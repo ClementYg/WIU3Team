@@ -160,19 +160,19 @@ MonoBehaviour:
   OnSFXRequestEvent: {fileID: 11400000, guid: 50eb203cdc43840428f6f2edd692a29e, type: 2}
   OnSpeedBoostEvent: {fileID: 11400000, guid: 494285f9e7b77c84f8d5c16ca31b9174, type: 2}
   walkForce: 10
-  sprintForce: 80
+  sprintForce: 30
   maxWalkSpeed: 4
   maxSprintSpeed: 7
   airControlMult: 0.6
   standingDimensions: {x: 1, y: 1.4}
   standingOffset: {x: -0.05, y: -0.2}
   extraJumps: 1
-  initialJumpForce: 8
-  continuedJumpForce: 0.5
+  initialJumpForce: 9
+  continuedJumpForce: 0.9
   coyoteDuration: 0.2
   jumpBufferDuration: 0.15
   maxDashCharges: 2
-  dashForce: 10
+  dashForce: 15
   dashDuration: 0.15
   groundCheck: {fileID: 8964141751271582442}
   groundCheckRadius: 0.2
