@@ -11,6 +11,7 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [SerializeField] private EventVoid OnVolumeChangedEvent;
     [SerializeField] private EventAudioClip OnBGMRequestEvent;
     [SerializeField] private EventAudioClip OnSFXRequestEvent;
+    [SerializeField] private EventAudioClipFloat OnDialogueSFXRequestEvent;
     [SerializeField] private EventBool OnPlayerLowHealthEvent;
     [SerializeField] private EventVoid OnGameOverEvent;
     [SerializeField] private EventBool OnToggledPauseEvent;
@@ -18,15 +19,10 @@ public class AudioManager : PersistentSingleton<AudioManager>
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource dialogueSource;
 
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
-
-    [Header("BGM")]
-    [SerializeField] public AudioClip mainMenuBGM;
-    [SerializeField] public AudioClip firstLevelBGM;
-    [SerializeField] public AudioClip secondLevelBGM;
-    [SerializeField] public AudioClip bossBGM;
 
     private Coroutine fadeCoroutine;
 
@@ -38,7 +34,9 @@ public class AudioManager : PersistentSingleton<AudioManager>
     private void OnEnable()
     {
         OnVolumeChangedEvent.Subscribe(OnVolumeChanged);
+        OnBGMRequestEvent.Subscribe(PlayBGM);
         OnSFXRequestEvent.Subscribe(PlaySFX);
+        OnDialogueSFXRequestEvent.Subscribe(PlayDialogueSFX);
         OnPlayerLowHealthEvent.Subscribe(OnPlayerLowHealth);
         OnGameOverEvent.Subscribe(OnGameOver);
         OnToggledPauseEvent.Subscribe(OnToggledPause);
@@ -47,7 +45,9 @@ public class AudioManager : PersistentSingleton<AudioManager>
     private void OnDisable()
     {
         OnVolumeChangedEvent.Unsubscribe(OnVolumeChanged);
+        OnBGMRequestEvent.Unsubscribe(PlayBGM);
         OnSFXRequestEvent.Unsubscribe(PlaySFX);
+        OnDialogueSFXRequestEvent.Unsubscribe(PlayDialogueSFX);
         OnPlayerLowHealthEvent.Unsubscribe(OnPlayerLowHealth);
         OnGameOverEvent.Unsubscribe(OnGameOver);
         OnToggledPauseEvent.Unsubscribe(OnToggledPause);
@@ -56,7 +56,6 @@ public class AudioManager : PersistentSingleton<AudioManager>
     private void Start()
     {
         ApplyVolumeSettings();
-        PlayMenuBGM();
     }
 
     public void PlayBGM(AudioClip clip)
@@ -64,12 +63,6 @@ public class AudioManager : PersistentSingleton<AudioManager>
         bgmSource.clip = clip;
         bgmSource.loop = true;
         bgmSource.Play();
-    }
-
-    public void PlayMenuBGM()
-    {
-        UpdateLowPassFilter();
-        PlayBGM(mainMenuBGM);
     }
 
     private void OnToggledPause(bool isPaused)
@@ -99,6 +92,12 @@ public class AudioManager : PersistentSingleton<AudioManager>
         sfxSource.PlayOneShot(clip);
     }
 
+    public void PlayDialogueSFX(AudioClip clip, float pitch)
+    {
+        audioMixer.SetFloat("DialogueSFXPitch", pitch);
+        dialogueSource.PlayOneShot(clip);
+    }
+
     private void OnVolumeChanged()
     {
         ApplyVolumeSettings();
@@ -117,7 +116,6 @@ public class AudioManager : PersistentSingleton<AudioManager>
 
     private void UpdateLowPassFilter()
     {
-        // TimeSlow takes priority over LowHealth
         float cutoff = NORMAL_LOWPASS;
         if (isLowHealth)
         {
@@ -167,5 +165,6 @@ public class AudioManager : PersistentSingleton<AudioManager>
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(Mathf.Max(settings.MasterVolume, 0.0001f)) * 20f);
         audioMixer.SetFloat("BGMVolume", Mathf.Log10(Mathf.Max(settings.BGMVolume, 0.0001f)) * 20f);
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Max(settings.SFXVolume, 0.0001f)) * 20f);
+        audioMixer.SetFloat("DialogueSFXVolume", Mathf.Log10(Mathf.Max(settings.SFXVolume, 0.0001f)) * 20f);
     }
 }

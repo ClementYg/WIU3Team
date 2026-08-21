@@ -14,10 +14,10 @@ public class DialogueManager : Singleton<DialogueManager>
 
     [Header("Typewriter Settings")]
     [SerializeField] private float secondsPerCharacter = 0.02f;
-    [SerializeField] private AudioSource blipAudioSource;
 
     [Header("Event Channels")]
     [SerializeField] private EventVoid onDialogueStartedEvent;
+    [SerializeField] private EventAudioClipFloat onDialogueSFXRequestEvent;
     [SerializeField] private EventStringColor onLineStartedEvent;
     [SerializeField] private EventString onTextUpdatedEvent;
     [SerializeField] private EventVoid onLineFinishedEvent;
@@ -166,9 +166,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void PlayBlip()
     {
-        if (currentNode.speaker == null || currentNode.speaker.blipSound == null || blipAudioSource == null) return;
-
-        blipAudioSource.pitch = Random.Range(currentNode.speaker.pitchRange.x, currentNode.speaker.pitchRange.y);
-        blipAudioSource.PlayOneShot(currentNode.speaker.blipSound);
+        if (currentNode.speaker == null || currentNode.speaker.blipSound == null) return;
+        onDialogueSFXRequestEvent.Raise(currentNode.speaker.blipSound, Random.Range(currentNode.speaker.pitchRange.x, currentNode.speaker.pitchRange.y));
     }
 }
