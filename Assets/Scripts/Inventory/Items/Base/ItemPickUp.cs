@@ -14,12 +14,7 @@ public class ItemPickup : MonoBehaviour
         if (interactAction.WasPressedThisFrame())
         {
             if (inventory == null) return;
-            
-            if (inventory.TryUseSelectedItem(this.gameObject, cache) == false)
-            {
-                Debug.LogWarning("ItemPickup: Failed to use the item.");
-                return;
-            }
+            inventory.TryUseSelectedItem(this.gameObject, cache);
         }
     }
 

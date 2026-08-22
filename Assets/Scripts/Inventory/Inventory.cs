@@ -51,19 +51,11 @@ public class Inventory : PersistentSingleton<Inventory>
     public bool TryUseSelectedItem(GameObject user, ComponentCache userCache)
     {
         // Get the selected occupied slot
-        if (TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot) == false)
-        {
-            Debug.LogWarning("Inventory: Failed to get selected slot.");
-            return false;
-        }
+        if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
 
         // Get and use the item instance
         ItemInstance selectedItem = selectedSlot.itemDisplayed;
-        if (selectedItem.TryUse(user, userCache))
-        {
-            Debug.LogWarning("Inventory: Failed to use selected item.");
-            return false;
-        }
+        if (!selectedItem.TryUse(user, userCache)) return false;
 
         // Update inventory and UI
         selectedSlot.UpdateQuantity();
@@ -178,8 +170,6 @@ public class Inventory : PersistentSingleton<Inventory>
                 return true;
             }
         }
-
-        Debug.LogWarning("Inventory: Failed to get selected occupied slot.");
 
         selectedSlot = null;
         return false;

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class ItemInstance
+public class ItemInstance : ISerializationCallbackReceiver
 {
     //unique PID for every item. 
     public int itemID;
@@ -12,13 +12,26 @@ public class ItemInstance
     public int currentDurability = 0;
     public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
-    float lastUsedTime = -Mathf.Infinity; 
+    float lastUsedTime = -Mathf.Infinity; // This line does not get executed by Unity
 
     public bool IsBroken => (itemData.hasDurability && currentDurability <= 0);
     public bool IsFinished => (stackCount <= 0);
+    public float LastUsedTime => (lastUsedTime);
     public bool IsOnCooldown => (Time.time < lastUsedTime + itemData.useCooldown);
     public float CooldownRemaining => (Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time));
     
+    public void OnAfterDeserialize()
+    {
+        // Note for the future: For any variables that have to be initialised at the start,
+        // place them in this function so that Unity knows to execute the line.
+        lastUsedTime = -Mathf.Infinity;
+    }
+
+    public void OnBeforeSerialize()
+    {
+        
+    }
+
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
     {
         this.itemData = itemData;
