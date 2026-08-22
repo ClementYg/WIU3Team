@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbeb40aa4f0bb28409dd159d0854bb60, type: 3}
+  m_Name: TestQuestData
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  questName: Test
+  questContext: 'The Greeks are asking for a report on how the pyramids were built,
+    but I can''t find my diary. Could you help me find it? It''s somewhere in this
+    pyramid. '

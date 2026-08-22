@@ -11,8 +11,8 @@ public class ItemData : ScriptableObject
     public ItemType itemType;
 
     [Header("Descriptors")]
-    public string shortDescription; //used for toolbar hover later maybe
-    public string loreDescription; //bestiary/index description 
+    [TextArea(1, 2)] public string shortDescription; //used for toolbar hover later maybe
+    [TextArea(2, 10)] public string loreDescription; //bestiary/index description
 
     [Header("Stacking")]
     public bool isStackable = false;
