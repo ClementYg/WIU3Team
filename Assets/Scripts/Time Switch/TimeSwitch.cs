@@ -1,37 +1,48 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeSwitch : MonoBehaviour
 {
-    [Header("Time Switch")]
-    [SerializeField] GameObject presentContainer;
-    [SerializeField] GameObject pastContainer;
-
-    [Header("Transition Sequence")]
-    [SerializeField] CameraShaker cmrShaker;
-    [SerializeField] ColorChannel prsntClrChannel;
-    [SerializeField] ColorChannel pstClrChannel;
-    [SerializeField] float transitionDuration = 3f;
-    float transitionStartTime = -Mathf.Infinity;
-    bool isInTransition = false;
-    public bool IsTransitionDone => (isInTransition && (Time.time - transitionStartTime >= transitionDuration));
-
     [Header("Event Channels")]
     [SerializeField] EventVoid OnTimeTransitionStartedEvent;
     [SerializeField] EventVoid OnTimeTransitionEndedEvent;
 
+    // References
+    TimeSwitchReferences references;
+
+    // Containers
+    GameObject present;
+    GameObject past;
+
+    // Transition sequence
+    [SerializeField] float transitionDuration = 3f;
+    CameraShaker cmrShaker;
+    ColorChannel prsntClrChannel;
+    ColorChannel pstClrChannel;
+    float transitionStartTime = -Mathf.Infinity;
+    bool isInTransition = false;
+    public bool IsTransitionDone => (isInTransition && (Time.time - transitionStartTime >= transitionDuration));
+
     bool isInPresent = true;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // At the start, player should be in the present
-        SetTimeState(true);
-
-        // Set the camera shake duration to be the same as transition duration
-        cmrShaker.SetSustainTime(transitionDuration);
+        Init();
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         // Toggle the time state when the transition is done
         if (IsTransitionDone)
@@ -42,7 +53,43 @@ public class TimeSwitch : MonoBehaviour
 
     public void UseAtlas()
     {
+        if (isInTransition) return;
+
         StartTransition();
+    }
+
+    private void Init()
+    {
+        // Assign all references
+        references = FindAnyObjectByType<TimeSwitchReferences>();
+        if (references == null)
+        {
+            Debug.LogError("TimeSwitch: Failed to find time switch references.");
+            return;
+        }
+
+        references.AssignReferences();
+
+        present = references.Present;
+        past = references.Past;
+        cmrShaker = references.CmrShaker;
+        prsntClrChannel = references.PrsntClrChannel;
+        pstClrChannel = references.PstClrChannel;
+
+        if (
+            present == null || past == null || cmrShaker == null ||
+            prsntClrChannel == null || pstClrChannel == null
+            )
+        {
+            Debug.LogError("TimeSwitch: Failed to assign references.");
+            return;
+        }
+
+        // At the start, player should be in the present
+        SetTimeState(true);
+
+        // Set the camera shake duration to be the same as transition duration
+        cmrShaker.SetSustainTime(transitionDuration);
     }
 
     private void StartTransition()
@@ -55,7 +102,7 @@ public class TimeSwitch : MonoBehaviour
         cmrShaker.DoShake();
 
         // Do the color flash
-        ToggleColorChannel();
+        ToggleColorFlash();
         
         // Raise the event
         OnTimeTransitionStartedEvent.Raise();
@@ -66,7 +113,7 @@ public class TimeSwitch : MonoBehaviour
         isInTransition = false;
 
         // Stop the color flash
-        ToggleColorChannel();
+        ToggleColorFlash();
 
         // Raise the event
         OnTimeTransitionEndedEvent.Raise();
@@ -79,33 +126,24 @@ public class TimeSwitch : MonoBehaviour
     {
         this.isInPresent = isInPresent;
 
-        presentContainer.SetActive(isInPresent);
-        pastContainer.SetActive(!isInPresent);
+        present.SetActive(isInPresent);
+        past.SetActive(!isInPresent);
     }
 
-    private void ToggleColorChannel()
+    private void ToggleColorFlash()
     {
-        if (isInTransition)
+        if (isInPresent)
         {
-            if (isInPresent)
-            {
-                prsntClrChannel.StartColorFlash();
-            }
-            else
-            {
-                pstClrChannel.StartColorFlash();
-            }
+            prsntClrChannel.ToggleColorFlash();
         }
         else
         {
-            if (isInPresent)
-            {
-                prsntClrChannel.StopColorFlash();
-            }
-            else
-            {
-                pstClrChannel.StopColorFlash();
-            }
+            pstClrChannel.ToggleColorFlash();
         }
+    }
+
+    private void OnSceneLoaded(Scene scn, LoadSceneMode mode)
+    {
+        Init();
     }
 }

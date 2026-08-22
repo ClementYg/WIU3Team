@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd974b9a7a68c0c43b000d57dc8c2e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchManager
+  references: {fileID: 0}
   presentContainer: {fileID: 0}
   pastContainer: {fileID: 0}
   cmrShaker: {fileID: 0}

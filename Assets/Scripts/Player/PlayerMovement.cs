@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting;
     private float moveForce;
     private float maxSpeed;
+    private bool isMovementEnabled = true;
 
     [Header("Jump Attributes")]
     [SerializeField] private int extraJumps = 0;
@@ -98,8 +99,8 @@ public class PlayerMovement : MonoBehaviour
         OnSpeedBoostEvent.Subscribe(OnSpeedBoost);
         OnInventoryFullEvent.Subscribe(DisableMagnet);
         OnInventoryFreedEvent.Subscribe(EnableMagnet);
-        OnTimeTransitionStartedEvent.Subscribe(PauseAnimation);
-        OnTimeTransitionEndedEvent.Subscribe(ResumeAnimation);
+        OnTimeTransitionStartedEvent.Subscribe(DisableMovement);
+        OnTimeTransitionEndedEvent.Subscribe(EnableMovement);
     }
 
     private void OnDisable()
@@ -107,8 +108,8 @@ public class PlayerMovement : MonoBehaviour
         OnSpeedBoostEvent.Unsubscribe(OnSpeedBoost);
         OnInventoryFullEvent.Unsubscribe(DisableMagnet);
         OnInventoryFreedEvent.Unsubscribe(EnableMagnet);
-        OnTimeTransitionStartedEvent.Unsubscribe(PauseAnimation);
-        OnTimeTransitionEndedEvent.Unsubscribe(ResumeAnimation);
+        OnTimeTransitionStartedEvent.Unsubscribe(DisableMovement);
+        OnTimeTransitionEndedEvent.Unsubscribe(EnableMovement);
     }
 
     private void Start()
@@ -140,6 +141,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isMovementEnabled == false) return;
+
         moveInput = InputSystem.actions["Move"].ReadValue<Vector2>();
 
         if (isGrounded && !IsDashing && !isSliding)
@@ -265,6 +268,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isMovementEnabled == false) return;
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         bool touchingRightWall = Physics2D.Raycast(wallCheck.position, Vector2.right, wallCheckDistance, wallLayer);
@@ -393,13 +398,16 @@ public class PlayerMovement : MonoBehaviour
         magnet.enabled = false;
     }
 
-    private void PauseAnimation()
-    {
-        animator.speed = 0f;
-    }
-
-    private void ResumeAnimation()
+    private void EnableMovement()
     {
         animator.speed = 1f;
+        isMovementEnabled = true;
+    }
+
+    private void DisableMovement()
+    {
+        animator.speed = 0f;
+        rb.linearVelocity = Vector2.zero;
+        isMovementEnabled = false;
     }
 }

@@ -35,16 +35,17 @@ public class ColorChannel : MonoBehaviour
         }
     }
 
-    public void StartColorFlash()
+    public void ToggleColorFlash()
     {
-        previousColor = clr;
-        isFlashing = true;
-    }
-
-    public void StopColorFlash()
-    {
-        clr = previousColor;
-        isFlashing = false;
+        isFlashing = !isFlashing;
+        if (isFlashing)
+        {
+            previousColor = clr;
+        }
+        else
+        {
+            clr = previousColor;
+        }
     }
 
     private void DoColorFlash()
