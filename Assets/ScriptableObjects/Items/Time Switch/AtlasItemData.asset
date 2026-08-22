@@ -23,6 +23,7 @@ MonoBehaviour:
   maxStackSize: 1
   hasDurability: 0
   maxDurability: 100
+  isConsumable: 0
   statModifiers:
   - statType: 3
     value: 5

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ItemPickUp : MonoBehaviour
+public class ItemPickup : MonoBehaviour
 {
-    [Header("Inventory")]
+    [Header("Item Pickup")]
     [SerializeField] Inventory inventory;
+    [SerializeField] ComponentCache cache;
 
     // Update is called once per frame
     void Update()
@@ -13,7 +14,7 @@ public class ItemPickUp : MonoBehaviour
         if (interactAction.WasPressedThisFrame())
         {
             if (inventory == null) return;
-            inventory.UseSelectedItem(this.gameObject);
+            inventory.UseSelectedItem(this.gameObject, cache, 1);
         }
     }
 

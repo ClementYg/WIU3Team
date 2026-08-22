@@ -25,4 +25,18 @@ public class CutsceneCameraStep : CutsceneStep
             yield return new WaitUntil(() => !CutsceneManager.Instance.cinemachineBrain.IsBlending);
         }
     }
+
+    private static IEnumerator WaitForBlend(CinemachineBrain brain, CinemachineCamera targetCamera)
+    {
+        int safetyFrames = 10;
+        while (safetyFrames-- > 0 && !brain.IsBlending && (object)brain.ActiveVirtualCamera != targetCamera)
+        {
+            yield return null;
+        }
+
+        if (brain.IsBlending)
+        {
+            yield return new WaitUntil(() => brain.IsBlending);
+        }
+    }
 }
