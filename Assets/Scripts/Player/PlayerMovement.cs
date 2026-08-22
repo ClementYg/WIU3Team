@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private EventFloatFloat OnSpeedBoostEvent;
     [SerializeField] private EventVoid OnInventoryFullEvent;
     [SerializeField] private EventVoid OnInventoryFreedEvent;
+    [SerializeField] EventVoid OnTimeTransitionStartedEvent;
+    [SerializeField] EventVoid OnTimeTransitionEndedEvent;
     private Coroutine speedBoostRoutine;
 
     [Header("Movement Attributes")]
@@ -96,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
         OnSpeedBoostEvent.Subscribe(OnSpeedBoost);
         OnInventoryFullEvent.Subscribe(DisableMagnet);
         OnInventoryFreedEvent.Subscribe(EnableMagnet);
+        OnTimeTransitionStartedEvent.Subscribe(PauseAnimation);
+        OnTimeTransitionEndedEvent.Subscribe(ResumeAnimation);
     }
 
     private void OnDisable()
@@ -103,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
         OnSpeedBoostEvent.Unsubscribe(OnSpeedBoost);
         OnInventoryFullEvent.Unsubscribe(DisableMagnet);
         OnInventoryFreedEvent.Unsubscribe(EnableMagnet);
+        OnTimeTransitionStartedEvent.Unsubscribe(PauseAnimation);
+        OnTimeTransitionEndedEvent.Unsubscribe(ResumeAnimation);
     }
 
     private void Start()
@@ -377,13 +383,23 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsSliding", isSliding);
     }
 
-    public void EnableMagnet()
+    private void EnableMagnet()
     {
         magnet.enabled = true;
     }
 
-    public void DisableMagnet()
+    private void DisableMagnet()
     {
         magnet.enabled = false;
+    }
+
+    private void PauseAnimation()
+    {
+        animator.speed = 0f;
+    }
+
+    private void ResumeAnimation()
+    {
+        animator.speed = 1f;
     }
 }

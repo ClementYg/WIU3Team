@@ -163,6 +163,8 @@ MonoBehaviour:
   OnSpeedBoostEvent: {fileID: 11400000, guid: 494285f9e7b77c84f8d5c16ca31b9174, type: 2}
   OnInventoryFullEvent: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
   OnInventoryFreedEvent: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
+  OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
   walkForce: 10
   sprintForce: 30
   maxWalkSpeed: 4
@@ -274,6 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchManager
   presentContainer: {fileID: 0}
   pastContainer: {fileID: 0}
+  cmrShaker: {fileID: 0}
+  transitionDuration: 3
+  OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
 --- !u!1 &851216911968657541
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +292,7 @@ GameObject:
   - component: {fileID: 7497220883768842599}
   - component: {fileID: 3280578941786506099}
   m_Layer: 7
-  m_Name: ItemCollector
+  m_Name: Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,9 +5,9 @@ public class AtlasItemEffect : ItemEffect
 {
     public override void Use(GameObject user, ComponentCache userCache)
     {
-        TimeSwitchManager timeSwitchMan = userCache.Get<TimeSwitchManager>();
-        if (timeSwitchMan == null) return;
+        TimeSwitch tmSwitch = userCache.Get<TimeSwitch>();
+        if (tmSwitch == null) return;
 
-        timeSwitchMan.UseAtlas();
+        tmSwitch.UseAtlas();
     }
 }

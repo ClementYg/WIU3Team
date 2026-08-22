@@ -146,10 +146,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
         if (wasInventoryFull && !IsInventoryFull)
         {
-            if (OnInventoryFreedEvent != null)
-            {
-                OnInventoryFreedEvent.Raise();
-            }
+            OnInventoryFreedEvent.Raise();
         }
     }
 

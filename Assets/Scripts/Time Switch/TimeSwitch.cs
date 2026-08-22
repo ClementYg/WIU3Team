@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeSwitchManager : MonoBehaviour
+public class TimeSwitch : MonoBehaviour
 {
     [Header("Time Switch")]
     [SerializeField] GameObject presentContainer;
@@ -12,6 +12,10 @@ public class TimeSwitchManager : MonoBehaviour
     float transitionStartTime = -Mathf.Infinity;
     bool isInTransition = false;
     public bool IsTransitionDone => (isInTransition && (Time.time - transitionStartTime >= transitionDuration));
+
+    [Header("Event Channels")]
+    [SerializeField] EventVoid OnTimeTransitionStartedEvent;
+    [SerializeField] EventVoid OnTimeTransitionEndedEvent;
 
     bool isInPresent = true;
 
@@ -30,9 +34,7 @@ public class TimeSwitchManager : MonoBehaviour
         // Toggle the time state when the transition is done
         if (IsTransitionDone)
         {
-            Debug.Log("TimeSwitchManager: toggling time state");
-            SetTimeState(!isInPresent);
-            isInTransition = false;
+            EndTransition();
         }
     }
 
@@ -49,6 +51,20 @@ public class TimeSwitchManager : MonoBehaviour
 
         // Do the camera shake
         cmrShaker.DoShake();
+
+        // Raise the event
+        OnTimeTransitionStartedEvent.Raise();
+    }
+
+    private void EndTransition()
+    {
+        // Toggle the time state
+        SetTimeState(!isInPresent);
+
+        // Raise the event
+        OnTimeTransitionEndedEvent.Raise();
+
+        isInTransition = false;
     }
 
     private void SetTimeState(bool isInPresent)

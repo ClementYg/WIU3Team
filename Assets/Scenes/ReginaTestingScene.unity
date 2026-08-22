@@ -5887,14 +5887,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3061893275085992808, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: pastContainer
-      value: 
-      objectReference: {fileID: 506328712}
-    - target: {fileID: 3061893275085992808, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
-      propertyPath: presentContainer
-      value: 
-      objectReference: {fileID: 1971531037}
     - target: {fileID: 7354857566738239595, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: inventory
       value: 
@@ -7105,7 +7097,7 @@ GameObject:
   - component: {fileID: 1971531038}
   m_Layer: 0
   m_Name: Present Container
-  m_TagString: Untagged
+  m_TagString: Present
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7280,10 +7272,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1824205002}
-  - {fileID: 739894164}
   - {fileID: 1294238988}
   - {fileID: 1698366651}
+  - {fileID: 739894164}
+  - {fileID: 1824205002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108547341
