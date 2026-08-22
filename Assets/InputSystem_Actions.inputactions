@@ -77,6 +77,15 @@
                     "priority": 0
                 },
                 {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "f8d8eac2-cdbc-4d67-924c-f7a116bd17ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Tilt",
                     "type": "Value",
                     "id": "69a6028d-b9ef-48a5-a2aa-cdcccfec9d31",
@@ -266,12 +275,12 @@
                 },
                 {
                     "name": "",
-                    "id": "70ae5a5b-152d-4c28-bd2e-cbbbbda49ccf",
-                    "path": "<Keyboard>/e",
+                    "id": "f486c324-bf05-4d91-9650-26995bd14142",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Toggle Inventory Display",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -903,6 +912,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "TogglePause",
+                    "type": "Button",
+                    "id": "171fe144-3ec1-4167-badf-541e0959b1f9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -914,6 +933,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d60cfbc-9c7a-4a2c-a974-e536f359b44e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TogglePause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
