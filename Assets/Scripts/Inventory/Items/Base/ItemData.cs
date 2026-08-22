@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/Inventory/ItemData")]
 public class ItemData : ScriptableObject
@@ -21,6 +21,9 @@ public class ItemData : ScriptableObject
     [Header("Durability")]
     public bool hasDurability = false;
     public int maxDurability = 100;
+
+    [Header("Consumability")]
+    public bool isConsumable = true; // Need this for item usage checks with Atlas, otherwise it will be consumed
 
     [Header("Stats")]
     public List<StatModifier> statModifiers = new();
@@ -65,6 +68,10 @@ public class ItemData : ScriptableObject
         if (hasDurability && maxDurability <= 0)
         {
             Debug.LogWarning($"[{name}] hasDurability is true but maxDurability is {maxDurability}.", this);
+        }
+        if (!isConsumable && itemType == ItemType.Consumable)
+        {
+            Debug.LogWarning($"[{name}] isConsumable is false but itemType is Consumable", this);
         }
     }
 

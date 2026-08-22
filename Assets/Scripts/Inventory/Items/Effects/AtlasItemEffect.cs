@@ -3,17 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AtlasItemEffect", menuName = "ScriptableObjects/Inventory/Effects/AtlasItemEffect")]
 public class AtlasItemEffect : ItemEffect
 {
-    [Header("Time Switch")]
-    [SerializeField] GameObject presentContainer;
-    [SerializeField] GameObject pastContainer;
-
-    bool isInPresent = true;
-
-    public override void Use(GameObject user)
+    public override void Use(GameObject user, ComponentCache userCache)
     {
-        isInPresent = !isInPresent;
+        TimeSwitchManager timeSwitchMan = userCache.Get<TimeSwitchManager>();
+        if (timeSwitchMan == null) return;
 
-        presentContainer.SetActive(isInPresent);
-        pastContainer.SetActive(!isInPresent);
+        timeSwitchMan.UseAtlas();
     }
 }
