@@ -3506,7 +3506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   displays:
   - {fileID: 1923074824}
-  - {fileID: 1923074829}
+  - {fileID: 0}
   OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
   itemToCarry: {fileID: 1270727908}
   UIToCarry:
@@ -5396,17 +5396,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5307593275189590039, guid: aeefb1771e95c8044876db349d4f07bb, type: 3}
   m_PrefabInstance: {fileID: 1501752113}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1501752115 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7269100811187229650, guid: aeefb1771e95c8044876db349d4f07bb, type: 3}
-  m_PrefabInstance: {fileID: 1501752113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
 --- !u!1 &1523350490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6816,12 +6805,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923074819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a93a584869c9e8478bc57f2447156c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 606bc1f7891bc2e41b54e82219752933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryDisplay
-  rows:
-  - {fileID: 3395277652848819682}
-  - {fileID: 1501752115}
+  rows: []
 --- !u!1 &1938188159
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,17 +7462,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeefb1771e95c8044876db349d4f07bb, type: 3}
---- !u!114 &3395277652848819682 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7269100811187229650, guid: aeefb1771e95c8044876db349d4f07bb, type: 3}
-  m_PrefabInstance: {fileID: 3395277652848819681}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab26459629c72240b6eeb3269ea3a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryRow
 --- !u!66 &5257442929175898562
 CompositeCollider2D:
   m_ObjectHideFlags: 0

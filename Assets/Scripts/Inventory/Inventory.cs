@@ -48,37 +48,25 @@ public class Inventory : PersistentSingleton<Inventory>
         return true;
     }
 
-    public bool UseSelectedItem(GameObject user, ComponentCache userCache, int durabilityDamage = 0)
+    public bool TryUseSelectedItem(GameObject user, ComponentCache userCache)
     {
-        if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
-        
-        // Get and use the item
-        ItemInstance selectedItem = selectedSlot.itemDisplayed;
-        if (selectedItem.itemEffect != null)
+        // Get the selected occupied slot
+        if (TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot) == false)
         {
-            selectedItem.itemEffect.Use(user, userCache);
+            Debug.LogWarning("Inventory: Failed to get selected slot.");
+            return false;
         }
-        else
+
+        // Get and use the item instance
+        ItemInstance selectedItem = selectedSlot.itemDisplayed;
+        if (selectedItem.TryUse(user, userCache))
         {
             Debug.LogWarning("Inventory: Failed to use selected item.");
             return false;
         }
 
         // Update inventory and UI
-        if (selectedItem.itemData.hasDurability)
-        {
-            // Take durability damage
-            selectedItem.TakeDurabilityDamage(durabilityDamage);
-            if (selectedItem.IsBroken && selectedItem.itemData.isStackable)
-            {
-                selectedSlot.ReduceStack(1);
-            }
-        }
-        else if (selectedItem.itemData.isConsumable)
-        {
-            // This item is either stackable or just a singular item, reduce the stack
-            selectedSlot.ReduceStack(1);
-        }
+        selectedSlot.UpdateQuantity();
 
         // Remove item if it has been used up
         if (selectedItem.IsFinished)
@@ -166,7 +154,10 @@ public class Inventory : PersistentSingleton<Inventory>
 
         if (wasInventoryFull && !IsInventoryFull)
         {
-            OnInventoryFreedEvent?.Raise();
+            if (OnInventoryFreedEvent != null)
+            {
+                OnInventoryFreedEvent.Raise();
+            }
         }
     }
 

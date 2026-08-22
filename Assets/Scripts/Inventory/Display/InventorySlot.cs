@@ -42,6 +42,11 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         UI.quantityText.text = itemDisplayed.stackCount.ToString();
     }
 
+    public void UpdateQuantity()
+    {
+        UI.quantityText.text = itemDisplayed.stackCount.ToString();
+    }
+
     public void SetSlot(ItemInstance item)
     {
         itemDisplayed = item;

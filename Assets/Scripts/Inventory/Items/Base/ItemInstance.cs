@@ -16,8 +16,9 @@ public class ItemInstance
 
     public bool IsBroken => (itemData.hasDurability && currentDurability <= 0);
     public bool IsFinished => (stackCount <= 0);
-    public bool IsOnCooldown => Time.time < lastUsedTime + itemData.useCooldown;
-    public float CooldownRemaining => Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time);
+    public bool IsOnCooldown => (Time.time < lastUsedTime + itemData.useCooldown);
+    public float CooldownRemaining => (Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time));
+    
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
     {
         this.itemData = itemData;

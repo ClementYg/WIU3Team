@@ -63,21 +63,21 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
-    public bool RemoveItem(ItemInstance itemName)
+    public bool RemoveItem(ItemInstance item)
     {
         foreach (InventoryDisplay display in displays)
         {
-            if (display.RemoveItem(itemName)) return true;
+            if (display.RemoveItem(item)) return true;
         }
 
         return false;
     }
 
-    public bool RemoveStack(ItemInstance itemName)
+    public bool RemoveStack(ItemInstance item)
     {
         foreach (InventoryDisplay display in displays)
         {
-            if (display.RemoveStack(itemName)) return true;
+            if (display.RemoveStack(item)) return true;
         }
 
         return false;
