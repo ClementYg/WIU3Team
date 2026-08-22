@@ -12,14 +12,39 @@ public class ItemInstance
     public int currentDurability = 0;
     public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
+    float lastUsedTime = -Mathf.Infinity; 
 
     public bool IsBroken => (itemData.hasDurability && currentDurability <= 0);
     public bool IsFinished => (stackCount <= 0);
-
+    public bool IsOnCooldown => Time.time < lastUsedTime + itemData.useCooldown;
+    public float CooldownRemaining => Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time);
     public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
     {
         this.itemData = itemData;
         this.itemEffect = itemEffect;
+        currentDurability = (itemData != null && itemData.hasDurability) ? itemData.maxDurability : 0;
+    }
+
+    public bool TryUse(GameObject user)
+    {
+        if (IsOnCooldown) return false;
+        if (IsBroken) return false;
+        if (IsFinished) return false;
+        if (itemEffect == null) return false;
+
+        itemEffect.Use(user);
+        lastUsedTime = Time.time;
+
+        if (itemData.hasDurability)
+        {
+            TakeDurabilityDamage(itemData.durabilityPerUse);
+        }
+        else if (itemData.isStackable)
+        {
+            ReduceStack(itemData.consumePerUse);
+        }
+
+        return true;
     }
 
     public bool AddToStack(int amount, out int extra)

@@ -17,10 +17,15 @@ public class ItemData : ScriptableObject
     [Header("Stacking")]
     public bool isStackable = false;
     public int maxStackSize = 1;
+    public int consumePerUse = 1;
 
     [Header("Durability")]
     public bool hasDurability = false;
     public int maxDurability = 100;
+    public int durabilityPerUse = 1;
+
+    [Header("UseCooldown")]
+    public float useCooldown = 0; //how long per use
 
     [Header("Stats")]
     public List<StatModifier> statModifiers = new();
