@@ -14,22 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
   - rid: 175680448312115469
-  - rid: 175680448312115467
-  - rid: 175680448312115459
   references:
     version: 2
     RefIds:
-    - rid: 175680448312115459
-      type: {class: CutsceneAudioStep, ns: , asm: Assembly-CSharp}
-      data:
-        blocking: 0
-        audioType: 0
-        clip: {fileID: 8300000, guid: c16e403474230be41bec250588409acf, type: 3}
-    - rid: 175680448312115467
-      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
-      data:
-        blocking: 1
-        conversation: {fileID: 11400000, guid: cd924e59416c15c4fb656f85868bd639, type: 2}
     - rid: 175680448312115469
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
