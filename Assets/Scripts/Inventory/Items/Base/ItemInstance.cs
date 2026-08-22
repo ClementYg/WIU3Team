@@ -25,14 +25,14 @@ public class ItemInstance
         currentDurability = (itemData != null && itemData.hasDurability) ? itemData.maxDurability : 0;
     }
 
-    public bool TryUse(GameObject user)
+    public bool TryUse(GameObject user, ComponentCache userCache)
     {
         if (IsOnCooldown) return false;
         if (IsBroken) return false;
         if (IsFinished) return false;
         if (itemEffect == null) return false;
 
-        itemEffect.Use(user);
+        itemEffect.Use(user, userCache);
         lastUsedTime = Time.time;
 
         if (itemData.hasDurability)
