@@ -8,6 +8,8 @@ public class TimeSwitch : MonoBehaviour
 
     [Header("Transition Sequence")]
     [SerializeField] CameraShaker cmrShaker;
+    [SerializeField] ColorChannel prsntClrChannel;
+    [SerializeField] ColorChannel pstClrChannel;
     [SerializeField] float transitionDuration = 3f;
     float transitionStartTime = -Mathf.Infinity;
     bool isInTransition = false;
@@ -52,19 +54,25 @@ public class TimeSwitch : MonoBehaviour
         // Do the camera shake
         cmrShaker.DoShake();
 
+        // Do the color flash
+        ToggleColorChannel();
+        
         // Raise the event
         OnTimeTransitionStartedEvent.Raise();
     }
 
     private void EndTransition()
     {
-        // Toggle the time state
-        SetTimeState(!isInPresent);
+        isInTransition = false;
+
+        // Stop the color flash
+        ToggleColorChannel();
 
         // Raise the event
         OnTimeTransitionEndedEvent.Raise();
 
-        isInTransition = false;
+        // Toggle the time state
+        SetTimeState(!isInPresent);
     }
 
     private void SetTimeState(bool isInPresent)
@@ -73,5 +81,31 @@ public class TimeSwitch : MonoBehaviour
 
         presentContainer.SetActive(isInPresent);
         pastContainer.SetActive(!isInPresent);
+    }
+
+    private void ToggleColorChannel()
+    {
+        if (isInTransition)
+        {
+            if (isInPresent)
+            {
+                prsntClrChannel.StartColorFlash();
+            }
+            else
+            {
+                pstClrChannel.StartColorFlash();
+            }
+        }
+        else
+        {
+            if (isInPresent)
+            {
+                prsntClrChannel.StopColorFlash();
+            }
+            else
+            {
+                pstClrChannel.StopColorFlash();
+            }
+        }
     }
 }

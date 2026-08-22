@@ -277,6 +277,8 @@ MonoBehaviour:
   presentContainer: {fileID: 0}
   pastContainer: {fileID: 0}
   cmrShaker: {fileID: 0}
+  prsntClrChannel: {fileID: 0}
+  pstClrChannel: {fileID: 0}
   transitionDuration: 3
   OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
   OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}

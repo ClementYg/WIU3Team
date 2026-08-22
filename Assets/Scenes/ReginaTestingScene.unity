@@ -1938,6 +1938,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506328713}
+  - component: {fileID: 506328715}
+  - component: {fileID: 506328714}
   m_Layer: 0
   m_Name: Past Container
   m_TagString: Past
@@ -1961,6 +1963,33 @@ Transform:
   - {fileID: 606631707}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506328714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506328712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349eaee4d21048546acf37196a704706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChannel
+  rndrr: {fileID: 1234244117}
+  clr: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  flashInterval: 0.2
+--- !u!114 &506328715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506328712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c957692b55d557b4784547d8a889b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComponentCache
 --- !u!1 &606631706
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,7 +3623,6 @@ GameObject:
   - component: {fileID: 1234244119}
   - component: {fileID: 1234244120}
   - component: {fileID: 1234244121}
-  - component: {fileID: 1234244122}
   m_Layer: 6
   m_Name: Past Ground
   m_TagString: Untagged
@@ -4225,20 +4253,6 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1234244115}
---- !u!114 &1234244122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234244115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349eaee4d21048546acf37196a704706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorChannel
-  rndrr: {fileID: 1234244117}
-  clr: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
 --- !u!1 &1268938619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5940,6 +5954,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 506328712}
     - target: {fileID: 8793660426509342923, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: pstClrChannel
+      value: 
+      objectReference: {fileID: 506328714}
+    - target: {fileID: 8793660426509342923, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: prsntClrChannel
+      value: 
+      objectReference: {fileID: 1971531040}
+    - target: {fileID: 8793660426509342923, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: presentContainer
       value: 
       objectReference: {fileID: 1971531037}
@@ -7095,6 +7117,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1971531038}
+  - component: {fileID: 1971531039}
+  - component: {fileID: 1971531040}
   m_Layer: 0
   m_Name: Present Container
   m_TagString: Present
@@ -7118,6 +7142,33 @@ Transform:
   - {fileID: 859643970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971531039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971531037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c957692b55d557b4784547d8a889b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComponentCache
+--- !u!114 &1971531040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971531037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349eaee4d21048546acf37196a704706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChannel
+  rndrr: {fileID: 2627186059002479021}
+  clr: {r: 1, g: 1, b: 1, a: 1}
+  flashInterval: 0.2
 --- !u!1 &2031559346
 GameObject:
   m_ObjectHideFlags: 0
@@ -7403,7 +7454,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 61ce6d5d0219a3640b2c0d9eac065310, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
