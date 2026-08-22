@@ -4,7 +4,7 @@ using UnityEngine;
 public class ItemInstance
 {
     //unique PID for every item. 
-    public int itemID; 
+    public int itemID;
     public ItemData itemData;
     public ItemEffect itemEffect;
 
