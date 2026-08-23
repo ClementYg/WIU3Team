@@ -14,8 +14,6 @@ public class QuestSystem : PersistentSingleton<QuestSystem>
 
     public int AssignQuest(QuestInstance toAssign)
     {
-        Debug.Log("QuestSystem: assign quest called");
-
         // Add the quest to our list, give it an ID
         assignedQuests.Add(toAssign);
         toAssign.questID = idMan.RequestID();
