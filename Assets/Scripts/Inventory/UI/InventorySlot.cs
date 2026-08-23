@@ -10,7 +10,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public SlotUI UI;
 
     [Header("Event Channels")]
-    [SerializeField] EventInventorySlot OnInventoryClickEvent;
+    [SerializeField] EventInventorySlot onInventoryClickEvent;
 
     // Keep a reference to the item instance that will be placed at this slot
     [System.NonSerialized] public ItemInstance itemDisplayed = null;
@@ -25,7 +25,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnInventoryClickEvent.Raise(this);
+        onInventoryClickEvent.Raise(this);
     }
 
     public void AddToStack(ref int amountToAdd)

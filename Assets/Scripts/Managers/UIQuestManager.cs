@@ -5,39 +5,65 @@ public class UIQuestManager : PersistentSingleton<UIQuestManager>
     [Header("UI Faders")]
     [SerializeField] UIFader canvasFader;
     [SerializeField] UIFader questLogFader;
+    [SerializeField] UIFader questJournalFader;
 
     [Header("Event Channels")]
-    [SerializeField] EventVoid onToggledQuestLogEvent;
+    [SerializeField] EventVoid onToggledQuestUIEvent;
+    [SerializeField] EventQuestLogEntry onLogEntryClickedEvent;
     [SerializeField] EventVoid onDialogueStartedEvent;
     [SerializeField] EventVoid onDialogueEndedEvent;
 
-    bool isQuestLogEnabled = false;
+    bool isQuestLogEnabled = true;
+    bool isQuestUIEnabled = false;
 
     private void OnEnable()
     {
-        onToggledQuestLogEvent.Subscribe(OnToggledQuestLog);
+        onToggledQuestUIEvent.Subscribe(OnToggledQuestUI);
+        onLogEntryClickedEvent.Subscribe(OnLogEntryClicked);
         onDialogueStartedEvent.Subscribe(OnDialogueStarted);
         onDialogueEndedEvent.Subscribe(OnDialogueEnded);
     }
 
     private void OnDisable()
     {
-        onToggledQuestLogEvent.Unsubscribe(OnToggledQuestLog);
+        onToggledQuestUIEvent.Unsubscribe(OnToggledQuestUI);
+        onLogEntryClickedEvent.Unsubscribe(OnLogEntryClicked);
         onDialogueStartedEvent.Unsubscribe(OnDialogueStarted);
         onDialogueEndedEvent.Unsubscribe(OnDialogueEnded);
     }
 
-    public void OnToggledQuestLog()
+    public void OnToggledQuestUI()
     {
-        isQuestLogEnabled = !isQuestLogEnabled;
-        if (isQuestLogEnabled)
+        isQuestUIEnabled = !isQuestUIEnabled;
+        if (isQuestUIEnabled)
         {
-            questLogFader.FadeIn();
+            if (isQuestLogEnabled)
+            {
+                questLogFader.FadeIn();
+            }
+            else
+            {
+                questJournalFader.FadeIn();
+            }
         }
         else
         {
-            questLogFader.FadeOut();
+            if (isQuestLogEnabled)
+            {
+                questLogFader.FadeOut();
+            }
+            else
+            {
+                questJournalFader.FadeOut();
+            }
         }
+    }
+
+    private void OnLogEntryClicked(QuestLogEntry entry)
+    {
+        questLogFader.FadeOut();
+        questJournalFader.FadeIn();
+        isQuestLogEnabled = false;
     }
 
     private void OnDialogueStarted()
@@ -57,12 +83,6 @@ public class UIQuestManager : PersistentSingleton<UIQuestManager>
         if (transform.TryGetComponent<UIFader>(out UIFader cnvsFader))
         {
             canvasFader = cnvsFader;
-        }
-
-        Transform questLogTransform = transform.Find("Quest Log");
-        if (questLogTransform.TryGetComponent<UIFader>(out UIFader qstLgFader))
-        {
-            questLogFader = qstLgFader;
         }
     }
 #endif

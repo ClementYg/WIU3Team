@@ -231,7 +231,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 3228868823796231696}
     quantityText: {fileID: 5372924721173009803}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &851179034118954036
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 3424719585930001329}
     quantityText: {fileID: 1340149369197292672}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &2305033209362376119
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +980,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 9148521437768641114}
     quantityText: {fileID: 8673071778868510227}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &3965634890778828406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 8434219168198527844}
     quantityText: {fileID: 7475057060595857369}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &5191712768449671930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 3254669400278709303}
     quantityText: {fileID: 2275237342100573027}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &5250738285764378343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1592,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 3973978187924526979}
     quantityText: {fileID: 7399441138742307327}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &5257727642366670298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 407819685295063259}
     quantityText: {fileID: 484247423970606064}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &6190002088683320010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2617,7 +2617,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 3997865983033544331}
     quantityText: {fileID: 5868965802244736394}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &7512320601465645923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,7 +2849,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 7141470946132698333}
     quantityText: {fileID: 8488159533939964723}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &7688647187384619042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,7 +3156,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 2135074244995664591}
     quantityText: {fileID: 6487169541079632453}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &8329126561642285506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,7 +3525,7 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 3576924246354167764}
     quantityText: {fileID: 8402245014355136536}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
 --- !u!1 &8567967353694794892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,4 +3832,4 @@ MonoBehaviour:
   UI:
     itemImage: {fileID: 1765089505978543306}
     quantityText: {fileID: 6392160174261493659}
-  OnInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}
+  onInventoryClickEvent: {fileID: 11400000, guid: 574bcfec05a1b7940bdcded176d5472f, type: 2}

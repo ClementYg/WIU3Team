@@ -223,9 +223,9 @@ GameObject:
   - component: {fileID: 1001236003200039670}
   - component: {fileID: 4001163639591387847}
   - component: {fileID: 4006868808290651068}
-  - component: {fileID: 101153864493902679}
+  - component: {fileID: 859180523284731571}
   m_Layer: 5
-  m_Name: Log
+  m_Name: Log Entry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &101153864493902679
+--- !u!114 &859180523284731571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4162361808894959361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfc463b28c50fd4aad419efd6560271, type: 3}
+  m_Script: {fileID: 11500000, guid: e559005f38e70da4d8eaee93df50f203, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestLog
+  m_EditorClassIdentifier: Assembly-CSharp::QuestLogEntry
+  onLogEntryClickEvent: {fileID: 11400000, guid: 54559f73ae35c7144bdfe008bcc0bf3b, type: 2}
