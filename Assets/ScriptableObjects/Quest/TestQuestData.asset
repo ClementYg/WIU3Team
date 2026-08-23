@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: TestQuestData
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
   questName: Test
-  questContext: 'The Greeks are asking for a report on how the pyramids were built,
-    but I can''t find my diary. Could you help me find it? It''s somewhere in this
-    pyramid. '
+  source: {fileID: 11400000, guid: 59abd18244a72a04391746b978167ed4, type: 2}
   requirements: 

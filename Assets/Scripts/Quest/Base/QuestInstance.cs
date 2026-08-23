@@ -4,6 +4,8 @@ using System.Collections.Generic;
 [System.Serializable]
 public class QuestInstance
 {
+    [HideInInspector] public int questID;
+
     [Header("References")]
     public QuestData questData;
     public QuestReward questReward;

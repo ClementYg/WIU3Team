@@ -1,15 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "QuestNPCData", menuName = "Scriptable Objects/NPCs/QuestNPCData")]
+[CreateAssetMenu(fileName = "QuestNPCData", menuName = "ScriptableObjects/NPCs/QuestNPCData")]
 public class QuestNPCData : NPCData
 {
     int questIndex;
 
     public void AssignQuest(QuestInstance toAssign, ComponentCache questCache)
     {
-        QuestManager questMan = questCache.Get<QuestManager>();
-        if (questMan == null) return;
+        QuestSystem questSys = questCache.Get<QuestSystem>();
+        if (questSys == null) return;
 
-        questIndex = questMan.AssignQuest(toAssign);
+        questIndex = questSys.AssignQuest(toAssign);
     }
 }

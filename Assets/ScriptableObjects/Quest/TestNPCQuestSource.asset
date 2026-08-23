@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: TestNPCQuestSource
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestSource
   type: 0
-  questContext: 
-  npc: {fileID: 0}
+  questContext: 'The Greeks are asking for a report on how the pyramids were built,
+    but I can''t find my diary. Could you help me find it? It''s somewhere in this
+    pyramid. '
+  npcData: {fileID: 11400000, guid: e332a74cc22478e4b94734b4ce5d0549, type: 2}

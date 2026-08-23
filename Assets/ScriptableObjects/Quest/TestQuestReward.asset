@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190eba06969d3a249ae9f91c03a842e8, type: 3}
   m_Name: TestQuestReward
   m_EditorClassIdentifier: Assembly-CSharp::QuestReward
-  rewardName: Test
+  rewardName: Test Quest Reward
   itemReward: {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
   quantityToReward: 1
