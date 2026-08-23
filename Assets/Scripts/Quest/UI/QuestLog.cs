@@ -46,6 +46,13 @@ public class QuestLog : MonoBehaviour
         {
             GameObject newLog = Instantiate(logEntryPrefab);
 
+            // Assign the QuestInstance
+            if (newLog.TryGetComponent<QuestLogEntry>(out QuestLogEntry entry))
+            {
+                entry.quest = quest;
+            }
+            
+            // Set position
             newLog.transform.SetParent(containerTransform);
             Vector3 newPos = newLog.transform.localPosition;
             newPos = Vector3.zero;
@@ -53,6 +60,7 @@ public class QuestLog : MonoBehaviour
             newLog.transform.localPosition = newPos;
             currentOffsetY -= 150f - logEntryPadding;
 
+            // Set UI
             Transform textTransform = newLog.transform.GetChild(0);
             if (textTransform.TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI txtMesh))
             {

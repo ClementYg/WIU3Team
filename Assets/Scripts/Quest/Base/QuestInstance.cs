@@ -10,7 +10,7 @@ public class QuestInstance
     public QuestData questData;
     public QuestReward questReward;
 
-    List<TaskInstance> tasks;
+    public List<TaskInstance> tasks;
 
     public bool IsQuestCompleted
     {

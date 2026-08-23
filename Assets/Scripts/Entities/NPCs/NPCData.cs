@@ -4,5 +4,5 @@ using UnityEngine;
 public class NPCData : ScriptableObject
 {
     [Header("Details")]
-    [SerializeField] string npcName;
+    public string npcName;
 }
