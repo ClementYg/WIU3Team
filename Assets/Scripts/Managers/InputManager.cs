@@ -6,6 +6,7 @@ public class InputManager : Singleton<InputManager>
     [Header("Event Channels")]
     [SerializeField] private EventBool onToggledPauseEvent;
     [SerializeField] private EventBool onToggledInventoryEvent;
+    [SerializeField] private EventBool onToggledQuestUIEvent;
     [SerializeField] private EventBool onToggledCutsceneModeEvent;
     [SerializeField] private EventVoid onDialogueStartedEvent;
     [SerializeField] private EventVoid onDialogueEndedEvent;
@@ -16,6 +17,7 @@ public class InputManager : Singleton<InputManager>
 
     private void OnEnable()
     {
+        onToggledQuestUIEvent.Subscribe(OnToggledQuestUI);
         onToggledCutsceneModeEvent.Subscribe(OnToggledCutsceneMode);
         onDialogueStartedEvent.Subscribe(OnDialogueStarted);
         onDialogueEndedEvent.Subscribe(OnDialogueEnded);
@@ -23,9 +25,28 @@ public class InputManager : Singleton<InputManager>
 
     private void OnDisable()
     {
+        onToggledQuestUIEvent.Unsubscribe(OnToggledQuestUI);
         onToggledCutsceneModeEvent.Unsubscribe(OnToggledCutsceneMode);
         onDialogueStartedEvent.Unsubscribe(OnDialogueStarted);
         onDialogueEndedEvent.Unsubscribe(OnDialogueEnded);
+    }
+
+    private void OnToggledQuestUI(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            InputSystem.actions.FindActionMap("ModeSwitch").Disable();
+            InputSystem.actions.FindActionMap("Player").Disable();
+            InputSystem.actions.FindActionMap("UI").Disable();
+            InputSystem.actions.FindActionMap("Dialogue").Disable();
+        }
+        else
+        {
+            InputSystem.actions.FindActionMap("ModeSwitch").Enable();
+            InputSystem.actions.FindActionMap("Player").Enable();
+            InputSystem.actions.FindActionMap("UI").Enable();
+            InputSystem.actions.FindActionMap("Dialogue").Enable();
+        }
     }
 
     private void OnToggledCutsceneMode(bool isEnabled)

@@ -9,6 +9,7 @@ public class UIQuestManager : PersistentSingleton<UIQuestManager>
 
     [Header("Event Channels")]
     [SerializeField] EventVoid onToggledQuestUIEvent;
+    [SerializeField] EventBool onToggledQuestUIEventBool;
     [SerializeField] EventQuestLogEntry onLogEntryClickedEvent;
     [SerializeField] EventVoid onDialogueStartedEvent;
     [SerializeField] EventVoid onDialogueEndedEvent;
@@ -37,14 +38,8 @@ public class UIQuestManager : PersistentSingleton<UIQuestManager>
         isQuestUIEnabled = !isQuestUIEnabled;
         if (isQuestUIEnabled)
         {
-            if (isQuestLogEnabled)
-            {
-                questLogFader.FadeIn();
-            }
-            else
-            {
-                questJournalFader.FadeIn();
-            }
+            questLogFader.FadeIn();
+            isQuestLogEnabled = true;
         }
         else
         {
@@ -57,6 +52,16 @@ public class UIQuestManager : PersistentSingleton<UIQuestManager>
                 questJournalFader.FadeOut();
             }
         }
+
+        // Raise the event for input manager
+        onToggledQuestUIEventBool.Raise(isQuestUIEnabled);
+    }
+
+    public void OnBackButtonClicked()
+    {
+        questJournalFader.FadeOut();
+        questLogFader.FadeIn();
+        isQuestLogEnabled = true;
     }
 
     private void OnLogEntryClicked(QuestLogEntry entry)
