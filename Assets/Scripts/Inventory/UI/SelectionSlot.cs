@@ -14,10 +14,7 @@ public class SelectionSlot : MonoBehaviour
     {
         // Visually move the image
         selectionImage.rectTransform.SetParent(newSlot.slotRectTransform, false);
-
-        Vector3 newPos = selectionImage.rectTransform.localPosition;
-        newPos = Vector3.zero;
-        selectionImage.rectTransform.localPosition = newPos;
+        selectionImage.rectTransform.localPosition = Vector3.zero;
 
         // Update the reference
         selectedSlot = newSlot;

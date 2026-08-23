@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 1001236003200039670}
   - component: {fileID: 4001163639591387847}
   - component: {fileID: 4006868808290651068}
+  - component: {fileID: 101153864493902679}
   m_Layer: 5
   m_Name: Log
   m_TagString: Untagged
@@ -248,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 265}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4001163639591387847
@@ -289,3 +290,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &101153864493902679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162361808894959361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfc463b28c50fd4aad419efd6560271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestLog

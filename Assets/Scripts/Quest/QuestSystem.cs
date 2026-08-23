@@ -3,16 +3,19 @@ using System.Collections.Generic;
 
 public class QuestSystem : PersistentSingleton<QuestSystem>
 {
-    [Header("Dependencies")]
+    [Header("Quest System")]
     [SerializeField] IDManager idMan;
 
     [Header("Event Channels")]
     [SerializeField] EventVoid onQuestsUpdatedEvent;
 
-    List<QuestInstance> assignedQuests;
+    List<QuestInstance> assignedQuests = new();
+    public List<QuestInstance> AssignedQuests => assignedQuests;
 
     public int AssignQuest(QuestInstance toAssign)
     {
+        Debug.Log("QuestSystem: assign quest called");
+
         // Add the quest to our list, give it an ID
         assignedQuests.Add(toAssign);
         toAssign.questID = idMan.RequestID();
@@ -28,6 +31,8 @@ public class QuestSystem : PersistentSingleton<QuestSystem>
         // Get the quest to remove
         QuestInstance toRemove = GetQuestWithID(questID);
         if (toRemove == null) return false;
+
+        // Note: Remember to give the reward
 
         // Remove the quest
         assignedQuests.Remove(toRemove);

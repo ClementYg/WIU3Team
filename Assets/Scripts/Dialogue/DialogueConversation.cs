@@ -10,6 +10,9 @@ public class DialogueConversation : ScriptableObject
     [Header("State")]
     public bool hasBeenSeen;
 
+    [Header("Event Channels")]
+    public EventVoid onConvoEndedEvent;
+
     public DialogueNode GetStartNode()
     {
         if (hasBeenSeen && repeatNode != null)
