@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbeb40aa4f0bb28409dd159d0854bb60, type: 3}
   m_Name: TestQuestData
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Test
+  questName: Find Diary
   source: {fileID: 11400000, guid: 59abd18244a72a04391746b978167ed4, type: 2}
   requirements: 

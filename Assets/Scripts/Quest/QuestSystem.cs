@@ -7,7 +7,7 @@ public class QuestSystem : PersistentSingleton<QuestSystem>
     [SerializeField] IDManager idMan;
 
     [Header("Event Channels")]
-    [SerializeField] EventVoid OnQuestsUpdatedEvent;
+    [SerializeField] EventVoid onQuestsUpdatedEvent;
 
     List<QuestInstance> assignedQuests;
 
@@ -18,7 +18,7 @@ public class QuestSystem : PersistentSingleton<QuestSystem>
         toAssign.questID = idMan.RequestID();
 
         // Raise the event
-        OnQuestsUpdatedEvent.Raise();
+        onQuestsUpdatedEvent.Raise();
 
         return toAssign.questID;
     }
@@ -33,7 +33,7 @@ public class QuestSystem : PersistentSingleton<QuestSystem>
         assignedQuests.Remove(toRemove);
 
         // Raise the event
-        OnQuestsUpdatedEvent.Raise();
+        onQuestsUpdatedEvent.Raise();
 
         return true;
     }

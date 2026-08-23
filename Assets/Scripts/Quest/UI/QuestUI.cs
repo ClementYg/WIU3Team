@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class QuestUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Event Channels")]
+    [SerializeField] EventVoid onQuestsUpdatedEvent;
+
+    private void OnEnable()
     {
-        
+        onQuestsUpdatedEvent.Subscribe(UpdateUI);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        onQuestsUpdatedEvent.Unsubscribe(UpdateUI);
+    }
+
+    private void UpdateUI()
+    {
+
     }
 }
