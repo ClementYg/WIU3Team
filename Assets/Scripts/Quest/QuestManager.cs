@@ -1,14 +1,23 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class QuestManager : PersistentSingleton<QuestManager>
 {
-    public void AssignQuest()
-    {
+    List<QuestInstance> assignedQuests;
 
+    public int AssignQuest(QuestInstance toAssign)
+    {
+        assignedQuests.Add(toAssign);
+
+        return assignedQuests.Count - 1;
     }
 
-    public void CompleteQuest()
+    public bool CompleteQuest(int questIndex)
     {
+        if (questIndex < 0 || questIndex > assignedQuests.Count - 1) return false;
 
+        assignedQuests.RemoveAt(questIndex);
+
+        return true;
     }
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 [System.Serializable]
 public class QuestInstance
 {
+    [Header("References")]
     public QuestData questData;
     public QuestReward questReward;
 
-    [Header("Tasks")]
     List<TaskInstance> tasks;
 
     public bool IsQuestCompleted
@@ -22,7 +22,4 @@ public class QuestInstance
             return true;
         }
     }
-
-    // Need a reference to the NPC who gave this task, to be implemented when NPCs are in
-    //public NPC questGiver;
 }

@@ -6621,14 +6621,15 @@ GameObject:
   - component: {fileID: 1938188163}
   - component: {fileID: 1938188162}
   - component: {fileID: 1938188161}
+  - component: {fileID: 1938188166}
   - component: {fileID: 1938188165}
   m_Layer: 3
-  m_Name: TestTalkInteract
+  m_Name: TestQuestNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!58 &1938188161
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6760,12 +6761,12 @@ Transform:
   m_GameObject: {fileID: 1938188159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: -1.44, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1571446935}
-  m_Father: {fileID: 2108547342}
+  m_Father: {fileID: 1971531038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1938188165
 MonoBehaviour:
@@ -6779,7 +6780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9565c8b53d311e04aa6cf5250190945c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TalkInteract
-  player: {fileID: 0}
+  player: {fileID: 1425624236}
   frame: {fileID: 411939098}
   leftDivider: {fileID: 1464479652}
   rightDivider: {fileID: 1389367852}
@@ -6797,6 +6798,20 @@ MonoBehaviour:
   textContent: 
   fontSize: 0
   conversation: {fileID: 11400000, guid: cd924e59416c15c4fb656f85868bd639, type: 2}
+--- !u!114 &1938188166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938188159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b78d82038ca524a88ea7727aceb068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestNPC
+  npcName: Hemiunu
+  questMan: {fileID: 1379754009}
 --- !u!1 &1971531037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2127115118886691391, guid: af53465576b37074d869077736b1ca38, type: 3}
@@ -6977,38 +6992,6 @@ Transform:
   - {fileID: 739894164}
   - {fileID: 1824205002}
   - {fileID: 1379754008}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2108547341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2108547342}
-  m_Layer: 0
-  m_Name: TestInteractions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2108547342
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108547341}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1938188164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2617361526975326325
@@ -9330,6 +9313,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8191120172481194089, guid: af53465576b37074d869077736b1ca38, type: 3}
       insertIndex: -1
       addedObject: {fileID: 371912359}
+    - targetCorrespondingSourceObject: {fileID: 8191120172481194089, guid: af53465576b37074d869077736b1ca38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1938188164}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af53465576b37074d869077736b1ca38, type: 3}
 --- !u!1001 &5439135582186931855
@@ -11496,4 +11482,3 @@ SceneRoots:
   - {fileID: 1054530668}
   - {fileID: 1288178591}
   - {fileID: 2103465917}
-  - {fileID: 2108547342}

@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b78844ef6049f46bb9fd2bd28b297f, type: 3}
-  m_Name: TestTaskData
-  m_EditorClassIdentifier: Assembly-CSharp::TaskData
-  instruction: Find Hemiunu's diary.
-  taskType: 0
-  requiredQuantity: 1
+  m_Script: {fileID: 11500000, guid: abd4f58248b9da74499b9854b8d2f375, type: 3}
+  m_Name: FindDiary
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speaker: {fileID: 0}
+  text: 
+  nextNode: {fileID: 0}
+  choices: []

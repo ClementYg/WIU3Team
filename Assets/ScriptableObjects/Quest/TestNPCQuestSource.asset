@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b78844ef6049f46bb9fd2bd28b297f, type: 3}
-  m_Name: TestTaskData
-  m_EditorClassIdentifier: Assembly-CSharp::TaskData
-  instruction: Find Hemiunu's diary.
-  taskType: 0
-  requiredQuantity: 1
+  m_Script: {fileID: 11500000, guid: 192651b037465b54b914c29b7c8dc39b, type: 3}
+  m_Name: TestNPCQuestSource
+  m_EditorClassIdentifier: Assembly-CSharp::NPCQuestSource
+  type: 0
+  questContext: 
+  npc: {fileID: 0}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TaskData", menuName = "ScriptableObjects/Quests/TaskData")]
+[CreateAssetMenu(fileName = "TaskData", menuName = "ScriptableObjects/Quests/Tasks/TaskData")]
 public class TaskData : ScriptableObject
 {
     [Header("Task")]

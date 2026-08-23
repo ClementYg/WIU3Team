@@ -6,7 +6,7 @@ public class QuestData : ScriptableObject
 {
     [Header("Details")]
     public string questName;
-    [TextArea(2, 10)] public string questContext;
+    public QuestSource source;
 
     [Header("Requirements")]
     public List<QuestRequirement> requirements = new();
