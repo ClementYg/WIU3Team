@@ -10,7 +10,11 @@ public class AreaEntryData : ScriptableObject, BestiaryEntry
 
     [Header("Description")]
     public string description;
-
+    [Header("Map")]
+    //the sprite needs a png that only shows this area's portion highlighted. (all will compile)
+    //into a gigantic layered map afterwards.
+    public Sprite regionSprite;
+    public Vector2 mapPosition;
     public string EntryID => entryID; //EntryID from BestiaryCategory Interface
     public string DisplayName => displayName;
     public string Description => description;

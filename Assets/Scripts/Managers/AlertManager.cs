@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +10,23 @@ using UnityEngine;
 public struct AlertMessage
 {
     public AlertType type;
+    public AlertStyle style;
     public string template;  //we can use {#} if we wanna do like +50G or +10 Strength etc
 }
+
+public enum AlertStyle
+{
+    Impact, //"PUZZLE COMPLETE" etc stuff
+    EnterArea
+}
+
+[System.Serializable]
+public struct AlertStylePrefab
+{
+    public AlertStyle style;
+    public GameObject prefab;
+}
+
 
 public class AlertManager : PersistentSingleton<AlertManager>
 {
@@ -21,33 +37,41 @@ public class AlertManager : PersistentSingleton<AlertManager>
     [SerializeField] List<AlertMessage> messages = new();
 
     [Header("UI")]
-    [SerializeField] GameObject alertUIPrefab;
-    UIFader alertFader;
-    TMP_Text alertText;
+    [SerializeField] List<AlertStylePrefab> stylePrefabs = new();
 
     [Header("timing")]
     [SerializeField] float textDuration = 2f;  //how long it stays on screen
 
-    Dictionary<AlertType, string> messageTypes;
-    Coroutine holdText;
-
+    Dictionary<AlertType, AlertMessage> messageTypes;
+    Dictionary<AlertStyle, (UIFader fader, TMP_Text text)> styles;
+    Dictionary<AlertStyle, Coroutine> holdTexts;
 
 
     protected override void Awake()
     {
         base.Awake();
         if (_instance != this) return;
-        if (alertUIPrefab != null)
-        {
-            GameObject uiInstance = Instantiate(alertUIPrefab, transform);
-            alertFader = uiInstance.GetComponentInChildren<UIFader>();
-            alertText = uiInstance.GetComponentInChildren<TMP_Text>();
-        }
 
-        messageTypes = new Dictionary<AlertType, string>();
-        foreach(AlertMessage msg in messages)
+        messageTypes = new Dictionary<AlertType, AlertMessage>();
+        foreach (AlertMessage msg in messages) messageTypes[msg.type] = msg;
+
+        styles = new Dictionary<AlertStyle, (UIFader, TMP_Text)>();
+        holdTexts = new Dictionary<AlertStyle, Coroutine>();
+
+        foreach(AlertStylePrefab entry in stylePrefabs)
         {
-            messageTypes[msg.type] = msg.template; //initialise all the msgs and types into the dictionary
+            if (entry.prefab == null) continue;
+
+            GameObject instance = Instantiate(entry.prefab, transform);
+            UIFader fader = instance.GetComponentInChildren<UIFader>(true);
+            TMP_Text text = instance.GetComponentInChildren<TMP_Text>(true);
+
+            if (fader == null || text == null)
+            {
+                Debug.LogError($"(AM):{entry.style} prefab is missing UIFader or Text component");
+                continue;
+            }
+            styles[entry.style] = (fader,text);
         }
     }
 
@@ -61,20 +85,46 @@ public class AlertManager : PersistentSingleton<AlertManager>
         if (onRequestAlert != null) onRequestAlert.Unsubscribe(ShowAlert);
     }
 
-    private void ShowAlert(AlertType type, float value = 0f)
+    public void ShowAlert(AlertType type, float value = 0f)
     {
-        string template = messageTypes.TryGetValue(type, out string found) 
-            ? found : type.ToString();
-        
-        alertText.text = template.Contains("{0}") ? string.Format(template, value) : template;
+        if (!messageTypes.TryGetValue(type, out AlertMessage msg))
+        {
+            Debug.LogWarning($"AlertManager: no message registered for {type}.");
+            return;
+        }
 
-        if (holdText != null) StopCoroutine(holdText);
-        alertFader.FadeIn(() => holdText = StartCoroutine(Fade()));
+        string text = msg.template.Contains("{0}") ? string.Format(msg.template, value) : msg.template;
+        PlayAlertStyle(msg.style, text);
+    }
+    public void ShowCustomAlert(string text, AlertStyle style)
+    {
+        PlayAlertStyle(style, text);
     }
 
-    IEnumerator Fade()
+    void PlayAlertStyle(AlertStyle style, string text)
+    {
+        if (!styles.TryGetValue(style, out var instance))
+        {
+            Debug.LogWarning($"AlertManager: no prefab registered for style {style}.");
+            return;
+        }
+
+        instance.text.text = text;
+
+        if (holdTexts.TryGetValue(style, out Coroutine existing) && existing != null)
+            StopCoroutine(existing);
+
+        instance.fader.FadeIn(() =>
+        {
+            holdTexts[style] = StartCoroutine(Fade(instance.fader, style));
+        });
+    }
+
+    IEnumerator Fade(UIFader fader, AlertStyle style)
     {
         yield return new WaitForSeconds(textDuration);
-        alertFader.FadeOut();
+        fader.FadeOut();
+        holdTexts[style] = null;
     }
+
 }
