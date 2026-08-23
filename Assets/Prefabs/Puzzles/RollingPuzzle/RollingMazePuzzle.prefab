@@ -549,6 +549,7 @@ MonoBehaviour:
   OnPuzzleFinishEvent: {fileID: 11400000, guid: e92d0c17f23d0a4459a0c63be95e5fc6, type: 2}
   OnPuzzleStartEvent: {fileID: 11400000, guid: 15a1ac9c716b07f4190f0aaae3dc8ffb, type: 2}
   OnPuzzleExitEvent: {fileID: 11400000, guid: 154f0d01e13d3ae4692c5ae173ab1418, type: 2}
+  OnRequestAlert: {fileID: 11400000, guid: a1db97be75ec2ef478620191c3d8f5c7, type: 2}
   puzzleCanvas: {fileID: 7816911817778811702}
   mazeRoot: {fileID: 2918263430134052498}
   ballRigidbody: {fileID: 6060186571280081141}

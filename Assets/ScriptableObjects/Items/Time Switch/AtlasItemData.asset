@@ -21,8 +21,11 @@ MonoBehaviour:
     kind of ancient power.
   isStackable: 0
   maxStackSize: 1
+  consumePerUse: 1
   hasDurability: 0
   maxDurability: 100
+  durabilityPerUse: 1
+  useCooldown: 0
   statModifiers:
   - statType: 3
     value: 5

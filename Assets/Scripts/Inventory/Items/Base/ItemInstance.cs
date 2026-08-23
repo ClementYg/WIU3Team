@@ -44,6 +44,7 @@ public class ItemInstance
             ReduceStack(itemData.consumePerUse);
         }
 
+        BestiaryManager.Instance.Unlock(itemData.EntryID);
         return true;
     }
 

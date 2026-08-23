@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87a0aafe04ac5141ab376a7bd9095aa, type: 3}
-  m_Name: ItemDatabaseInstance
-  m_EditorClassIdentifier: Assembly-CSharp::ItemDatabase
-  allItemDatas:
+  m_Script: {fileID: 11500000, guid: 9e7cada0184a64946a1f14f1eb9f5fa5, type: 3}
+  m_Name: BestiaryDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::BestiaryDatabase
+  itemEntries:
   - {fileID: 11400000, guid: e8e0a0391fcff8f47aa73c3deac54e60, type: 2}
   - {fileID: 11400000, guid: 1d0292417c49c1b4ebf805a49be17666, type: 2}
   - {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
   - {fileID: 11400000, guid: c9fd8696c5a0ed74c8fd658e6f0130aa, type: 2}
+  areaEntries: []
+  enemyEntries: []
+  loreEntries: []
