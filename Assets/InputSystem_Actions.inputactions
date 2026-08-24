@@ -923,6 +923,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "CloseUIPage",
+                    "type": "Button",
+                    "id": "d2ac1b2c-58a6-470c-851f-e1b34f909daf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -945,6 +955,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TogglePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42f2b858-fbeb-45f1-874a-de79da537f7b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseUIPage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

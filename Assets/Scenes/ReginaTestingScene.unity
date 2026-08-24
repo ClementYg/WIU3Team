@@ -980,11 +980,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 56139570979250, guid: b43f5077b138ec44b8dc2ed8f43eaf2d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 61.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 56139570979250, guid: b43f5077b138ec44b8dc2ed8f43eaf2d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 28.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51132286210326037, guid: b43f5077b138ec44b8dc2ed8f43eaf2d, type: 3}
       propertyPath: m_Pivot.x
@@ -1092,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5462822415565597355, guid: b43f5077b138ec44b8dc2ed8f43eaf2d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 12.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5462822415565597355, guid: b43f5077b138ec44b8dc2ed8f43eaf2d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8602,6 +8602,7 @@ MonoBehaviour:
   onToggledPauseEvent: {fileID: 11400000, guid: 3deffbeaf0605a54a92730003d655e61, type: 2}
   onToggledInventoryEvent: {fileID: 11400000, guid: 2f37cd205ca170444a7cc89b360e051a, type: 2}
   onToggledQuestUIEvent: {fileID: 11400000, guid: f319a1febd3e3ab4dabd506e2effd010, type: 2}
+  onToggledGeneralUIEvent: {fileID: 11400000, guid: c37b84f7db5684b4baf95b853d16107f, type: 2}
   onToggledCutsceneModeEvent: {fileID: 11400000, guid: 1258f2fc4b9847d4fa5275311a2d2bcf, type: 2}
   onDialogueStartedEvent: {fileID: 11400000, guid: 8ccaa020d8190a14e9c8082edad08020, type: 2}
   onDialogueEndedEvent: {fileID: 11400000, guid: e5d85809fafe7b541a1cb734038ca05f, type: 2}
@@ -8940,7 +8941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1923074820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9820,7 +9821,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2103465917}
-  - component: {fileID: 2103465918}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -9848,23 +9848,6 @@ Transform:
   - {fileID: 1824205002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2103465918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2103465916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79fa611a1d1776489261010ad22214a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIGeneralManager
-  page: {fileID: 0}
-  header: {fileID: 0}
-  body: {fileID: 0}
-  onDisplayPageRequestedEvent: {fileID: 11400000, guid: 73f90a8aab8e6864dbf13b70fe839826, type: 2}
-  onToggledGeneralUIEventBool: {fileID: 0}
 --- !u!1001 &2617361526975326325
 PrefabInstance:
   m_ObjectHideFlags: 0

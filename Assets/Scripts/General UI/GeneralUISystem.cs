@@ -23,6 +23,11 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
         onDisplayPageRequestedEvent.Unsubscribe(DisplayUIPage);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
     private void DisplayUIPage(UIPage toDisplay)
     {
         if (toDisplay == null) return;
