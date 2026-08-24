@@ -1219,6 +1219,7 @@ MonoBehaviour:
   detailCategory: {fileID: 690624207896696979}
   detailLockedState: {fileID: 6358049469965188499}
   animDuration: 0.3
+  OnBestiaryToggledEvent: {fileID: 11400000, guid: e3cef5e49acfa97459a2f493d2df4be2, type: 2}
 --- !u!1 &2514753651761515875
 GameObject:
   m_ObjectHideFlags: 0

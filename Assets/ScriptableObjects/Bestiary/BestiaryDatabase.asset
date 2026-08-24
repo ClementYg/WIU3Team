@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BestiaryDatabase
   m_EditorClassIdentifier: Assembly-CSharp::BestiaryDatabase
   itemEntries:
+  - {fileID: 11400000, guid: 1bb678b7c6e83b14ea9afbc6e5f2aab8, type: 2}
   - {fileID: 11400000, guid: e8e0a0391fcff8f47aa73c3deac54e60, type: 2}
   - {fileID: 11400000, guid: 1d0292417c49c1b4ebf805a49be17666, type: 2}
   - {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
