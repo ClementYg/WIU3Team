@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ccea15297c8ce74eac0b5f229834999, type: 3}
+  m_Name: DiaryItemData
+  m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
+  itemID: ancient_diary
+  itemName: Ancient Diary
+  itemImage: {fileID: 21300000, guid: 00ed304b4bff46e4386c9f544050a786, type: 3}
+  itemType: 4
+  shortDescription: A diary written on papyrus.
+  loreDescription: Hemiunu's diary, documenting the construction process of the Pyramids
+    of Egypt.
+  isStackable: 0
+  maxStackSize: 1
+  consumePerUse: 0
+  hasDurability: 0
+  maxDurability: 100
+  durabilityPerUse: 1
+  useCooldown: 0
+  isConsumable: 0
+  statModifiers: []
+  givenBy: 
+  questID: -1
+  isKeyItem: 0

@@ -7191,8 +7191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   item:
     itemID: 1
-    itemData: {fileID: 11400000, guid: c9fd8696c5a0ed74c8fd658e6f0130aa, type: 2}
-    itemEffect: {fileID: 11400000, guid: b6cb8bc61a942e8479a7c606dba2fe46, type: 2}
+    itemData: {fileID: 11400000, guid: 1bb678b7c6e83b14ea9afbc6e5f2aab8, type: 2}
+    itemEffect: {fileID: 11400000, guid: 7e94570d2860a8442949547fb364eb02, type: 2}
     currentDurability: 0
     stackCount: 1
 --- !u!58 &1653906992
