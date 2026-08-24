@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564f184f60e46244690906a8d5a9ab28, type: 3}
   m_Name: test
   m_EditorClassIdentifier: Assembly-CSharp::AreaEntryData
-  entryID: test
+  entryID: test2
   displayName: Test
   icon: {fileID: 21300000, guid: 91947d956529b8c4c892ba131b44f73c, type: 3}
   description: 
