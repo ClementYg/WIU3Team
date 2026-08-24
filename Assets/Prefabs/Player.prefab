@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 114745869466121999}
   - component: {fileID: 7354857566738239595}
   - component: {fileID: 8793660426509342923}
+  - component: {fileID: 7910338478841596607}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -274,15 +275,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd974b9a7a68c0c43b000d57dc8c2e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchManager
-  references: {fileID: 0}
-  presentContainer: {fileID: 0}
-  pastContainer: {fileID: 0}
-  cmrShaker: {fileID: 0}
-  prsntClrChannel: {fileID: 0}
-  pstClrChannel: {fileID: 0}
-  transitionDuration: 3
   OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
   OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  transitionDuration: 3
+--- !u!114 &7910338478841596607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822732352266489706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424b5e35804abad4bb4c0d3a7ce1a950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShaker
+  source: {fileID: 0}
 --- !u!1 &851216911968657541
 GameObject:
   m_ObjectHideFlags: 0

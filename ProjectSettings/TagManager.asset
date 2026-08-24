@@ -7,7 +7,6 @@ TagManager:
   - Ball
   - Present
   - Past
-  - Inventory
   layers:
   - Default
   - TransparentFX
