@@ -32,18 +32,32 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public bool AddItem(ItemInstance item)
     {
+        // Check if the inventory is full
         if (IsInventoryFull)
         {
             OnInventoryFullEvent.Raise();
             return false;
         }
 
+        // Add the item
         if (invUI.AddItem(item) == false)
         {
             return false;
         }
-
+        BestiaryManager.Instance.Unlock(item.itemData.EntryID);
         inventoryItems.Add(item);
+
+        // Check if this is a quest item
+        if (item.itemData is QuestItemData data)
+        {
+            data.RaiseEvent();
+        }
+
+        // Check if this item has a ItemPageEffect
+        if (item.itemEffect is ItemPageEffect effect)
+        {
+            effect.RaiseEvent();
+        }
 
         return true;
     }

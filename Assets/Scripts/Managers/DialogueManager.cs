@@ -146,6 +146,12 @@ public class DialogueManager : Singleton<DialogueManager>
     private void EndDialogue()
     {
         currentConversation.MarkAsSeen();
+
+        if (currentConversation.onConvoEndedEvent != null)
+        {
+            currentConversation.onConvoEndedEvent.Raise();
+        }
+
         IsDialogueActive = false;
         currentNode = null;
         currentConversation = null;

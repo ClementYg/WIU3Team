@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/Inventory/ItemData")]
-public class ItemData : ScriptableObject
+public class ItemData : ScriptableObject, BestiaryEntry
 {
     [Header("Identifiers")]
     public string itemID; //unique PID for database
@@ -32,6 +32,14 @@ public class ItemData : ScriptableObject
 
     [Header("Stats")]
     public List<StatModifier> statModifiers = new();
+
+    //BestiaryEntry so that every ItemData will appear there automatically
+    public string EntryID => itemID;
+    public string DisplayName => itemName;
+    public string Description => loreDescription;
+    public Sprite Icon => itemImage;
+    public BestiaryCategory Category => BestiaryCategory.Item;
+
 
     //virtual so can change in specific item Datas
     public virtual string GetToolTip()

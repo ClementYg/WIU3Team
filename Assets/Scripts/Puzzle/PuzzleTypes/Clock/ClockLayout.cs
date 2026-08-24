@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Puzzles/Clock Layout")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Puzzles/Clock Layout")]
 public class ClockLayout : ScriptableObject
 {
     [System.Serializable]

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 [System.Serializable]
 public class QuestInstance
 {
+    [HideInInspector] public int questID;
+
     [Header("References")]
     public QuestData questData;
     public QuestReward questReward;
 
-    List<TaskInstance> tasks;
+    [Header("Tasks")]
+    public List<TaskInstance> tasks;
 
     public bool IsQuestCompleted
     {
