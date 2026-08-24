@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa7f297824b4e447bd1983633e16d95, type: 3}
-  m_Name: EnablePathfind
-  m_EditorClassIdentifier: Assembly-CSharp::TogglePathfindAction
-  togglePathfind: 1
+  m_Script: {fileID: 11500000, guid: bc61e7213d19e03488c384ea5e9bae6b, type: 3}
+  m_Name: Enemy1MeleeAttack
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackAction
+  hitboxRadius: 0.5
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 128
