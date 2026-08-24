@@ -68,7 +68,6 @@ public class BestiaryDatabase : ScriptableObject
 
         Debug.Log(sb.ToString());
     }
-
     private void LogCategory<T>(System.Text.StringBuilder sb, string label, List<T> entries) where T : BestiaryEntry
     {
         sb.AppendLine($"-- {label} ({entries.Count}) --");
@@ -76,6 +75,58 @@ public class BestiaryDatabase : ScriptableObject
         {
             string id = string.IsNullOrEmpty(entry.EntryID) ? "<missing ID>" : entry.EntryID;
             sb.AppendLine($"  {id}  ({entry.DisplayName})");
+        }
+    }
+
+    [ContextMenu("Check Duplicate EntryIDs")]
+    private void CheckDuplicateEntryID()
+    {
+        HashSet<string> seen = new();
+        List<BestiaryEntry> entries = GetAllEntries();
+        foreach (BestiaryEntry item in entries)
+        {
+            if (item == null) continue;
+            bool errorfound = false;
+            if (!seen.Add(item.EntryID)) //if cannot add then means got duplicate
+            {
+                errorfound = true;
+            }
+
+            if (errorfound)
+            {
+                foreach (ItemData duplicateEntry in itemEntries)
+                {
+                    if (duplicateEntry.EntryID.Equals(item.EntryID))
+                    {
+                        Debug.LogWarning($"Duplicate itemID '{item.EntryID}' on {item.DisplayName} with {duplicateEntry.itemName} in {duplicateEntry.Category.ToString()}");
+                        continue;
+                    }
+                }
+                foreach (AreaEntryData duplicateEntry in areaEntries)
+                {
+                    if (duplicateEntry.EntryID.Equals(item.EntryID))
+                    {
+                        Debug.LogWarning($"Duplicate itemID '{item.EntryID}' on {item.DisplayName} with {duplicateEntry.name} in {duplicateEntry.Category.ToString()}");
+                        continue;
+                    }
+                }
+                foreach (EnemyEntryData duplicateEntry in enemyEntries)
+                {
+                    if (duplicateEntry.EntryID.Equals(item.EntryID))
+                    {
+                        Debug.LogWarning($"Duplicate itemID '{item.EntryID}' on {item.DisplayName} with {duplicateEntry.name} in {duplicateEntry.Category.ToString()}");
+                        continue;
+                    }
+                }
+                foreach (LoreEntryData duplicateEntry in loreEntries)
+                {
+                    if (duplicateEntry.EntryID.Equals(item.EntryID))
+                    {
+                        Debug.LogWarning($"Duplicate itemID '{item.EntryID}' on {item.DisplayName} with {duplicateEntry.name} in {duplicateEntry.Category.ToString()}");
+                        continue;
+                    }
+                }
+            }
         }
     }
 #endif
