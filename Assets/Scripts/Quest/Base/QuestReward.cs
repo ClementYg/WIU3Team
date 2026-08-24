@@ -4,16 +4,16 @@ using UnityEngine;
 public class QuestReward : ScriptableObject
 {
     [Header("Reward")]
-    [Delayed] public string rewardName;
-    public ItemData itemReward;
+    public ItemData itemData;
+    public ItemEffect itemEffect;
     public int quantityToReward;
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (itemReward == null)
+        if (itemData == null || itemEffect == null)
         {
-            Debug.LogWarning("QuestReward must have ItemData as a reference. Reward name: " + rewardName);
+            Debug.LogWarning("QuestReward has missing reference(s). Reward name: " + itemData.itemName);
         }
     }
 #endif

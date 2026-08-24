@@ -3,13 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "QuestNPCData", menuName = "ScriptableObjects/NPCs/QuestNPCData")]
 public class QuestNPCData : NPCData
 {
-    int questIndex;
-
-    public void AssignQuest(QuestInstance toAssign, ComponentCache questCache)
+    public int AssignQuest(QuestInstance toAssign)
     {
-        QuestSystem questSys = questCache.Get<QuestSystem>();
-        if (questSys == null) return;
+        return QuestSystem.Instance.AssignQuest(toAssign);
+    }
 
-        questIndex = questSys.AssignQuest(toAssign);
+    public bool CompleteQuest(int questID)
+    {
+        return QuestSystem.Instance.CompleteQuest(questID);
     }
 }

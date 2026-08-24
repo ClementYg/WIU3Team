@@ -47,6 +47,12 @@ public class Inventory : PersistentSingleton<Inventory>
 
         inventoryItems.Add(item);
 
+        // Check if this is a quest item
+        if (item.itemData is QuestItemData data)
+        {
+            data.RaiseEvent();
+        }
+
         // Check if this item has a ItemPageEffect
         if (item.itemEffect is ItemPageEffect effect)
         {
