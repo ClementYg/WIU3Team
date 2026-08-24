@@ -5,4 +5,9 @@ public class StepInstance
 {
     [Header("Step")]
     public StepData stepData;
+
+    public void EnterStep()
+    {
+        stepData.EnterStep();
+    }
 }

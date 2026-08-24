@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad86636cbe2b034a89424a7d6121908, type: 3}
+  m_Name: WelcomeStepData
+  m_EditorClassIdentifier: Assembly-CSharp::StepData
+  instruction: {fileID: 0}
+  criterion: {fileID: 0}
+  nextStep: {fileID: 0}
+  startCutscene: {fileID: 11400000, guid: 34102d0a1d574ae4891876f8584ea228, type: 2}
+  endCutscene: {fileID: 0}

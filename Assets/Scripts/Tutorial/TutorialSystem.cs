@@ -6,15 +6,25 @@ public class TutorialSystem : Singleton<TutorialSystem>
     [Header("Tutorial")]
     public List<StepInstance> steps;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Event Channels")]
+    [SerializeField] EventVoid onTriggerTutorialEvent;
+
+    private void OnEnable()
     {
-        
+        onTriggerTutorialEvent.Subscribe(StartTutorial);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        onTriggerTutorialEvent.Unsubscribe(StartTutorial);
+    }
+
+    private void StartTutorial()
+    {
+        if (steps.Count > 0)
+        {
+            // Enter the first step
+            steps[0].EnterStep();
+        }
     }
 }

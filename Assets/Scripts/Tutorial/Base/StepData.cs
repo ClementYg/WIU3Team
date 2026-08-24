@@ -11,4 +11,10 @@ public class StepData : ScriptableObject
     [Header("Cutscenes")]
     public Cutscene startCutscene;
     public Cutscene endCutscene;
+
+    public void EnterStep()
+    {
+        // Start the cutscene
+        CutsceneManager.Instance.Play(startCutscene);
+    }
 }
