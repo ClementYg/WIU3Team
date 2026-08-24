@@ -31,6 +31,9 @@ public class BestiaryUI : MonoBehaviour
     bool isPanelShown = false;
     Coroutine animCoroutine;
 
+    [Header("Event Channels")]
+    [SerializeField] private EventBool OnBestiaryToggledEvent;
+
     private void Awake()
     {
         if (detailPanelRect != null)
@@ -54,10 +57,13 @@ public class BestiaryUI : MonoBehaviour
             isPanelShown = false;
         }
 
-
+        OnBestiaryToggledEvent.Subscribe(OnToggledBestiary);
         if (initialised) ShowAll();
     }
-
+    private void OnDisable()
+    {
+        OnBestiaryToggledEvent.Unsubscribe(OnToggledBestiary);
+    }
     //This ? just allows category to be null incase no category
     void ShowCategory(BestiaryCategory? category)
     {
@@ -88,6 +94,13 @@ public class BestiaryUI : MonoBehaviour
         newCells.Clear();
     }
 
+    private void OnToggledBestiary(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            ShowAll();
+        }
+    }
     void ShowDetails(BestiaryEntry entry, bool unlocked)
     {
         if (detailLockedState != null) detailLockedState.SetActive(!unlocked);

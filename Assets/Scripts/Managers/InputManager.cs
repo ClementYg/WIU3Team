@@ -6,6 +6,7 @@ public class InputManager : Singleton<InputManager>
     [Header("Event Channels")]
     [SerializeField] private EventBool onToggledPauseEvent;
     [SerializeField] private EventBool onToggledInventoryEvent;
+    [SerializeField] private EventBool onToggledBestiaryEvent;
     [SerializeField] private EventBool onToggledQuestUIEvent;
     [SerializeField] private EventBool onToggledGeneralUIEvent;
     [SerializeField] private EventBool onToggledCutsceneModeEvent;
@@ -15,6 +16,7 @@ public class InputManager : Singleton<InputManager>
     private bool toggledPause = false;
     private bool toggledInventory = false;
     private bool toggledGeneralUI = false;
+    private bool toggledBestiary = false;
     private bool isCutsceneActive = false;
 
     private void OnEnable()
@@ -140,6 +142,22 @@ public class InputManager : Singleton<InputManager>
         {
             toggledPause = !toggledPause;
             onToggledPauseEvent.Raise(toggledPause);
+            if (toggledPause)
+            {
+                InputSystem.actions.FindActionMap("Player").Disable();
+                InputSystem.actions.FindActionMap("UI").Enable();
+            }
+            else
+            {
+                InputSystem.actions.FindActionMap("Player").Enable();
+                InputSystem.actions.FindActionMap("UI").Disable();
+            }
+        }
+
+        if (InputSystem.actions["ToggleBestiary"].WasPressedThisFrame())
+        {
+            toggledBestiary = !toggledBestiary;
+            onToggledBestiaryEvent.Raise(toggledBestiary);
             if (toggledPause)
             {
                 InputSystem.actions.FindActionMap("Player").Disable();

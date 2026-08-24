@@ -927,7 +927,12 @@
                 {
                     "name": "CloseUIPage",
                     "type": "Button",
-                    "id": "d2ac1b2c-58a6-470c-851f-e1b34f909daf",
+                    "id": "d2ac1b2c-58a6-470c-851f-e1b34f909daf"
+                },
+                {
+                    "name": "ToggleBestiary",
+                    "type": "Button",
+                    "id": "39bedc3c-30c9-4a88-840e-b34ea425b0ed",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -965,7 +970,16 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CloseUIPage",
+                    "action": "CloseUIPage"
+                },
+                {
+                    "name": "",
+                    "id": "d424e468-0d8f-49be-895a-da59942e24b8",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleBestiary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
