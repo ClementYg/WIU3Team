@@ -58,6 +58,7 @@ public class ItemInstance : ISerializationCallbackReceiver
             ReduceStack(itemData.consumePerUse);
         }
 
+        BestiaryManager.Instance.Unlock(itemData.EntryID);
         return true;
     }
 

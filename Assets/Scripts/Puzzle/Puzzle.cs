@@ -10,12 +10,14 @@ public abstract class Puzzle : MonoBehaviour
     [SerializeField] protected EventVoid OnPuzzleFinishEvent;
     [SerializeField] protected EventVoid OnPuzzleStartEvent;
     [SerializeField] protected EventVoid OnPuzzleExitEvent;
+    [SerializeField] protected EventAlertFloat OnRequestAlert;
 
     protected virtual void CompletePuzzle()
     {
         isCompleted = true;
         //possibly add a event for onComplete
         OnPuzzleFinishEvent.Raise();
+        OnRequestAlert.Raise(AlertType.PuzzleComplete, 0f);
         PuzzleManager.Instance.ExitPuzzle();
     }
 
