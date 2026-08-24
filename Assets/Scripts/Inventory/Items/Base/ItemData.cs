@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/Inventory/ItemData")]
 public class ItemData : ScriptableObject, BestiaryEntry
@@ -11,8 +11,8 @@ public class ItemData : ScriptableObject, BestiaryEntry
     public ItemType itemType;
 
     [Header("Descriptors")]
-    public string shortDescription; //used for toolbar hover later maybe
-    public string loreDescription; //bestiary/index description 
+    [TextArea(1, 2)] public string shortDescription; //used for toolbar hover later maybe
+    [TextArea(2, 10)] public string loreDescription; //bestiary/index description
 
     [Header("Stacking")]
     public bool isStackable = false;
@@ -26,6 +26,9 @@ public class ItemData : ScriptableObject, BestiaryEntry
 
     [Header("UseCooldown")]
     public float useCooldown = 0; //how long per use
+
+    [Header("Consumability")]
+    public bool isConsumable = true; // Need this for item usage checks with Atlas, otherwise it will be consumed
 
     [Header("Stats")]
     public List<StatModifier> statModifiers = new();
@@ -78,6 +81,10 @@ public class ItemData : ScriptableObject, BestiaryEntry
         if (hasDurability && maxDurability <= 0)
         {
             Debug.LogWarning($"[{name}] hasDurability is true but maxDurability is {maxDurability}.", this);
+        }
+        if (!isConsumable && itemType == ItemType.Consumable)
+        {
+            Debug.LogWarning($"[{name}] isConsumable is false but itemType is Consumable", this);
         }
     }
 

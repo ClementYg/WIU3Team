@@ -44,7 +44,9 @@ GameObject:
   - component: {fileID: 3607124752696476449}
   - component: {fileID: 8414687179725506691}
   - component: {fileID: 8787081377142933728}
+  - component: {fileID: 114745869466121999}
   - component: {fileID: 7354857566738239595}
+  - component: {fileID: 8793660426509342923}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -161,6 +163,8 @@ MonoBehaviour:
   OnSpeedBoostEvent: {fileID: 11400000, guid: 494285f9e7b77c84f8d5c16ca31b9174, type: 2}
   OnInventoryFullEvent: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
   OnInventoryFreedEvent: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
+  OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
   walkForce: 10
   sprintForce: 30
   maxWalkSpeed: 4
@@ -232,6 +236,18 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &114745869466121999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822732352266489706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c957692b55d557b4784547d8a889b63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComponentCache
 --- !u!114 &7354857566738239595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +261,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
   inventory: {fileID: 0}
+  cache: {fileID: 114745869466121999}
+--- !u!114 &8793660426509342923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822732352266489706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd974b9a7a68c0c43b000d57dc8c2e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchManager
+  references: {fileID: 0}
+  presentContainer: {fileID: 0}
+  pastContainer: {fileID: 0}
+  cmrShaker: {fileID: 0}
+  prsntClrChannel: {fileID: 0}
+  pstClrChannel: {fileID: 0}
+  transitionDuration: 3
+  OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
 --- !u!1 &851216911968657541
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +295,7 @@ GameObject:
   - component: {fileID: 7497220883768842599}
   - component: {fileID: 3280578941786506099}
   m_Layer: 7
-  m_Name: ItemCollector
+  m_Name: Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

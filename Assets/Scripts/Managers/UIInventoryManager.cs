@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class UIInventoryManager : PersistentSingleton<UIInventoryManager>
 {
-    [Header("Dependencies")]
+    [Header("UI Faders")]
     [SerializeField] private UIFader canvasFader;
     [SerializeField] private UIFader inventoryRowsFader;
     
