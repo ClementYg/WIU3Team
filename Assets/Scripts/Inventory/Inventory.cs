@@ -42,7 +42,7 @@ public class Inventory : PersistentSingleton<Inventory>
         {
             return false;
         }
-
+        BestiaryManager.Instance.Unlock(item.itemData.EntryID);
         inventoryItems.Add(item);
 
         return true;
