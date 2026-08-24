@@ -32,18 +32,26 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public bool AddItem(ItemInstance item)
     {
+        // Check if the inventory is full
         if (IsInventoryFull)
         {
             OnInventoryFullEvent.Raise();
             return false;
         }
 
+        // Add the item
         if (invUI.AddItem(item) == false)
         {
             return false;
         }
 
         inventoryItems.Add(item);
+
+        // Check if this item has a ItemPageEffect
+        if (item.itemEffect is ItemPageEffect effect)
+        {
+            effect.RaiseEvent();
+        }
 
         return true;
     }

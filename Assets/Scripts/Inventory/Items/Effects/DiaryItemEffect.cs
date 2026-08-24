@@ -1,10 +1,11 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DiaryItemEffect", menuName = "ScriptableObjects/Inventory/Effects/DiaryItemEffect")]
-public class DiaryItemEffect : ItemEffect
+public class DiaryItemEffect : ItemPageEffect
 {
     public override void Use(GameObject user, ComponentCache userCache)
     {
-        Debug.Log("DiaryItemEffect: diary used");
+        if (toDisplay == null) return;
+        onDisplayPageRequestedEvent.Raise(toDisplay);
     }
 }

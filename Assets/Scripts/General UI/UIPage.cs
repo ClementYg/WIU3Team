@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class UIPage : MonoBehaviour
+[CreateAssetMenu(fileName = "UIPage", menuName = "ScriptableObjects/UI/UIPage")]
+public class UIPage : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("UI Page")]
+    public Color pageColor;
+    public ColoredText header;
+    public ColoredText body;
 }

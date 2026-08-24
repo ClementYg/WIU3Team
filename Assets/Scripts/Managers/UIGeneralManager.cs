@@ -2,21 +2,31 @@ using UnityEngine;
 
 public class UIGeneralManager : PersistentSingleton<UIGeneralManager>
 {
+    [Header("UI Faders")]
+    [SerializeField] UIFader canvasFader;
+
     [Header("Event Channels")]
-    [SerializeField] EventUIPage OnDisplayPageRequestedEvent;
+    [SerializeField] EventBool onToggledGeneralUIEventBool;
 
     private void OnEnable()
     {
-        OnDisplayPageRequestedEvent.Subscribe(DisplayUIPage);
+        onToggledGeneralUIEventBool.Subscribe(OnToggledGeneralUI);
     }
 
     private void OnDisable()
     {
-        OnDisplayPageRequestedEvent.Unsubscribe(DisplayUIPage);
+        onToggledGeneralUIEventBool.Unsubscribe(OnToggledGeneralUI);
     }
 
-    private void DisplayUIPage(UIPage toDisplay)
+    private void OnToggledGeneralUI(bool isEnabled)
     {
-
+        if (isEnabled)
+        {
+            canvasFader.FadeIn();
+        }
+        else
+        {
+            canvasFader.FadeOut();
+        }
     }
 }
