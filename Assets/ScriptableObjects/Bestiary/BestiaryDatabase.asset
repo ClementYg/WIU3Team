@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7cada0184a64946a1f14f1eb9f5fa5, type: 3}
+  m_Name: BestiaryDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::BestiaryDatabase
+  itemEntries:
+  - {fileID: 11400000, guid: 1bb678b7c6e83b14ea9afbc6e5f2aab8, type: 2}
+  - {fileID: 11400000, guid: e8e0a0391fcff8f47aa73c3deac54e60, type: 2}
+  - {fileID: 11400000, guid: 1d0292417c49c1b4ebf805a49be17666, type: 2}
+  - {fileID: 11400000, guid: c519f7469733b044f87bcf756da5e140, type: 2}
+  - {fileID: 11400000, guid: c9fd8696c5a0ed74c8fd658e6f0130aa, type: 2}
+  areaEntries:
+  - {fileID: 11400000, guid: e0a607753e29da744a9eafb27004cb49, type: 2}
+  - {fileID: 11400000, guid: 6138e4081744c7d4c9dac5dc18e92eab, type: 2}
+  enemyEntries: []
+  loreEntries: []

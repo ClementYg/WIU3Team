@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [System.Serializable]
-public class ItemInstance
+public class ItemInstance : ISerializationCallbackReceiver
 {
     //unique PID for every item. 
-    public int itemID; 
+    public int itemID;
     public ItemData itemData;
     public ItemEffect itemEffect;
 
@@ -12,17 +12,34 @@ public class ItemInstance
     public int currentDurability = 0;
     public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
-    float lastUsedTime = -Mathf.Infinity; 
+    float lastUsedTime = -Mathf.Infinity; // This line does not get executed by Unity
 
     public bool IsBroken => (itemData.hasDurability && currentDurability <= 0);
     public bool IsFinished => (stackCount <= 0);
-    public bool IsOnCooldown => Time.time < lastUsedTime + itemData.useCooldown;
-    public float CooldownRemaining => Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time);
-    public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
+    public float LastUsedTime => (lastUsedTime);
+    public bool IsOnCooldown => (Time.time < lastUsedTime + itemData.useCooldown);
+    public float CooldownRemaining => (Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time));
+    
+    public void OnAfterDeserialize()
+    {
+        // Note for the future: For any variables that have to be initialised at the start,
+        // place them in this function so that Unity knows to execute the line.
+        lastUsedTime = -Mathf.Infinity;
+    }
+
+    public void OnBeforeSerialize()
+    {
+        
+    }
+
+    public ItemInstance(ItemData itemData, ItemEffect itemEffect = null, int stackCount = 1, float lastUsedTime = -Mathf.Infinity)
     {
         this.itemData = itemData;
         this.itemEffect = itemEffect;
+
         currentDurability = (itemData != null && itemData.hasDurability) ? itemData.maxDurability : 0;
+        this.stackCount = stackCount;
+        this.lastUsedTime = lastUsedTime;
     }
 
     public bool TryUse(GameObject user, ComponentCache userCache)
@@ -44,6 +61,7 @@ public class ItemInstance
             ReduceStack(itemData.consumePerUse);
         }
 
+        BestiaryManager.Instance.Unlock(itemData.EntryID);
         return true;
     }
 

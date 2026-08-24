@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7f297824b4e447bd1983633e16d95, type: 3}
   m_Name: EnablePathfind
   m_EditorClassIdentifier: Assembly-CSharp::TogglePathfindAction
-  togglePathfind: 0
+  togglePathfind: 1

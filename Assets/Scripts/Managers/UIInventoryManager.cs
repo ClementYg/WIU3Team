@@ -1,9 +1,9 @@
+using UnityEditor.XR;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class UIInventoryManager : PersistentSingleton<UIInventoryManager>
 {
-    [Header("Dependencies")]
+    [Header("UI Faders")]
     [SerializeField] private UIFader canvasFader;
     [SerializeField] private UIFader inventoryRowsFader;
     
@@ -11,9 +11,11 @@ public class UIInventoryManager : PersistentSingleton<UIInventoryManager>
     [SerializeField] private EventBool onToggledInventoryEvent;
     [SerializeField] private EventVoid onDialogueStartedEvent;
     [SerializeField] private EventVoid onDialogueEndedEvent;
+    [SerializeField] private EventBool onToggledBestiaryEvent;
 
     private void OnEnable()
     {
+        onToggledBestiaryEvent.Subscribe(OnToggledBestiary);
         onToggledInventoryEvent.Subscribe(OnToggledInventory);
         onDialogueStartedEvent.Subscribe(OnDialogueStarted);
         onDialogueEndedEvent.Subscribe(OnDialogueEnded);
@@ -21,6 +23,7 @@ public class UIInventoryManager : PersistentSingleton<UIInventoryManager>
 
     private void OnDisable()
     {
+        onToggledBestiaryEvent.Unsubscribe(OnToggledBestiary);
         onToggledInventoryEvent.Unsubscribe(OnToggledInventory);
         onDialogueStartedEvent.Unsubscribe(OnDialogueStarted);
         onDialogueEndedEvent.Unsubscribe(OnDialogueEnded);
@@ -38,6 +41,19 @@ public class UIInventoryManager : PersistentSingleton<UIInventoryManager>
         }
     }
 
+    private void OnToggledBestiary(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            canvasFader.FadeOut();
+            inventoryRowsFader.FadeOut();
+        }
+        else
+        {
+            canvasFader.FadeIn();
+        }
+      
+    }
     private void OnDialogueStarted()
     {
         canvasFader.FadeOut();

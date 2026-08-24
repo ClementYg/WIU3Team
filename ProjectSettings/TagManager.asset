@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ball
+  - Present
+  - Past
+  - Inventory
   layers:
   - Default
   - TransparentFX

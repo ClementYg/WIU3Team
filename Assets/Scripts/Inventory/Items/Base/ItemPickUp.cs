@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -13,8 +14,13 @@ public class ItemPickup : MonoBehaviour
         InputAction interactAction = InputSystem.actions.FindAction("Use");
         if (interactAction.WasPressedThisFrame())
         {
+            // Don't use the item if the click happened on a UI object
+            if (EventSystem.current != null &&
+                EventSystem.current.IsPointerOverGameObject()) return;
+
             if (inventory == null) return;
-            inventory.UseSelectedItem(this.gameObject, cache, 1);
+
+            inventory.TryUseSelectedItem(this.gameObject, cache);
         }
     }
 
