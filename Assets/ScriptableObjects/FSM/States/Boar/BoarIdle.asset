@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecbe6d79de116ec498bb8ede48d11a86, type: 3}
-  m_Name: Idle
+  m_Name: BoarIdle
   m_EditorClassIdentifier: Assembly-CSharp::State
-  initActions: []
+  initActions:
+  - {fileID: 11400000, guid: 5f38e5d74daa3f446bd3c40c9cfd5f56, type: 2}
   executeActions: []
   endActions: []
   transitions:
   - decision: {fileID: 11400000, guid: 7acb863eed2cc6546af25b708bd43461, type: 2}
-    trueState: {fileID: 11400000, guid: 34f7089ff4b69b64d903b17f36331f3c, type: 2}
+    trueState: {fileID: 11400000, guid: af25d7f041749c449ae0de0d5ebb53e2, type: 2}
     falseState: {fileID: 11400000}

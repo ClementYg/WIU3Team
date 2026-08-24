@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecbe6d79de116ec498bb8ede48d11a86, type: 3}
-  m_Name: Attack
+  m_Name: BoarRush
   m_EditorClassIdentifier: Assembly-CSharp::State
   initActions:
+  - {fileID: 11400000, guid: f3f086eb9be0d9649a2720388529b3e1, type: 2}
+  executeActions:
+  - {fileID: 11400000, guid: 55929e615213b7f4fbb795f8b3487fd3, type: 2}
   - {fileID: 11400000, guid: 1e958fbd00c4d6244a665ff6052a0376, type: 2}
-  executeActions: []
-  endActions: []
+  endActions:
+  - {fileID: 11400000, guid: 8c53d455fd74cb443b4ba65eaf45e2eb, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: bcbe013d81e9baa41898a65d7564f047, type: 2}
-    trueState: {fileID: 11400000, guid: 34f7089ff4b69b64d903b17f36331f3c, type: 2}
+  - decision: {fileID: 11400000, guid: 7133f71c92e18a841873ac8d58fa754e, type: 2}
+    trueState: {fileID: 11400000, guid: af25d7f041749c449ae0de0d5ebb53e2, type: 2}
     falseState: {fileID: 11400000, guid: eece96c3a93081b45a36612ee779b6a1, type: 2}
-  - decision: {fileID: 11400000, guid: a69e7506e7ac8714f9911986b7bc4bda, type: 2}
-    trueState: {fileID: 11400000}
-    falseState: {fileID: 11400000, guid: 34f7089ff4b69b64d903b17f36331f3c, type: 2}
