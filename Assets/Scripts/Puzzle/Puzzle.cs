@@ -11,12 +11,19 @@ public abstract class Puzzle : MonoBehaviour
     [SerializeField] protected EventVoid OnPuzzleStartEvent;
     [SerializeField] protected EventVoid OnPuzzleExitEvent;
     [SerializeField] protected EventAlertFloat OnRequestAlert;
+    [SerializeField] protected EventItem OnRequestItem;
+    [SerializeField] protected Item itemPrefab;
 
-    protected virtual void CompletePuzzle()
+    protected virtual void CompletePuzzle(bool requestItem = false)
     {
         isCompleted = true;
         //possibly add a event for onComplete
         OnPuzzleFinishEvent.Raise();
+        if (requestItem && itemPrefab != null)
+        {
+            //dont know if this works, need to check with player to see if they receive this event and get the item added. 
+            OnRequestItem.Raise(itemPrefab);
+        }
         OnRequestAlert.Raise(AlertType.PuzzleComplete, 0f);
         PuzzleManager.Instance.ExitPuzzle();
     }

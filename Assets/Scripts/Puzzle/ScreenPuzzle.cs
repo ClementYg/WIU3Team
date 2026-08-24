@@ -12,7 +12,7 @@ public abstract class ScreenPuzzle : Puzzle
         if (puzzleCanvas != null) puzzleCanvas.SetActive(true);
     }
 
-    protected override void CompletePuzzle()
+    protected override void CompletePuzzle(bool requestItem = false)
     {
         if (puzzleCanvas != null) puzzleCanvas.SetActive(false);
         base.CompletePuzzle();
