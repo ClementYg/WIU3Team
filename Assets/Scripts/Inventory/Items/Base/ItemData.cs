@@ -1,8 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/Inventory/ItemData")]
-public class ItemData : ScriptableObject
+public class ItemData : ScriptableObject, BestiaryEntry
 {
     [Header("Identifiers")]
     public string itemID; //unique PID for database
@@ -11,19 +11,35 @@ public class ItemData : ScriptableObject
     public ItemType itemType;
 
     [Header("Descriptors")]
-    public string shortDescription; //used for toolbar hover later maybe
-    public string loreDescription; //bestiary/index description 
+    [TextArea(1, 2)] public string shortDescription; //used for toolbar hover later maybe
+    [TextArea(2, 10)] public string loreDescription; //bestiary/index description
 
     [Header("Stacking")]
     public bool isStackable = false;
     public int maxStackSize = 1;
+    public int consumePerUse = 1;
 
     [Header("Durability")]
     public bool hasDurability = false;
     public int maxDurability = 100;
+    public int durabilityPerUse = 1;
+
+    [Header("UseCooldown")]
+    public float useCooldown = 0; //how long per use
+
+    [Header("Consumability")]
+    public bool isConsumable = true; // Need this for item usage checks with Atlas, otherwise it will be consumed
 
     [Header("Stats")]
     public List<StatModifier> statModifiers = new();
+
+    //BestiaryEntry so that every ItemData will appear there automatically
+    public string EntryID => itemID;
+    public string DisplayName => itemName;
+    public string Description => loreDescription;
+    public Sprite Icon => itemImage;
+    public BestiaryCategory Category => BestiaryCategory.Item;
+
 
     //virtual so can change in specific item Datas
     public virtual string GetToolTip()
@@ -65,6 +81,10 @@ public class ItemData : ScriptableObject
         if (hasDurability && maxDurability <= 0)
         {
             Debug.LogWarning($"[{name}] hasDurability is true but maxDurability is {maxDurability}.", this);
+        }
+        if (!isConsumable && itemType == ItemType.Consumable)
+        {
+            Debug.LogWarning($"[{name}] isConsumable is false but itemType is Consumable", this);
         }
     }
 

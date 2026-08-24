@@ -1,8 +1,10 @@
 using UnityEngine;
 
 [System.Serializable]
-public class ItemInstance
+public class ItemInstance : ISerializationCallbackReceiver
 {
+    //unique PID for every item. 
+    public int itemID;
     public ItemData itemData;
     public ItemEffect itemEffect;
 
@@ -10,14 +12,60 @@ public class ItemInstance
     public int currentDurability = 0;
     public int stackCount = 1;      // Number of items within one stack
     //is not one time use and no more durability
-    public bool isBroken => itemData.hasDurability && currentDurability <= 0; 
-    public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
+    float lastUsedTime = -Mathf.Infinity; // This line does not get executed by Unity
+
+    public bool IsBroken => (itemData.hasDurability && currentDurability <= 0);
+    public bool IsFinished => (stackCount <= 0);
+    public float LastUsedTime => (lastUsedTime);
+    public bool IsOnCooldown => (Time.time < lastUsedTime + itemData.useCooldown);
+    public float CooldownRemaining => (Mathf.Max(0f, (lastUsedTime + itemData.useCooldown) - Time.time));
+    
+    public void OnAfterDeserialize()
+    {
+        // Note for the future: For any variables that have to be initialised at the start,
+        // place them in this function so that Unity knows to execute the line.
+        lastUsedTime = -Mathf.Infinity;
+    }
+
+    public void OnBeforeSerialize()
+    {
+        
+    }
+
+    public ItemInstance(ItemData itemData, ItemEffect itemEffect = null, int stackCount = 1, float lastUsedTime = -Mathf.Infinity)
     {
         this.itemData = itemData;
         this.itemEffect = itemEffect;
+
+        currentDurability = (itemData != null && itemData.hasDurability) ? itemData.maxDurability : 0;
+        this.stackCount = stackCount;
+        this.lastUsedTime = lastUsedTime;
     }
 
-    public bool AddStack(int amount, out int extra)
+    public bool TryUse(GameObject user, ComponentCache userCache)
+    {
+        if (IsOnCooldown) return false;
+        if (IsBroken) return false;
+        if (IsFinished) return false;
+        if (itemEffect == null) return false;
+
+        itemEffect.Use(user, userCache);
+        lastUsedTime = Time.time;
+
+        if (itemData.hasDurability)
+        {
+            TakeDurabilityDamage(itemData.durabilityPerUse);
+        }
+        else if (itemData.isStackable)
+        {
+            ReduceStack(itemData.consumePerUse);
+        }
+
+        BestiaryManager.Instance.Unlock(itemData.EntryID);
+        return true;
+    }
+
+    public bool AddToStack(int amount, out int extra)
     {
         extra = 0; 
         //if not stackable just remain as is
@@ -31,6 +79,11 @@ public class ItemInstance
         stackCount = total;
         //if more than one full stack, put out the excess in extra so can split into 2 stacks
         return true;
+    }
+
+    public void ReduceStack(int amount)
+    {
+        stackCount -= amount;
     }
 
     //durability functions

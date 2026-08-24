@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out ItemPickUp itmPickUp))
+        if (collision.TryGetComponent(out ItemPickup itmPickUp))
         {
             if (item == null || itmPickUp.PickUp(item) == false) return;
 

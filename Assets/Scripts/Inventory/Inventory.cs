@@ -1,95 +1,83 @@
 using UnityEngine;
-using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class Inventory : PersistentSingleton<Inventory>
 {
     [Header("Inventory")]
-    public List<ItemInstance> items = new();
-    [SerializeField] int maxCapacity = 36;
-
-    [Header("UI")]
     [SerializeField] InventoryUI invUI;
+    [SerializeField] int maxStackCapacity = 36;
 
-    [Header("Testing")]
-    [SerializeField] List<ItemInstance> itemsToAddAtStart = new();
+    [Header("Event Channels")]
+    [SerializeField] EventVoid OnInventoryFullEvent;
+    [SerializeField] EventVoid OnInventoryFreedEvent;
 
-    public bool IsFull => (items.Count >= maxCapacity);
+    [Header("Testing")] // This is broken, avoid using it for now
+    [SerializeField] List<ItemInstance> startItems = new();
 
-    public UnityEvent onInventoryFull;
-    public UnityEvent onInventoryFreed;
+    // Inventory
+    List<ItemInstance> inventoryItems = new();
+    public int currInvCapacity => inventoryItems.Count;
+    public bool IsInventoryFull => (currInvCapacity >= maxStackCapacity);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Awake()
     {
-        // Default initialise the number of items in the inventory at the start of the game
-        foreach (ItemInstance item in itemsToAddAtStart)
-        {
-            items.Add(item);
-        }
+        base.Awake();
+
+        // Setup testing environment
+        SetupTests();
 
         // Initialise UI
-        invUI.InitUI(items);
+        invUI.InitUI(inventoryItems);
     }
 
     public bool AddItem(ItemInstance item)
     {
-        if (IsFull)
+        // Check if the inventory is full
+        if (IsInventoryFull)
         {
-            onInventoryFull?.Invoke();
-            Debug.Log("Inventory: Max capacity reached.");
+            OnInventoryFullEvent.Raise();
             return false;
         }
 
+        // Add the item
         if (invUI.AddItem(item) == false)
         {
-            Debug.Log("Inventory: UI could not display item.");
             return false;
         }
+        BestiaryManager.Instance.Unlock(item.itemData.EntryID);
+        inventoryItems.Add(item);
 
-        items.Add(item);
+        // Check if this is a quest item
+        if (item.itemData is QuestItemData data)
+        {
+            data.RaiseEvent();
+        }
+
+        // Check if this item has a ItemPageEffect
+        if (item.itemEffect is ItemPageEffect effect)
+        {
+            effect.RaiseEvent();
+        }
 
         return true;
     }
 
-    public bool UseSelectedItem(GameObject user, int durabilityDamage = 0)
+    public bool TryUseSelectedItem(GameObject user, ComponentCache userCache)
     {
-        string selectedItemName = invUI.GetSelectedItemName();
-        if (selectedItemName == null) return false;
+        // Get the selected occupied slot
+        if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
 
-        ItemInstance item = GetItem(selectedItemName);
-        if (item == null) return false;
+        // Get and use the item instance
+        ItemInstance selectedItem = selectedSlot.itemDisplayed;
+        if (!selectedItem.TryUse(user, userCache)) return false;
 
-        if (item.itemEffect == null) return false;
-        item.itemEffect.Use(user);
+        // Update inventory and UI
+        selectedSlot.UpdateQuantity();
 
-        bool shouldReduceStack = false;
-        
-        if (item.itemData.hasDurability)
+        // Remove item if it has been used up
+        if (selectedItem.IsFinished)
         {
-            item.TakeDurabilityDamage(durabilityDamage);
-
-            if (item.isBroken && item.itemData.isStackable)
-            {
-                shouldReduceStack = true;
-            }
-        }
-        else if (item.itemData.isStackable)
-        {
-            shouldReduceStack = true;
-        }
-        else
-        {
-            RemoveItem(item);
-        }
-
-        if (shouldReduceStack)
-        {
-            --item.stackCount;
-            if (item.stackCount <= 0)
-            {
-                RemoveItem(item);
-            }
+            RemoveItem(selectedItem);
         }
 
         return true;
@@ -97,7 +85,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public bool CheckItem(string itemName)
     {
-        foreach (ItemInstance item in items)
+        foreach (ItemInstance item in inventoryItems)
         {
             if (item.itemData.itemName == itemName)
             {
@@ -112,7 +100,7 @@ public class Inventory : PersistentSingleton<Inventory>
     {
         int itemQuantity = 0;
 
-        foreach (ItemInstance item in items)
+        foreach (ItemInstance item in inventoryItems)
         {
             if (item.itemData.itemName == itemName)
             {
@@ -125,7 +113,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public void DisplayItems()
     {
-        foreach (ItemInstance item in items)
+        foreach (ItemInstance item in inventoryItems)
         {
             Debug.Log($"Item Name: {item.itemData.itemName}");
         }
@@ -133,42 +121,68 @@ public class Inventory : PersistentSingleton<Inventory>
 
     public ItemInstance GetItem(int index)
     {
-        if (items.Count <= 0) return null;
-        return items[index];
+        if (inventoryItems.Count <= 0) return null;
+        return inventoryItems[index];
     }
 
     public ItemInstance GetItem(string itemName)
     {
-        if (items.Count <= 0) return null;
+        if (inventoryItems.Count <= 0) return null;
 
-        for (int i = 0; i < items.Count; ++i)
+        for (int i = 0; i < inventoryItems.Count; ++i)
         {
-            if (items[i].itemData.itemName == itemName)
+            if (inventoryItems[i].itemData.itemName == itemName)
             {
-                return items[i];
+                return inventoryItems[i];
             }
         }
 
         return null;
     }
 
+    private void SetupTests()
+    {
+        // Setup the initial testing environment for UI
+        foreach (ItemInstance item in startItems)
+        {
+            AddItem(item);
+        }
+    }
+
     private void RemoveItem(ItemInstance item)
     {
         // Add that players cannot delete key items (Do a check!)
 
-        bool wasItemFull = IsFull;
+        bool wasInventoryFull = IsInventoryFull;
 
-        items.Remove(item);
+        inventoryItems.Remove(item);
         invUI.RemoveItem(item);
 
-        if (wasItemFull && !IsFull)
+        if (wasInventoryFull && !IsInventoryFull)
         {
-            onInventoryFreed?.Invoke();
+            OnInventoryFreedEvent.Raise();
         }
     }
 
     private void RemoveItem(string itemName)
     {
         RemoveItem(GetItem(itemName));
+    }
+
+    private bool TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)
+    {
+        // Get the selected slot
+        selectedSlot = invUI.GetSelectedSlot();
+        if (selectedSlot != null)
+        {
+            // Check if the slot is occupied
+            if (selectedSlot.IsOccupied)
+            {
+                return true;
+            }
+        }
+
+        selectedSlot = null;
+        return false;
     }
 }

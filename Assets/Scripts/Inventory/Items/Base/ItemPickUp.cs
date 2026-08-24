@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
-public class ItemPickUp : MonoBehaviour
+public class ItemPickup : MonoBehaviour
 {
-    [Header("Inventory")]
+    [Header("Item Pickup")]
     [SerializeField] Inventory inventory;
+    [SerializeField] ComponentCache cache;
 
     // Update is called once per frame
     void Update()
@@ -12,8 +14,13 @@ public class ItemPickUp : MonoBehaviour
         InputAction interactAction = InputSystem.actions.FindAction("Use");
         if (interactAction.WasPressedThisFrame())
         {
+            // Don't use the item if the click happened on a UI object
+            if (EventSystem.current != null &&
+                EventSystem.current.IsPointerOverGameObject()) return;
+
             if (inventory == null) return;
-            inventory.UseSelectedItem(this.gameObject);
+
+            inventory.TryUseSelectedItem(this.gameObject, cache);
         }
     }
 
