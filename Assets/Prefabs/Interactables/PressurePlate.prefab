@@ -113,6 +113,9 @@ MonoBehaviour:
   pressDirection: 0
   pressedInteractions: []
   releasedInteractions: []
+  events:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &4661476868320865027
 Rigidbody2D:
   serializedVersion: 5

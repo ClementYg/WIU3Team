@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class MultiPressPuzzle : WorldSpacePuzzle
+public class MultiPressPuzzle : WorldSpacePuzzle
 {
     [SerializeField] protected int totalActivationStates;
 
@@ -17,11 +17,14 @@ public abstract class MultiPressPuzzle : WorldSpacePuzzle
         base.StartPuzzle();
         activateStates = new bool[totalActivationStates];
     }
-    public void SetActivationState(int index, bool isActive)
+    public void SetActivationState(int index)
     {
-        if (activateStates == null || index < 0 || index >= activateStates.Length) return;
-
-        activateStates[index] = isActive;
+        Debug.Log("yes");
+        if (activateStates == null) return;
+        if (index < 0) return;
+        if (index >= activateStates.Length) return;
+        
+        activateStates[index] = true;
         CheckCompletion(); //everytime u set something to active/not active, check if it had completed the puzzle or not.
     }
     void CheckCompletion()
@@ -30,6 +33,7 @@ public abstract class MultiPressPuzzle : WorldSpacePuzzle
         {
             if (!state) return;
         }
+        Debug.Log("puzzle complete");
         CompletePuzzle();
     }
 }
