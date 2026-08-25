@@ -87,7 +87,7 @@ public class Inventory : PersistentSingleton<Inventory>
     {
         foreach (ItemInstance item in inventoryItems)
         {
-            if (item.itemData.itemName == itemName)
+            if (item.itemData.itemID == itemName)
             {
                 return true;
             }

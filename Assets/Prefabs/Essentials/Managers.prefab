@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6057485640342726497}
+  - component: {fileID: 6761973487969777807}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -34,10 +35,68 @@ Transform:
   - {fileID: 4019383547326820554}
   - {fileID: 2871350049387450546}
   - {fileID: 1112645106856106115}
-  - {fileID: 8372119515535036191}
   - {fileID: 985253252485672147}
+  - {fileID: 3515017990401979516}
+  - {fileID: 4911031965413419319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6761973487969777807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839254346351879152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c7a57def1f22a4595ec1906483f8e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!1 &1439348625755290750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3515017990401979516}
+  - component: {fileID: 5713796352653963677}
+  m_Layer: 0
+  m_Name: SceneTransitionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3515017990401979516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439348625755290750}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6057485640342726497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5713796352653963677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439348625755290750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb1178b1e54bda4f8b117423c87fa50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionManager
+  FadeCanvas: {fileID: 2793694602263576951, guid: 224d6661090617e4299daca8f4bb43e4, type: 3}
 --- !u!1 &2390692045900002948
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,14 +682,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AlertManager
   onRequestAlert: {fileID: 11400000, guid: a1db97be75ec2ef478620191c3d8f5c7, type: 2}
   messages:
-  - type: 4
+  - type: 0
     style: 0
-    template: 
+    template: BOSS FELLED
+  - type: 1
+    style: 0
+    template: QUEST COMPLETE
+  - type: 2
+    style: 0
+    template: AREA FOUND
+  - type: 3
+    style: 0
+    template: PUZZLE COMPLETE
   stylePrefabs:
   - style: 0
     prefab: {fileID: 9094509627422696513, guid: 88b0962a31c1a5643a8fbf287edff2e8, type: 3}
   textDuration: 2
---- !u!1 &7100142302255741150
+--- !u!1 &7908774330319038995
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -638,22 +706,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8372119515535036191}
-  - component: {fileID: 2888722669720714146}
+  - component: {fileID: 4911031965413419319}
+  - component: {fileID: 8061894550328227195}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: PuzzleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8372119515535036191
+--- !u!4 &4911031965413419319
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7100142302255741150}
+  m_GameObject: {fileID: 7908774330319038995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -662,20 +730,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6057485640342726497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2888722669720714146
+--- !u!114 &8061894550328227195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7100142302255741150}
+  m_GameObject: {fileID: 7908774330319038995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd9e58f3d577c1488e800c08524162c, type: 3}
+  m_Script: {fileID: 11500000, guid: ca061fa9b272e74459e54c7d1daef27b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  shouldStartTutorial: 1
-  onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleManager
+  currentPuzzle: {fileID: 0}
 --- !u!1 &8524530291737341006
 GameObject:
   m_ObjectHideFlags: 0

@@ -1858,6 +1858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3914599347655733208}
+  - component: {fileID: 5000800641392028580}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -1885,6 +1886,18 @@ Transform:
   - {fileID: 194907982813908034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5000800641392028580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665067382938427643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c7a57def1f22a4595ec1906483f8e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentGameObject
 --- !u!1 &8673376279479045974
 GameObject:
   m_ObjectHideFlags: 0
