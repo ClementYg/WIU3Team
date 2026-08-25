@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 public class ButtonInteract : Interactable
 {
+    [Header("Event Channels")]
+    [SerializeField] private EventGameObject onButtonPressedEvent;
+
+    [Header("Interactions")]
     [SerializeField] private List<Interaction> pressedInteractions;
 
     protected override void Start()
@@ -22,6 +26,7 @@ public class ButtonInteract : Interactable
     
     public override void Interact()
     {
+        onButtonPressedEvent.Raise(this.gameObject);
         foreach (Interaction interaction in pressedInteractions)
         {
             interaction.Do();

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InspectInteract : Interactable
 {
+    [Header("Interactions")]
     [SerializeField] private List<Interaction> inspectInteractions;
     
     protected override void Start()

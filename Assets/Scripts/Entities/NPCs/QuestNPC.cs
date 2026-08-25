@@ -6,30 +6,59 @@ public class QuestNPC : MonoBehaviour
     [SerializeField] QuestInstance quest;
     [SerializeField] QuestNPCData npcData;
     [SerializeField] DialogueConversation questConvo;
-    [SerializeField] ComponentCache questCache;
+
+    [Header("Event Channels")]
+    [SerializeField] EventVoid onQuestCompletedEvent;
+
+    int questID;
+
+    bool isQuestAssigned = false;
+    bool isQuestCompleted = false;
 
     private void OnEnable()
     {
-        if (ValidateQuestConvo() == false) return;
+        if (ValidateEventReferences() == false) return;
+
+        onQuestCompletedEvent.Subscribe(CompleteQuest);
         questConvo.onConvoEndedEvent.Subscribe(AssignQuest);
     }
 
     private void OnDisable()
     {
-        if (ValidateQuestConvo() == false) return;
+        if (ValidateEventReferences() == false) return;
+
+        onQuestCompletedEvent.Unsubscribe(CompleteQuest);
         questConvo.onConvoEndedEvent.Unsubscribe(AssignQuest);
     }
 
     private void AssignQuest()
     {
-        npcData.AssignQuest(quest, questCache);
+        questID = npcData.AssignQuest(quest);
+        isQuestAssigned = true;
     }
 
-    private bool ValidateQuestConvo()
+    private void CompleteQuest()
     {
+        if (isQuestAssigned)
+        {
+            npcData.CompleteQuest(questID);
+            isQuestCompleted = true;
+        }
+    }
+
+    private bool ValidateEventReferences()
+    {
+        // Validate quest convo
         if (questConvo == null || questConvo.onConvoEndedEvent == null)
         {
             Debug.LogWarning("QuestNPC: Missing quest convo reference.", this);
+            return false;
+        }
+
+        // Validate quest completed event
+        if (onQuestCompletedEvent == null)
+        {
+            Debug.LogWarning("QuestNPC: Missing quest completed event.", this);
             return false;
         }
 

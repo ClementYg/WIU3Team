@@ -26,11 +26,21 @@ public class QuestSystem : PersistentSingleton<QuestSystem>
 
     public bool CompleteQuest(int questID)
     {
+        Debug.Log("QuestSystem: complete quest called.");
+
         // Get the quest to remove
         QuestInstance toRemove = GetQuestWithID(questID);
         if (toRemove == null) return false;
 
-        // Note: Remember to give the reward
+        // Give the reward if there is one
+        if (toRemove.questReward != null)
+        {
+            // Create a new item instance
+            ItemInstance newItem = new(toRemove.questReward.itemData, toRemove.questReward.itemEffect);
+
+            // Add it to the inventory
+            Inventory.Instance.AddItem(newItem);
+        }
 
         // Remove the quest
         assignedQuests.Remove(toRemove);

@@ -11,7 +11,18 @@ public class QuestItemData : ItemData
     public int questID = -1;
     //we can add this to disable delete or self-drop by player
     //i.e, lock item 
-    public bool isKeyItem = false; 
+    public bool isKeyItem = false;
+
+    [Header("Event Channels")]
+    public EventVoid onQuestCompletedEvent;
+
+    public void RaiseEvent()
+    {
+        if (onQuestCompletedEvent == null) return;
+
+        // Raise the event to request a page display
+        onQuestCompletedEvent.Raise();
+    }
 
     private void Reset()
     {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class PressurePlate : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PressurePlate : MonoBehaviour
     [Header("Interactions")]
     [SerializeField] private List<Interaction> pressedInteractions;
     [SerializeField] private List<Interaction> releasedInteractions;
+    [SerializeField] private UnityEvent unityEvents;
 
     private Vector2 restPosition;
     private Vector2 pressedPosition;
@@ -51,6 +53,8 @@ public class PressurePlate : MonoBehaviour
             {
                 interaction.Do();
             }
+
+            unityEvents.Invoke();
         }
     }
 

@@ -32,11 +32,14 @@ public class ItemInstance : ISerializationCallbackReceiver
         
     }
 
-    public ItemInstance(ItemData itemData, ItemEffect itemEffect = null)
+    public ItemInstance(ItemData itemData, ItemEffect itemEffect = null, int stackCount = 1, float lastUsedTime = -Mathf.Infinity)
     {
         this.itemData = itemData;
         this.itemEffect = itemEffect;
+
         currentDurability = (itemData != null && itemData.hasDurability) ? itemData.maxDurability : 0;
+        this.stackCount = stackCount;
+        this.lastUsedTime = lastUsedTime;
     }
 
     public bool TryUse(GameObject user, ComponentCache userCache)

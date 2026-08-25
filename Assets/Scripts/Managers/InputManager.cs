@@ -8,18 +8,21 @@ public class InputManager : Singleton<InputManager>
     [SerializeField] private EventBool onToggledInventoryEvent;
     [SerializeField] private EventBool onToggledBestiaryEvent;
     [SerializeField] private EventBool onToggledQuestUIEvent;
+    [SerializeField] private EventBool onToggledGeneralUIEvent;
     [SerializeField] private EventBool onToggledCutsceneModeEvent;
     [SerializeField] private EventVoid onDialogueStartedEvent;
     [SerializeField] private EventVoid onDialogueEndedEvent;
 
     private bool toggledPause = false;
     private bool toggledInventory = false;
+    private bool toggledGeneralUI = false;
     private bool toggledBestiary = false;
     private bool isCutsceneActive = false;
 
     private void OnEnable()
     {
         onToggledQuestUIEvent.Subscribe(OnToggledQuestUI);
+        onToggledGeneralUIEvent.Subscribe(OnToggledGeneralUI);
         onToggledCutsceneModeEvent.Subscribe(OnToggledCutsceneMode);
         onDialogueStartedEvent.Subscribe(OnDialogueStarted);
         onDialogueEndedEvent.Subscribe(OnDialogueEnded);
@@ -28,6 +31,7 @@ public class InputManager : Singleton<InputManager>
     private void OnDisable()
     {
         onToggledQuestUIEvent.Unsubscribe(OnToggledQuestUI);
+        onToggledGeneralUIEvent.Unsubscribe(OnToggledGeneralUI);
         onToggledCutsceneModeEvent.Unsubscribe(OnToggledCutsceneMode);
         onDialogueStartedEvent.Unsubscribe(OnDialogueStarted);
         onDialogueEndedEvent.Unsubscribe(OnDialogueEnded);
@@ -50,6 +54,12 @@ public class InputManager : Singleton<InputManager>
             InputSystem.actions.FindActionMap("Dialogue").Enable();
         }
     }
+
+    private void OnToggledGeneralUI(bool isEnabled)
+    {
+        toggledGeneralUI = isEnabled;
+    }
+
     private void OnToggledCutsceneMode(bool isEnabled)
     {
         isCutsceneActive = isEnabled;
@@ -113,6 +123,18 @@ public class InputManager : Singleton<InputManager>
             {
                 InputSystem.actions.FindActionMap("Player").Enable();
                 InputSystem.actions.FindActionMap("UI").Disable();
+            }
+        }
+
+        if (toggledGeneralUI)
+        {
+            if (InputSystem.actions["CloseUIPage"].WasPressedThisFrame())
+            {
+                InputSystem.actions.FindActionMap("Player").Enable();
+                InputSystem.actions.FindActionMap("UI").Disable();
+
+                toggledGeneralUI = false;
+                onToggledGeneralUIEvent.Raise(toggledGeneralUI);
             }
         }
 
