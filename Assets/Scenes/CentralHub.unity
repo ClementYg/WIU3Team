@@ -620,31 +620,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1566049596}
     - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
-      propertyPath: <past>k__BackingField
-      value: 
-      objectReference: {fileID: 1566049596}
-    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
       propertyPath: <Present>k__BackingField
       value: 
       objectReference: {fileID: 1208097271}
     - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
-      propertyPath: <present>k__BackingField
-      value: 
-      objectReference: {fileID: 1208097271}
-    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
-      propertyPath: <PstClrChannel>k__BackingField
+      propertyPath: '<PstClrChannels>k__BackingField.Array.data[0]'
       value: 
       objectReference: {fileID: 1566049597}
     - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
-      propertyPath: <pstClrChannel>k__BackingField
-      value: 
-      objectReference: {fileID: 1566049597}
-    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
-      propertyPath: <PrsntClrChannel>k__BackingField
-      value: 
-      objectReference: {fileID: 1208097272}
-    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
-      propertyPath: <prsntClrChannel>k__BackingField
+      propertyPath: '<PrsntClrChannels>k__BackingField.Array.data[0]'
       value: 
       objectReference: {fileID: 1208097272}
     - target: {fileID: 5044011752229197308, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
