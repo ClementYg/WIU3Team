@@ -53,9 +53,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
 
     public void Play(Cutscene cutscene)
     {
-        Debug.Log("CutsceneManager: play called");
         if (playRoutine != null) StopCoroutine(playRoutine);
-        Debug.Log("CutsceneManager: playing cutscene");
         onToggledCutsceneModeEvent.Raise(true);
         playRoutine = StartCoroutine(RunCutscene(cutscene));
     }
