@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 191032403, guid: e91961d83b691044f80d6d4ef4ef0afd, type: 3}
+  m_Sprite: {fileID: -1445839535, guid: 1d50fc852d2411c4b908dca0c8b8a3cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9d6cff7ddcbab43b69c91d100c501b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateController
-  currentState: {fileID: 11400000, guid: f60cb0fcb940aa0439587d71aa33afb8, type: 2}
+  currentState: {fileID: 11400000, guid: 9d5a35970b1bb2348957d5ea15c31109, type: 2}
   remainState: {fileID: 11400000, guid: eece96c3a93081b45a36612ee779b6a1, type: 2}
 --- !u!114 &8105298355546716723
 MonoBehaviour:

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int MaxLives, CurrLives;
     void Start()
     {
         
@@ -12,5 +12,10 @@ public class Lives : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Damage()
+    {
+
     }
 }
