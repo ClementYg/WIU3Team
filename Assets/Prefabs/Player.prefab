@@ -276,8 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd974b9a7a68c0c43b000d57dc8c2e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchManager
-  OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
-  OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  onTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  onTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  onPlayerEnteredResZoneEvent: {fileID: 11400000, guid: 92d776a9874fb2446926c9ee649d201d, type: 2}
+  onPlayerExitedResZoneEvent: {fileID: 11400000, guid: 79ed2abb4de90024ea271c0ba644d140, type: 2}
   transitionDuration: 3
 --- !u!114 &7910338478841596607
 MonoBehaviour:

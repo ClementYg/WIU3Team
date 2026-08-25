@@ -17,15 +17,15 @@ public class QuestNPC : MonoBehaviour
 
     private void OnEnable()
     {
-        if (ValidateEventReferences() == false) return;
-
+        ValidateEventReferences();
+        
         onQuestCompletedEvent.Subscribe(CompleteQuest);
         questConvo.onConvoEndedEvent.Subscribe(AssignQuest);
     }
 
     private void OnDisable()
     {
-        if (ValidateEventReferences() == false) return;
+        ValidateEventReferences();
 
         onQuestCompletedEvent.Unsubscribe(CompleteQuest);
         questConvo.onConvoEndedEvent.Unsubscribe(AssignQuest);
