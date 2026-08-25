@@ -80,6 +80,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
         playRoutine = null;
 
         // Raise the cutscene's on end event
+        //Debug.Log("CutsceneManagement: ")
         cutscene.RaiseEvent();
     }
 }

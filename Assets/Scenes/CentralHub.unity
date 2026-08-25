@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6665496153974247331, guid: 3b7d7dabb775cd84caa4638c0caff60f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665496153974247331, guid: 3b7d7dabb775cd84caa4638c0caff60f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665496153974247331, guid: 3b7d7dabb775cd84caa4638c0caff60f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7582499844296108949, guid: 3b7d7dabb775cd84caa4638c0caff60f, type: 3}
       propertyPath: m_Name
       value: LockedDoorPuzzle (NOSPRITE)
@@ -894,6 +906,14 @@ PrefabInstance:
       propertyPath: <Present>k__BackingField
       value: 
       objectReference: {fileID: 1208097271}
+    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
+      propertyPath: <PstClrChannels>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
+      propertyPath: <PrsntClrChannels>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
       propertyPath: '<PstClrChannels>k__BackingField.Array.data[0]'
       value: 

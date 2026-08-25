@@ -46,8 +46,7 @@ public class TimeSwitch : MonoBehaviour
         onPlayerExitedResZoneEvent.Unsubscribe(EnableTimeSwitch);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         Init();
     }
@@ -79,21 +78,23 @@ public class TimeSwitch : MonoBehaviour
             return;
         }
 
-        references.AssignReferences();
+        // Find the camera shaker script attached to the player
+        if (this.TryGetComponent<CameraShaker>(out cmrShaker) == false)
+        {
+            Debug.LogError("TimeSwitch: Player does not have a Camera Shaker script.");
+        }
 
         present = references.Present;
         past = references.Past;
-        cmrShaker = references.CmrShaker;
         prsntClrChannels = references.PrsntClrChannels;
         pstClrChannels = references.PstClrChannels;
 
         if (
-            present == null || past == null || cmrShaker == null ||
+            present == null || past == null ||
             prsntClrChannels == null || pstClrChannels == null
             )
         {
             Debug.LogError("TimeSwitch: Failed to assign references.");
-            return;
         }
 
         // At the start, player should be in the present
