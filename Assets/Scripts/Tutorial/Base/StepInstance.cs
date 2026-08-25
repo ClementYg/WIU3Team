@@ -17,7 +17,6 @@ public class StepInstance
     {
         if (stepData.criterion is CutsceneStepCriterion criterion)
         {
-            Debug.Log("StepInstance: criterion subscribed");
             criterion.onCutsceneEndedEvent.Subscribe(criterion.OnCutsceneEnded);
         }
     }

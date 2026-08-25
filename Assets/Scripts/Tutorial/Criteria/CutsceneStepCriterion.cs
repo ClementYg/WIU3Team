@@ -8,7 +8,6 @@ public class CutsceneStepCriterion : StepCriterion
 
     public void OnCutsceneEnded()
     {
-        Debug.Log("CutsceneStepCriterion: step completed");
         isCriterionMet = true;
     }
 }
