@@ -34,6 +34,7 @@ Transform:
   - {fileID: 4019383547326820554}
   - {fileID: 2871350049387450546}
   - {fileID: 1112645106856106115}
+  - {fileID: 8372119515535036191}
   - {fileID: 985253252485672147}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -629,6 +630,52 @@ MonoBehaviour:
   - style: 0
     prefab: {fileID: 9094509627422696513, guid: 88b0962a31c1a5643a8fbf287edff2e8, type: 3}
   textDuration: 2
+--- !u!1 &7100142302255741150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8372119515535036191}
+  - component: {fileID: 2888722669720714146}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8372119515535036191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100142302255741150}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6057485640342726497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2888722669720714146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100142302255741150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd9e58f3d577c1488e800c08524162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  shouldStartTutorial: 1
+  onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
 --- !u!1 &8524530291737341006
 GameObject:
   m_ObjectHideFlags: 0

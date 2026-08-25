@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FindDiary
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 0008c89466b8cc241a40ede3ecaac6d6, type: 2}
-  text: 'The Greeks are asking for a report on how the pyramids were built, but I
+  text: 'The Romans are asking for a report on how the pyramids were built, but I
     can''t find my diary. Could you help me find it? It''s somewhere in this pyramid. '
   nextNode: {fileID: 0}
   choices:

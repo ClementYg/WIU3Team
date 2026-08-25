@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: TutorialWelcomeCutscene
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
-  - rid: 6156382766777761857
   - rid: 6156382766777761856
+  - rid: 6156382766777761857
+  - rid: 6156382775033462853
+  onCutsceneEndedEvent: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
   references:
     version: 2
     RefIds:
@@ -29,3 +31,8 @@ MonoBehaviour:
         blocking: 1
         cameraID: 01
         activePriority: 20
+    - rid: 6156382775033462853
+      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        conversation: {fileID: 11400000, guid: 65aa393ca9dd9974ab571e044cb2a095, type: 2}
