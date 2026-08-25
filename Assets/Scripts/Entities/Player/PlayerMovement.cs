@@ -93,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isCrouched;
     private bool isSliding;
 
+    [Header("Inventory")]
+    PointEffector2D pf;
 
     private void OnEnable()
     {
@@ -137,11 +139,22 @@ public class PlayerMovement : MonoBehaviour
         isCrouched = false;
 
         isSliding = false;
+
+        pf = GetComponent<PointEffector2D>();
     }
 
     private void Update()
     {
         if (isMovementEnabled == false) return;
+        if (Inventory.Instance.IsInventoryFull)
+        {
+            if (pf != null) pf.enabled = false;
+        }
+        else
+        {
+            if (pf != null) pf.enabled = true;
+
+        }
 
         moveInput = InputSystem.actions["Move"].ReadValue<Vector2>();
 
@@ -237,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
             isCrouched = true;
             isDashing = false;
         }
-        Debug.DrawRay(celingCheck.position, Vector2.up, color:Color.white,celingCheckDistance);
+        Debug.DrawRay(celingCheck.position, Vector2.up, color: Color.white, celingCheckDistance);
         if (!InputSystem.actions["Crouch"].IsPressed() && !isSliding && !Physics2D.Raycast(celingCheck.position, Vector2.up, celingCheckDistance, celingLayer))
         {
             isCrouched = false;

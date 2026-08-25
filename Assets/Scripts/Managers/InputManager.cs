@@ -18,7 +18,6 @@ public class InputManager : Singleton<InputManager>
     private bool toggledGeneralUI = false;
     private bool toggledBestiary = false;
     private bool isCutsceneActive = false;
-
     private void OnEnable()
     {
         onToggledQuestUIEvent.Subscribe(OnToggledQuestUI);
@@ -58,6 +57,21 @@ public class InputManager : Singleton<InputManager>
     private void OnToggledGeneralUI(bool isEnabled)
     {
         toggledGeneralUI = isEnabled;
+        if (toggledGeneralUI)
+        {
+            Debug.Log("Raised");
+            InputSystem.actions.FindActionMap("ModeSwitch").Enable();
+            InputSystem.actions.FindActionMap("Player").Disable();
+            InputSystem.actions.FindActionMap("UI").Disable();
+            InputSystem.actions.FindActionMap("Dialogue").Disable();
+        }
+        else
+        {
+            InputSystem.actions.FindActionMap("ModeSwitch").Enable();
+            InputSystem.actions.FindActionMap("Player").Enable();
+            InputSystem.actions.FindActionMap("UI").Enable();
+            InputSystem.actions.FindActionMap("Dialogue").Enable();
+        }
     }
 
     private void OnToggledCutsceneMode(bool isEnabled)
@@ -82,7 +96,7 @@ public class InputManager : Singleton<InputManager>
     private void OnDialogueStarted()
     {
         if (isCutsceneActive) return;
-        
+
         InputSystem.actions.FindActionMap("ModeSwitch").Disable();
         InputSystem.actions.FindActionMap("Player").Disable();
         InputSystem.actions.FindActionMap("UI").Disable();
@@ -126,18 +140,12 @@ public class InputManager : Singleton<InputManager>
             }
         }
 
-        if (toggledGeneralUI)
+
+        if (InputSystem.actions["CloseUIPage"].WasPressedThisFrame())
         {
-            if (InputSystem.actions["CloseUIPage"].WasPressedThisFrame())
-            {
-                InputSystem.actions.FindActionMap("Player").Enable();
-                InputSystem.actions.FindActionMap("UI").Disable();
-
-                toggledGeneralUI = false;
-                onToggledGeneralUIEvent.Raise(toggledGeneralUI);
-            }
+            toggledGeneralUI = false;
+            onToggledGeneralUIEvent.Raise(toggledGeneralUI);
         }
-
         if (InputSystem.actions["TogglePause"].WasPressedThisFrame())
         {
             toggledPause = !toggledPause;
@@ -158,7 +166,7 @@ public class InputManager : Singleton<InputManager>
         {
             toggledBestiary = !toggledBestiary;
             onToggledBestiaryEvent.Raise(toggledBestiary);
-            if (toggledPause)
+            if (toggledBestiary)
             {
                 InputSystem.actions.FindActionMap("Player").Disable();
                 InputSystem.actions.FindActionMap("UI").Enable();

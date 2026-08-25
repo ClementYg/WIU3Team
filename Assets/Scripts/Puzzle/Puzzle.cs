@@ -7,18 +7,18 @@ public abstract class Puzzle : MonoBehaviour
     public string puzzleID;
 
     [Header("Event Channels")]
-    [SerializeField] protected EventVoid OnPuzzleFinishEvent;
-    [SerializeField] protected EventVoid OnPuzzleStartEvent;
-    [SerializeField] protected EventVoid OnPuzzleExitEvent;
+    [SerializeField] protected EventString OnPuzzleFinishEvent;
+    [SerializeField] protected EventString OnPuzzleStartEvent;
+    [SerializeField] protected EventString OnPuzzleExitEvent;
     [SerializeField] protected EventAlertFloat OnRequestAlert;
     [SerializeField] protected EventItem OnRequestItem;
     [SerializeField] protected Item itemPrefab;
 
-    protected virtual void CompletePuzzle(bool requestItem = false)
+    protected virtual void CompletePuzzle(string puzzleID, bool requestItem = false)
     {
         isCompleted = true;
         //possibly add a event for onComplete
-        OnPuzzleFinishEvent.Raise();
+        OnPuzzleFinishEvent.Raise(puzzleID);
         if (requestItem && itemPrefab != null)
         {
             //dont know if this works, need to check with player to see if they receive this event and get the item added. 
@@ -28,19 +28,19 @@ public abstract class Puzzle : MonoBehaviour
         PuzzleManager.Instance.ExitPuzzle();
     }
 
-    public virtual void StartPuzzle()
+    public virtual void StartPuzzle(string puzzleID)
     {
         PuzzleManager.Instance.EnterPuzzle(this);
         //possibly add a event for onEnter
-        OnPuzzleStartEvent.Raise();
+        OnPuzzleStartEvent.Raise(puzzleID);
 
     }
 
-    public virtual void ExitPuzzle()
+    public virtual void ExitPuzzle(string puzzleID)
     {
         //possibly add a event for onExit
 
         PuzzleManager.Instance.ExitPuzzle();
-        OnPuzzleExitEvent.Raise();
+        OnPuzzleExitEvent.Raise(puzzleID);
     }
 }

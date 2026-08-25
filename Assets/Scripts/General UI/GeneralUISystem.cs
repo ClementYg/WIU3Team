@@ -49,6 +49,7 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
         body.color = toDisplay.body.textColor;
 
         // Raise the event for UIGeneralManager
+        Debug.Log("Raised");
         onToggledGeneralUIEventBool.Raise(true);
     }
 
