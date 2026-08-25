@@ -10,35 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14981b57ccb3c0844a55947d9c4a5697, type: 3}
-  m_Name: TestCutscene
+  m_Name: TutorialWelcomeCutscene
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
-  - rid: 6156382756319526982
-  - rid: 6156382756319526984
-  - rid: 6156382756319526985
-  - rid: 6156382756319526986
+  - rid: 6156382775033462848
+  - rid: 6156382766777761857
+  - rid: 6156382766777761856
   references:
     version: 2
     RefIds:
-    - rid: 6156382756319526982
+    - rid: 6156382766777761856
+      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        conversation: {fileID: 11400000, guid: 895e5a0c947653c449ee6cf40d2b8e32, type: 2}
+    - rid: 6156382766777761857
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
         cameraID: 01
         activePriority: 20
-    - rid: 6156382756319526984
-      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
+    - rid: 6156382775033462848
+      type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        conversation: {fileID: 11400000, guid: cd924e59416c15c4fb656f85868bd639, type: 2}
-    - rid: 6156382756319526985
-      type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
-      data:
-        blocking: 1
-        cameraID: 02
-        activePriority: 20
-    - rid: 6156382756319526986
-      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
-      data:
-        blocking: 1
-        conversation: {fileID: 11400000, guid: cd924e59416c15c4fb656f85868bd639, type: 2}
+        secondsToWait: 3

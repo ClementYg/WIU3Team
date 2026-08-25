@@ -4,4 +4,5 @@ public enum AlertType
     QuestComplete,
     AreaUnlocked,
     PuzzleComplete,
+    GameAnnouncement
 }
