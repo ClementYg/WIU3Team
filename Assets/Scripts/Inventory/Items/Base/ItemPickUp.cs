@@ -26,6 +26,7 @@ public class ItemPickup : MonoBehaviour
 
     public bool PickUp(ItemInstance item)
     {
+        if (Inventory.Instance.IsInventoryFull) return false;
         return inventory.AddItem(item);
     }
 }

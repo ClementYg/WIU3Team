@@ -11,7 +11,7 @@ public class Inventory : PersistentSingleton<Inventory>
     [SerializeField] EventVoid OnInventoryFullEvent;
     [SerializeField] EventVoid OnInventoryFreedEvent;
 
-    [Header("Testing")] // This is broken, avoid using it for now
+    [Header("Testing (Broken, do not use)")] // This is broken, avoid using it for now
     [SerializeField] List<ItemInstance> startItems = new();
 
     // Inventory
@@ -87,7 +87,7 @@ public class Inventory : PersistentSingleton<Inventory>
     {
         foreach (ItemInstance item in inventoryItems)
         {
-            if (item.itemData.itemName == itemName)
+            if (item.itemData.itemID == itemName)
             {
                 return true;
             }

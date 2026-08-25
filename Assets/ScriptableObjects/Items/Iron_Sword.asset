@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ce6e3b85f557244a264899ccd27bae, type: 3}
   m_Name: Iron_Sword
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  itemID: iron sword
-  itemName: Iron Sword
-  itemImage: {fileID: 0}
+  itemID: sword
+  itemName: sword
+  itemImage: {fileID: 21300000, guid: f938356e095a2fa4787eb8d7d5072b90, type: 3}
   itemType: 2
   shortDescription: 
   loreDescription: 
-  isStackable: 0
-  maxStackSize: 1
+  isStackable: 1
+  maxStackSize: 2
+  consumePerUse: 1
   hasDurability: 1
   maxDurability: 100
+  durabilityPerUse: 1
+  useCooldown: 0
+  isConsumable: 1
   statModifiers:
   - statType: 1
     value: 15

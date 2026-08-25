@@ -13,13 +13,32 @@ MonoBehaviour:
   m_Name: TestCutscene
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
-  - rid: 175680448312115469
+  - rid: 6156382756319526982
+  - rid: 6156382756319526984
+  - rid: 6156382756319526985
+  - rid: 6156382756319526986
   references:
     version: 2
     RefIds:
-    - rid: 175680448312115469
+    - rid: 6156382756319526982
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
         cameraID: 01
         activePriority: 20
+    - rid: 6156382756319526984
+      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        conversation: {fileID: 11400000, guid: cd924e59416c15c4fb656f85868bd639, type: 2}
+    - rid: 6156382756319526985
+      type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        cameraID: 02
+        activePriority: 20
+    - rid: 6156382756319526986
+      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        conversation: {fileID: 11400000, guid: cd924e59416c15c4fb656f85868bd639, type: 2}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PuzzleInteract : Interactable
 {
+    [SerializeField] Puzzle puzzle; 
     protected override void Start()
     {
         if (useDefaultValues)
@@ -19,6 +20,6 @@ public class PuzzleInteract : Interactable
 
     public override void Interact()
     {
-        // Code to trigger puzzle
+        puzzle.StartPuzzle();
     }
 }

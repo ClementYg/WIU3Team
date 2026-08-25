@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class TimeSwitch : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class TimeSwitch : MonoBehaviour
     // Transition sequence
     [SerializeField] float transitionDuration = 3f;
     CameraShaker cmrShaker;
-    ColorChannel prsntClrChannel;
-    ColorChannel pstClrChannel;
+    List<ColorChannel> prsntClrChannels;
+    List<ColorChannel> pstClrChannels;
     float transitionStartTime = -Mathf.Infinity;
     bool isInTransition = false;
     public bool IsTransitionDone => (isInTransition && (Time.time - transitionStartTime >= transitionDuration));
@@ -73,12 +74,12 @@ public class TimeSwitch : MonoBehaviour
         present = references.Present;
         past = references.Past;
         cmrShaker = references.CmrShaker;
-        prsntClrChannel = references.PrsntClrChannel;
-        pstClrChannel = references.PstClrChannel;
+        prsntClrChannels = references.PrsntClrChannels;
+        pstClrChannels = references.PstClrChannels;
 
         if (
             present == null || past == null || cmrShaker == null ||
-            prsntClrChannel == null || pstClrChannel == null
+            prsntClrChannels == null || pstClrChannels == null
             )
         {
             Debug.LogError("TimeSwitch: Failed to assign references.");
@@ -134,11 +135,17 @@ public class TimeSwitch : MonoBehaviour
     {
         if (isInPresent)
         {
-            prsntClrChannel.ToggleColorFlash();
+            foreach (ColorChannel presentChannel in prsntClrChannels)
+            {
+                presentChannel.ToggleColorFlash();
+            }
         }
         else
         {
-            pstClrChannel.ToggleColorFlash();
+            foreach (ColorChannel pastChannel in pstClrChannels)
+            {
+                pastChannel.ToggleColorFlash();
+            }
         }
     }
 

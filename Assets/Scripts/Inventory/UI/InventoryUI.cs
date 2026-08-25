@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -163,9 +165,10 @@ public class InventoryUI : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    [ContextMenu("Find All Row Displays")]
-    private void FindAllRowDisplays()
+    [ContextMenu("Find All References")]
+    private void FindAllReferences()
     {
+        // Assign the row displays
         displays.Clear();
 
         GameObject canvas = GameObject.Find("Inventory Canvas");
@@ -187,6 +190,22 @@ public class InventoryUI : MonoBehaviour
             {
                 displays.Add(display);
             }
+        }
+
+        // Assign references for item-carrying
+        Transform itemTransform = canvas.transform.Find("Item To Carry");
+        itemToCarry = itemTransform.gameObject;
+
+        Transform imageTransform = itemTransform.GetChild(0);
+        if (imageTransform.TryGetComponent<Image>(out Image img))
+        {
+            UIToCarry.itemImage = img;
+        }
+
+        Transform textTransform = itemTransform.GetChild(1);
+        if (textTransform.TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI txtMesh))
+        {
+            UIToCarry.quantityText = txtMesh;
         }
     }
 
