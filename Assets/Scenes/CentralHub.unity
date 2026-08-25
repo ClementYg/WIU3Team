@@ -529,6 +529,10 @@ PrefabInstance:
       propertyPath: source
       value: 
       objectReference: {fileID: 1211958776}
+    - target: {fileID: 7910338478841596607, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: cmrShake.source
+      value: 
+      objectReference: {fileID: 1211958776}
     - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1883,10 +1887,10 @@ LineRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: -0.2, z: 0}
   - {x: 0, y: 10, z: 0}
   m_Parameters:
     serializedVersion: 3

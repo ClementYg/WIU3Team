@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TutorialWelcomeCutscene
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
+  - rid: 6156382775033462848
   - rid: 6156382766777761857
   - rid: 6156382766777761856
   references:
@@ -29,3 +30,8 @@ MonoBehaviour:
         blocking: 1
         cameraID: 01
         activePriority: 20
+    - rid: 6156382775033462848
+      type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        secondsToWait: 3

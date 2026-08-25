@@ -1,18 +1,17 @@
 using UnityEngine;
-using Unity.Cinemachine;
 
 public class CameraShaker : MonoBehaviour
 {
     [Header("Camera Shaker")]
-    [SerializeField] CinemachineImpulseSource source;
+    [SerializeField] CameraShake cmrShake;
 
     public void SetSustainTime(float sustainTime = 0.2f)
     {
-        source.ImpulseDefinition.TimeEnvelope.SustainTime = sustainTime;
+        cmrShake.source.ImpulseDefinition.TimeEnvelope.SustainTime = sustainTime;
     }
 
     public void DoShake()
     {
-        source.GenerateImpulse();
+        cmrShake.source.GenerateImpulse();
     }
 }
