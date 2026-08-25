@@ -18,6 +18,8 @@ public class CutsceneManager : Singleton<CutsceneManager>
     private CinemachineCamera activeCutsceneCamera;
     private Coroutine playRoutine;
 
+    public CinemachineCamera ActiveCutsceneCamera => activeCutsceneCamera;
+
     public static void RegisterCamera(string id, CinemachineCamera camera)
     {
         if (string.IsNullOrEmpty(id)) return;

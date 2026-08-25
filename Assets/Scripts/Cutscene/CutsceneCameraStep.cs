@@ -22,7 +22,7 @@ public class CutsceneCameraStep : CutsceneStep
         if (blocking)
         {
             yield return null;
-            yield return new WaitUntil(() => !CutsceneManager.Instance.cinemachineBrain.IsBlending);
+            yield return WaitForBlend(CutsceneManager.Instance.cinemachineBrain, targetCamera);
         }
     }
 
@@ -36,7 +36,7 @@ public class CutsceneCameraStep : CutsceneStep
 
         if (brain.IsBlending)
         {
-            yield return new WaitUntil(() => brain.IsBlending);
+            yield return new WaitUntil(() => !brain.IsBlending);
         }
     }
 }

@@ -1,20 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StepData", menuName = "ScriptableObjects/Tutorial/StepData")]
-public class StepData : ScriptableObject
+public abstract class StepData : ScriptableObject
 {
     [Header("Step Data")]
     public StepInstruction instruction;
     public StepSuccessCriterion criterion;
     public StepData nextStep;
 
-    [Header("Cutscenes")]
-    public Cutscene startCutscene;
-    public Cutscene endCutscene;
-
-    public void EnterStep()
-    {
-        // Start the cutscene
-        CutsceneManager.Instance.Play(startCutscene);
-    }
+    public abstract void EnterStep();
 }
