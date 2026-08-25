@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TimeSwitchReferences : MonoBehaviour
 {
@@ -7,8 +8,8 @@ public class TimeSwitchReferences : MonoBehaviour
     [field: SerializeField] public GameObject Past { get; private set; }
 
     [Header("Transition Sequence")]
-    [field: SerializeField] public ColorChannel PrsntClrChannel { get; private set; }
-    [field: SerializeField] public ColorChannel PstClrChannel { get; private set; }
+    [field: SerializeField] public List<ColorChannel> PrsntClrChannels { get; private set; }
+    [field: SerializeField] public List<ColorChannel> PstClrChannels { get; private set; }
 
     public CameraShaker CmrShaker { get; private set; }
 

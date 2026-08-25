@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02906e1a399ed0d41b1852bb0611e2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchReferences
-  <present>k__BackingField: {fileID: 0}
-  <past>k__BackingField: {fileID: 0}
-  <cmrShaker>k__BackingField: {fileID: 0}
-  <prsntClrChannel>k__BackingField: {fileID: 0}
-  <pstClrChannel>k__BackingField: {fileID: 0}
+  <Present>k__BackingField: {fileID: 0}
+  <Past>k__BackingField: {fileID: 0}
+  <PrsntClrChannels>k__BackingField:
+  - {fileID: 0}
+  <PstClrChannels>k__BackingField:
+  - {fileID: 0}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
-  m_Name: TutorialWelcomeConvo
+  m_Name: TutorialIntro
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
   firstTimeNode: {fileID: 11400000, guid: 161ebb118859cb14b911b5b4b09dfa29, type: 2}
   repeatNode: {fileID: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564f184f60e46244690906a8d5a9ab28, type: 3}
   m_Name: AreaEntry
   m_EditorClassIdentifier: Assembly-CSharp::AreaEntryData
-  entryID: 
-  displayName: 
+  entryID: asda
+  displayName: asda
   icon: {fileID: 0}
   description: 
   regionSprite: {fileID: 0}

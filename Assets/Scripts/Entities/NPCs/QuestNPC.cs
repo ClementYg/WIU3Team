@@ -33,7 +33,7 @@ public class QuestNPC : MonoBehaviour
 
     private void AssignQuest()
     {
-        Debug.Log("Assigned quest");
+        if (isQuestCompleted || isQuestAssigned) return;
         questID = npcData.AssignQuest(quest);
         isQuestAssigned = true;
     }
