@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecc3d9fb593aed43a4e010ef8a54d31, type: 3}
-  m_Name: OnToggledGeneralUIChannel
+  m_Name: OnToggledIconChannel
   m_EditorClassIdentifier: Assembly-CSharp::EventBool

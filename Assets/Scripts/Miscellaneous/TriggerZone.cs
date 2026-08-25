@@ -10,6 +10,7 @@ public class TriggerZone : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             onEnteredTriggerZone.Raise();
+            this.gameObject.SetActive(false);
         }
     }
 }

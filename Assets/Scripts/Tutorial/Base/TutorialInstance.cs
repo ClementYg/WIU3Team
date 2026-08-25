@@ -32,6 +32,7 @@ public class TutorialInstance
 
         if (currentStep.TryGoNextStep(out currentStep))
         {
+            currentStep.EnterStep();
             SubscribeToCriterion();
         }
         else
