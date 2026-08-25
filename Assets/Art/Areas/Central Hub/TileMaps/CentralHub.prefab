@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 7702659788777093235}
   - component: {fileID: 4900763729193655576}
   m_Layer: 0
-  m_Name: PresentCentralHub
+  m_Name: CentralHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

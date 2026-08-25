@@ -14,18 +14,25 @@ public class TimeSwitchReferences : MonoBehaviour
 
     public void AssignReferences()
     {
-        GameObject inventory = GameObject.FindWithTag("Inventory");
-        if (inventory == null)
+        // Look for the camera on the player first
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
         {
-            Debug.LogError("TimeSwitchReferences: Failed to assign references.");
-            return;
+            if (player.TryGetComponent<CameraShaker>(out CameraShaker shaker))
+            {
+                CmrShaker = shaker;
+                return;
+            }
+            else
+            {
+                Debug.LogError("TimeSwitchReferences: Failed to assign references.");
+                return;
+            }
         }
 
-        if (inventory.TryGetComponent<CameraShaker>(out CameraShaker shaker))
-        {
-            CmrShaker = shaker;
-        }
-        else
+        // Failed, now just find any game object that has the Camera Shaker script
+        CmrShaker = FindAnyObjectByType<CameraShaker>();
+        if (CmrShaker == null)
         {
             Debug.LogError("TimeSwitchReferences: Failed to assign references.");
             return;
