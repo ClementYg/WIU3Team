@@ -5,4 +5,14 @@ using UnityEngine;
 public class Cutscene : ScriptableObject
 {
     [SerializeReference] public List<CutsceneStep> steps = new();
+
+    [Header("Event Channels")]
+    [SerializeField] EventVoid onCutsceneEndedEvent;
+
+    public void RaiseEvent()
+    {
+        if (onCutsceneEndedEvent == null) return;
+        Debug.Log("Cutscene: I am being called");
+        onCutsceneEndedEvent.Raise();
+    }
 }

@@ -142,7 +142,10 @@ MonoBehaviour:
   page: {fileID: 0}
   header: {fileID: 0}
   body: {fileID: 0}
+  iconImage: {fileID: 0}
+  iconTransform: {fileID: 0}
   onDisplayPageRequestedEvent: {fileID: 11400000, guid: 73f90a8aab8e6864dbf13b70fe839826, type: 2}
+  onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
   onToggledGeneralUIEventBool: {fileID: 11400000, guid: c37b84f7db5684b4baf95b853d16107f, type: 2}
 --- !u!1 &6050478483606472160
 GameObject:

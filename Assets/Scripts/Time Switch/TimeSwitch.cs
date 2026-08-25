@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public class TimeSwitch : MonoBehaviour
 {
     [Header("Event Channels")]
-    [SerializeField] EventVoid OnTimeTransitionStartedEvent;
-    [SerializeField] EventVoid OnTimeTransitionEndedEvent;
+    [SerializeField] EventVoid onTimeTransitionStartedEvent;
+    [SerializeField] EventVoid onTimeTransitionEndedEvent;
+    [SerializeField] EventVoid onPlayerEnteredResZoneEvent;
+    [SerializeField] EventVoid onPlayerExitedResZoneEvent;
 
     // References
     TimeSwitchReferences references;
@@ -24,20 +26,27 @@ public class TimeSwitch : MonoBehaviour
     bool isInTransition = false;
     public bool IsTransitionDone => (isInTransition && (Time.time - transitionStartTime >= transitionDuration));
 
+    bool isTimeSwitchEnabled = true;
+
     bool isInPresent = true;
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        onPlayerEnteredResZoneEvent.Subscribe(DisableTimeSwitch);
+        onPlayerExitedResZoneEvent.Subscribe(EnableTimeSwitch);
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        onPlayerEnteredResZoneEvent.Unsubscribe(DisableTimeSwitch);
+        onPlayerExitedResZoneEvent.Unsubscribe(EnableTimeSwitch);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         Init();
     }
@@ -54,7 +63,7 @@ public class TimeSwitch : MonoBehaviour
 
     public void UseAtlas()
     {
-        if (isInTransition) return;
+        if (isInTransition || !isTimeSwitchEnabled) return;
 
         StartTransition();
     }
@@ -69,21 +78,23 @@ public class TimeSwitch : MonoBehaviour
             return;
         }
 
-        references.AssignReferences();
+        // Find the camera shaker script attached to the player
+        if (this.TryGetComponent<CameraShaker>(out cmrShaker) == false)
+        {
+            Debug.LogError("TimeSwitch: Player does not have a Camera Shaker script.");
+        }
 
         present = references.Present;
         past = references.Past;
-        cmrShaker = references.CmrShaker;
         prsntClrChannels = references.PrsntClrChannels;
         pstClrChannels = references.PstClrChannels;
 
         if (
-            present == null || past == null || cmrShaker == null ||
+            present == null || past == null ||
             prsntClrChannels == null || pstClrChannels == null
             )
         {
             Debug.LogError("TimeSwitch: Failed to assign references.");
-            return;
         }
 
         // At the start, player should be in the present
@@ -106,7 +117,7 @@ public class TimeSwitch : MonoBehaviour
         ToggleColorFlash();
         
         // Raise the event
-        OnTimeTransitionStartedEvent.Raise();
+        onTimeTransitionStartedEvent.Raise();
     }
 
     private void EndTransition()
@@ -117,7 +128,7 @@ public class TimeSwitch : MonoBehaviour
         ToggleColorFlash();
 
         // Raise the event
-        OnTimeTransitionEndedEvent.Raise();
+        onTimeTransitionEndedEvent.Raise();
 
         // Toggle the time state
         SetTimeState(!isInPresent);
@@ -147,6 +158,16 @@ public class TimeSwitch : MonoBehaviour
                 pastChannel.ToggleColorFlash();
             }
         }
+    }
+
+    private void EnableTimeSwitch()
+    {
+        isTimeSwitchEnabled = true;
+    }
+
+    private void DisableTimeSwitch()
+    {
+        isTimeSwitchEnabled = false;
     }
 
     private void OnSceneLoaded(Scene scn, LoadSceneMode mode)

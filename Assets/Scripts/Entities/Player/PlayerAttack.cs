@@ -59,6 +59,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        if (InputSystem.actions["Use"].WasPressedThisFrame())
+        {
+            OnTriggerAttack(0);
+        }
+
         UpdateAttackPoint(sprite.flipX);
     }
 

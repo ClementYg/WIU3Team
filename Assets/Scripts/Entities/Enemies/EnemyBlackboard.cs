@@ -33,6 +33,10 @@ public class EnemyBlackboard : MonoBehaviour
     public bool spriteDefaultFacesRight = true;
     [HideInInspector] public bool animationFinished = false;
 
+    [HideInInspector] public float chargeProgress;
+    [HideInInspector] public Vector2 ChargeTargetPosition;
+    [HideInInspector] public Vector2 ChargeStartPosition;
+
     private void Awake()
     {
         if (target == null)
@@ -43,6 +47,8 @@ public class EnemyBlackboard : MonoBehaviour
                 target = player.transform;
             }
         }
+
+        ChargeTargetPosition = ChargeStartPosition = transform.position;
 
         currentWaypointIndex = startingWaypointIndex;
         rb = GetComponent<Rigidbody2D>();

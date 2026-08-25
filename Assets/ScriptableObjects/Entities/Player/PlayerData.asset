@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   entityName: Player
-  maxHP: 0
-  baseDamage: 0
+  maxHP: 10
+  baseDamage: 2
   baseMaxWalkSpeed: 3
   baseMaxSprintSpeed: 7

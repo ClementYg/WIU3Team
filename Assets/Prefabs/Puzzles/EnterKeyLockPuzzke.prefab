@@ -1141,7 +1141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6445543749499342027
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1250,9 +1250,9 @@ MonoBehaviour:
   correctCodes: 00000000000000000000000000000000
   digits:
   - {fileID: 6323087322771284211}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7319257562443738966}
+  - {fileID: 1052330786259265260}
+  - {fileID: 5222959550967249941}
 --- !u!1 &4702577446509468977
 GameObject:
   m_ObjectHideFlags: 0

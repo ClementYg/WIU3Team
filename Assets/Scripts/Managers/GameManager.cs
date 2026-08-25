@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour
+public class GameManager : PersistentSingleton<GameManager>
 {
+    [Header("Game Manager")]
+    [SerializeField] bool shouldStartTutorial = true;
+
     [Header("Event Channels")]
     [SerializeField] EventVoid onTriggerTutorialEvent;
 
@@ -12,6 +15,9 @@ public class GameManager : MonoBehaviour
 
         yield return null;
 
-        onTriggerTutorialEvent.Raise();
+        if (shouldStartTutorial)
+        {
+            onTriggerTutorialEvent.Raise();
+        }
     }
 }

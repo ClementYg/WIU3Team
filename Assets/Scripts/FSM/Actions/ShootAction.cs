@@ -10,7 +10,7 @@ public class ShootAction : StateAction
     {
         EnemyBlackboard blackboard = controller.GetCached<EnemyBlackboard>();
         blackboard.lastAttackTime -= Time.deltaTime;
-        if (blackboard.lastAttackTime > 0f) return;
+        //if (blackboard.lastAttackTime > 0f) return;
 
         var projectilePrefab = blackboard.projectile;
         if (projectilePrefab == null) return;
