@@ -12,9 +12,9 @@ public class MultiPressPuzzle : WorldSpacePuzzle
     //It will complete the puzzle.
     //You just have to create children classes that inherit this and add it as a script.
 
-    public override void StartPuzzle()
+    public override void StartPuzzle(string puzzleID)
     {
-        base.StartPuzzle();
+        base.StartPuzzle(puzzleID);
         activateStates = new bool[totalActivationStates];
     }
     public void SetActivationState(int index)
