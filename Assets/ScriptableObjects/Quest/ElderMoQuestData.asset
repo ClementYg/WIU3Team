@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbeb40aa4f0bb28409dd159d0854bb60, type: 3}
   m_Name: ElderMoQuestData
   m_EditorClassIdentifier: Assembly-CSharp::QuestData
-  questName: Festival Prep
+  questName: Help Mo
   source: {fileID: 11400000, guid: 8d720ee8d59d61047b9351222d778a04, type: 2}
   requirements: 01000000
