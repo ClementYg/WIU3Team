@@ -285,7 +285,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 float control = isGrounded ? 1f : airControlMult;
                 maxSpeed = isSliding ? maxSlidingSpeed : maxCrouchingSpeed;
-                rb.AddForce(Vector2.right * moveInput * crouchForce * control);
+                rb.AddForce(Vector2.right * moveInput.x * crouchForce * control);
                 float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
                 rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
             }
@@ -294,7 +294,12 @@ public class PlayerMovement : MonoBehaviour
                 float control = isGrounded ? 1f : airControlMult;
                 moveForce = isSprinting ? sprintForce : walkForce;
                 maxSpeed = isSprinting ? maxSprintSpeed : maxWalkSpeed;
+<<<<<<< Updated upstream:Assets/Scripts/Entities/Player/PlayerMovement.cs
                 rb.AddForce(Vector2.right * moveInput * moveForce * control);
+=======
+                rb.AddForce(Vector2.right * moveInput.x * moveForce * control);
+
+>>>>>>> Stashed changes:Assets/Scripts/Player/PlayerMovement.cs
                 float clampedX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
                 rb.linearVelocity = new Vector2(clampedX, rb.linearVelocityY);
             }

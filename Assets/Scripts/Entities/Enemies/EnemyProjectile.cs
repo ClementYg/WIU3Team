@@ -9,6 +9,11 @@ public class EnemyProjectile : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        Debug.Log("Shoot");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -19,9 +24,9 @@ public class EnemyProjectile : MonoBehaviour
         lifeSpan -= Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == playerLayer.value)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("Hit");
             collision.gameObject.GetComponent<Health>().Damage(1);

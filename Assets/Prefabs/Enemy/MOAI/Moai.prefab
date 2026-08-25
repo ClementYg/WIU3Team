@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 8775155998637741399}
   - component: {fileID: 7264736676612553961}
   m_Layer: 8
-  m_Name: Boar
+  m_Name: Moai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
