@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbe6d79de116ec498bb8ede48d11a86, type: 3}
   m_Name: Moai_AttackReady
   m_EditorClassIdentifier: Assembly-CSharp::State
-  initActions: []
+  initActions:
+  - {fileID: 11400000, guid: 1b818f1fe96316a4a943839730a5da32, type: 2}
   executeActions: []
-  endActions: []
-  transitions: []
+  endActions:
+  - {fileID: 11400000, guid: 0ec4b4d0dd9b4714a8371d61199fb6c8, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 35200250b68b58042a559a21a1bc75b2, type: 2}
+    trueState: {fileID: 11400000, guid: 9d5a35970b1bb2348957d5ea15c31109, type: 2}
+    falseState: {fileID: 11400000, guid: 269e9b7c92392f747871a87a844e9c01, type: 2}
