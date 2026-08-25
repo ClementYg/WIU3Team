@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PuzzleManager : PersistentSingleton<PuzzleManager>
 {
+    //possibly think of making this a list. 
     public Puzzle currentPuzzle = null;
     public bool inPuzzle => currentPuzzle != null; 
 

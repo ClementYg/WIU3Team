@@ -20,6 +20,6 @@ public class PuzzleInteract : Interactable
 
     public override void Interact()
     {
-        puzzle.StartPuzzle();
+        puzzle.StartPuzzle(puzzle.puzzleID);
     }
 }

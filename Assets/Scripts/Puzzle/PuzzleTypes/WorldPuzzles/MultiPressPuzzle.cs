@@ -34,6 +34,6 @@ public class MultiPressPuzzle : WorldSpacePuzzle
             if (!state) return;
         }
         Debug.Log("puzzle complete");
-        CompletePuzzle();
+        CompletePuzzle(puzzleID);
     }
 }

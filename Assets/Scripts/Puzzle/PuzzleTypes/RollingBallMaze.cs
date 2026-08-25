@@ -50,12 +50,11 @@ public class RollingMazePuzzle : ScreenPuzzle
 
     private void Start()
     {
-        StartPuzzle(); // TEMP
     }
 
-    public override void StartPuzzle()
+    public override void StartPuzzle(string puzzleID)
     {
-        base.StartPuzzle();
+        base.StartPuzzle(puzzleID);
         //stop it from regenerating every time start and end puzzle
         //will regenerate every time reload scene etc
         if (!hasGenerated)
@@ -228,6 +227,6 @@ public class RollingMazePuzzle : ScreenPuzzle
         ballRigidbody.angularVelocity = 0f;
         ballRigidbody.simulated = false;
 
-        CompletePuzzle();
+        CompletePuzzle(puzzleID);
     }
 }

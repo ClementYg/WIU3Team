@@ -1,7 +1,4 @@
-using TMPro;
-using UnityEditor.TextCore.Text;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnterCodePuzzle : ScreenPuzzle
 {
@@ -28,7 +25,7 @@ public class EnterCodePuzzle : ScreenPuzzle
         if (ansCorrect == correctCodes.Length)
         {
             Debug.Log("Correct");
-            CompletePuzzle();
+            CompletePuzzle(puzzleID);
         }    
     }
 }
