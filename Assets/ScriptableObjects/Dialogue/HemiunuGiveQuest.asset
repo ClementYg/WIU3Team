@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
-  m_Name: GiveQuest
+  m_Name: HemiunuGiveQuest
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
   firstTimeNode: {fileID: 11400000, guid: ae8d294818e4dea42a418a2fd53a5686, type: 2}
-  repeatNode: {fileID: 0}
+  repeatNode: {fileID: 11400000, guid: a681748731441f84798e91bd7f30cd69, type: 2}
   hasBeenSeen: 1
   onConvoEndedEvent: {fileID: 11400000, guid: 2f6473e97303bff44a842d875fd3522b, type: 2}
