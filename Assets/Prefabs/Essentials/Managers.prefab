@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd9e58f3d577c1488e800c08524162c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  introTutorial: {fileID: 11400000, guid: 332d5a4fbdb96774d8f73cd7c1fa0aca, type: 2}
   shouldStartTutorial: 1
   onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
 --- !u!1 &5938656940741952082

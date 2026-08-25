@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public abstract class StepCriterion : ScriptableObject
+[CreateAssetMenu(fileName = "StepCriterion", menuName = "ScriptableObjects/Tutorial/StepCriterion")]
+public class StepCriterion : ScriptableObject
 {
-    [Header("Step Criterion")]
-    [HideInInspector] public bool isCriterionMet = false;
+    [Header("Event Channels")]
+    public EventVoid onCriterionMetEvent;
 }

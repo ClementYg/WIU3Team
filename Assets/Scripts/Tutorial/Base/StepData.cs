@@ -8,4 +8,9 @@ public abstract class StepData : ScriptableObject
     public StepData nextStep;
 
     public abstract void EnterStep();
+    
+    public StepData GetNextStep()
+    {
+        return nextStep;
+    }
 }

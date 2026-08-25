@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d8ec868655eca4aa3d49c9c5b1cb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialSystem
-  steps:
-  - stepData: {fileID: 11400000, guid: 94d16cdc6d092e042a3fb72fd8399d25, type: 2}
   onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
 --- !u!1 &3748050421109187091
 GameObject:

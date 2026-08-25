@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ADStepData
   m_EditorClassIdentifier: Assembly-CSharp::ActionStepData
   instruction: {fileID: 0}
-  criterion: {fileID: 0}
+  criterion: {fileID: 11400000, guid: c5dbdeae9ba6c9a4c85d2e41352840de, type: 2}
   nextStep: {fileID: 0}
   guide: {fileID: 11400000, guid: 14838b8029374d348a40513211df2887, type: 2}
   onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
