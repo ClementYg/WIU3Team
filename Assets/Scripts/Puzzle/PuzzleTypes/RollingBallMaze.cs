@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 
 public class RollingMazePuzzle : ScreenPuzzle
 {
