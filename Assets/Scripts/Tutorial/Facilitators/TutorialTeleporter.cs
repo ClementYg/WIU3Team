@@ -5,6 +5,7 @@ public class TutorialTeleporter : MonoBehaviour
 {
     [Header("Tutorial Teleporter")]
     [SerializeField] Transform teleporterTransform;
+    [SerializeField] SpriteRenderer teleporterRenderer;
     [SerializeField] List<TeleportData> teleports;
 
     TeleportData currentTeleport;
@@ -36,5 +37,8 @@ public class TutorialTeleporter : MonoBehaviour
         // Set the transform
         teleporterTransform.position = currentTeleport.newPosition;
         teleporterTransform.localScale = currentTeleport.newScale;
+
+        // Set the color
+        teleporterRenderer.color = currentTeleport.newColor;
     }
 }

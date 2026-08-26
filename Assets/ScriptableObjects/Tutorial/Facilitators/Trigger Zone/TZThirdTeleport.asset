@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportData
   newPosition: {x: 27, y: 9, z: 0}
   newScale: {x: 0, y: 0}
+  newColor: {r: 1, g: 1, b: 0, a: 0.39215687}
   onTeleportRequestedEvent: {fileID: 11400000, guid: 1ecada4b52e99ed4f9b6f4c4800836e8, type: 2}

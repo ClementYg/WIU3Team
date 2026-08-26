@@ -6,6 +6,7 @@ public class TeleportData : ScriptableObject
     [Header("Teleport NPC")]
     public Vector3 newPosition;
     public Vector2 newScale;
+    public Color newColor;
 
     [Header("Event Channels")]
     // This event channel will act as the trigger for NPC to teleport to the next location.

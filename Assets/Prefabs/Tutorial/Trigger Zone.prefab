@@ -152,8 +152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerZone
   teleporterTransform: {fileID: 4777232282398854175}
+  teleporterRenderer: {fileID: 8445920468457871517}
   teleports:
-  - newPosition: {x: 27, y: 9, z: 0}
-    onTeleportRequestedEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  - {fileID: 11400000, guid: 17625434dcb435749bd31c54f5efec0c, type: 2}
+  - {fileID: 11400000, guid: ba255ef5a8d1d1449b5d923b6855cdea, type: 2}
+  - {fileID: 11400000, guid: 115acf38d14e78b4296ab2784d37ab15, type: 2}
+  - {fileID: 11400000, guid: 77aab000303010c4b86b9acdb4df853d, type: 2}
+  - {fileID: 11400000, guid: 3016e7b5e849f614494e5aba06f7a69e, type: 2}
   onEnteredTriggerZoneEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
-  onReactivateTriggerZoneEvent: {fileID: 11400000, guid: 1ecada4b52e99ed4f9b6f4c4800836e8, type: 2}

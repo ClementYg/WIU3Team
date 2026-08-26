@@ -5,7 +5,6 @@ public class QuestNPC : MonoBehaviour
     [Header("Quest NPC")]
     [SerializeField] QuestInstance quest;
     [SerializeField] QuestNPCData npcData;
-    [SerializeField] DialogueConversation questConvo;
 
     [Header("Event Channels")]
     [SerializeField] EventVoid onQuestCompletedEvent;
@@ -17,15 +16,8 @@ public class QuestNPC : MonoBehaviour
 
     private void OnEnable()
     {
-        // Validate quest convo
-        if (questConvo != null && questConvo.onConvoEndedEvent != null)
-        {
-            questConvo.onConvoEndedEvent.Subscribe(AssignQuest);
-        }
-        else
-        {
-            Debug.LogWarning("QuestNPC: Missing quest conversation references.");
-        }
+        // Subscribe to the quest convo
+        npcData.SubscribeToConvo(AssignQuest);
 
         // Validate quest completed event
         if (onQuestCompletedEvent != null)
@@ -40,11 +32,8 @@ public class QuestNPC : MonoBehaviour
 
     private void OnDisable()
     {
-        // Validate quest convo
-        if (questConvo != null && questConvo.onConvoEndedEvent != null)
-        {
-            questConvo.onConvoEndedEvent.Unsubscribe(AssignQuest);
-        }
+        // Unsubscribe to the quest convo
+        npcData.UnsubscribeToConvo(AssignQuest);
 
         // Validate quest completed event
         if (onQuestCompletedEvent != null)

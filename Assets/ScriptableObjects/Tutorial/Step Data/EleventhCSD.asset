@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9f8a8007fd6a14bb31cd5f534ee9a9, type: 3}
-  m_Name: TenthCSD
+  m_Name: EleventhCSD
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
   instruction: {fileID: 0}
-  nextStep: {fileID: 11400000, guid: 2b9860cc98c68a945a43d4a4a4db5c4b, type: 2}
-  criterion: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
-  cutscene: {fileID: 11400000, guid: 96ef140d8b046c04c93559024a2de90a, type: 2}
+  nextStep: {fileID: 11400000, guid: 9e75e0b89b1954044958497e93c7a3db, type: 2}
+  criterion: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
+  cutscene: {fileID: 11400000, guid: 0e71b8f0dc2e6c741b6ffaf123b5f6c3, type: 2}
