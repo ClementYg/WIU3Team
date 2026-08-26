@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TenthCSD
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
   instruction: {fileID: 0}
-  nextStep: {fileID: 11400000, guid: 2b9860cc98c68a945a43d4a4a4db5c4b, type: 2}
-  criterion: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  nextStep: {fileID: 11400000, guid: 2b003a3c7b969de4bb2b4ceff9f4c313, type: 2}
+  criterion: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
   cutscene: {fileID: 11400000, guid: 96ef140d8b046c04c93559024a2de90a, type: 2}
