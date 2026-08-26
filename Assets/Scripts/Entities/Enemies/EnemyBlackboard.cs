@@ -38,7 +38,8 @@ public class EnemyBlackboard : MonoBehaviour
     [HideInInspector] public Vector2 ChargeStartPosition;
     [HideInInspector] public bool AtkAnimTrig = false;
 
-    private void Awake()
+
+    private void Start()
     {
         if (target == null)
         {
@@ -48,7 +49,9 @@ public class EnemyBlackboard : MonoBehaviour
                 target = player.transform;
             }
         }
-
+    }
+    private void Awake()
+    {
         ChargeTargetPosition = ChargeStartPosition = transform.position;
 
         currentWaypointIndex = startingWaypointIndex;
