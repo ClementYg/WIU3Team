@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class TeleportNPC
+public class TeleportData
 {
     [Header("Teleport NPC")]
     public Vector3 newPosition;

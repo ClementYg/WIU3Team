@@ -151,4 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b81fe258fcd1945a2a111ecee2886f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerZone
-  onEnteredTriggerZone: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  teleporterTransform: {fileID: 4777232282398854175}
+  teleports:
+  - newPosition: {x: 27, y: 9, z: 0}
+    onTeleportRequestedEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  onEnteredTriggerZoneEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}

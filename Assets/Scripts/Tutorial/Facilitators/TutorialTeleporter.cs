@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class TutorialNPC : MonoBehaviour
+public class TutorialTeleporter : MonoBehaviour
 {
-    [Header("Tutorial NPC")]
-    [SerializeField] NPCData npcData;
-    [SerializeField] Transform npcTransform;
-    [SerializeField] List<TeleportNPC> teleports;
+    [Header("Tutorial Teleporter")]
+    [SerializeField] Transform teleporterTransform;
+    [SerializeField] List<TeleportData> teleports;
 
-    TeleportNPC currentTeleport;
+    TeleportData currentTeleport;
     int currentTeleportIndex = 0;
+
+    bool hasDoneLastTeleport = false;
+    public bool HasDoneLastTeleport => hasDoneLastTeleport;
 
     private void Awake()
     {
@@ -23,10 +25,11 @@ public class TutorialNPC : MonoBehaviour
         {
             // This is the last position
             currentTeleport.onTeleportRequestedEvent.Unsubscribe(TeleportToNextPos);
+            hasDoneLastTeleport = true;
             return;
         }
 
         currentTeleport = teleports[currentTeleportIndex++];
-        npcTransform.position = currentTeleport.newPosition;
+        teleporterTransform.position = currentTeleport.newPosition;
     }
 }
