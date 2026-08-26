@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
-  m_Name: ElderMoHelpConvo
+  m_Name: ElderMoFoundKey
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
-  firstTimeNode: {fileID: 11400000, guid: 275b9ccad6103a8468454755789d5b5a, type: 2}
+  firstTimeNode: {fileID: 11400000, guid: 57fa94395a32da449a1b7e76229e7bfb, type: 2}
   repeatNode: {fileID: 11400000, guid: c5723bc4940d51444b80fcdf80dfc711, type: 2}
   hasBeenSeen: 0
   onConvoEndedEvent: {fileID: 11400000, guid: 9689d99f56b7d2d4f9f869ae3a6262b7, type: 2}

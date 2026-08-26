@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abd4f58248b9da74499b9854b8d2f375, type: 3}
-  m_Name: ElderMoIntro
+  m_Name: ElderMoFound2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 560631a83447a9747ad7c258328ec4e6, type: 2}
-  text: The name's Elder Mo, and who are you?
+  text: I know you just got here, but some help to get another Key of Purity would
+    really go a long way!
   nextNode: {fileID: 0}
   choices:
-  - choiceText: I'm the Timekeeper!
-    nextNode: {fileID: 11400000, guid: a15d05e091a501b4f9b32572fef07144, type: 2}
-  - choiceText: '[Says nothing]'
-    nextNode: {fileID: 11400000, guid: 234cbbb9d58c3bb4e8b733d8757c5a6e, type: 2}
+  - choiceText: Of course!
+    nextNode: {fileID: 11400000, guid: 4ecbfe49c2753214d8a56e0b419e258f, type: 2}
