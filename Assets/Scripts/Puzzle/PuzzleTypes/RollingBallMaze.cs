@@ -112,7 +112,6 @@ public class RollingMazePuzzle : ScreenPuzzle
         InstantiateWalls(grid);
         FrameCamera();
     }
-
     void FrameCamera()
     {
         if (mazeCamera == null) return;
@@ -134,7 +133,6 @@ public class RollingMazePuzzle : ScreenPuzzle
         float padding = 1.1f;
         mazeCamera.orthographicSize = Mathf.Max(rotatedHalfHeight, rotatedHalfWidth / mazeCamera.aspect) * padding;
     }
-   
     List<Vector2Int> GetUnvisitedNeighbors(Vector2Int cell, bool[,] visited)
     {
         //This function checks each of the directions to see if on the edge or already visited, else will add as a neighbour
