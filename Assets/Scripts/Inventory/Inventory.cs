@@ -8,8 +8,9 @@ public class Inventory : PersistentSingleton<Inventory>
     [SerializeField] int maxStackCapacity = 36;
 
     [Header("Event Channels")]
-    [SerializeField] EventVoid OnInventoryFullEvent;
-    [SerializeField] EventVoid OnInventoryFreedEvent;
+    [SerializeField] EventItemDataItemEffect onAddItemEvent;
+    [SerializeField] EventVoid onInventoryFullEvent;
+    [SerializeField] EventVoid onInventoryFreedEvent;
 
     [Header("Testing (Broken, do not use)")] // This is broken, avoid using it for now
     [SerializeField] List<ItemInstance> startItems = new();
@@ -18,6 +19,16 @@ public class Inventory : PersistentSingleton<Inventory>
     List<ItemInstance> inventoryItems = new();
     public int currInvCapacity => inventoryItems.Count;
     public bool IsInventoryFull => (currInvCapacity >= maxStackCapacity);
+
+    private void OnEnable()
+    {
+        onAddItemEvent.Subscribe(AddItem);
+    }
+
+    private void OnDisable()
+    {
+        onAddItemEvent.Unsubscribe(AddItem);
+    }
 
     protected override void Awake()
     {
@@ -35,7 +46,7 @@ public class Inventory : PersistentSingleton<Inventory>
         // Check if the inventory is full
         if (IsInventoryFull)
         {
-            OnInventoryFullEvent.Raise();
+            onInventoryFullEvent.Raise();
             return false;
         }
 
@@ -44,6 +55,7 @@ public class Inventory : PersistentSingleton<Inventory>
         {
             return false;
         }
+
         BestiaryManager.Instance.Unlock(item.itemData.EntryID);
         inventoryItems.Add(item);
 
@@ -59,7 +71,7 @@ public class Inventory : PersistentSingleton<Inventory>
             effect.RaiseEvent();
         }
 
-        return true;
+        return false;
     }
 
     public bool TryUseSelectedItem(GameObject user, ComponentCache userCache)
@@ -149,6 +161,42 @@ public class Inventory : PersistentSingleton<Inventory>
         }
     }
 
+    private void AddItem(ItemData data, ItemEffect effect)
+    {
+        // Make the item instance
+        ItemInstance item = new(data, effect);
+
+        // Check if the inventory is full
+        if (IsInventoryFull)
+        {
+            onInventoryFullEvent.Raise();
+            return;
+        }
+
+        // Add the item
+        if (invUI.AddItem(item) == false)
+        {
+            return;
+        }
+
+        BestiaryManager.Instance.Unlock(item.itemData.EntryID);
+        inventoryItems.Add(item);
+
+        // Check if this is a quest item
+        if (data is QuestItemData questItemData)
+        {
+            questItemData.RaiseEvent();
+        }
+
+        // Check if this item has a ItemPageEffect
+        if (effect is ItemPageEffect itemPageEffect)
+        {
+            itemPageEffect.RaiseEvent();
+        }
+
+        return;
+    }
+
     private void RemoveItem(ItemInstance item)
     {
         // Add that players cannot delete key items (Do a check!)
@@ -160,7 +208,7 @@ public class Inventory : PersistentSingleton<Inventory>
 
         if (wasInventoryFull && !IsInventoryFull)
         {
-            OnInventoryFreedEvent.Raise();
+            onInventoryFreedEvent.Raise();
         }
     }
 
