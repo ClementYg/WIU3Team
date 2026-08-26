@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b78844ef6049f46bb9fd2bd28b297f, type: 3}
-  m_Name: ElderMoTaskData
-  m_EditorClassIdentifier: Assembly-CSharp::TaskData
-  instruction: Find the Key of Purity
-  taskType: 0
-  requiredQuantity: 1
+  m_Script: {fileID: 11500000, guid: fdb1daf4265ffaa47b2fdd084112c9a9, type: 3}
+  m_Name: JollyJoeData
+  m_EditorClassIdentifier: Assembly-CSharp::QuestNPCData
+  npcName: Jolly Joe

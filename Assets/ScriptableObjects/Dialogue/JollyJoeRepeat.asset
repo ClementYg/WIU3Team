@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
-  m_Name: ElderMoComplete
+  m_Name: JollyJoeRepeat
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
-  firstTimeNode: {fileID: 11400000, guid: 8fd04ead3a9f3a245b26065c0bb64d9b, type: 2}
-  repeatNode: {fileID: 11400000, guid: c5723bc4940d51444b80fcdf80dfc711, type: 2}
+  firstTimeNode: {fileID: 11400000, guid: b0b5b01d7cb67644dba35399160d074f, type: 2}
+  repeatNode: {fileID: 0}
   hasBeenSeen: 0
-  onConvoEndedEvent: {fileID: 11400000, guid: 63cdd5ecf7dd31a4b9fb95d48f415011, type: 2}
+  onConvoEndedEvent: {fileID: 0}

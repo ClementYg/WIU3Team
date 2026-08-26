@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abd4f58248b9da74499b9854b8d2f375, type: 3}
-  m_Name: ElderMoComplete1
+  m_Name: JollyJoeIntro5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  speaker: {fileID: 11400000, guid: 560631a83447a9747ad7c258328ec4e6, type: 2}
-  text: Oh you found the key! Thank you very much!
+  speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
+  text: You'll see! I'll leave you to it now.
   nextNode: {fileID: 0}
   choices: []
