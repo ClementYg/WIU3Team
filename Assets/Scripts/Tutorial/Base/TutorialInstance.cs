@@ -59,7 +59,7 @@ public class TutorialInstance
 
     private EventVoid GetCriterionMetEvent()
     {
-        EventVoid onCriterionMetEvent = currentStep.stepData.criterion.onCriterionMetEvent;
+        EventVoid onCriterionMetEvent = currentStep.stepData.criterion;
         if (onCriterionMetEvent == null)
         {
             Debug.LogWarning("TutorialInstance: Current step is missing event reference." + currentStep.stepData.name);

@@ -10,6 +10,7 @@ public class InputManager : Singleton<InputManager>
     [SerializeField] private EventBool onToggledQuestUIEvent;
     [SerializeField] private EventBool onToggledCutsceneModeEvent;
     [SerializeField] private EventBool onToggledUIPageEvent;
+    [SerializeField] private EventBool onToggledUIIconEvent;
     [SerializeField] private EventVoid onDialogueStartedEvent;
     [SerializeField] private EventVoid onDialogueEndedEvent;
 
@@ -17,12 +18,17 @@ public class InputManager : Singleton<InputManager>
     private bool toggledInventory = false;
     private bool toggledBestiary = false;
     private bool isCutsceneActive = false;
+    private bool isGeneralUIActive = false;
+    private bool shouldShowUIPage = true;
+
+    private bool IsUIPageActive => (isGeneralUIActive && shouldShowUIPage);
 
     private void OnEnable()
     {
         onToggledQuestUIEvent.Subscribe(OnToggledQuestUI);
         onToggledCutsceneModeEvent.Subscribe(OnToggledCutsceneMode);
         onToggledUIPageEvent.Subscribe(OnToggledUIPage);
+        onToggledUIIconEvent.Subscribe(OnToggledUIIcon);
         onDialogueStartedEvent.Subscribe(OnDialogueStarted);
         onDialogueEndedEvent.Subscribe(OnDialogueEnded);
     }
@@ -32,6 +38,7 @@ public class InputManager : Singleton<InputManager>
         onToggledQuestUIEvent.Unsubscribe(OnToggledQuestUI);
         onToggledCutsceneModeEvent.Unsubscribe(OnToggledCutsceneMode);
         onToggledUIPageEvent.Unsubscribe(OnToggledUIPage);
+        onToggledUIIconEvent.Unsubscribe(OnToggledUIIcon);
         onDialogueStartedEvent.Unsubscribe(OnDialogueStarted);
         onDialogueEndedEvent.Unsubscribe(OnDialogueEnded);
     }
@@ -75,12 +82,15 @@ public class InputManager : Singleton<InputManager>
 
     private void OnToggledUIPage(bool isEnabled)
     {
-        if (isEnabled)
+        isGeneralUIActive = isEnabled;
+        if (isGeneralUIActive)
         {
             InputSystem.actions.FindActionMap("ModeSwitch").Enable();
             InputSystem.actions.FindActionMap("Player").Disable();
             InputSystem.actions.FindActionMap("UI").Disable();
             InputSystem.actions.FindActionMap("Dialogue").Disable();
+
+            shouldShowUIPage = true;
         }
         else
         {
@@ -88,6 +98,15 @@ public class InputManager : Singleton<InputManager>
             InputSystem.actions.FindActionMap("Player").Enable();
             InputSystem.actions.FindActionMap("UI").Enable();
             InputSystem.actions.FindActionMap("Dialogue").Enable();
+        }
+    }
+
+    private void OnToggledUIIcon(bool isEnabled)
+    {
+        isGeneralUIActive = isEnabled;
+        if (isGeneralUIActive)
+        {
+            shouldShowUIPage = false;
         }
     }
 
@@ -138,10 +157,13 @@ public class InputManager : Singleton<InputManager>
             }
         }
 
-
-        if (InputSystem.actions["CloseUIPage"].WasPressedThisFrame())
+        if (IsUIPageActive)
         {
-            onToggledUIPageEvent.Raise(false);
+            if (InputSystem.actions["CloseUIPage"].WasPressedThisFrame())
+            {
+                Debug.Log("InputManager: closed UI page, raising toggled ui page event");
+                onToggledUIPageEvent.Raise(false);
+            }
         }
 
         if (InputSystem.actions["TogglePause"].WasPressedThisFrame())

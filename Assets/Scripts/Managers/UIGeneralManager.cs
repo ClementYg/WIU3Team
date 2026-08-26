@@ -25,6 +25,8 @@ public class UIGeneralManager : PersistentSingleton<UIGeneralManager>
 
     private void OnToggledPage(bool isEnabled)
     {
+        Debug.Log("UIGeneralManager: toggled UI page");
+
         if (isEnabled)
         {
             pageFader.FadeIn();
@@ -53,6 +55,8 @@ public class UIGeneralManager : PersistentSingleton<UIGeneralManager>
 
     private void OnToggledGeneralUI(bool isEnabled)
     {
+        Debug.Log("UIGeneralManager: toggled general UI");
+
         if (isEnabled)
         {
             canvasFader.FadeIn();
