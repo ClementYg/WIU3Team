@@ -17,3 +17,4 @@ MonoBehaviour:
   nextStep: {fileID: 0}
   guide: {fileID: 11400000, guid: 14838b8029374d348a40513211df2887, type: 2}
   onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
+  onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}

@@ -1018,6 +1018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 888533813}
   - component: {fileID: 888533812}
+  - component: {fileID: 888533814}
   m_Layer: 0
   m_Name: The Receptionist
   m_TagString: Untagged
@@ -1099,6 +1100,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888533814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888533811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15a2e8b3f44e774d8a6fae044f46cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialNPC
+  npcData: {fileID: 0}
 --- !u!1 &915958373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2159032655735976320, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}

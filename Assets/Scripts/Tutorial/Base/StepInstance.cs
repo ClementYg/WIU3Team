@@ -18,6 +18,8 @@ public class StepInstance
 
     public bool TryGoNextStep(out StepInstance nextStep)
     {
+        ExitStep();
+
         StepData nextData = stepData.GetNextStep();
         if (nextData == null)
         {
@@ -27,5 +29,10 @@ public class StepInstance
 
         nextStep = new StepInstance(nextData);
         return true;
+    }
+
+    private void ExitStep()
+    {
+        stepData.ExitStep();
     }
 }
