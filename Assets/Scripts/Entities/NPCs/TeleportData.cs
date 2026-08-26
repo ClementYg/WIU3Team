@@ -1,10 +1,11 @@
 using UnityEngine;
 
-[System.Serializable]
-public class TeleportData
+[CreateAssetMenu(fileName = "TeleportData", menuName = "ScriptableObjects/Tutorial/TeleportData")]
+public class TeleportData : ScriptableObject
 {
     [Header("Teleport NPC")]
     public Vector3 newPosition;
+    public Vector2 newScale;
 
     [Header("Event Channels")]
     // This event channel will act as the trigger for NPC to teleport to the next location.

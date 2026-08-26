@@ -10,26 +10,31 @@ public class TutorialTeleporter : MonoBehaviour
     TeleportData currentTeleport;
     int currentTeleportIndex = 0;
 
-    bool hasDoneLastTeleport = false;
-    public bool HasDoneLastTeleport => hasDoneLastTeleport;
+    public bool HasDoneLastTeleport => (currentTeleportIndex > teleports.Count - 1);
 
     private void Awake()
     {
-        currentTeleport = teleports[currentTeleportIndex];
-        currentTeleport.onTeleportRequestedEvent.Subscribe(TeleportToNextPos);
+        InitTeleport();
     }
 
     private void TeleportToNextPos()
     {
-        if (currentTeleportIndex > teleports.Count - 1)
-        {
-            // This is the last position
-            currentTeleport.onTeleportRequestedEvent.Unsubscribe(TeleportToNextPos);
-            hasDoneLastTeleport = true;
-            return;
-        }
+        ++currentTeleportIndex;
+        if (HasDoneLastTeleport) return;
 
-        currentTeleport = teleports[currentTeleportIndex++];
+        // Unsubscribe from the current event first, go to the next one and then subscribe to it
+        currentTeleport.onTeleportRequestedEvent.Unsubscribe(TeleportToNextPos);
+
+        InitTeleport();
+    }
+
+    private void InitTeleport()
+    {
+        currentTeleport = teleports[currentTeleportIndex];
+        currentTeleport.onTeleportRequestedEvent.Subscribe(TeleportToNextPos);
+
+        // Set the transform
         teleporterTransform.position = currentTeleport.newPosition;
+        teleporterTransform.localScale = currentTeleport.newScale;
     }
 }
