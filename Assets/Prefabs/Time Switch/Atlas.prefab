@@ -212,3 +212,4 @@ MonoBehaviour:
     itemEffect: {fileID: 11400000, guid: b6cb8bc61a942e8479a7c606dba2fe46, type: 2}
     currentDurability: 0
     stackCount: 1
+  onItemCollectedEvent: {fileID: 11400000, guid: 1ecada4b52e99ed4f9b6f4c4800836e8, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e1ac172752cb546a0608fc0fe89d01, type: 3}
+  m_Name: FourthASD
+  m_EditorClassIdentifier: Assembly-CSharp::ActionStepData
+  instruction: {fileID: 0}
+  nextStep: {fileID: 11400000, guid: b03814b42c6cd9f48b15a0522f7f152f, type: 2}
+  criterion: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  guide: {fileID: 11400000, guid: edb3eaba2d040874584dde4e28a70232, type: 2}
+  onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
+  onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}

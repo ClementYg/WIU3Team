@@ -17,18 +17,40 @@ public class QuestNPC : MonoBehaviour
 
     private void OnEnable()
     {
-        ValidateEventReferences();
-        
-        onQuestCompletedEvent.Subscribe(CompleteQuest);
-        questConvo.onConvoEndedEvent.Subscribe(AssignQuest);
+        // Validate quest convo
+        if (questConvo != null && questConvo.onConvoEndedEvent != null)
+        {
+            questConvo.onConvoEndedEvent.Subscribe(AssignQuest);
+        }
+        else
+        {
+            Debug.LogWarning("QuestNPC: Missing quest conversation references.");
+        }
+
+        // Validate quest completed event
+        if (onQuestCompletedEvent != null)
+        {
+            onQuestCompletedEvent.Subscribe(CompleteQuest);
+        }
+        else
+        {
+            Debug.LogWarning("QuestNPC: Missing quest completion reference.");
+        }
     }
 
     private void OnDisable()
     {
-        ValidateEventReferences();
+        // Validate quest convo
+        if (questConvo != null && questConvo.onConvoEndedEvent != null)
+        {
+            questConvo.onConvoEndedEvent.Unsubscribe(AssignQuest);
+        }
 
-        onQuestCompletedEvent.Unsubscribe(CompleteQuest);
-        questConvo.onConvoEndedEvent.Unsubscribe(AssignQuest);
+        // Validate quest completed event
+        if (onQuestCompletedEvent != null)
+        {
+            onQuestCompletedEvent.Unsubscribe(CompleteQuest);
+        }
     }
 
     private void AssignQuest()
@@ -45,24 +67,5 @@ public class QuestNPC : MonoBehaviour
             npcData.CompleteQuest(questID);
             isQuestCompleted = true;
         }
-    }
-
-    private bool ValidateEventReferences()
-    {
-        // Validate quest convo
-        if (questConvo == null || questConvo.onConvoEndedEvent == null)
-        {
-            Debug.LogWarning("QuestNPC: Missing quest convo reference.", this);
-            return false;
-        }
-
-        // Validate quest completed event
-        if (onQuestCompletedEvent == null)
-        {
-            Debug.LogWarning("QuestNPC: Missing quest completed event.", this);
-            return false;
-        }
-
-        return true;
     }
 }

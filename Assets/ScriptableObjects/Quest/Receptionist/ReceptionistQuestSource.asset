@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192651b037465b54b914c29b7c8dc39b, type: 3}
+  m_Name: ReceptionistQuestSource
+  m_EditorClassIdentifier: Assembly-CSharp::NPCQuestSource
+  type: 0
+  questContext: "A thousand years ago, this captivating and dreamy gentleman named
+    Mark gave me a beautiful jeweled egg. Please do help me find it if you can. It
+    still feels like yesterday\u2026"
+  npcData: {fileID: 11400000, guid: 384f2df7ddf80de43a7d208dfc9dbc8a, type: 2}
