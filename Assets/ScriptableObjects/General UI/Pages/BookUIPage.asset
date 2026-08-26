@@ -17,8 +17,9 @@ MonoBehaviour:
     text: README
     textColor: {r: 0, g: 0, b: 0, a: 1}
   body:
-    text: "Psst\u2026 Press E to open your inventory.\r\nClick to lift and place
-      items.\r\nUse the scroll wheel or number keys to select a slot.\r\nNow you
-      know how to complete The Receptionist\u2019s quest.\r\nClick while this item
-      is selected at any time to reopen this page."
+    text: "Psst\u2026 Press E to open your inventory.\r\nClick on a slot to lift
+      and place items.\r\nUse the scroll wheel or number keys to select a slot.\r\nNow
+      you know how to complete The Receptionist\u2019s quest.\r\nClick while the
+      book is selected at any time to reopen this page.\r\nPress space to close this
+      page."
     textColor: {r: 0, g: 0, b: 0, a: 1}
