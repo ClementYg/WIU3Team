@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 
 public class RollingMazePuzzle : ScreenPuzzle
 {
@@ -47,11 +48,6 @@ public class RollingMazePuzzle : ScreenPuzzle
     }
 #endif
 
-
-    private void Start()
-    {
-    }
-
     public override void StartPuzzle(string puzzleID)
     {
         base.StartPuzzle(puzzleID);
@@ -67,7 +63,6 @@ public class RollingMazePuzzle : ScreenPuzzle
         currentTilt = 0f;
         mazeRoot.localRotation = Quaternion.identity;
     }
-
     void GenerateMaze()
     {
         //this is the randomiser
@@ -117,10 +112,15 @@ public class RollingMazePuzzle : ScreenPuzzle
         InstantiateWalls(grid);
         FrameCamera();
     }
-
     void FrameCamera()
     {
         if (mazeCamera == null) return;
+
+        RenderTexture rt = mazeCamera.targetTexture;
+        if (rt != null)
+        {
+            mazeCamera.aspect = (float)rt.width / rt.height;
+        }
 
         Vector3 camPos = mazeCamera.transform.position;
         mazeCamera.transform.position = new Vector3(mazeRoot.position.x, mazeRoot.position.y, camPos.z);
@@ -130,9 +130,9 @@ public class RollingMazePuzzle : ScreenPuzzle
         float tiltRad = maxTiltAngle * Mathf.Deg2Rad;
         float rotatedHalfWidth = halfWidth * Mathf.Cos(tiltRad) + halfHeight * Mathf.Sin(tiltRad);
         float rotatedHalfHeight = halfWidth * Mathf.Sin(tiltRad) + halfHeight * Mathf.Cos(tiltRad);
-        mazeCamera.orthographicSize = Mathf.Max(rotatedHalfHeight, rotatedHalfWidth / mazeCamera.aspect);
+        float padding = 1.1f;
+        mazeCamera.orthographicSize = Mathf.Max(rotatedHalfHeight, rotatedHalfWidth / mazeCamera.aspect) * padding;
     }
-   
     List<Vector2Int> GetUnvisitedNeighbors(Vector2Int cell, bool[,] visited)
     {
         //This function checks each of the directions to see if on the edge or already visited, else will add as a neighbour
