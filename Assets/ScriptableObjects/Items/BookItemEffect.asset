@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 100667d41bacf814889bda570cc54f43, type: 3}
-  m_Name: DiaryItemEffect
+  m_Name: BookItemEffect
   m_EditorClassIdentifier: Assembly-CSharp::ItemPageEffect
-  toDisplay: {fileID: 11400000, guid: d8585a11610b3a34cbc6cfbf107f6e7e, type: 2}
+  toDisplay: {fileID: 11400000, guid: 46d787c91b2e26d4b923e28fc6a0cb6a, type: 2}
   onDisplayPageRequestedEvent: {fileID: 11400000, guid: 73f90a8aab8e6864dbf13b70fe839826, type: 2}

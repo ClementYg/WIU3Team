@@ -2354,6 +2354,7 @@ MonoBehaviour:
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 0
     stackCount: 1
+  onItemCollectedEvent: {fileID: 0}
 --- !u!50 &1397508688
 Rigidbody2D:
   serializedVersion: 5
@@ -3155,9 +3156,10 @@ MonoBehaviour:
   item:
     itemID: 1
     itemData: {fileID: 11400000, guid: 1bb678b7c6e83b14ea9afbc6e5f2aab8, type: 2}
-    itemEffect: {fileID: 11400000, guid: 7e94570d2860a8442949547fb364eb02, type: 2}
+    itemEffect: {fileID: 11400000, guid: 735188aba591cdc4a953775fa1456b21, type: 2}
     currentDurability: 0
     stackCount: 1
+  onItemCollectedEvent: {fileID: 0}
 --- !u!58 &1653906992
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3831,6 +3833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LockedDoor
   OnPuzzleFinishEvent: {fileID: 11400000, guid: e92d0c17f23d0a4459a0c63be95e5fc6, type: 2}
+  puzzle: {fileID: 0}
 --- !u!1 &1971531037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2127115118886691391, guid: af53465576b37074d869077736b1ca38, type: 3}
