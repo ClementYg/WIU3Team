@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7606e96daa57847afe3c2c00582948, type: 3}
-  m_Name: MoaiCharge
-  m_EditorClassIdentifier: Assembly-CSharp::ChargeAttack
-  chargeDist: 12
-  HorizontalLock: 0
+  m_Script: {fileID: 11500000, guid: f0a2223ce7432914988c1e2cb76d930a, type: 3}
+  m_Name: MummyAtkAnim
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationAction
+  animationName: Attack_Mummy
