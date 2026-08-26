@@ -6,27 +6,33 @@ public class StepInstance
     [Header("Step")]
     public StepData stepData;
 
-    public bool IsStepCompleted => (stepData.criterion.isCriterionMet);
+    public StepInstance(StepData stepData)
+    {
+        this.stepData = stepData;
+    }
 
     public void EnterStep()
     {
         stepData.EnterStep();
     }
 
-    public void SubscribeToCriterion()
+    public bool TryGoNextStep(out StepInstance nextStep)
     {
-        if (stepData.criterion is CutsceneStepCriterion criterion)
+        ExitStep();
+
+        StepData nextData = stepData.GetNextStep();
+        if (nextData == null)
         {
-            Debug.Log("StepInstance: criterion subscribed");
-            criterion.onCutsceneEndedEvent.Subscribe(criterion.OnCutsceneEnded);
+            nextStep = null;
+            return false;
         }
+
+        nextStep = new StepInstance(nextData);
+        return true;
     }
 
-    public void UnsubscribeFromCriterion()
+    private void ExitStep()
     {
-        if (stepData.criterion is CutsceneStepCriterion criterion)
-        {
-            criterion.onCutsceneEndedEvent.Unsubscribe(criterion.OnCutsceneEnded);
-        }
+        stepData.ExitStep();
     }
 }

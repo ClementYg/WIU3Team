@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: IntroStepData
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
   instruction: {fileID: 0}
-  criterion: {fileID: 0}
+  criterion: {fileID: 11400000, guid: 03c29b05122b9b742bcf98865ea9fe71, type: 2}
   nextStep: {fileID: 11400000, guid: ad32e65b3ee8dd44d836e61866b34468, type: 2}
   cutscene: {fileID: 11400000, guid: 34102d0a1d574ae4891876f8584ea228, type: 2}

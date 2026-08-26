@@ -18,11 +18,17 @@ public class AtlasRestrictedZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        onPlayerEnteredResZoneEvent.Raise();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            onPlayerEnteredResZoneEvent.Raise();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        onPlayerExitedResZoneEvent.Raise();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            onPlayerExitedResZoneEvent.Raise();
+        }
     }
 }

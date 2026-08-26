@@ -16,7 +16,8 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
     [Header("Event Channels")]
     [SerializeField] EventUIPage onDisplayPageRequestedEvent;
     [SerializeField] EventUIIcon onDisplayIconRequestedEvent;
-    [SerializeField] EventBool onToggledGeneralUIEventBool;
+    [SerializeField] EventBool onToggledPageEventBool;
+    [SerializeField] EventBool onToggledIconEventBool;
 
     private void OnEnable()
     {
@@ -28,11 +29,6 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
     {
         onDisplayPageRequestedEvent.Unsubscribe(DisplayUIPage);
         onDisplayIconRequestedEvent.Unsubscribe(DisplayUIIcon);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     private void DisplayUIPage(UIPage toDisplay)
@@ -49,8 +45,7 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
         body.color = toDisplay.body.textColor;
 
         // Raise the event for UIGeneralManager
-        Debug.Log("Raised");
-        onToggledGeneralUIEventBool.Raise(true);
+        onToggledPageEventBool.Raise(true);
     }
 
     private void DisplayUIIcon(UIIcon toDisplay)
@@ -63,6 +58,6 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
         iconTransform.localScale = toDisplay.scale;
 
         // Raise the event for UIGeneralManager
-        onToggledGeneralUIEventBool.Raise(true);
+        onToggledIconEventBool.Raise(true);
     }
 }

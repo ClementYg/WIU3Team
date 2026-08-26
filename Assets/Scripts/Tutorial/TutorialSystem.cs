@@ -1,43 +1,23 @@
 using UnityEngine;
-using System.Collections.Generic;
 
-public class TutorialSystem : Singleton<TutorialSystem>
+public class TutorialSystem : PersistentSingleton<TutorialSystem>
 {
-    [Header("Tutorial")]
-    public List<StepInstance> steps;
-
     [Header("Event Channels")]
-    [SerializeField] EventVoid onTriggerTutorialEvent;
-
-    int currentStepIndex = 0;
+    [SerializeField] EventTutorialData onTriggerTutorialEvent;
 
     private void OnEnable()
     {
-        onTriggerTutorialEvent.Subscribe(StartTutorial);
+        onTriggerTutorialEvent.Subscribe(OnTriggerTutorial);
     }
 
     private void OnDisable()
     {
-        onTriggerTutorialEvent.Unsubscribe(StartTutorial);
+        onTriggerTutorialEvent.Unsubscribe(OnTriggerTutorial);
     }
 
-    private void StartTutorial()
+    private void OnTriggerTutorial(TutorialData data)
     {
-        if (steps.Count <= 0) return;
-
-        // Enter the first step
-        StepInstance currentStep = steps[currentStepIndex];
-        currentStep.EnterStep();
-        currentStep.SubscribeToCriterion();
-    }
-
-    private void OnStepCompleted()
-    {
-        if (currentStepIndex < 0 || currentStepIndex >= steps.Count) return;
-
-        // Complete the step
-        StepInstance currentStep = steps[currentStepIndex];
-        currentStep.UnsubscribeFromCriterion();
-        ++currentStepIndex;
+        TutorialInstance tutorial = new(data);
+        tutorial.StartTutorial();
     }
 }
