@@ -31,7 +31,7 @@ MonoBehaviour:
       type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        secondsToWait: 3
+        secondsToWait: 2
     - rid: 175680561730814096
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
@@ -42,4 +42,4 @@ MonoBehaviour:
       type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        secondsToWait: 3
+        secondsToWait: 2
