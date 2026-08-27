@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ccea15297c8ce74eac0b5f229834999, type: 3}
+  m_Name: GoldenCoinData
+  m_EditorClassIdentifier: Assembly-CSharp::QuestItemData
+  itemID: golden_coin
+  itemName: Golden Coin
+  itemImage: {fileID: -915613208, guid: 8258d4de720ec32498988cfb7331e801, type: 3}
+  itemType: 4
+  shortDescription: Shiny coins used during ancient times on Easter Island
+  loreDescription: These shiny coins were not a commodity back then and are used
+    as significant offerings to the Lord of the Skys
+  isStackable: 1
+  maxStackSize: 2
+  consumePerUse: 0
+  hasDurability: 0
+  maxDurability: 100
+  durabilityPerUse: 1
+  useCooldown: 0
+  isConsumable: 0
+  statModifiers: []
+  givenBy: 
+  questID: -1
+  isKeyItem: 0
+  onQuestCompletedEvent: {fileID: 0}

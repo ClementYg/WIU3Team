@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9f8a8007fd6a14bb31cd5f534ee9a9, type: 3}
+  m_Name: FifthCSD
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
+  instruction: {fileID: 0}
+  nextStep: {fileID: 11400000, guid: 0d09d9aa8c595a94086a28fff83bc502, type: 2}
+  criterion: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
+  cutscene: {fileID: 11400000, guid: 1765bbaca1930d64cb0e72f95881722e, type: 2}

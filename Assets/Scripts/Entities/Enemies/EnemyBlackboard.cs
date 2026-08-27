@@ -36,6 +36,7 @@ public class EnemyBlackboard : MonoBehaviour
     [HideInInspector] public float chargeProgress;
     [HideInInspector] public Vector2 ChargeTargetPosition;
     [HideInInspector] public Vector2 ChargeStartPosition;
+    [HideInInspector] public bool AtkAnimTrig = false;
 
     private void Awake()
     {
@@ -57,5 +58,10 @@ public class EnemyBlackboard : MonoBehaviour
     public void OnAnimationFinished()
     {
         animationFinished = true;
+    }
+
+    public void OnAttackTrigger()
+    {
+        AtkAnimTrig = true;
     }
 }

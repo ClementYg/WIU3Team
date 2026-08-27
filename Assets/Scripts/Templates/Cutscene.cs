@@ -12,7 +12,6 @@ public class Cutscene : ScriptableObject
     public void RaiseEvent()
     {
         if (onCutsceneEndedEvent == null) return;
-        Debug.Log("Cutscene: I am being called");
         onCutsceneEndedEvent.Raise();
     }
 }

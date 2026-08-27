@@ -11,4 +11,9 @@ public class CutsceneStepData : StepData
         // Start the cutscene
         CutsceneManager.Instance.Play(cutscene);
     }
+
+    public override void ExitStep()
+    {
+        
+    }
 }

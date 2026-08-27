@@ -3,11 +3,14 @@ using System.Collections;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
-    [Header("Game Manager")]
+    [Header("Tutorial")]
+    [SerializeField] TutorialData introTutorial;
+
+    [Header("Testing")]
     [SerializeField] bool shouldStartTutorial = true;
 
     [Header("Event Channels")]
-    [SerializeField] EventVoid onTriggerTutorialEvent;
+    [SerializeField] EventTutorialData onTriggerTutorialEvent;
 
     IEnumerator Start()
     {
@@ -17,7 +20,7 @@ public class GameManager : PersistentSingleton<GameManager>
 
         if (shouldStartTutorial)
         {
-            onTriggerTutorialEvent.Raise();
+            onTriggerTutorialEvent.Raise(introTutorial);
         }
     }
 }

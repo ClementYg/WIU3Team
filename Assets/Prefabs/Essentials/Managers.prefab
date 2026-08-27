@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd9e58f3d577c1488e800c08524162c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  introTutorial: {fileID: 11400000, guid: 332d5a4fbdb96774d8f73cd7c1fa0aca, type: 2}
   shouldStartTutorial: 1
   onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
 --- !u!1 &5938656940741952082
@@ -838,8 +839,9 @@ MonoBehaviour:
   onToggledInventoryEvent: {fileID: 11400000, guid: 2f37cd205ca170444a7cc89b360e051a, type: 2}
   onToggledBestiaryEvent: {fileID: 11400000, guid: e3cef5e49acfa97459a2f493d2df4be2, type: 2}
   onToggledQuestUIEvent: {fileID: 11400000, guid: f319a1febd3e3ab4dabd506e2effd010, type: 2}
-  onToggledGeneralUIEvent: {fileID: 11400000, guid: c37b84f7db5684b4baf95b853d16107f, type: 2}
   onToggledCutsceneModeEvent: {fileID: 11400000, guid: 1258f2fc4b9847d4fa5275311a2d2bcf, type: 2}
+  onToggledUIPageEvent: {fileID: 11400000, guid: 824c7824f58c26848b6e5125d50bf0de, type: 2}
+  onToggledUIIconEvent: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}
   onDialogueStartedEvent: {fileID: 11400000, guid: 8ccaa020d8190a14e9c8082edad08020, type: 2}
   onDialogueEndedEvent: {fileID: 11400000, guid: e5d85809fafe7b541a1cb734038ca05f, type: 2}
 --- !u!1 &9166146923534234308

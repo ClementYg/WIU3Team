@@ -10,7 +10,7 @@ public class MeleeAttackAction : StateAction
     {
         EnemyBlackboard blackboard = controller.GetCached<EnemyBlackboard>();
         blackboard.lastAttackTime -= Time.deltaTime;
-        if (blackboard.lastAttackTime > 0f) return;
+        //if (blackboard.lastAttackTime > 0f) return;
 
         Collider2D hitTarget = Physics2D.OverlapCircle(blackboard.attackPoint.position, hitboxRadius, attackMask);
         if (hitTarget != null)

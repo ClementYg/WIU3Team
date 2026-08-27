@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
+  m_Name: JollyJoeIntro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
+  firstTimeNode: {fileID: 11400000, guid: e962a79c33f27d84395bbf200cc5cfec, type: 2}
+  repeatNode: {fileID: 11400000, guid: b0b5b01d7cb67644dba35399160d074f, type: 2}
+  hasBeenSeen: 0
+  onConvoEndedEvent: {fileID: 11400000, guid: f8f9a22e845c87946b0d24b76ca8e28c, type: 2}
