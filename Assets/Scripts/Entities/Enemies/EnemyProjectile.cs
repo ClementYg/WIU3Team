@@ -4,14 +4,6 @@ public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayer;
     public float lifeSpan = 3;
-    void Start()
-    {
-        
-    }
-
-    private void Awake()
-    {
-    }
 
     // Update is called once per frame
     void Update()

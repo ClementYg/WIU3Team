@@ -90,7 +90,7 @@ public class OlmecBoss : MonoBehaviour
 
             case BOSSSTATES.SPRAY:
                 Spray.toSpray = 10;
-                targetPos = blackboard.target.position + new Vector3(0, 6, 0);
+                targetPos = blackboard.target.position + new Vector3(0, 5, 0);
                 moveLock = true;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 break;
