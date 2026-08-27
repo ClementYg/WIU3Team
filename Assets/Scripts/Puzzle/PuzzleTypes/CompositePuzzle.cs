@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ public class CompositePuzzle : Puzzle
 {
 
     [SerializeField] List<string> puzzleIDs;
-    HashSet<string> completedPuzzleIDs;
+    HashSet<string> completedPuzzleIDs = new();
 
     private void OnEnable()
     {
@@ -19,14 +20,14 @@ public class CompositePuzzle : Puzzle
 
     private void HasAnyPuzzleFinished(string finishedPuzzleID)
     {
-        if (isCompleted) return;
+        if (isCompleted) return;    
         if (!puzzleIDs.Contains(finishedPuzzleID)) return;
-
+        Debug.LogWarning(finishedPuzzleID);
         completedPuzzleIDs.Add(finishedPuzzleID);
         if (HasAllCompletedPuzzles())
         {
             CompletePuzzle(puzzleID);
-        }
+        }   
     }
 
     private bool HasAllCompletedPuzzles()

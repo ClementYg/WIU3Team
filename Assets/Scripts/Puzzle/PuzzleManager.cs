@@ -12,6 +12,7 @@ public class PuzzleManager : PersistentSingleton<PuzzleManager>
         if (inPuzzle)
         {
             Debug.Log($"[PZL] Tried to enter {puzzle.puzzleID} but is already in {currentPuzzle.puzzleID}\n");
+            ExitPuzzle();
             //If encounter this bug, remember to exit puzzle. 
             return false;
         }
