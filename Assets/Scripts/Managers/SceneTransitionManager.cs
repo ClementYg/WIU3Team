@@ -1,16 +1,19 @@
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SceneTransitionManager : PersistentSingleton<SceneTransitionManager>
 {
 
     [SerializeField] GameObject FadeCanvas; 
+    [SerializeField] GameObject Player; 
     bool IsTransitioning = false;
     UIFader fader;
     //we can setup find name or tag. everytime transition scene, try to find the name/tag then that will be player
     //'s new spawn position to keep persistence. 
     //we might wanna do like a tag for all objects too
-    string newPosName;
+    string newPosName = "spawnpos";
 
     protected override void Awake()
     {
@@ -48,7 +51,11 @@ public class SceneTransitionManager : PersistentSingleton<SceneTransitionManager
         SceneManager.sceneLoaded -= OnSceneLoaded;
         if (fader != null) fader.FadeOut();
         IsTransitioning = false;
+
+        Transform playerSpawn = GameObject.Find(newPosName).transform;
+        if (Player != null) Player.transform.position = playerSpawn.position;
+        CinemachineCamera gameplayCam = GameObject.Find("GameplayCamera").GetComponent<CinemachineCamera>();
+        gameplayCam.Follow = Player.transform;
     }
 
-    
 }
