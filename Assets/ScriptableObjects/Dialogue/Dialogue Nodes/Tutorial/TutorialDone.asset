@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TutorialDone
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 3f715884905326a4d83584011212be29, type: 2}
-  text: "Alright, we\u2019re done here. Let me bring you to the Central Hub."
+  text: "You\u2019ve completed the trial swimmingly, as expected of you. Good job,
+    Timekeeper. Alright, we\u2019re done here. Let me bring you to the Central Hub."
   nextNode: {fileID: 0}
   choices: []

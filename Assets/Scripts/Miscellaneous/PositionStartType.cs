@@ -1,0 +1,5 @@
+enum PositionStartType
+{
+    AtSpawnPoint,
+    AtCurrentPosition
+}
