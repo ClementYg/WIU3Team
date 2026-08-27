@@ -16,6 +16,6 @@ public class Lives : MonoBehaviour
 
     public void Damage()
     {
-
+        Debug.Log("Hit");
     }
 }
