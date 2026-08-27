@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ca9510d546a6254eb45d0e114560b29
+guid: b27734b6f3ac8be4cbb2bbd528174cc3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: POSEIDON_Lunge_0
+      name: POSEIDON_Walk_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 107
+        width: 97
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -138,19 +138,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c61e49c83a2cfcb45b36926d3d919c2e
-      internalID: -34374659
+      spriteID: 8a94f0fb16ec5f04c86bdc65ce55bb95
+      internalID: 1559002985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POSEIDON_Lunge_1
+      name: POSEIDON_Walk_1
       rect:
         serializedVersion: 2
-        x: 116
+        x: 97
         y: 0
-        width: 107
+        width: 97
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -160,19 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc4134d698dee6a4f9bd950383a17608
-      internalID: 898707009
+      spriteID: 171a307f5679a7d4b8571bfae9a02e95
+      internalID: 969357385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POSEIDON_Lunge_2
+      name: POSEIDON_Walk_2
       rect:
         serializedVersion: 2
-        x: 223
+        x: 194
         y: 0
-        width: 107
+        width: 97
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -182,19 +182,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a14130c3df501b9429cb3053618bdf8f
-      internalID: -424471125
+      spriteID: a68da17a30a7aa64db5b269bf6c94ef5
+      internalID: -1955568641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POSEIDON_Lunge_3
+      name: POSEIDON_Walk_3
       rect:
         serializedVersion: 2
-        x: 330
+        x: 291
         y: 0
-        width: 107
+        width: 97
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -204,19 +204,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 288a591fd9cfa7f4eb2a2a2d8e2c17f5
-      internalID: -437675191
+      spriteID: daf973495cd1bf744a7c37bbda6d74fb
+      internalID: 570660853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: POSEIDON_Lunge_4
+      name: POSEIDON_Walk_4
       rect:
         serializedVersion: 2
-        x: 437
+        x: 388
         y: 0
-        width: 107
+        width: 97
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -226,8 +226,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fac4ba7d97ea3da44b4eea768ee932f4
-      internalID: -386280634
+      spriteID: b7bc7d00c83d3b346b4ad1e897ec67c6
+      internalID: 961525972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: POSEIDON_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 97
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd995682cdd4da4ca73b1b75c53c636
+      internalID: 371964928
       vertices: []
       indices: 
       edges: []
@@ -236,7 +258,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dbfd39f68f8caaf41b87a35e58c76f5e
+    spriteID: ef9e7c60c928ac34da5c560310f5cf9b
     internalID: 0
     vertices: []
     indices: 
@@ -246,13 +268,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":107.0,"y":64.0},"gridSpriteOffset":{"x":9.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":97.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      POSEIDON_Lunge_0: -34374659
-      POSEIDON_Lunge_1: 898707009
-      POSEIDON_Lunge_2: -424471125
-      POSEIDON_Lunge_3: -437675191
-      POSEIDON_Lunge_4: -386280634
+      POSEIDON_Walk_0: 1559002985
+      POSEIDON_Walk_1: 969357385
+      POSEIDON_Walk_2: -1955568641
+      POSEIDON_Walk_3: 570660853
+      POSEIDON_Walk_4: 961525972
+      POSEIDON_Walk_5: 371964928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
