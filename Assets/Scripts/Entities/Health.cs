@@ -1,5 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
 
 public class Health : MonoBehaviour
 {
@@ -90,6 +92,22 @@ public class Health : MonoBehaviour
         }
 
         regenerationRoutine = null;
+    }
+
+    private void Update()
+    {
+        if (currentHP <= 0)
+        {
+            if (transform.parent.gameObject != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+        }
     }
 
     public float HPRatio => data.maxHP > 0f ? currentHP / data.maxHP : 0f;
