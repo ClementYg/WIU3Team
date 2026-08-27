@@ -26709,14 +26709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!222 &268234157
-CanvasRenderer:
-  m_ObjectHideFlags: 8
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_CullTransparentMesh: 1
 --- !u!114 &360607239 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 180071429574943662, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
@@ -27023,19 +27015,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1362966778}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!222 &443529903
-CanvasRenderer:
-  m_ObjectHideFlags: 8
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_CullTransparentMesh: 1
 --- !u!1 &480072214
 GameObject:
   m_ObjectHideFlags: 0
@@ -27635,7 +27619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedTrial
   data: {fileID: 11400000, guid: 764aa6244d3752b44966197e2d3702c5, type: 2}
-  UI: {fileID: 1137119708}
+  UI: {fileID: 0}
   onTimerStartedEvent: {fileID: 11400000, guid: f9f0745bad016864ba16b4e33b8a6a8a, type: 2}
 --- !u!4 &612958171
 Transform:
@@ -65363,17 +65347,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137119708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1163736004889099500, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-  m_PrefabInstance: {fileID: 1362966778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922178eef327815458f1ddd708244435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UITimer
 --- !u!1 &1165388481
 GameObject:
   m_ObjectHideFlags: 0
@@ -65737,19 +65710,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1362966778}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!222 &1201412716
-CanvasRenderer:
-  m_ObjectHideFlags: 8
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1208097270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148847,6 +148812,10 @@ PrefabInstance:
       objectReference: {fileID: 666929903}
     - target: {fileID: 6833305871868495156, guid: 8a514dbfc3c538142a480fc4981d551a, type: 3}
       propertyPath: playerShouldStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833305871868495156, guid: 8a514dbfc3c538142a480fc4981d551a, type: 3}
+      propertyPath: shouldStartTutorial
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
