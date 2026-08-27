@@ -69,7 +69,7 @@ public class OlmecBoss : MonoBehaviour
             case BOSSSTATES.POUND:
                 if (poundAttackTickRate < 0)
                 {
-                    var hitres = Physics2D.CircleCast(transform.position, 2.7f, new Vector2(0, 0));
+                    var hitres = Physics2D.CircleCast(transform.position, 2.5f, new Vector2(0, 0));
                     hitres.transform.GetComponent<Lives>().Damage();
                     poundAttackTickRate = 0.3f;
                 }
