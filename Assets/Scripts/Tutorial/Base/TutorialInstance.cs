@@ -21,8 +21,8 @@ public class TutorialInstance
             Debug.LogError("TutorialInstance: Attempted to start tutorial with missing first step reference.");
         }
 
-        // Raise the tutorial's on start event if have
-        data.RaiseEvent();
+        // Add an item at the start if needed
+        data.AddItemAtSlot();
 
         // Enter the first step
         currentStep.EnterStep();

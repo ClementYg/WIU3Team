@@ -161,7 +161,6 @@ public class InputManager : Singleton<InputManager>
         {
             if (InputSystem.actions["CloseUIPage"].WasPressedThisFrame())
             {
-                Debug.Log("InputManager: closed UI page, raising toggled ui page event");
                 onToggledUIPageEvent.Raise(false);
             }
         }

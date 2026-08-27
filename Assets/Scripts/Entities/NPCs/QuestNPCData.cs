@@ -3,7 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "QuestNPCData", menuName = "ScriptableObjects/NPCs/QuestNPCData")]
 public class QuestNPCData : NPCData
 {
-    [Header("Quest NPC")]
+    [Header("Quest Item")]
+    public ItemQuestEffect effect;
+
+    [Header("Quest Dialogue")]
     public DialogueConversation questConvo;
 
     public int AssignQuest(QuestInstance toAssign)

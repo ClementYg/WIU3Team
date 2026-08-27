@@ -95,6 +95,12 @@ public class InventoryRow : MonoBehaviour
         }
     }
 
+    public void AddItemAtSlot(ItemInstance item, int slotIndex)
+    {
+        InventorySlot newSlot = slots[slotIndex];
+        newSlot.SetSlot(item);
+    }
+
     public void RemoveItem(int slotIndex)
     {
         InventorySlot toRemove = slots[slotIndex];

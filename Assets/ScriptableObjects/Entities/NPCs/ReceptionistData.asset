@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ReceptionistData
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCData
   npcName: The Receptionist
+  effect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
   questConvo: {fileID: 11400000, guid: 3408b7f2cb031234b9ecebb8ac722165, type: 2}

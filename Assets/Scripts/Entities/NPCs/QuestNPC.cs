@@ -8,6 +8,7 @@ public class QuestNPC : MonoBehaviour
 
     [Header("Event Channels")]
     [SerializeField] EventVoid onQuestCompletedEvent;
+    [SerializeField] EventVoid onSubmitItemEvent;
 
     int questID;
 
@@ -28,6 +29,9 @@ public class QuestNPC : MonoBehaviour
         {
             Debug.LogWarning("QuestNPC: Missing quest completion reference.");
         }
+
+        // Subscribe to the item submission
+        onSubmitItemEvent.Subscribe(OnSubmitItem);
     }
 
     private void OnDisable()
@@ -39,6 +43,31 @@ public class QuestNPC : MonoBehaviour
         if (onQuestCompletedEvent != null)
         {
             onQuestCompletedEvent.Unsubscribe(CompleteQuest);
+        }
+
+        // Unsubscribe to the item submission
+        onSubmitItemEvent.Unsubscribe(OnSubmitItem);
+    }
+
+    private void Awake()
+    {
+        // Set the effect's bool to false first
+        npcData.effect.canSubmitItem = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            npcData.effect.canSubmitItem = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            npcData.effect.canSubmitItem = false;
         }
     }
 
@@ -56,5 +85,14 @@ public class QuestNPC : MonoBehaviour
             npcData.CompleteQuest(questID);
             isQuestCompleted = true;
         }
+    }
+
+    private void OnSubmitItem()
+    {
+        // Don't need to check whether the item exists; this function was triggered by
+        // using the item in the toolbar.
+
+        // Remove the item from the inventory
+        Inventory.Instance.RemoveSelectedItem();
     }
 }

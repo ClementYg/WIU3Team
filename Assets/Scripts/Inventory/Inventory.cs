@@ -8,7 +8,6 @@ public class Inventory : PersistentSingleton<Inventory>
     [SerializeField] int maxStackCapacity = 36;
 
     [Header("Event Channels")]
-    [SerializeField] EventItemDataItemEffect onAddItemEvent;
     [SerializeField] EventVoid onInventoryFullEvent;
     [SerializeField] EventVoid onInventoryFreedEvent;
 
@@ -19,16 +18,6 @@ public class Inventory : PersistentSingleton<Inventory>
     List<ItemInstance> inventoryItems = new();
     public int currInvCapacity => inventoryItems.Count;
     public bool IsInventoryFull => (currInvCapacity >= maxStackCapacity);
-
-    private void OnEnable()
-    {
-        onAddItemEvent.Subscribe(AddItem);
-    }
-
-    private void OnDisable()
-    {
-        onAddItemEvent.Unsubscribe(AddItem);
-    }
 
     protected override void Awake()
     {
@@ -71,7 +60,86 @@ public class Inventory : PersistentSingleton<Inventory>
             effect.RaiseEvent();
         }
 
-        return false;
+        return true;
+    }
+
+    public void AddItemAtSlot(
+        ItemData data, ItemEffect effect,
+        int displayIndex, int rowIndex, int slotIndex
+    )
+    {
+        // Make the item instance
+        ItemInstance item = new(data, effect);
+
+        // Check if the inventory is full
+        if (IsInventoryFull)
+        {
+            onInventoryFullEvent.Raise();
+            return;
+        }
+
+        // Add the item
+        if (invUI.AddItemAtSlot(item, displayIndex, rowIndex, slotIndex) == false)
+        {
+            return;
+        }
+
+        BestiaryManager.Instance.Unlock(item.itemData.EntryID);
+        inventoryItems.Add(item);
+
+        // Check if this is a quest item
+        if (data is QuestItemData questItemData)
+        {
+            questItemData.RaiseEvent();
+        }
+
+        // Check if this item has a ItemPageEffect
+        if (effect is ItemPageEffect itemPageEffect)
+        {
+            itemPageEffect.RaiseEvent();
+        }
+
+        return;
+    }
+
+    public void RemoveItem(ItemInstance item)
+    {
+        // Add that players cannot delete key items (Do a check!)
+
+        bool wasInventoryFull = IsInventoryFull;
+
+        inventoryItems.Remove(item);
+        invUI.RemoveItem(item);
+
+        if (wasInventoryFull && !IsInventoryFull)
+        {
+            onInventoryFreedEvent.Raise();
+        }
+    }
+
+    public bool RemoveSelectedItem()
+    {
+        // Get the selected occupied slot
+        if (!TryGetSelectedOccupiedSlot(out InventorySlot selectedSlot)) return false;
+
+        bool wasInventoryFull = IsInventoryFull;
+
+        inventoryItems.Remove(selectedSlot.itemDisplayed);
+
+        // Remove the item from the slot
+        if (invUI.RemoveItemAtSlot(selectedSlot) == false)
+        {
+            Debug.LogError("Inventory: Failed to remove selected item.");
+            return false;
+        }
+
+        // Raise the event if the inventory was freed
+        if (wasInventoryFull && !IsInventoryFull)
+        {
+            onInventoryFreedEvent.Raise();
+        }
+
+        return true;
     }
 
     public bool TryUseSelectedItem(GameObject user, ComponentCache userCache)
@@ -158,57 +226,6 @@ public class Inventory : PersistentSingleton<Inventory>
         foreach (ItemInstance item in startItems)
         {
             AddItem(item);
-        }
-    }
-
-    private void AddItem(ItemData data, ItemEffect effect)
-    {
-        // Make the item instance
-        ItemInstance item = new(data, effect);
-
-        // Check if the inventory is full
-        if (IsInventoryFull)
-        {
-            onInventoryFullEvent.Raise();
-            return;
-        }
-
-        // Add the item
-        if (invUI.AddItem(item) == false)
-        {
-            return;
-        }
-
-        BestiaryManager.Instance.Unlock(item.itemData.EntryID);
-        inventoryItems.Add(item);
-
-        // Check if this is a quest item
-        if (data is QuestItemData questItemData)
-        {
-            questItemData.RaiseEvent();
-        }
-
-        // Check if this item has a ItemPageEffect
-        if (effect is ItemPageEffect itemPageEffect)
-        {
-            itemPageEffect.RaiseEvent();
-        }
-
-        return;
-    }
-
-    private void RemoveItem(ItemInstance item)
-    {
-        // Add that players cannot delete key items (Do a check!)
-
-        bool wasInventoryFull = IsInventoryFull;
-
-        inventoryItems.Remove(item);
-        invUI.RemoveItem(item);
-
-        if (wasInventoryFull && !IsInventoryFull)
-        {
-            onInventoryFreedEvent.Raise();
         }
     }
 

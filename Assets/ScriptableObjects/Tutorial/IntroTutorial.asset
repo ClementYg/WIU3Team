@@ -15,4 +15,4 @@ MonoBehaviour:
   firstStep: {fileID: 11400000, guid: 94d16cdc6d092e042a3fb72fd8399d25, type: 2}
   itemData: {fileID: 11400000, guid: 27a5c06939de4284fb4315487bce60e6, type: 2}
   itemEffect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
-  onAddItemEvent: {fileID: 11400000, guid: 5eb564990c8144a44aecdf0013e69cf2, type: 2}
+  shouldAddItem: 1

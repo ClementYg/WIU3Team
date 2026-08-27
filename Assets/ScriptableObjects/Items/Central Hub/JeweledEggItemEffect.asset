@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2883f548f6aad4587cd25491eb119c, type: 3}
   m_Name: JeweledEggItemEffect
   m_EditorClassIdentifier: Assembly-CSharp::ItemQuestEffect
+  canSubmitItem: 0
+  onSubmitItemEvent: {fileID: 11400000, guid: 2426dbd40276594499e02a04d15bc47c, type: 2}

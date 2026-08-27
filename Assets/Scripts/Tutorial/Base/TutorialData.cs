@@ -5,21 +5,19 @@ public class TutorialData : ScriptableObject
 {
     [Header("Tutorial Data")]
     public StepData firstStep;
+
+    [Header("Add Item")]
     public ItemData itemData;
     public ItemEffect itemEffect;
+    public bool shouldAddItem = false;
 
-    [Header("Event Channels")]
-    public EventItemDataItemEffect onAddItemEvent;
-
-    public void RaiseEvent()
+    public void AddItemAtSlot()
     {
-        if (itemData != null && itemEffect != null && onAddItemEvent != null)
+        if (shouldAddItem == false) return;
+
+        if (itemData != null && itemEffect != null)
         {
-            onAddItemEvent.Raise(itemData, itemEffect);
-        }
-        else
-        {
-            Debug.Log("TutorialData: Missing event channel reference.");
+            Inventory.Instance.AddItemAtSlot(itemData, itemEffect, 1, 0, 0);
         }
     }
 }
