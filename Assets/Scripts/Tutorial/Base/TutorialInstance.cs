@@ -59,6 +59,7 @@ public class TutorialInstance
 
     private void CompleteTutorial()
     {
+        data.onTutorialCompletedEvent.Raise();
         isTutorialCompleted = true;
     }
 

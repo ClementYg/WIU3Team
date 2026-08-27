@@ -15685,6 +15685,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5147968430891397276}
     m_Modifications:
+    - target: {fileID: 3823509497602018066, guid: 3b7d7dabb775cd84caa4638c0caff60f, type: 3}
+      propertyPath: 'digits.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8189811735447677654}
     - target: {fileID: 7582499844296108949, guid: 3b7d7dabb775cd84caa4638c0caff60f, type: 3}
       propertyPath: m_Name
       value: LockedDoorPuzzle (NOSPRITE)

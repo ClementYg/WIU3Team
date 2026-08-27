@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 10, z: 1}
+  m_LocalScale: {x: 3, y: 11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b81fe258fcd1945a2a111ecee2886f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerZone
-  teleporterTransform: {fileID: 4777232282398854175}
   teleporterRenderer: {fileID: 8445920468457871517}
   teleports:
   - {fileID: 11400000, guid: 17625434dcb435749bd31c54f5efec0c, type: 2}
@@ -159,4 +158,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 115acf38d14e78b4296ab2784d37ab15, type: 2}
   - {fileID: 11400000, guid: 77aab000303010c4b86b9acdb4df853d, type: 2}
   - {fileID: 11400000, guid: 3016e7b5e849f614494e5aba06f7a69e, type: 2}
+  - {fileID: 11400000, guid: 3756a634b33875c4c9df84dfe0726afe, type: 2}
+  - {fileID: 11400000, guid: 999324531b527d648806b9beda0e8c7e, type: 2}
+  - {fileID: 11400000, guid: 819788d37b45e8446a106f42fd427ef2, type: 2}
+  - {fileID: 11400000, guid: 1c6923a2dbf6b8740a0473d540b2b446, type: 2}
+  - {fileID: 11400000, guid: 53d50bc9597977b488aac3b48ae82989, type: 2}
+  - {fileID: 11400000, guid: 007e053f188b08d4ab5ac8714b5027cc, type: 2}
+  - {fileID: 11400000, guid: 391b40c7e0d84ab459ee91050c9f33b9, type: 2}
+  onRequestPreviousPosEvent: {fileID: 11400000, guid: ac85cae0be9cfe349bdb225249b8628e, type: 2}
+  startAtTeleport: 0
   onEnteredTriggerZoneEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}

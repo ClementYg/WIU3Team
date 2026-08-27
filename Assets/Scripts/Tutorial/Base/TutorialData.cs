@@ -12,6 +12,9 @@ public class TutorialData : ScriptableObject
     public ItemEffect itemEffect;
     public bool shouldAddItem = false;
 
+    [Header("Event Channels")]
+    public EventVoid onTutorialCompletedEvent;
+
     [Header("Testing")]
     public int startAtStep = 0;
 

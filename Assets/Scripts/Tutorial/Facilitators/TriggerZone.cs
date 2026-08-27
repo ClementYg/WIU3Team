@@ -10,11 +10,6 @@ public class TriggerZone : TutorialTeleporter
         if (collision.gameObject.CompareTag("Player"))
         {
             onEnteredTriggerZoneEvent.Raise();
-
-            if (HasDoneLastTeleport)
-            {
-                this.gameObject.SetActive(false);
-            }
         }
     }
 }

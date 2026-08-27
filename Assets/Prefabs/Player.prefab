@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 8793660426509342923}
   - component: {fileID: 7910338478841596607}
   - component: {fileID: 1283532092552376218}
+  - component: {fileID: 4975592214084668646}
   - component: {fileID: 1048233577242382926}
   - component: {fileID: 3908255151179348503}
   m_Layer: 7
@@ -318,6 +319,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 822732352266489706}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6b00832d1676b4994a6fdcb2ad667d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPositioner
+  onSetPlayerPositionEvent: {fileID: 11400000, guid: d4eb9edb1186b3646b5692f51d32becc, type: 2}
   m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
