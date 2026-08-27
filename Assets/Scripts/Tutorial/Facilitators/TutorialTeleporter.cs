@@ -7,6 +7,9 @@ public class TutorialTeleporter : MonoBehaviour
     [SerializeField] SpriteRenderer teleporterRenderer;
     [SerializeField] List<TeleportData> teleports;
 
+    [Header("Testing")]
+    [SerializeField] int startAtTeleport = 0;
+
     TeleportData currentTeleport;
     int currentTeleportIndex = 0;
 
@@ -14,6 +17,7 @@ public class TutorialTeleporter : MonoBehaviour
 
     private void Awake()
     {
+        currentTeleportIndex = startAtTeleport;
         InitTeleport();
     }
 
@@ -30,6 +34,7 @@ public class TutorialTeleporter : MonoBehaviour
 
     private void InitTeleport()
     {
+        // Enter the teleport that we want to start at
         currentTeleport = teleports[currentTeleportIndex];
         currentTeleport.onTeleportRequestedEvent.Subscribe(TeleportToNextPos);
 

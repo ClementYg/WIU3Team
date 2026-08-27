@@ -15,4 +15,4 @@ MonoBehaviour:
   newPosition: {x: 50, y: 4.5, z: 0}
   newScale: {x: 6, y: 11}
   newColor: {r: 1, g: 1, b: 0, a: 0}
-  onTeleportRequestedEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  onTeleportRequestedEvent: {fileID: 11400000, guid: 2979e8776eed8e94db32b4ec26e7aa96, type: 2}
