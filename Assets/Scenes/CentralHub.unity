@@ -26709,6 +26709,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!222 &268234157
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!114 &360607239 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 180071429574943662, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
@@ -27015,11 +27023,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1362966778}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!222 &443529903
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!1 &480072214
 GameObject:
   m_ObjectHideFlags: 0
@@ -28134,6 +28150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0334f9595fb0c40abd84ec6db1afcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Receptionist
+  playerTransform: {fileID: 0}
+  playerNewPosition: {x: 0, y: 0, z: 0}
   onTutorialCompletedEvent: {fileID: 11400000, guid: 476e78c4ec5abc4408818f26a659a9e0, type: 2}
 --- !u!1 &893914900
 GameObject:
@@ -65719,11 +65737,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1362966778}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!222 &1201412716
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1208097270
 PrefabInstance:
   m_ObjectHideFlags: 0
