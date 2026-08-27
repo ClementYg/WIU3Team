@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
   instruction: {fileID: 0}
   criterion: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
-  cutscene: {fileID: 0}
+  cutscene: {fileID: 11400000, guid: b8fbb3d2a1ca4844cab1845c3c7d14af, type: 2}

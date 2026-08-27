@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
   m_Name: ReceptionistChallenge
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
-  firstTimeNode: {fileID: 0}
+  firstTimeNode: {fileID: 11400000, guid: 46d37f2398923804da426647d8db5a5d, type: 2}
   repeatNode: {fileID: 0}
   hasBeenSeen: 0
   onConvoEndedEvent: {fileID: 0}

@@ -29,4 +29,4 @@ MonoBehaviour:
       type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        conversation: {fileID: 11400000, guid: 53f4a7011ff77a44cbd3aad7a149037c, type: 2}
+        conversation: {fileID: 0}
