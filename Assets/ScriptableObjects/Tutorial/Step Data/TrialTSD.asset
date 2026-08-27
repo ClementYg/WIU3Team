@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrialStepData
   instruction: {fileID: 0}
   criterion: {fileID: 11400000, guid: 023be88931b88754e869a6e3358fb1f9, type: 2}
+  timer: {fileID: 11400000, guid: 764aa6244d3752b44966197e2d3702c5, type: 2}
+  onDisplayTimerRequestedEvent: {fileID: 11400000, guid: 1df673f99a8252946bea4d47b769c069, type: 2}
+  onToggledTimerEventBool: {fileID: 11400000, guid: 75e094c44cb49c749a717111b4c02d6a, type: 2}
   onStartTrialEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
-  onEndTrialEvent: {fileID: 11400000, guid: a94fb93dded6e3e4aae9d1f7ccfc04c8, type: 2}
+  onTimerStartedEvent: {fileID: 11400000, guid: f9f0745bad016864ba16b4e33b8a6a8a, type: 2}
+  onTimerEndedEvent: {fileID: 11400000, guid: 9c888ae5fb91e5844ac8780fd4b9017f, type: 2}
