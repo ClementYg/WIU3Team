@@ -39,4 +39,5 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 27a5c06939de4284fb4315487bce60e6, type: 2}
   itemEffect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
   shouldAddItem: 1
+  onTutorialCompletedEvent: {fileID: 11400000, guid: 476e78c4ec5abc4408818f26a659a9e0, type: 2}
   startAtStep: 0
