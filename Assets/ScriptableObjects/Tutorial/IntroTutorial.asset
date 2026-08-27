@@ -30,8 +30,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96ce0205770ae804f8a747468251dc61, type: 2}
   - {fileID: 11400000, guid: 2398671ffd5235b428d45799dda3b2c5, type: 2}
   - {fileID: 11400000, guid: 293b3f47df67d6e47addd505df281d7c, type: 2}
+  - {fileID: 11400000, guid: a16fda9bdde68184aafaa27ab6a87185, type: 2}
+  - {fileID: 11400000, guid: 3a898ce2476739e43b1d367806eaf623, type: 2}
+  - {fileID: 11400000, guid: 0e59e765febc2a34d8f98cf3bf7685cb, type: 2}
   - {fileID: 11400000, guid: 81bad35607d243a4abe6bdf64d411a0e, type: 2}
   itemData: {fileID: 11400000, guid: 27a5c06939de4284fb4315487bce60e6, type: 2}
   itemEffect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
   shouldAddItem: 1
-  startAtStep: 8
+  startAtStep: 15
