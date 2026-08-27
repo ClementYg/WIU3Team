@@ -20,4 +20,9 @@ public class LazerAttack : MonoBehaviour
             hitres.transform.GetComponent<Lives>().Damage();
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawLine(transform.position, transform.position + (transform.up * 30));
+    }
 }
