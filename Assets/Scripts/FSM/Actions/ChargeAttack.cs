@@ -22,7 +22,7 @@ public class ChargeAttack : StateAction
             controller.transform.position = Vector2.Lerp(StartingChPos, ChargingPos, 1 - math.cos((ChargingProg * math.PI) / 2));
             ChargingProg = math.clamp(ChargingProg + (Time.deltaTime * 1.5f), 0, 1);
         }
-        else 
+        else if (ChargingProg < 0)
         {
             blackboard.ChargeStartPosition = StartingChPos = controller.transform.position;
             blackboard.ChargeTargetPosition = ChargingPos = StartingChPos + (new Vector2(blackboard.target.position.x, blackboard.target.position.y) - StartingChPos).normalized * chargeDist;
@@ -37,7 +37,5 @@ public class ChargeAttack : StateAction
             }
             blackboard.chargeProgress = 0;
         }
-
-
     }
 }

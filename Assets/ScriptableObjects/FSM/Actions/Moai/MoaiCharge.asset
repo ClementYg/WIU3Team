@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7606e96daa57847afe3c2c00582948, type: 3}
   m_Name: MoaiCharge
   m_EditorClassIdentifier: Assembly-CSharp::ChargeAttack
-  chargeDist: 0
+  chargeDist: 12
   HorizontalLock: 0

@@ -132,31 +132,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "up",
-                    "id": "4aaefe8d-1d6b-43db-aae1-592ab705065d",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "down",
                     "id": "25569780-cf54-4d63-ab63-8dc38cd901ce",
                     "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "c293a8d4-5325-4805-ae07-3984e96fb6c7",
-                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -176,31 +154,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "fd778285-02c4-4db0-8c93-fc8afac4cc83",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "right",
                     "id": "fe762be8-5561-443f-8845-cab5ba067c57",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "cf6e82fb-190a-4221-83ba-7e9c41cb86ac",
-                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -927,7 +883,12 @@
                 {
                     "name": "CloseUIPage",
                     "type": "Button",
-                    "id": "d2ac1b2c-58a6-470c-851f-e1b34f909daf"
+                    "id": "d2ac1b2c-58a6-470c-851f-e1b34f909daf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 },
                 {
                     "name": "ToggleBestiary",
@@ -970,7 +931,9 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CloseUIPage"
+                    "action": "CloseUIPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

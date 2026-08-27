@@ -1,0 +1,1123 @@
+fileFormatVersion: 2
+guid: 98614e1aa7553744f9a830bdd0bb66f2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 741
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f286d77662a76204eb68454997ca79b3
+      internalID: -1269506358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 741
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc6a37b475e88c4a8e63c16008a57fd
+      internalID: -153806371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 741
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1797d62b5b2a8a4ea41180b7794ff00
+      internalID: -923905735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 741
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78abb36bd4d36a848a8e40b5431d1664
+      internalID: -2109265142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_4
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 741
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552e06c6826999242b3c4706ef85b886
+      internalID: -881218347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_5
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 741
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e44cdcd5463e2742a87f67f3c84a876
+      internalID: -1044348361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 618
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ba94b78df85a2499a2b25b4df3a89c
+      internalID: -52768889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_8
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 618
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed00daba802fab479fe30ed5139ff87
+      internalID: 1647489015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 618
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783da3ee25273bd46b79f44078a36420
+      internalID: -509880992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_10
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 618
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad1db7862a75a24087a1b4145afc68c
+      internalID: 1388370302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 618
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7b5db5687535f41aaaa641c43c81c7
+      internalID: 224131424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 618
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664a5f7f1170f1a49b1cd7eb440b99c1
+      internalID: -1181174074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b297405d17a604498d252b34f97d3a
+      internalID: -1310026122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_15
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4e0915627f31a49a252eab1e2c804f
+      internalID: -427376314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_16
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8425b508d7897c54794e832ac8fcdb6a
+      internalID: 348030338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_17
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46f13620a415c2458b21300e83ba49d
+      internalID: -1546388896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_18
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a41b5a4c88018d499e95a94d60ed567
+      internalID: 2070706753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_19
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1e7e07225d4274a8970d47ff3d97db
+      internalID: 1852948996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_20
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996d63a8f2c458d4c97ac84a6f33f81e
+      internalID: 1213018640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_21
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 495
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772054e652b89ec4daeeaaa2654308e7
+      internalID: -2119319831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f1bcc7d410b2a4890d94cfda71edcd
+      internalID: -491102113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_23
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9b462f205e78a41ab72d57dbca5066
+      internalID: -1538706868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_24
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94bad9f1b8f4bf448ef41899ddaea16
+      internalID: 1434670426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_25
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8425a097373b644bd4f58e4748998d
+      internalID: -1064050734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_26
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1fc215d00b4834689f633b1d48efe0
+      internalID: 637109737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_27
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35e4849aa7290545b51c682fe64eedd
+      internalID: -711833850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_28
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e258fe14f7d11bd46bc9a9f2546ca188
+      internalID: 600790018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_29
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 372
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c061718b9bcff4ab279d3f3cd8668d
+      internalID: 1950796415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d3b3bb391277f449cc0ffe8d3529e6
+      internalID: -1256419091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_31
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e51ad630d2a03c4b8f147a96506913f
+      internalID: -1501429053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_32
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d1cfaab8de2ad46a3d615f785d6a99
+      internalID: 1682994835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_33
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddca2c76e4854041ba3ff9dbdcccb6e
+      internalID: 1455400931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_34
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282e2c819abac424f95fb7bfe77072d9
+      internalID: -1531032682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_35
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7807fd6fa87e0df499e18fb35591c3f6
+      internalID: -174042655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_36
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 249
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bb5ee8cc8463244807e2f5f678b1b2
+      internalID: 886478377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02fc45f91252b344b7f84f20d1f6e85
+      internalID: -1230166593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_39
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6660bb3e0006e704c8b5d09a26dc6bb4
+      internalID: -119740560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_40
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63bd74eff6e85648bb905dd1b5b8bea
+      internalID: 1094818613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_41
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b204a50dfaf90d64faccd29a3ff11769
+      internalID: 16932752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_42
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938b4de0b693c9e4e9e09a74a3ed1081
+      internalID: 117517362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_43
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2871a996a4df441499ca6a4dafc72328
+      internalID: 1878822927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Ragnarok Online - Enemies - Mummy_44
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 126
+        width: 90
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8315eabc650384fa20ad8243615443
+      internalID: -1885967118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5f6c9fecd0f06434c96233386746a4d6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":90.0,"y":123.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_0: -1269506358
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_1: -153806371
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_10: 1388370302
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_11: 224131424
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_12: -1181174074
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_13: 746057799
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_14: -1310026122
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_15: -427376314
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_16: 348030338
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_17: -1546388896
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_18: 2070706753
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_19: 1852948996
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_2: -923905735
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_20: 1213018640
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_21: -2119319831
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_22: -491102113
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_23: -1538706868
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_24: 1434670426
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_25: -1064050734
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_26: 637109737
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_27: -711833850
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_28: 600790018
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_29: 1950796415
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_3: -2109265142
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_30: -1256419091
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_31: -1501429053
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_32: 1682994835
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_33: 1455400931
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_34: -1531032682
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_35: -174042655
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_36: 886478377
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_37: 1480486052
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_38: -1230166593
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_39: -119740560
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_4: -881218347
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_40: 1094818613
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_41: 16932752
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_42: 117517362
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_43: 1878822927
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_44: -1885967118
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_45: -361679024
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_46: -1777667949
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_47: -1830765584
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_48: 297669766
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_49: 223327758
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_5: -1044348361
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_50: -179709024
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_51: -19705467
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_52: 1755011653
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_53: 179737235
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_6: 230374018
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_7: -52768889
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_8: 1647489015
+      PC _ Computer - Ragnarok Online - Enemies - Mummy_9: -509880992
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

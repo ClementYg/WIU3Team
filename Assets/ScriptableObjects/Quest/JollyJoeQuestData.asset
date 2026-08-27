@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbeb40aa4f0bb28409dd159d0854bb60, type: 3}
+  m_Name: JollyJoeQuestData
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  questName: Help Joe
+  source: {fileID: 11400000, guid: 204dc0b47eefed4498681dced3958dac, type: 2}
+  requirements: 01000000
