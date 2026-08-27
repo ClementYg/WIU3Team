@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: ElderMoData
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCData
   npcName: Elder Mo
+  effect: {fileID: 11400000, guid: 07b32b07963078b4a9fd0601ef6324c0, type: 2}
+  questAssignmentConvo: {fileID: 11400000, guid: 1142fb8ce529e8f46ba9a2f0338f02d6, type: 2}
+  questCompletionConvo: {fileID: 11400000, guid: 15d9d5f158ae6e9458a92da8a3dd0431, type: 2}

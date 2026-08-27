@@ -160,7 +160,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22876647}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91835cfed15c59b4abac4abbe4fbcfda, type: 3}
   m_Name: 
@@ -4290,7 +4290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251821160}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91835cfed15c59b4abac4abbe4fbcfda, type: 3}
   m_Name: 
@@ -5481,7 +5481,7 @@ MonoBehaviour:
   item:
     itemID: 1
     itemData: {fileID: 11400000, guid: ee9ae18d77428ac4dbd4fd9f2942bbc4, type: 2}
-    itemEffect: {fileID: 11400000, guid: 19c7beee8946bd1418f198bfb01c8fdb, type: 2}
+    itemEffect: {fileID: 11400000, guid: aa448cff3f41de44aad8c2cdfefba90b, type: 2}
     currentDurability: 0
     stackCount: 1
   onItemCollectedEvent: {fileID: 0}
@@ -7133,6 +7133,7 @@ GameObject:
   - component: {fileID: 1149477143}
   - component: {fileID: 1149477144}
   - component: {fileID: 1149477145}
+  - component: {fileID: 1149477146}
   m_Layer: 0
   m_Name: ElderMoNPC
   m_TagString: Untagged
@@ -7179,7 +7180,7 @@ MonoBehaviour:
       currentQuantity: 0
   npcData: {fileID: 11400000, guid: d101625bf8ce4a24591970cd7eeb1f71, type: 2}
   onQuestCompletedEvent: {fileID: 11400000, guid: 22caa9c1492c4844f8b61e953a7700a5, type: 2}
-  onSubmitItemEvent: {fileID: 11400000, guid: 4116056053964934987e8977021d6bf9, type: 2}
+  onSubmitItemEvent: {fileID: 11400000, guid: a9b109b8969dc9342b007a4b6fe1c9b5, type: 2}
 --- !u!114 &1149477145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7196,6 +7197,42 @@ MonoBehaviour:
   onToggledEvent: {fileID: 11400000, guid: 63cdd5ecf7dd31a4b9fb95d48f415011, type: 2}
   isActive: 1
   isOtherActive: 1
+--- !u!58 &1149477146
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149477142}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.45, y: -1}
+  m_Radius: 2
 --- !u!1 &1160152345
 GameObject:
   m_ObjectHideFlags: 0
@@ -8156,6 +8193,7 @@ GameObject:
   - component: {fileID: 1350871431}
   - component: {fileID: 1350871432}
   - component: {fileID: 1350871434}
+  - component: {fileID: 1350871435}
   m_Layer: 0
   m_Name: JollyJoeNPC
   m_TagString: Untagged
@@ -8202,7 +8240,7 @@ MonoBehaviour:
       currentQuantity: 0
   npcData: {fileID: 11400000, guid: 3250002fcf03e9843b5d9c2fd5722f59, type: 2}
   onQuestCompletedEvent: {fileID: 11400000, guid: 1bc1a0ffdfb46e440b5e8370c4a0c15e, type: 2}
-  onSubmitItemEvent: {fileID: 11400000, guid: 4116056053964934987e8977021d6bf9, type: 2}
+  onSubmitItemEvent: {fileID: 11400000, guid: 3f87bb3004234f540989c2a6c75ee3f0, type: 2}
 --- !u!114 &1350871431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8251,6 +8289,42 @@ MonoBehaviour:
   puzzleID: easter_rolling
   otherGameObject: {fileID: 708195855}
   isOtherActive: 1
+--- !u!58 &1350871435
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350871427}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.45, y: -1}
+  m_Radius: 2
 --- !u!1 &1363263778
 GameObject:
   m_ObjectHideFlags: 0
@@ -12013,7 +12087,7 @@ MonoBehaviour:
   item:
     itemID: 1
     itemData: {fileID: 11400000, guid: 730f3a4db55591a43b5e836b39fffa48, type: 2}
-    itemEffect: {fileID: 11400000, guid: 80d63ecebf427bd4cbf181487bb5b56e, type: 2}
+    itemEffect: {fileID: 11400000, guid: 07b32b07963078b4a9fd0601ef6324c0, type: 2}
     currentDurability: 0
     stackCount: 1
   onItemCollectedEvent: {fileID: 0}
@@ -13119,6 +13193,7 @@ GameObject:
   - component: {fileID: 2031559349}
   - component: {fileID: 2031559348}
   - component: {fileID: 2031559347}
+  - component: {fileID: 2031559351}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13232,6 +13307,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2031559351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031559346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &2036124424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13976,7 +14095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546296099505550962, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1546296099505550962, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
@@ -19876,7 +19995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127115118886691391, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2179844378903243140, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_Size.x
@@ -78637,11 +78756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4349614472673621134, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080634379340506279, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080634379340506279, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
