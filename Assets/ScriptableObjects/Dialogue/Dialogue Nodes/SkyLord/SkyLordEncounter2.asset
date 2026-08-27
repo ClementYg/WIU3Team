@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abd4f58248b9da74499b9854b8d2f375, type: 3}
-  m_Name: JollyJoeIntro5
+  m_Name: SkyLordEncounter2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
-  text: He's the one who brought life to this Island! We have no idea what he's like,
-    just that he exists. Well, I'll leave you to your task now!
-  nextNode: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 639fdc66fd4662749939db9a72cb1db0, type: 2}
+  text: Who dares wake me up from my slumber? Was it you, you pesky fool?
+  nextNode: {fileID: 11400000, guid: 1fe087e5814693b43bd1b43f16c6e252, type: 2}
   choices: []
