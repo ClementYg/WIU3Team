@@ -27,7 +27,9 @@ public class TutorialInstance
         // Add an item at the start if needed
         data.AddItemAtSlot();
 
-        // Enter the first step
+        // Enter the step that we want to start at
+        currentStepIndex = data.startAtStep;
+        currentStep = new(data.steps[currentStepIndex]);
         currentStep.EnterStep();
         SubscribeToCriterion();
     }
