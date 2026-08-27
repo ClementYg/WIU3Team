@@ -5,10 +5,23 @@ public class UIMainMenuManager : Singleton<UIMainMenuManager>
 {
     public GameObject fadeBlack;
     public GameObject mainMenuPanel;
+    public GameObject settingsPanel;
 
     public void OnPlay()
     {
         mainMenuPanel.GetComponent<UIFader>().FadeOut();
         fadeBlack.GetComponent<UIFader>().FadeIn(() => SceneManager.LoadScene("CentralHub"));
+    }
+
+    public void OnSettingsOpen()
+    {
+        mainMenuPanel.GetComponent<UIFader>().FadeOut();
+        settingsPanel.GetComponent<UIFader>().FadeIn();
+    }
+
+    public void OnSettingsClose()
+    {
+        mainMenuPanel.GetComponent<UIFader>().FadeIn();
+        settingsPanel.GetComponent<UIFader>().FadeOut();
     }
 }
