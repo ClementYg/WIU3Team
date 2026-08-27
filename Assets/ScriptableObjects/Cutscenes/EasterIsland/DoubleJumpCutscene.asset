@@ -25,8 +25,8 @@ MonoBehaviour:
         blocking: 1
         cameraID: Easter05
         duration: 3
-        amplitude: 1
-        frequency: 1
+        amplitude: 1.5
+        frequency: 1.5
     - rid: 175680583215087703
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
