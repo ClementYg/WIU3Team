@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f455ba8dced282a4eae49ff32f4f300f, type: 3}
-  m_Name: StoneBoss
-  m_EditorClassIdentifier: Assembly-CSharp::EntityData
-  entityName: Stone
-  maxHP: 50
-  baseDamage: 1
+  m_Script: {fileID: 11500000, guid: f7b9b206e6173ca48a70ef8475a098bf, type: 3}
+  m_Name: OnSummonBossChannel
+  m_EditorClassIdentifier: Assembly-CSharp::EventVoid
