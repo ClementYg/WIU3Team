@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
   - rid: 4389384075923161163
+  - rid: 4389384075923161164
   onCutsceneEndedEvent: {fileID: 0}
   references:
     version: 2
@@ -24,3 +25,8 @@ MonoBehaviour:
         blocking: 1
         cameraID: TimeStatue
         activePriority: 20
+    - rid: 4389384075923161164
+      type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        secondsToWait: 2

@@ -18,6 +18,7 @@ public class CompositePuzzle : Puzzle
 
     public override void StartPuzzle(string puzzleID)
     {
+        if (isCompleted) return; 
         if (triggerEnterEvent)
         {
             onEnterComposite.Raise();

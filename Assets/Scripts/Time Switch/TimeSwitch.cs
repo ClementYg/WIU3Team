@@ -26,7 +26,7 @@ public class TimeSwitch : MonoBehaviour
     bool isInTransition = false;
     public bool IsTransitionDone => (isInTransition && (Time.time - transitionStartTime >= transitionDuration));
 
-    bool isTimeSwitchEnabled = true;
+    public bool isTimeSwitchEnabled = true;
 
     bool isInPresent = true;
 
