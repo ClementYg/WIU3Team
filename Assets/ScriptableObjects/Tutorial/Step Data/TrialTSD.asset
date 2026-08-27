@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: TrialTSD
   m_EditorClassIdentifier: Assembly-CSharp::TrialStepData
   instruction: {fileID: 0}
-  criterion: {fileID: 11400000, guid: 023be88931b88754e869a6e3358fb1f9, type: 2}
+  criterion: {fileID: 11400000, guid: 3b931f93696bbf148a61c4a6a33f2b36, type: 2}
   timer: {fileID: 11400000, guid: 764aa6244d3752b44966197e2d3702c5, type: 2}
+  failedTrialCutscene: {fileID: 11400000, guid: 5085122280e8a3f46baed84357576b0d, type: 2}
+  playerStartPosition: {x: 0, y: -26, z: 0}
   onDisplayTimerRequestedEvent: {fileID: 11400000, guid: 1df673f99a8252946bea4d47b769c069, type: 2}
   onToggledTimerEventBool: {fileID: 11400000, guid: 75e094c44cb49c749a717111b4c02d6a, type: 2}
   onStartTrialEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
   onTimerStartedEvent: {fileID: 11400000, guid: f9f0745bad016864ba16b4e33b8a6a8a, type: 2}
   onTimerEndedEvent: {fileID: 11400000, guid: 9c888ae5fb91e5844ac8780fd4b9017f, type: 2}
+  onTrialFailedConvoEndedEvent: {fileID: 11400000, guid: ff4c2f346d347364780c4d0cb56b7287, type: 2}
+  onSetPlayerPositionEvent: {fileID: 11400000, guid: d4eb9edb1186b3646b5692f51d32becc, type: 2}
+  onRequestTriggerZonePreviousPosEvent: {fileID: 11400000, guid: ac85cae0be9cfe349bdb225249b8628e, type: 2}

@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 8793660426509342923}
   - component: {fileID: 7910338478841596607}
   - component: {fileID: 1283532092552376218}
+  - component: {fileID: 4975592214084668646}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -306,6 +307,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c7a57def1f22a4595ec1906483f8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentGameObject
+--- !u!114 &4975592214084668646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822732352266489706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6b00832d1676b4994a6fdcb2ad667d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPositioner
+  onSetPlayerPositionEvent: {fileID: 11400000, guid: d4eb9edb1186b3646b5692f51d32becc, type: 2}
 --- !u!1 &851216911968657541
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,9 @@ public class TutorialTeleporter : MonoBehaviour
     [SerializeField] SpriteRenderer teleporterRenderer;
     [SerializeField] List<TeleportData> teleports;
 
+    [Header("Event Channels")]
+    [SerializeField] EventVoid onRequestPreviousPosEvent;
+
     [Header("Testing")]
     [SerializeField] int startAtTeleport = 0;
 
@@ -14,6 +17,18 @@ public class TutorialTeleporter : MonoBehaviour
     int currentTeleportIndex = 0;
 
     public bool HasDoneLastTeleport => (currentTeleportIndex > teleports.Count - 1);
+
+    private void OnEnable()
+    {
+        if (onRequestPreviousPosEvent == null) return;
+        onRequestPreviousPosEvent.Subscribe(TeleportToPreviousPos);
+    }
+
+    private void OnDisable()
+    {
+        if (onRequestPreviousPosEvent == null) return;
+        onRequestPreviousPosEvent.Unsubscribe(TeleportToPreviousPos);
+    }
 
     private void Awake()
     {
@@ -25,6 +40,17 @@ public class TutorialTeleporter : MonoBehaviour
     {
         ++currentTeleportIndex;
         if (HasDoneLastTeleport) return;
+
+        // Unsubscribe from the current event first, go to the next one and then subscribe to it
+        currentTeleport.UnsubscribeFromTeleportRequest(TeleportToNextPos);
+
+        InitTeleport();
+    }
+
+    private void TeleportToPreviousPos()
+    {
+        --currentTeleportIndex;
+        if (currentTeleportIndex < 0) return;
 
         // Unsubscribe from the current event first, go to the next one and then subscribe to it
         currentTeleport.UnsubscribeFromTeleportRequest(TeleportToNextPos);

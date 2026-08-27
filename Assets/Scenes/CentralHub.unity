@@ -26642,6 +26642,18 @@ PrefabInstance:
       propertyPath: '<PrsntClrChannels>k__BackingField.Array.data[0]'
       value: 
       objectReference: {fileID: 1208097272}
+    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
+      propertyPath: '<PrsntClrChannels>k__BackingField.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1208097272}
+    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
+      propertyPath: '<PrsntClrChannels>k__BackingField.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1208097272}
+    - target: {fileID: 984771041780552980, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
+      propertyPath: '<PrsntClrChannels>k__BackingField.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1208097272}
     - target: {fileID: 5044011752229197308, guid: e4eafcf88fe6bf8448b6c4cf790b0db8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -26901,6 +26913,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5421a9d3f60f9c4f89a8eea1a30230e, type: 2}
   - {fileID: 11400000, guid: d5421a9d3f60f9c4f89a8eea1a30230e, type: 2}
   - {fileID: 11400000, guid: de5f01a4ee1c970409b63ff32e143a57, type: 2}
+  onRequestPreviousPosEvent: {fileID: 0}
   startAtTeleport: 3
 --- !u!114 &888533815
 MonoBehaviour:
@@ -109476,19 +109489,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4777232282398854175, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777232282398854175, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4777232282398854175, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777232282398854175, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 45.5
       objectReference: {fileID: 0}
     - target: {fileID: 4777232282398854175, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -25.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4777232282398854175, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
       propertyPath: m_LocalPosition.z
@@ -109527,33 +109540,17 @@ PrefabInstance:
       value: Trigger Zone
       objectReference: {fileID: 0}
     - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: startAtTeleport
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
       propertyPath: teleports.Array.size
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: 'teleports.Array.data[5]'
+      propertyPath: 'teleports.Array.data[10]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3756a634b33875c4c9df84dfe0726afe, type: 2}
+      objectReference: {fileID: 11400000, guid: 007e053f188b08d4ab5ac8714b5027cc, type: 2}
     - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: 'teleports.Array.data[6]'
+      propertyPath: 'teleports.Array.data[11]'
       value: 
-      objectReference: {fileID: 11400000, guid: 999324531b527d648806b9beda0e8c7e, type: 2}
-    - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: 'teleports.Array.data[7]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 819788d37b45e8446a106f42fd427ef2, type: 2}
-    - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: 'teleports.Array.data[8]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 1c6923a2dbf6b8740a0473d540b2b446, type: 2}
-    - target: {fileID: 8048265280430896890, guid: 4fbf0dfed73603440a9b33aa7a96fe55, type: 3}
-      propertyPath: 'teleports.Array.data[9]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 53d50bc9597977b488aac3b48ae82989, type: 2}
+      objectReference: {fileID: 11400000, guid: 391b40c7e0d84ab459ee91050c9f33b9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
