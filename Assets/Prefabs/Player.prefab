@@ -161,7 +161,7 @@ MonoBehaviour:
   rb: {fileID: 6879366720578356367}
   animator: {fileID: 8076053918851293685}
   sprite: {fileID: 5032267501061252474}
-  dashSFX: {fileID: 0}
+  dashSFX: {fileID: 8300000, guid: 4f23164ce57b8ed4cb50f5f43ba31a26, type: 3}
   capsuleCollider: {fileID: 3607124752696476449}
   magnet: {fileID: 3280578941786506099}
   OnSFXRequestEvent: {fileID: 11400000, guid: 50eb203cdc43840428f6f2edd692a29e, type: 2}
@@ -229,8 +229,8 @@ MonoBehaviour:
   rb: {fileID: 6879366720578356367}
   animator: {fileID: 8076053918851293685}
   sprite: {fileID: 5032267501061252474}
-  swordSwing: {fileID: 0}
-  swordHit: {fileID: 0}
+  swordSwing: {fileID: 8300000, guid: 0f213384c56be694c96fff535f117946, type: 3}
+  swordHit: {fileID: 8300000, guid: 2cf880357c075d34e905e4d8cbb277d6, type: 3}
   OnComboWindowOpenEvent: {fileID: 11400000, guid: 447fc336debd13848938d1a58b45fa4d, type: 2}
   OnTriggerAttackEvent: {fileID: 11400000, guid: f10c0f75afe6601408d2c278390d9314, type: 2}
   OnAttackCheckEvent: {fileID: 11400000, guid: c6655e9fa2931454da26ea84b87a579e, type: 2}
@@ -381,6 +381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   MaxLives: 5
   CurrLives: 5
+  spriteRend: {fileID: 0}
+  OnPlayerHPChange: {fileID: 11400000, guid: 00d8ac68e8c7e674d84a40c80e80047f, type: 2}
 --- !u!1 &851216911968657541
 GameObject:
   m_ObjectHideFlags: 0
