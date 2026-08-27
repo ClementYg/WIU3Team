@@ -1,10 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "TutorialData", menuName = "ScriptableObjects/Tutorial/TutorialData")]
 public class TutorialData : ScriptableObject
 {
     [Header("Tutorial Data")]
-    public StepData firstStep;
+    public List<StepData> steps;
 
     [Header("Add Item")]
     public ItemData itemData;

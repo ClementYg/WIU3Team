@@ -16,22 +16,7 @@ public class StepInstance
         stepData.EnterStep();
     }
 
-    public bool TryGoNextStep(out StepInstance nextStep)
-    {
-        ExitStep();
-
-        StepData nextData = stepData.GetNextStep();
-        if (nextData == null)
-        {
-            nextStep = null;
-            return false;
-        }
-
-        nextStep = new StepInstance(nextData);
-        return true;
-    }
-
-    private void ExitStep()
+    public void ExitStep()
     {
         stepData.ExitStep();
     }

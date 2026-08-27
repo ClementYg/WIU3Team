@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
   m_Name: ReceptionistEggFound
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
-  firstTimeNode: {fileID: 11400000, guid: 49f30f1f0cf710c45bd371a6a497021f, type: 2}
+  firstTimeNode: {fileID: 11400000, guid: 55d0c255ae47998448b42b42b12c5f89, type: 2}
   repeatNode: {fileID: 0}
   hasBeenSeen: 1
-  onConvoEndedEvent: {fileID: 11400000, guid: ff895190ce7f0414199269550d7bf3fc, type: 2}
+  onConvoEndedEvent: {fileID: 0}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9f8a8007fd6a14bb31cd5f534ee9a9, type: 3}
-  m_Name: ThirdCSD
+  m_Name: DoPuzzleCSD
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
   instruction: {fileID: 0}
-  nextStep: {fileID: 11400000, guid: 4557a4c310a907748b7c15f718ec04a6, type: 2}
+  nextStep: {fileID: 11400000, guid: 9e75e0b89b1954044958497e93c7a3db, type: 2}
   criterion: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
-  cutscene: {fileID: 11400000, guid: 1212ccfd4ae50ac4db41857cd66b9bac, type: 2}
+  cutscene: {fileID: 11400000, guid: 0e71b8f0dc2e6c741b6ffaf123b5f6c3, type: 2}

@@ -15,4 +15,4 @@ MonoBehaviour:
   npcName: The Receptionist
   effect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
   questAssignmentConvo: {fileID: 11400000, guid: 3408b7f2cb031234b9ecebb8ac722165, type: 2}
-  questCompletionConvo: {fileID: 0}
+  questCompletionConvo: {fileID: 11400000, guid: 7f18812d86e0e844e96ff512b26bb307, type: 2}

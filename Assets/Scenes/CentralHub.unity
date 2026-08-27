@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 2614132005790844103, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: onItemCollectedEvent
       value: 
-      objectReference: {fileID: 11400000, guid: fb14b933beb3d1f499ac3364b9de98d5, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2891962507790234638, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
