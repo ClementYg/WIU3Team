@@ -4,8 +4,11 @@ using System.Collections.Generic;
 public class TutorialTeleporter : MonoBehaviour
 {
     [Header("Tutorial Teleporter")]
-    [SerializeField] Transform teleporterTransform;
+    [SerializeField] SpriteRenderer teleporterRenderer;
     [SerializeField] List<TeleportData> teleports;
+
+    [Header("Testing")]
+    [SerializeField] int startAtTeleport = 0;
 
     TeleportData currentTeleport;
     int currentTeleportIndex = 0;
@@ -14,6 +17,7 @@ public class TutorialTeleporter : MonoBehaviour
 
     private void Awake()
     {
+        currentTeleportIndex = startAtTeleport;
         InitTeleport();
     }
 
@@ -23,18 +27,22 @@ public class TutorialTeleporter : MonoBehaviour
         if (HasDoneLastTeleport) return;
 
         // Unsubscribe from the current event first, go to the next one and then subscribe to it
-        currentTeleport.onTeleportRequestedEvent.Unsubscribe(TeleportToNextPos);
+        currentTeleport.UnsubscribeFromTeleportRequest(TeleportToNextPos);
 
         InitTeleport();
     }
 
     private void InitTeleport()
     {
+        // Enter the teleport that we want to start at
         currentTeleport = teleports[currentTeleportIndex];
-        currentTeleport.onTeleportRequestedEvent.Subscribe(TeleportToNextPos);
+        currentTeleport.SubscribeToTeleportRequest(TeleportToNextPos);
 
         // Set the transform
-        teleporterTransform.position = currentTeleport.newPosition;
-        teleporterTransform.localScale = currentTeleport.newScale;
+        transform.position = currentTeleport.newPosition;
+        transform.localScale = currentTeleport.newScale;
+
+        // Set the color
+        teleporterRenderer.color = currentTeleport.newColor;
     }
 }

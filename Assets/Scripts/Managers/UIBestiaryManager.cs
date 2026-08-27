@@ -7,6 +7,7 @@ public class UIBestiaryManager : MonoBehaviour
 
     [Header("Event Channels")]
     [SerializeField] EventBool onToggledBestiaryEvent;
+    [SerializeField] EventVoid onClosedBestiaryEvent;
 
     private void OnEnable()
     {
@@ -17,12 +18,19 @@ public class UIBestiaryManager : MonoBehaviour
     {
         onToggledBestiaryEvent.Unsubscribe(OnToggledBestiary);
     }
+
     private void OnToggledBestiary(bool isEnabled)
     {
         if (isEnabled)
         {
             canvasFader.FadeIn();
         }
-        else canvasFader.FadeOut();
+        else
+        {
+            canvasFader.FadeOut();
+
+            // Raise the event for the tutorial
+            onClosedBestiaryEvent.Raise();
+        }
     }
 }

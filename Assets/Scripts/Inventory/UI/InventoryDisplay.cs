@@ -21,7 +21,17 @@ public class InventoryDisplay : MonoBehaviour
         return false;
     }
 
-    public bool RemoveItem(ItemInstance itemName)
+    public bool AddItemAtSlot(ItemInstance item, int rowIndex, int slotIndex)
+    {
+        if (rowIndex < 0 || rowIndex > rows.Count - 1) return false;
+
+        InventoryRow row = rows[rowIndex];
+        row.AddItemAtSlot(item, slotIndex);
+
+        return true;
+    }
+
+    public bool RemoveItem(ItemInstance item)
     {
         // Check if the item exists in any of the rows and remove it if so
         foreach (InventoryRow row in rows)
@@ -29,7 +39,7 @@ public class InventoryDisplay : MonoBehaviour
             for (int i = 0; i < row.slots.Count; ++i)
             {
                 if (row.slots[i].IsOccupied &&
-                    row.slots[i].itemDisplayed == itemName)
+                    row.slots[i].itemDisplayed == item)
                 {
                     row.RemoveItem(i);
                     return true;

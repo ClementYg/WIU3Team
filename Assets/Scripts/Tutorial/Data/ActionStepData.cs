@@ -12,13 +12,23 @@ public class ActionStepData : StepData
 
     public override void EnterStep()
     {
-        // Raise the event to display the action guide
-        onDisplayIconRequestedEvent.Raise(guide);
+        if (guide != null && onDisplayIconRequestedEvent != null)
+        {
+            // Raise the event to display the action guide
+            onDisplayIconRequestedEvent.Raise(guide);
+        }
+        else
+        {
+            Debug.Log("ActionStepData: " + name + " has missing UI references.", this);
+        }
     }
 
     public override void ExitStep()
     {
-        // Raise the event to stop displaying the action guide
-        onToggledIconEventBool.Raise(false);
+        if (guide != null && onToggledIconEventBool != null)
+        {
+            // Raise the event to stop displaying the action guide
+            onToggledIconEventBool.Raise(false);
+        }
     }
 }

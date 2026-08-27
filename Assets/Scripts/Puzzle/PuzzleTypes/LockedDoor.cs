@@ -3,6 +3,7 @@ using UnityEngine;
 public class LockedDoor : MonoBehaviour
 {
     [SerializeField] EventString OnPuzzleFinishEvent;
+    [SerializeField] EventVoid onUnlockDoorEvent;
     [SerializeField] Puzzle puzzle;
 
     private void OnEnable()
@@ -16,6 +17,12 @@ public class LockedDoor : MonoBehaviour
 
     private void PuzzleFinished(string puzzleID)
     {
-        if (puzzle.puzzleID == puzzleID) Destroy(this.gameObject);
+        if (puzzle.puzzleID == puzzleID)
+        {
+            // Raise the event for closed door
+            onUnlockDoorEvent.Raise();
+
+            Destroy(this.gameObject);
+        }
     }
 }

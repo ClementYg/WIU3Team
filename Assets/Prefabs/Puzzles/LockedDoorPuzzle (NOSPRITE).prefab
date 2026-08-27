@@ -49,6 +49,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnterKeyLockPuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 4307169035704606419, guid: 087f7954659bd834ca9d24b4774a2bdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6445543749499342027, guid: 087f7954659bd834ca9d24b4774a2bdb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -172,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5325449325516018108, guid: 1b5bc02fbb18e7149b14fcbb9d7cfece, type: 3}
       propertyPath: m_Name
-      value: PuzzlePrefab
+      value: Puzzle Man
       objectReference: {fileID: 0}
     - target: {fileID: 9131598261294400731, guid: 1b5bc02fbb18e7149b14fcbb9d7cfece, type: 3}
       propertyPath: m_LocalScale.x
@@ -305,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LockedDoor
   OnPuzzleFinishEvent: {fileID: 11400000, guid: d600c3b25890e784fbd87fc2da16f48b, type: 2}
+  onUnlockDoorEvent: {fileID: 11400000, guid: b41b691b6c8e60141a83552675842875, type: 2}
   puzzle: {fileID: 3823509497602018066}
 --- !u!61 &6999233821728258491
 BoxCollider2D:
@@ -336,7 +341,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
