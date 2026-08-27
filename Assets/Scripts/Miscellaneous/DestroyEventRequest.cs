@@ -15,6 +15,7 @@ public class DestroyEventRequest : MonoBehaviour
         if (!destroyOnTrigger) return;
         if (collision.TryGetComponent(out ItemPickup itmPickUp))
         {
+            onDestroyedEvent.Raise();
             Destroy(gameObject, 0.05f);
         }
     }
