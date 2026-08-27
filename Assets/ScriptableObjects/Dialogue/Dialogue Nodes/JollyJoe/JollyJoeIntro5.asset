@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: JollyJoeIntro5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
-  text: You'll see! I'll leave you to it now.
+  text: He's the one who brought life to this Island! We have no idea what he's like,
+    just that he exists. Well, I'll leave you to your task now!
   nextNode: {fileID: 0}
   choices: []

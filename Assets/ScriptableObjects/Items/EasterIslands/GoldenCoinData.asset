@@ -31,4 +31,4 @@ MonoBehaviour:
   givenBy: 
   questID: -1
   isKeyItem: 0
-  onQuestCompletedEvent: {fileID: 0}
+  onQuestCompletedEvent: {fileID: 11400000, guid: 1bc1a0ffdfb46e440b5e8370c4a0c15e, type: 2}

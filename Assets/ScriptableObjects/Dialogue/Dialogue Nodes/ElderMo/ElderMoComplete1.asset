@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 560631a83447a9747ad7c258328ec4e6, type: 2}
   text: Oh you found the key! Thank you very much!
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 0440c0eb96c74fa4fae4794e80bd9f93, type: 2}
   choices: []

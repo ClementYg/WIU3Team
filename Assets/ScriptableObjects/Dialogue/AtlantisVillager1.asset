@@ -15,4 +15,4 @@ MonoBehaviour:
   firstTimeNode: {fileID: 11400000, guid: 88e22d518f718fc4cb4fa578888c0db6, type: 2}
   repeatNode: {fileID: 11400000, guid: b136070f4567432409b5e3cfb211d284, type: 2}
   hasBeenSeen: 0
-  onConvoEndedEvent: {fileID: 11400000, guid: 2f6473e97303bff44a842d875fd3522b, type: 2}
+  onConvoEndedEvent: {fileID: 0}

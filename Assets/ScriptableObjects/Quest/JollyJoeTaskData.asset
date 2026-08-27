@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b78844ef6049f46bb9fd2bd28b297f, type: 3}
   m_Name: JollyJoeTaskData
   m_EditorClassIdentifier: Assembly-CSharp::TaskData
-  instruction: Solve the Roly-poly puzzle and get the Golden Coins
+  instruction: Solve the Roly-poly puzzle and get the Golden Coin
   taskType: 0
-  requiredQuantity: 2
+  requiredQuantity: 1

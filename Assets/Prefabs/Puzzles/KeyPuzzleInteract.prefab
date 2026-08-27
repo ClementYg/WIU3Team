@@ -49,6 +49,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnterKeyLockPuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 4307169035704606419, guid: 087f7954659bd834ca9d24b4774a2bdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6445543749499342027, guid: 087f7954659bd834ca9d24b4774a2bdb, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: JollyJoeQuestSource
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestSource
   type: 0
-  questContext: Jolly Joe needs the Golden Coins as offerings. Help him retrieve
-    them!
+  questContext: Jolly Joe needs a Golden Coin as an offering. Help him retrieve it!
   npcData: {fileID: 11400000, guid: 3250002fcf03e9843b5d9c2fd5722f59, type: 2}

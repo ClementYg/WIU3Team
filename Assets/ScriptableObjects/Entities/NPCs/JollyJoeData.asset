@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: JollyJoeData
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCData
   npcName: Jolly Joe
+  effect: {fileID: 11400000, guid: aa448cff3f41de44aad8c2cdfefba90b, type: 2}
+  questAssignmentConvo: {fileID: 11400000, guid: a89a202d89f45234eb508a00f75865f1, type: 2}
+  questCompletionConvo: {fileID: 11400000, guid: 4b920882ea2368b4cb176873ec9fa824, type: 2}
