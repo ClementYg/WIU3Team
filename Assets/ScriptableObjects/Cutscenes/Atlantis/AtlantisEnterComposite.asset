@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: AtlantisEnterComposite
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
-  - rid: 4389384075923161157
-  - rid: 4389384075923161159
-  - rid: 4389384075923161161
   - rid: 4389384075923161160
+  - rid: 4389384075923161157
   - rid: 4389384075923161158
+  - rid: 4389384075923161159
   - rid: 4389384075923161162
+  - rid: 4389384075923161161
+  - rid: 4389384075923161177
   onCutsceneEndedEvent: {fileID: 0}
   references:
     version: 2
@@ -32,8 +33,8 @@ MonoBehaviour:
     - rid: 4389384075923161158
       type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
       data:
-        blocking: 0
-        conversation: {fileID: 0}
+        blocking: 1
+        conversation: {fileID: 11400000, guid: 64ee2f1561775a64d9250ac96a35f3d0, type: 2}
     - rid: 4389384075923161159
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
@@ -43,8 +44,8 @@ MonoBehaviour:
     - rid: 4389384075923161160
       type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
       data:
-        blocking: 0
-        conversation: {fileID: 0}
+        blocking: 1
+        conversation: {fileID: 11400000, guid: 3fa0c5034d0a04f4fa6d26bff48a7040, type: 2}
     - rid: 4389384075923161161
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
@@ -54,5 +55,10 @@ MonoBehaviour:
     - rid: 4389384075923161162
       type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
       data:
-        blocking: 0
-        conversation: {fileID: 0}
+        blocking: 1
+        conversation: {fileID: 11400000, guid: 002f187ede5fff34c9ac3ca4403cb725, type: 2}
+    - rid: 4389384075923161177
+      type: {class: CutsceneDialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        conversation: {fileID: 11400000, guid: 27b528424122928488630523997fd58a, type: 2}
