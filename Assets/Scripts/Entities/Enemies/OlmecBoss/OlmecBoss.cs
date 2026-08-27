@@ -69,8 +69,13 @@ public class OlmecBoss : MonoBehaviour
             case BOSSSTATES.POUND:
                 if (poundAttackTickRate < 0)
                 {
-                    var hitres = Physics2D.CircleCast(transform.position, 2.5f, new Vector2(0, 0));
-                    hitres.transform.GetComponent<Lives>().Damage();
+                    Collider2D hitres = Physics2D.OverlapCircle(transform.position + new Vector3(0, -2, 0), 1.75f, LayerMask.GetMask("Player"), -Mathf.Infinity, Mathf.Infinity);
+                    Lives playerHP;
+                    if (hitres)
+                    {
+                        hitres.transform.TryGetComponent<Lives>(out playerHP);
+                        if (playerHP) playerHP.Damage();
+                    }
                     poundAttackTickRate = 0.3f;
                 }
                 break;
@@ -111,8 +116,12 @@ public class OlmecBoss : MonoBehaviour
         }
         StartCoroutine(StateTimer());
     }
-    
-    
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawSphere(transform.position + new Vector3(0, -2, 0), 1.75f);
+    }
+
     private void changeState(BOSSSTATES newState)
     {
         switch (currState)

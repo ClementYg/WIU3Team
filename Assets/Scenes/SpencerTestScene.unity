@@ -6502,7 +6502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &912032132
 Transform:
   m_ObjectHideFlags: 0
@@ -7074,6 +7074,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Past Container (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4349614472673621134, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080634379340506279, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5147968430891397276, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.05299
@@ -7315,6 +7323,7 @@ MonoBehaviour:
     itemEffect: {fileID: 11400000, guid: d2024d593a6e5a944819de0362a67d83, type: 2}
     currentDurability: 0
     stackCount: 1
+  onItemCollectedEvent: {fileID: 0}
 --- !u!50 &1397508688
 Rigidbody2D:
   serializedVersion: 5
@@ -8034,6 +8043,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 851216911968657541, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879366720578356367, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879366720578356367, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497220883768842599, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7910338478841596607, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: source
       value: 
@@ -8513,6 +8538,7 @@ MonoBehaviour:
     itemEffect: {fileID: 11400000, guid: b6cb8bc61a942e8479a7c606dba2fe46, type: 2}
     currentDurability: 0
     stackCount: 1
+  onItemCollectedEvent: {fileID: 0}
 --- !u!114 &1844499085 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9207085371692803327, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}

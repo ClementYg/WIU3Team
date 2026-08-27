@@ -5,6 +5,7 @@ public class Lives : MonoBehaviour
     public int MaxLives, CurrLives;
     private float iFrames;
     public SpriteRenderer spriteRend;
+    public EventInt OnPlayerHPChange;
     void Start()
     {
         CurrLives = MaxLives;
@@ -37,6 +38,7 @@ public class Lives : MonoBehaviour
         {
             CurrLives--;
             iFrames = 1.0f;
+            OnPlayerHPChange.Raise(CurrLives);
         }
         Debug.Log("Hit");
     }
