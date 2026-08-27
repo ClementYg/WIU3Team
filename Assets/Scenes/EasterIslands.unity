@@ -7178,8 +7178,8 @@ MonoBehaviour:
     - taskData: {fileID: 11400000, guid: c704c1e4be7377748bb934b4bffc4e2a, type: 2}
       currentQuantity: 0
   npcData: {fileID: 11400000, guid: d101625bf8ce4a24591970cd7eeb1f71, type: 2}
-  questConvo: {fileID: 11400000, guid: 1142fb8ce529e8f46ba9a2f0338f02d6, type: 2}
   onQuestCompletedEvent: {fileID: 11400000, guid: 22caa9c1492c4844f8b61e953a7700a5, type: 2}
+  onSubmitItemEvent: {fileID: 11400000, guid: 4116056053964934987e8977021d6bf9, type: 2}
 --- !u!114 &1149477145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8201,8 +8201,8 @@ MonoBehaviour:
     - taskData: {fileID: 11400000, guid: 312b1db054da4c348be9be3f87306aca, type: 2}
       currentQuantity: 0
   npcData: {fileID: 11400000, guid: 3250002fcf03e9843b5d9c2fd5722f59, type: 2}
-  questConvo: {fileID: 11400000, guid: a89a202d89f45234eb508a00f75865f1, type: 2}
   onQuestCompletedEvent: {fileID: 11400000, guid: 1bc1a0ffdfb46e440b5e8370c4a0c15e, type: 2}
+  onSubmitItemEvent: {fileID: 11400000, guid: 4116056053964934987e8977021d6bf9, type: 2}
 --- !u!114 &1350871431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8968,6 +8968,55 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1413884590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413884591}
+  - component: {fileID: 1413884592}
+  m_Layer: 0
+  m_Name: BGMHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413884591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413884590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413884592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413884590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae07adabf1cb6c4d9f638439949a955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BGMHandler
+  onTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  onTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  startingTime: 0
+  presentClip: {fileID: 8300000, guid: e64bb83f1c958f649bb0cbc9fc318486, type: 3}
+  pastClip: {fileID: 8300000, guid: 430054426f4a41c4d86c55ea268c5a3e, type: 3}
 --- !u!1 &1417758971
 GameObject:
   m_ObjectHideFlags: 0
@@ -86992,3 +87041,4 @@ SceneRoots:
   - {fileID: 407985349}
   - {fileID: 479433152}
   - {fileID: 1143627001}
+  - {fileID: 1413884591}
