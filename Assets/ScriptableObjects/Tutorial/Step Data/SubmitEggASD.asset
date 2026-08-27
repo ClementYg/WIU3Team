@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SubmitEggASD
   m_EditorClassIdentifier: Assembly-CSharp::ActionStepData
   instruction: {fileID: 0}
-  criterion: {fileID: 11400000, guid: ff895190ce7f0414199269550d7bf3fc, type: 2}
+  criterion: {fileID: 11400000, guid: 06858d555efcd0145ac8425a1275b38c, type: 2}
   guide: {fileID: 0}
   onDisplayIconRequestedEvent: {fileID: 0}
   onToggledIconEventBool: {fileID: 0}

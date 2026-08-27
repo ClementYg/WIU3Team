@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34b99e5447f3b474ebfc31e44177722f, type: 3}
-  m_Name: CrouchUIIcon
+  m_Name: BUIIcon
   m_EditorClassIdentifier: Assembly-CSharp::UIIcon
-  sprite: {fileID: 21300000, guid: 094f59946b4d7b04bba5c543159605ed, type: 3}
+  sprite: {fileID: 21300000, guid: 316943eac20b50e44b5d5429216cef73, type: 3}
   position: {x: 0, y: 440}
   scale: {x: 1.5, y: 1.5}

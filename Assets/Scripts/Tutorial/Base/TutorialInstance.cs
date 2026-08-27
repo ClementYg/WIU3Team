@@ -38,7 +38,13 @@ public class TutorialInstance
         UnsubscribeFromCriterion();
 
         ++currentStepIndex;
-        if (currentStepIndex > data.steps.Count - 1) return;
+        if (currentStepIndex > data.steps.Count - 1)
+        {
+            // No more steps left, tutorial is complete
+            currentStep.ExitStep();
+            CompleteTutorial();
+            return;
+        }
 
         // Go to the next step
         currentStep.ExitStep();
