@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14981b57ccb3c0844a55947d9c4a5697, type: 3}
+  m_Name: ReturnToTimeStatue1
+  m_EditorClassIdentifier: Assembly-CSharp::Cutscene
+  steps:
+  - rid: 4389384075923161163
+  onCutsceneEndedEvent: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4389384075923161163
+      type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
+      data:
+        blocking: 1
+        cameraID: TimeStatue
+        activePriority: 20
