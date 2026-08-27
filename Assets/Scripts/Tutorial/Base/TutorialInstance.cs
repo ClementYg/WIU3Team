@@ -5,21 +5,27 @@ public class TutorialInstance
     TutorialData data;
     StepInstance currentStep;
 
+    int currentStepIndex = 0;
+
     bool isTutorialCompleted = false;
     public bool IsTutorialCompleted => isTutorialCompleted;
 
     public TutorialInstance(TutorialData data)
     {
+        if (data.steps.Count <= 0)
+        {
+            Debug.LogError("TutorialInstance: TutorialData does not have any steps.");
+            return;
+        }
+
         this.data = data;
-        currentStep = new StepInstance(data.firstStep);
+        currentStep = new(data.steps[currentStepIndex]);
     }
 
     public void StartTutorial()
     {
-        if (data.firstStep == null)
-        {
-            Debug.LogError("TutorialInstance: Attempted to start tutorial with missing first step reference.");
-        }
+        // Add an item at the start if needed
+        data.AddItemAtSlot();
 
         // Enter the first step
         currentStep.EnterStep();
@@ -28,18 +34,25 @@ public class TutorialInstance
 
     private void GoNextStep()
     {
-        UnsubscribeToCriterion();
+        // Unsubscribe from this function
+        UnsubscribeFromCriterion();
 
-        if (currentStep.TryGoNextStep(out currentStep))
+        ++currentStepIndex;
+        if (currentStepIndex > data.steps.Count - 1)
         {
-            currentStep.EnterStep();
-            SubscribeToCriterion();
-        }
-        else
-        {
-            // No next step, the tutorial is complete
+            // No more steps left, tutorial is complete
+            currentStep.ExitStep();
             CompleteTutorial();
+            return;
         }
+
+        // Go to the next step
+        currentStep.ExitStep();
+        currentStep = new(data.steps[currentStepIndex]);
+        currentStep.EnterStep();
+
+        // Subscribe to the new step's event
+        SubscribeToCriterion();
     }
 
     private void CompleteTutorial()
@@ -52,7 +65,7 @@ public class TutorialInstance
         GetCriterionMetEvent().Subscribe(GoNextStep);
     }
 
-    private void UnsubscribeToCriterion()
+    private void UnsubscribeFromCriterion()
     {
         GetCriterionMetEvent().Unsubscribe(GoNextStep);
     }

@@ -730,7 +730,6 @@ MonoBehaviour:
   canvasFader: {fileID: 725489676447503192}
   pageFader: {fileID: 866263447102765476}
   iconFader: {fileID: 6877145009507085984}
-  onToggledGeneralUIEventBool: {fileID: 11400000, guid: c37b84f7db5684b4baf95b853d16107f, type: 2}
   onToggledPageEventBool: {fileID: 11400000, guid: 824c7824f58c26848b6e5125d50bf0de, type: 2}
   onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}
 --- !u!1 &3878519631820638665
@@ -2254,6 +2253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4376040111913325154, guid: e60ab63de089d7d42b6aed8b0cbf40ba, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8054944424890157174, guid: e60ab63de089d7d42b6aed8b0cbf40ba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2356,6 +2359,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2997393766171021188, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
+      propertyPath: onClosedBestiaryEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2979e8776eed8e94db32b4ec26e7aa96, type: 2}
+    - target: {fileID: 2997393766171021188, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
+      propertyPath: onOpenedBestiaryEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2979e8776eed8e94db32b4ec26e7aa96, type: 2}
     - target: {fileID: 3687977823456032330, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2414,7 +2425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922734168377412724, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00036621094
+      value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 5192460755843974917, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
       propertyPath: m_AnchorMax.y

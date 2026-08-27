@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24757d0b5c210a248ad92a8a4e7f86fc, type: 3}
   m_Name: IntroTutorial
   m_EditorClassIdentifier: Assembly-CSharp::TutorialData
-  firstStep: {fileID: 11400000, guid: 94d16cdc6d092e042a3fb72fd8399d25, type: 2}
+  steps:
+  - {fileID: 11400000, guid: 94d16cdc6d092e042a3fb72fd8399d25, type: 2}
+  - {fileID: 11400000, guid: ad32e65b3ee8dd44d836e61866b34468, type: 2}
+  - {fileID: 11400000, guid: 85fb84f021553ea41b4369d726fe14bf, type: 2}
+  - {fileID: 11400000, guid: 4557a4c310a907748b7c15f718ec04a6, type: 2}
+  - {fileID: 11400000, guid: b03814b42c6cd9f48b15a0522f7f152f, type: 2}
+  - {fileID: 11400000, guid: 0d09d9aa8c595a94086a28fff83bc502, type: 2}
+  - {fileID: 11400000, guid: 5379e67e53965a14ea2c63b10a535cad, type: 2}
+  - {fileID: 11400000, guid: ea349a75dd8a2424db670da450a2c29e, type: 2}
+  - {fileID: 11400000, guid: f45c1a0a4921f384696cb6ef1a78caef, type: 2}
+  - {fileID: 11400000, guid: 97b362c52ff9da8428922db050f9f03c, type: 2}
+  - {fileID: 11400000, guid: 2b003a3c7b969de4bb2b4ceff9f4c313, type: 2}
+  - {fileID: 11400000, guid: 2b9860cc98c68a945a43d4a4a4db5c4b, type: 2}
+  - {fileID: 11400000, guid: 9e75e0b89b1954044958497e93c7a3db, type: 2}
+  - {fileID: 11400000, guid: 749ee97f5ff7d584580474b7d567bc75, type: 2}
+  - {fileID: 11400000, guid: 96ce0205770ae804f8a747468251dc61, type: 2}
+  - {fileID: 11400000, guid: 2398671ffd5235b428d45799dda3b2c5, type: 2}
+  - {fileID: 11400000, guid: 81bad35607d243a4abe6bdf64d411a0e, type: 2}
+  itemData: {fileID: 11400000, guid: 27a5c06939de4284fb4315487bce60e6, type: 2}
+  itemEffect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
+  shouldAddItem: 1

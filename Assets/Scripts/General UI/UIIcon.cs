@@ -6,5 +6,5 @@ public class UIIcon : ScriptableObject
     [Header("UI Icon")]
     public Sprite sprite;
     public Vector2 position;
-    public Vector2 scale;
+    public Vector2 scale = new(1f, 1f);
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class TutorialTeleporter : MonoBehaviour
 {
     [Header("Tutorial Teleporter")]
-    [SerializeField] Transform teleporterTransform;
+    [SerializeField] SpriteRenderer teleporterRenderer;
     [SerializeField] List<TeleportData> teleports;
 
     TeleportData currentTeleport;
@@ -34,7 +34,10 @@ public class TutorialTeleporter : MonoBehaviour
         currentTeleport.onTeleportRequestedEvent.Subscribe(TeleportToNextPos);
 
         // Set the transform
-        teleporterTransform.position = currentTeleport.newPosition;
-        teleporterTransform.localScale = currentTeleport.newScale;
+        transform.position = currentTeleport.newPosition;
+        transform.localScale = currentTeleport.newScale;
+
+        // Set the color
+        teleporterRenderer.color = currentTeleport.newColor;
     }
 }
