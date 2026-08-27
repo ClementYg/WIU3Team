@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ReceptionistTrial
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 3f715884905326a4d83584011212be29, type: 2}
-  text: "Nicely done, I think you\u2019re ready for a timed challenge! To complete
-    the challenge, return to me in under 20 seconds. Your time starts as soon as
-    you enter the trigger zone. Good luck!"
+  text: "Nicely done, I think you\u2019re ready for a timed trial! To complete the
+    trial, return to me in under 20 seconds. Your time starts as soon as you enter
+    the trigger zone. Good luck!"
   nextNode: {fileID: 0}
   choices: []

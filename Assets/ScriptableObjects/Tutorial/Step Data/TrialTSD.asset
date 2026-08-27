@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TrialTSD
   m_EditorClassIdentifier: Assembly-CSharp::TrialStepData
   instruction: {fileID: 0}
-  criterion: {fileID: 0}
-  onStartTrialEvent: {fileID: 0}
+  criterion: {fileID: 11400000, guid: 023be88931b88754e869a6e3358fb1f9, type: 2}
+  onStartTrialEvent: {fileID: 11400000, guid: 7ed6e19bd2081fb49a65d0eb9a735502, type: 2}
+  onEndTrialEvent: {fileID: 11400000, guid: a94fb93dded6e3e4aae9d1f7ccfc04c8, type: 2}

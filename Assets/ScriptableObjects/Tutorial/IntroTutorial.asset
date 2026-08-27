@@ -34,6 +34,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3a898ce2476739e43b1d367806eaf623, type: 2}
   - {fileID: 11400000, guid: 0e59e765febc2a34d8f98cf3bf7685cb, type: 2}
   - {fileID: 11400000, guid: 3cebdfb6eb58bac448ab055e61eaafc9, type: 2}
+  - {fileID: 11400000, guid: 2bc06f0f8a6fa6847be9a234a3220abc, type: 2}
   - {fileID: 11400000, guid: 81bad35607d243a4abe6bdf64d411a0e, type: 2}
   itemData: {fileID: 11400000, guid: 27a5c06939de4284fb4315487bce60e6, type: 2}
   itemEffect: {fileID: 11400000, guid: 45a3204e2f802104d9640534760f3bd5, type: 2}
