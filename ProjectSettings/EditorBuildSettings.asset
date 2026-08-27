@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/ReginaTestingScene.unity
     guid: 17e1d732d4326a540b6823ad2e396779
   - enabled: 1
-    path: Assets/Scenes/ClementTestingScene.unity
+    path: Assets/Scenes/Atlantis.unity
     guid: ed004d59816ac5041a730a94f0054e00
+  - enabled: 1
+    path: Assets/Scenes/EasterIslands.unity
+    guid: f28df77df8a3ddd42aecf4a345c7fae5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

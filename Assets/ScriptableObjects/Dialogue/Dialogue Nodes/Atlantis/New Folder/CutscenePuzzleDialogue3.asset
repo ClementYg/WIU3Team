@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd4f58248b9da74499b9854b8d2f375, type: 3}
+  m_Name: CutscenePuzzleDialogue3
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speaker: {fileID: 11400000, guid: fc7b03c34ce8a4d40ab0e9857b08576c, type: 2}
+  text: Secondly... speak with the people and uncover the origins of this forsaken
+    village.
+  nextNode: {fileID: 0}
+  choices: []

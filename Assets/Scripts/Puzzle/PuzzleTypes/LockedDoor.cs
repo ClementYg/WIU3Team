@@ -20,7 +20,7 @@ public class LockedDoor : MonoBehaviour
         if (puzzle.puzzleID == puzzleID)
         {
             // Raise the event for closed door
-            onUnlockDoorEvent.Raise();
+            if (onUnlockDoorEvent != null)onUnlockDoorEvent.Raise();
 
             Destroy(this.gameObject);
         }

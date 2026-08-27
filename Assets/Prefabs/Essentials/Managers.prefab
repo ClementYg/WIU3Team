@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionManager
   FadeCanvas: {fileID: 2793694602263576951, guid: 224d6661090617e4299daca8f4bb43e4, type: 3}
+  Player: {fileID: 0}
 --- !u!1 &2390692045900002948
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   playerShouldStart: 1
   playerSpawnPoint: {x: 0, y: 2, z: 0}
-  shouldStartTutorial: 1
+  shouldStartTutorial: 0
   onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
 --- !u!1 &6498741767981870859
 GameObject:

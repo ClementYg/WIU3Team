@@ -144,8 +144,10 @@ MonoBehaviour:
   iconTransform: {fileID: 0}
   onDisplayPageRequestedEvent: {fileID: 11400000, guid: 73f90a8aab8e6864dbf13b70fe839826, type: 2}
   onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
+  onDisplayTimerRequestedEvent: {fileID: 11400000, guid: 1df673f99a8252946bea4d47b769c069, type: 2}
   onToggledPageEventBool: {fileID: 11400000, guid: 824c7824f58c26848b6e5125d50bf0de, type: 2}
   onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}
+  onToggledTimerEventBool: {fileID: 11400000, guid: 75e094c44cb49c749a717111b4c02d6a, type: 2}
 --- !u!1 &6050478483606472160
 GameObject:
   m_ObjectHideFlags: 0
