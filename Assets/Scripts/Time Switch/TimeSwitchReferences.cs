@@ -11,32 +11,32 @@ public class TimeSwitchReferences : MonoBehaviour
     [field: SerializeField] public List<ColorChannel> PrsntClrChannels { get; private set; }
     [field: SerializeField] public List<ColorChannel> PstClrChannels { get; private set; }
 
-    public CameraShaker CmrShaker { get; private set; }
-
-    public void AssignReferences()
+#if UNITY_EDITOR
+    [ContextMenu("Find All References")]
+    private void FindAllReferences()
     {
-        // Look for the camera on the player first
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
+        // Clear the references
+        PrsntClrChannels.Clear();
+        PstClrChannels.Clear();
+
+        // Find all references
+        GameObject presentContainer = GameObject.Find("Present Container");
+        if (presentContainer != null)
         {
-            if (player.TryGetComponent<CameraShaker>(out CameraShaker shaker))
-            {
-                CmrShaker = shaker;
-                return;
-            }
-            else
-            {
-                Debug.LogError("TimeSwitchReferences: Failed to assign references.");
-                return;
-            }
+            Present = presentContainer;
         }
 
-        // Failed, now just find any game object that has the Camera Shaker script
-        CmrShaker = FindAnyObjectByType<CameraShaker>();
-        if (CmrShaker == null)
+        GameObject pastContainer = GameObject.Find("Past Container");
+        if (pastContainer != null)
         {
-            Debug.LogError("TimeSwitchReferences: Failed to assign references.");
-            return;
+            Past = pastContainer;
         }
+
+        ColorChannel[] presentColorChannels = presentContainer.GetComponents<ColorChannel>();
+        ColorChannel[] pastColorChannels = pastContainer.GetComponents<ColorChannel>();
+
+        PrsntClrChannels = new List<ColorChannel>(presentColorChannels);
+        PstClrChannels = new List<ColorChannel>(pastColorChannels);
     }
+#endif
 }

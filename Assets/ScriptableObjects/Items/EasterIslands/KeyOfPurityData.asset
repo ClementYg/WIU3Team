@@ -18,7 +18,7 @@ MonoBehaviour:
   itemType: 4
   shortDescription: A Holy Key used in festivals on Easter Island
   loreDescription: 'In ancient times, the Moai (previously known as the sky folk)
-    used the '
+    used the key as part of the Sky Festival for the power imbued within the key '
   isStackable: 0
   maxStackSize: 1
   consumePerUse: 0

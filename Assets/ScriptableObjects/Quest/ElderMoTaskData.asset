@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b78844ef6049f46bb9fd2bd28b297f, type: 3}
   m_Name: ElderMoTaskData
   m_EditorClassIdentifier: Assembly-CSharp::TaskData
-  instruction: Find the lost item
+  instruction: Find the Key of Purity
   taskType: 0
   requiredQuantity: 1

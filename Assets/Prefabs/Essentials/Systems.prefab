@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5803961476356985344}
   - {fileID: 5179093123692111045}
+  - {fileID: 5803961476356985344}
   - {fileID: 4811255567320473360}
   - {fileID: 4755710518371889998}
   m_Father: {fileID: 0}
@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d8ec868655eca4aa3d49c9c5b1cb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialSystem
-  steps:
-  - stepData: {fileID: 11400000, guid: 94d16cdc6d092e042a3fb72fd8399d25, type: 2}
   onTriggerTutorialEvent: {fileID: 11400000, guid: d99de944d30b3c442ae9a26b8545b0cc, type: 2}
 --- !u!1 &3748050421109187091
 GameObject:
@@ -142,8 +140,12 @@ MonoBehaviour:
   page: {fileID: 0}
   header: {fileID: 0}
   body: {fileID: 0}
+  iconImage: {fileID: 0}
+  iconTransform: {fileID: 0}
   onDisplayPageRequestedEvent: {fileID: 11400000, guid: 73f90a8aab8e6864dbf13b70fe839826, type: 2}
-  onToggledGeneralUIEventBool: {fileID: 11400000, guid: c37b84f7db5684b4baf95b853d16107f, type: 2}
+  onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
+  onToggledPageEventBool: {fileID: 11400000, guid: 824c7824f58c26848b6e5125d50bf0de, type: 2}
+  onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}
 --- !u!1 &6050478483606472160
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +272,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9175548025809564187, guid: 3ecc510a73e561d4f8fdfbb25e60b3ba, type: 3}
+      propertyPath: onAddItemEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 5eb564990c8144a44aecdf0013e69cf2, type: 2}
+    - target: {fileID: 9175548025809564187, guid: 3ecc510a73e561d4f8fdfbb25e60b3ba, type: 3}
+      propertyPath: onInventoryFullEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f6bca0b28b35cee4e8979d799259050f, type: 2}
+    - target: {fileID: 9175548025809564187, guid: 3ecc510a73e561d4f8fdfbb25e60b3ba, type: 3}
+      propertyPath: onInventoryFreedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -69,6 +69,7 @@ public class CutsceneManager : Singleton<CutsceneManager>
             else StartCoroutine(exec);
         }
 
+        // Code from here onwards will run when the cutscene ends
         if (activeCutsceneCamera != null)
         {
             SetPriority(activeCutsceneCamera, InactiveCameraPriority);
@@ -77,5 +78,8 @@ public class CutsceneManager : Singleton<CutsceneManager>
 
         onToggledCutsceneModeEvent.Raise(false);
         playRoutine = null;
+
+        // Raise the cutscene's on end event
+        cutscene.RaiseEvent();
     }
 }

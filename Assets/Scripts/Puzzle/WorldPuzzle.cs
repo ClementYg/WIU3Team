@@ -4,8 +4,8 @@ using UnityEngine;
 // interaction system (owned separately) 
 public abstract class WorldSpacePuzzle : Puzzle
 {
-    public override void StartPuzzle()
+    public override void StartPuzzle(string puzzleID)
     {
-        base.StartPuzzle();
+        base.StartPuzzle(puzzleID);
     }
 }

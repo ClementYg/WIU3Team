@@ -65,6 +65,22 @@ public class InventoryUI : MonoBehaviour
         return false;
     }
 
+    public bool AddItemAtSlot(ItemInstance item, int displayIndex, int rowIndex, int slotIndex)
+    {
+        if (displayIndex < 0 || displayIndex > displays.Count - 1) return false;
+
+        InventoryDisplay display = displays[displayIndex];
+        return display.AddItemAtSlot(item, rowIndex, slotIndex);
+    }
+
+    public bool RemoveItemAtSlot(InventorySlot slot)
+    {
+        if (slot == null) return false;
+        
+        slot.RemoveItem();
+        return true;
+    }
+
     public bool RemoveItem(ItemInstance item)
     {
         foreach (InventoryDisplay display in displays)

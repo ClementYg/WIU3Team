@@ -1,10 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour
+public class GameManager : PersistentSingleton<GameManager>
 {
+    [Header("Tutorial")]
+    [SerializeField] TutorialData introTutorial;
+
+    [Header("Testing")]
+    [SerializeField] bool shouldStartTutorial = true;
+
     [Header("Event Channels")]
-    [SerializeField] EventVoid onTriggerTutorialEvent;
+    [SerializeField] EventTutorialData onTriggerTutorialEvent;
 
     IEnumerator Start()
     {
@@ -12,6 +18,9 @@ public class GameManager : MonoBehaviour
 
         yield return null;
 
-        onTriggerTutorialEvent.Raise();
+        if (shouldStartTutorial)
+        {
+            onTriggerTutorialEvent.Raise(introTutorial);
+        }
     }
 }

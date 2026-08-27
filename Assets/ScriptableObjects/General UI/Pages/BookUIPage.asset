@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5039240a335fa840b8fa249d1a2a920, type: 3}
+  m_Name: BookUIPage
+  m_EditorClassIdentifier: Assembly-CSharp::UIPage
+  pageColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+  header:
+    text: README
+    textColor: {r: 0, g: 0, b: 0, a: 1}
+  body:
+    text: "Psst\u2026 Press E to open your inventory.\r\nClick on a slot to lift
+      and place items.\r\nUse the scroll wheel or number keys to select a slot.\r\nNow
+      you know how to complete The Receptionist\u2019s quest.\r\nClick while the
+      book is selected at any time to reopen this page.\r\nPress space to close this
+      page."
+    textColor: {r: 0, g: 0, b: 0, a: 1}

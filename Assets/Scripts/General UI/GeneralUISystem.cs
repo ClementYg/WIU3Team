@@ -4,28 +4,31 @@ using TMPro;
 
 public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
 {
-    [Header("General UI System")]
+    [Header("UI Page")]
     [SerializeField] Image page;
     [SerializeField] TextMeshProUGUI header;
     [SerializeField] TextMeshProUGUI body;
 
+    [Header("UI Icon")]
+    [SerializeField] Image iconImage;
+    [SerializeField] Transform iconTransform;
+
     [Header("Event Channels")]
     [SerializeField] EventUIPage onDisplayPageRequestedEvent;
-    [SerializeField] EventBool onToggledGeneralUIEventBool;
+    [SerializeField] EventUIIcon onDisplayIconRequestedEvent;
+    [SerializeField] EventBool onToggledPageEventBool;
+    [SerializeField] EventBool onToggledIconEventBool;
 
     private void OnEnable()
     {
         onDisplayPageRequestedEvent.Subscribe(DisplayUIPage);
+        onDisplayIconRequestedEvent.Subscribe(DisplayUIIcon);
     }
 
     private void OnDisable()
     {
         onDisplayPageRequestedEvent.Unsubscribe(DisplayUIPage);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        onDisplayIconRequestedEvent.Unsubscribe(DisplayUIIcon);
     }
 
     private void DisplayUIPage(UIPage toDisplay)
@@ -42,7 +45,19 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
         body.color = toDisplay.body.textColor;
 
         // Raise the event for UIGeneralManager
-        Debug.Log("Raised");
-        onToggledGeneralUIEventBool.Raise(true);
+        onToggledPageEventBool.Raise(true);
+    }
+
+    private void DisplayUIIcon(UIIcon toDisplay)
+    {
+        if (toDisplay == null) return;
+
+        // Set UI
+        iconImage.sprite = toDisplay.sprite;
+        iconTransform.localPosition = toDisplay.position;
+        iconTransform.localScale = toDisplay.scale;
+
+        // Raise the event for UIGeneralManager
+        onToggledIconEventBool.Raise(true);
     }
 }

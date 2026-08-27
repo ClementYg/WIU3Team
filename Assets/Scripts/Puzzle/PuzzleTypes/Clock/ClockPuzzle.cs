@@ -51,7 +51,7 @@ public class ClockPuzzle : ScreenPuzzle
         if (isCompleted) return;
         foreach (var c in clocks)
             if (!c.IsSolved) return;
-
-        CompletePuzzle();
+        //takes puzzleID from main class. you need to set this
+        CompletePuzzle(puzzleID);
     }
 }

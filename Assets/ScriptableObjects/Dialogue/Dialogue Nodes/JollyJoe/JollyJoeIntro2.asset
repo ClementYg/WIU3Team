@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd4f58248b9da74499b9854b8d2f375, type: 3}
+  m_Name: JollyJoeIntro2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
+  text: To get the Golden Coin, it's locked behind a roly-poly puzzle that you need
+    to solve first. Don't worry, it's just a minor brain teaser.
+  nextNode: {fileID: 11400000, guid: 7ddb6baa4dfeb28419460524cd1bfb2c, type: 2}
+  choices: []

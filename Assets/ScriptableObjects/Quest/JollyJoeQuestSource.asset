@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192651b037465b54b914c29b7c8dc39b, type: 3}
+  m_Name: JollyJoeQuestSource
+  m_EditorClassIdentifier: Assembly-CSharp::NPCQuestSource
+  type: 0
+  questContext: Jolly Joe needs a Golden Coin as an offering. Help him retrieve it!
+  npcData: {fileID: 11400000, guid: 3250002fcf03e9843b5d9c2fd5722f59, type: 2}

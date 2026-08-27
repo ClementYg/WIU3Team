@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e1ac172752cb546a0608fc0fe89d01, type: 3}
+  m_Name: DoPuzzleASD
+  m_EditorClassIdentifier: Assembly-CSharp::ActionStepData
+  instruction: {fileID: 0}
+  nextStep: {fileID: 11400000, guid: 749ee97f5ff7d584580474b7d567bc75, type: 2}
+  criterion: {fileID: 11400000, guid: b41b691b6c8e60141a83552675842875, type: 2}
+  guide: {fileID: 11400000, guid: a21e11e7c55535a4f81a30138bf995fb, type: 2}
+  onDisplayIconRequestedEvent: {fileID: 11400000, guid: 298b306d1c106044e8e836b282192ec2, type: 2}
+  onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}

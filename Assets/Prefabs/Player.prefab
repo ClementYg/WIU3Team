@@ -169,6 +169,7 @@ MonoBehaviour:
   OnInventoryFreedEvent: {fileID: 11400000, guid: 25701e135c51127488eb3860b09e1c30, type: 2}
   OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
   OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  OnDoubleJumpReceivedEvent: {fileID: 11400000, guid: 5da2784dee8434f44a0a85a43fce94f1, type: 2}
   walkForce: 10
   sprintForce: 30
   maxWalkSpeed: 4
@@ -278,8 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd974b9a7a68c0c43b000d57dc8c2e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeSwitchManager
-  OnTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
-  OnTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  onTimeTransitionStartedEvent: {fileID: 11400000, guid: 917f08961e5cd774791e6b6dfbf165a2, type: 2}
+  onTimeTransitionEndedEvent: {fileID: 11400000, guid: 791df2cad44c5cc4fa45890b97fb8a04, type: 2}
+  onPlayerEnteredResZoneEvent: {fileID: 11400000, guid: 92d776a9874fb2446926c9ee649d201d, type: 2}
+  onPlayerExitedResZoneEvent: {fileID: 11400000, guid: 79ed2abb4de90024ea271c0ba644d140, type: 2}
   transitionDuration: 3
 --- !u!114 &7910338478841596607
 MonoBehaviour:
@@ -523,7 +526,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -544,7 +547,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 15
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1915830334, guid: 20daf8f301d03ae4987ec54b4f3cb425, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

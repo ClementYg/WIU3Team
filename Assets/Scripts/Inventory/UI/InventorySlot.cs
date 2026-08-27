@@ -42,8 +42,19 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         UI.quantityText.text = itemDisplayed.stackCount.ToString();
     }
 
+    public void RemoveItem()
+    {
+        // Remove the reference to the item instance
+        itemDisplayed = null;
+
+        // Visual update
+        ClearUI();
+    }
+
     public void UpdateQuantity()
     {
+        if (itemDisplayed == null) return;
+
         UI.quantityText.text = itemDisplayed.stackCount.ToString();
     }
 
