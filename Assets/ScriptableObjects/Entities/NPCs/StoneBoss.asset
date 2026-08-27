@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f455ba8dced282a4eae49ff32f4f300f, type: 3}
   m_Name: StoneBoss
   m_EditorClassIdentifier: Assembly-CSharp::EntityData
-  entityName: 
-  maxHP: 0
-  baseDamage: 0
+  entityName: Stone
+  maxHP: 100
+  baseDamage: 1
