@@ -16,19 +16,23 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
     [Header("Event Channels")]
     [SerializeField] EventUIPage onDisplayPageRequestedEvent;
     [SerializeField] EventUIIcon onDisplayIconRequestedEvent;
+    [SerializeField] EventUITimer onDisplayTimerRequestedEvent;
     [SerializeField] EventBool onToggledPageEventBool;
     [SerializeField] EventBool onToggledIconEventBool;
+    [SerializeField] EventBool onToggledTimerEventBool;
 
     private void OnEnable()
     {
         onDisplayPageRequestedEvent.Subscribe(DisplayUIPage);
         onDisplayIconRequestedEvent.Subscribe(DisplayUIIcon);
+        onDisplayTimerRequestedEvent.Subscribe(DisplayUITimer);
     }
 
     private void OnDisable()
     {
         onDisplayPageRequestedEvent.Unsubscribe(DisplayUIPage);
         onDisplayIconRequestedEvent.Unsubscribe(DisplayUIIcon);
+        onDisplayTimerRequestedEvent.Unsubscribe(DisplayUITimer);
     }
 
     private void DisplayUIPage(UIPage toDisplay)
@@ -59,5 +63,13 @@ public class GeneralUISystem : PersistentSingleton<GeneralUISystem>
 
         // Raise the event for UIGeneralManager
         onToggledIconEventBool.Raise(true);
+    }
+
+    private void DisplayUITimer(UITimer toDisplay)
+    {
+        if (toDisplay == null) return;
+
+        // Raise the event for UIGeneralManager
+        onToggledTimerEventBool.Raise(true);
     }
 }

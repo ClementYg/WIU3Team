@@ -6,21 +6,25 @@ public class UIGeneralManager : PersistentSingleton<UIGeneralManager>
     [SerializeField] UIFader canvasFader;
     [SerializeField] UIFader pageFader;
     [SerializeField] UIFader iconFader;
+    [SerializeField] UIFader timerFader;
 
     [Header("Event Channels")]
     [SerializeField] EventBool onToggledPageEventBool;
     [SerializeField] EventBool onToggledIconEventBool;
+    [SerializeField] EventBool onToggledTimerEventBool;
 
     private void OnEnable()
     {
         onToggledPageEventBool.Subscribe(OnToggledPage);
         onToggledIconEventBool.Subscribe(OnToggledIcon);
+        onToggledTimerEventBool.Subscribe(OnToggledTimer);
     }
 
     private void OnDisable()
     {
         onToggledPageEventBool.Unsubscribe(OnToggledPage);
         onToggledIconEventBool.Unsubscribe(OnToggledIcon);
+        onToggledTimerEventBool.Unsubscribe(OnToggledTimer);
     }
 
     private void OnToggledPage(bool isEnabled)
@@ -46,6 +50,20 @@ public class UIGeneralManager : PersistentSingleton<UIGeneralManager>
         else
         {
             iconFader.FadeOut();
+        }
+
+        OnToggledGeneralUI(isEnabled);
+    }
+
+    private void OnToggledTimer(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            timerFader.FadeIn();
+        }
+        else
+        {
+            timerFader.FadeOut();
         }
 
         OnToggledGeneralUI(isEnabled);

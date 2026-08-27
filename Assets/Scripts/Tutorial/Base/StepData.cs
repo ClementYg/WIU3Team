@@ -10,4 +10,14 @@ public abstract class StepData : ScriptableObject
 
     public abstract void EnterStep();
     public abstract void ExitStep();
+
+    public void SubscribeToCriterion(System.Action toSubscribe)
+    {
+        criterion.Subscribe(toSubscribe);
+    }
+
+    public void UnsubscribeFromCriterion(System.Action toUnsubscribe)
+    {
+        criterion.Unsubscribe(toUnsubscribe);
+    }
 }

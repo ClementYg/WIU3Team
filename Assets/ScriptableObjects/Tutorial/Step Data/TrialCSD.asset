@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9f8a8007fd6a14bb31cd5f534ee9a9, type: 3}
-  m_Name: ChallengeCSD
+  m_Name: TrialCSD
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneStepData
   instruction: {fileID: 0}
   criterion: {fileID: 11400000, guid: 1844b606337820b4fa5046296b51a230, type: 2}
-  cutscene: {fileID: 0}
+  cutscene: {fileID: 11400000, guid: b8fbb3d2a1ca4844cab1845c3c7d14af, type: 2}
