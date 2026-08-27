@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: JollyJoeIntro3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
-  text: If you can do that, I'll reward you with the double jump ability to head
-    up top and meet the Lord of the Sky.
+  text: If you can do that, I'll reward you with the wings that'll allow you to double
+    jump and head up top and meet the Lord of the Sky.
   nextNode: {fileID: 0}
   choices:
   - choiceText: Alrighty!

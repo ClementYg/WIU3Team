@@ -64,22 +64,11 @@ public class TutorialInstance
 
     private void SubscribeToCriterion()
     {
-        GetCriterionMetEvent().Subscribe(GoNextStep);
+        currentStep.stepData.SubscribeToCriterion(GoNextStep);
     }
 
     private void UnsubscribeFromCriterion()
     {
-        GetCriterionMetEvent().Unsubscribe(GoNextStep);
-    }
-
-    private EventVoid GetCriterionMetEvent()
-    {
-        EventVoid onCriterionMetEvent = currentStep.stepData.criterion;
-        if (onCriterionMetEvent == null)
-        {
-            Debug.LogWarning("TutorialInstance: Current step is missing event reference." + currentStep.stepData.name);
-        }
-
-        return onCriterionMetEvent;
+        currentStep.stepData.UnsubscribeFromCriterion(GoNextStep);
     }
 }

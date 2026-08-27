@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
   text: So you're the one that Elder Mo told me about. I need your help retrieving
-    some golden balls for offerings.
+    a Golden Coin as an offering.
   nextNode: {fileID: 11400000, guid: 709265fbb8d1e6d49a1c93cd5e115742, type: 2}
   choices: []

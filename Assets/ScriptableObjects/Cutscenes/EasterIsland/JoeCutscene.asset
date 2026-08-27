@@ -23,7 +23,7 @@ MonoBehaviour:
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        cameraID: 03
+        cameraID: Easter03
         activePriority: 20
     - rid: 175680561730814066
       type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}

@@ -13,33 +13,20 @@ MonoBehaviour:
   m_Name: GoldenCutscene
   m_EditorClassIdentifier: Assembly-CSharp::Cutscene
   steps:
-  - rid: 175680561730814065
-  - rid: 175680561730814066
   - rid: 175680561730814096
   - rid: 175680561730814097
   onCutsceneEndedEvent: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 175680561730814065
-      type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
-      data:
-        blocking: 1
-        cameraID: 04
-        activePriority: 20
-    - rid: 175680561730814066
-      type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
-      data:
-        blocking: 1
-        secondsToWait: 3
     - rid: 175680561730814096
       type: {class: CutsceneCameraStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        cameraID: 05
+        cameraID: Easter04
         activePriority: 20
     - rid: 175680561730814097
       type: {class: CutsceneTimeStep, ns: , asm: Assembly-CSharp}
       data:
         blocking: 1
-        secondsToWait: 3
+        secondsToWait: 2

@@ -3,20 +3,12 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayer;
-    private float lifeSpan = 3;
-    void Start()
-    {
-        
-    }
-
-    private void Awake()
-    {
-        Debug.Log("Shoot");
-    }
+    public float lifeSpan = 3;
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(transform.position);
         if (lifeSpan <= 0)
         {
             Destroy(this.gameObject);
@@ -28,8 +20,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("Hit");
-            collision.gameObject.GetComponent<Health>().Damage(1);
+            collision.gameObject.GetComponent<Lives>().Damage();
             Destroy(this.gameObject);
         }
     }

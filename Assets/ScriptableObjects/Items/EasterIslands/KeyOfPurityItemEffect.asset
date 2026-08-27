@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13c41f87b63533d4193318f11024fb30, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c2883f548f6aad4587cd25491eb119c, type: 3}
   m_Name: KeyOfPurityItemEffect
-  m_EditorClassIdentifier: Assembly-CSharp::KeyOfPurityEffect
+  m_EditorClassIdentifier: Assembly-CSharp::ItemQuestEffect
+  canSubmitItem: 0
+  onSubmitItemEvent: {fileID: 11400000, guid: a9b109b8969dc9342b007a4b6fe1c9b5, type: 2}

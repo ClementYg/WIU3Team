@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private EventVoid OnInventoryFreedEvent;
     [SerializeField] EventVoid OnTimeTransitionStartedEvent;
     [SerializeField] EventVoid OnTimeTransitionEndedEvent;
+    [SerializeField] EventVoid OnDoubleJumpReceivedEvent;
     private Coroutine speedBoostRoutine;
 
     [Header("Movement Attributes")]
@@ -103,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         OnInventoryFreedEvent.Subscribe(EnableMagnet);
         OnTimeTransitionStartedEvent.Subscribe(DisableMovement);
         OnTimeTransitionEndedEvent.Subscribe(EnableMovement);
+        OnDoubleJumpReceivedEvent.Subscribe(OnDoubleJumpReceived);
     }
 
     private void OnDisable()
@@ -112,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         OnInventoryFreedEvent.Unsubscribe(EnableMagnet);
         OnTimeTransitionStartedEvent.Unsubscribe(DisableMovement);
         OnTimeTransitionEndedEvent.Unsubscribe(EnableMovement);
+        OnDoubleJumpReceivedEvent.Unsubscribe(OnDoubleJumpReceived);
     }
 
     private void Start()
@@ -422,5 +425,10 @@ public class PlayerMovement : MonoBehaviour
         animator.speed = 0f;
         rb.linearVelocity = Vector2.zero;
         isMovementEnabled = false;
+    }
+
+    private void OnDoubleJumpReceived()
+    {
+        extraJumps = 2;
     }
 }

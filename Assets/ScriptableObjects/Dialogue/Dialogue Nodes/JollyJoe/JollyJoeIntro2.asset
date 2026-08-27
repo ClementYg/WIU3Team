@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JollyJoeIntro2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   speaker: {fileID: 11400000, guid: 690afa83889d88e458f1a1877d855a3a, type: 2}
-  text: 'You will need to solve 2 puzzles: The roly-poly puzzle and a key lock to
-    access another golden ball.'
+  text: To get the Golden Coin, it's locked behind a roly-poly puzzle that you need
+    to solve first. Don't worry, it's just a minor brain teaser.
   nextNode: {fileID: 11400000, guid: 7ddb6baa4dfeb28419460524cd1bfb2c, type: 2}
   choices: []
