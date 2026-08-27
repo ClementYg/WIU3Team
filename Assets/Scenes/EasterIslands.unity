@@ -4353,6 +4353,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &232622273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232622274}
+  m_Layer: 0
+  m_Name: PlayerSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &232622274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232622273}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -48.75, y: -8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251821160
 GameObject:
   m_ObjectHideFlags: 0
@@ -11306,7 +11337,7 @@ Transform:
   m_GameObject: {fileID: 1523350490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.75, y: -6.93, z: -10}
+  m_LocalPosition: {x: -48.75, y: -8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11502,7 +11533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.93
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 8468912234095653395, guid: 456ef142f1819c84eb111ed49737ddc8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13465,7 +13496,7 @@ Transform:
   m_GameObject: {fileID: 2031559346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.022186, y: -6.9299994, z: -10}
+  m_LocalPosition: {x: -42.022186, y: -7.999996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14279,7 +14310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546296099505550962, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1546296099505550962, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
@@ -20179,7 +20210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127115118886691391, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2179844378903243140, guid: af53465576b37074d869077736b1ca38, type: 3}
       propertyPath: m_Size.x
@@ -78940,7 +78971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4349614472673621134, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080634379340506279, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_GeometryType
@@ -78948,7 +78979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080634379340506279, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5080634379340506279, guid: 19d6b2ec015e14948b89a772d92a951f, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
@@ -87358,3 +87389,4 @@ SceneRoots:
   - {fileID: 479433152}
   - {fileID: 1143627001}
   - {fileID: 1413884591}
+  - {fileID: 232622274}
