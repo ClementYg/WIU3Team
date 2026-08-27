@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cee6bbba37408940870deaff33a1942, type: 3}
+  m_Name: AtlantisVillager1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
+  firstTimeNode: {fileID: 11400000, guid: 88e22d518f718fc4cb4fa578888c0db6, type: 2}
+  repeatNode: {fileID: 11400000, guid: b136070f4567432409b5e3cfb211d284, type: 2}
+  hasBeenSeen: 1
+  onConvoEndedEvent: {fileID: 11400000, guid: 2f6473e97303bff44a842d875fd3522b, type: 2}

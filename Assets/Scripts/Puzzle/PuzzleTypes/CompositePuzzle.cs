@@ -22,7 +22,6 @@ public class CompositePuzzle : Puzzle
     {
         if (isCompleted) return;    
         if (!puzzleIDs.Contains(finishedPuzzleID)) return;
-        Debug.LogWarning(finishedPuzzleID);
         completedPuzzleIDs.Add(finishedPuzzleID);
         if (HasAllCompletedPuzzles())
         {
