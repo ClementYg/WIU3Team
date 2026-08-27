@@ -1003,8 +1003,10 @@ MonoBehaviour:
   canvasFader: {fileID: 725489676447503192}
   pageFader: {fileID: 866263447102765476}
   iconFader: {fileID: 6877145009507085984}
+  timerFader: {fileID: 0}
   onToggledPageEventBool: {fileID: 11400000, guid: 824c7824f58c26848b6e5125d50bf0de, type: 2}
   onToggledIconEventBool: {fileID: 11400000, guid: a3ff267807c717f429b2b9b6c50198f4, type: 2}
+  onToggledTimerEventBool: {fileID: 11400000, guid: 75e094c44cb49c749a717111b4c02d6a, type: 2}
 --- !u!1 &3878519631820638665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,6 +3173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507398349773514751, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
       propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507398349773514751, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}
+      propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2041239506305772882, guid: f853a6871a19a154ba3e69aba2dd11c0, type: 3}

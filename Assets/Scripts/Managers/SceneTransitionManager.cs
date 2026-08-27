@@ -52,6 +52,7 @@ public class SceneTransitionManager : PersistentSingleton<SceneTransitionManager
         if (fader != null) fader.FadeOut();
         IsTransitioning = false;
 
+        //setting player after loading in scene
         Transform playerSpawn = GameObject.Find(newPosName).transform;
         if (Player != null) Player.transform.position = playerSpawn.position;
         CinemachineCamera gameplayCam = GameObject.Find("GameplayCamera").GetComponent<CinemachineCamera>();
