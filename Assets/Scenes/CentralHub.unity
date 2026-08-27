@@ -27619,7 +27619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedTrial
   data: {fileID: 11400000, guid: 764aa6244d3752b44966197e2d3702c5, type: 2}
-  UI: {fileID: 0}
+  UI: {fileID: 1750744327}
   onTimerStartedEvent: {fileID: 11400000, guid: f9f0745bad016864ba16b4e33b8a6a8a, type: 2}
 --- !u!4 &612958171
 Transform:
@@ -28134,7 +28134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0334f9595fb0c40abd84ec6db1afcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Receptionist
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 666929903}
   playerNewPosition: {x: 0, y: 0, z: 0}
   onTutorialCompletedEvent: {fileID: 11400000, guid: 476e78c4ec5abc4408818f26a659a9e0, type: 2}
 --- !u!1 &893914900
@@ -147999,22 +147999,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 950212497953926278, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 950212497953926278, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 950212497953926278, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460694636500538921, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1490328405405027744, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -148043,14 +148027,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -14.26
       objectReference: {fileID: 0}
-    - target: {fileID: 1573324529580863713, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646485280086285976, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1727639416651075753, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -148083,10 +148059,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2246658448423963258, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2300029115612562627, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -148094,10 +148066,6 @@ PrefabInstance:
     - target: {fileID: 2300029115612562627, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3735933415044465076, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914599347655733208, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_LocalPosition.x
@@ -148297,7 +148265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986848892556431158, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0004272461
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8160300183560640363, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
       propertyPath: m_AnchorMax.x
@@ -148944,6 +148912,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1750744327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7692860079239640209, guid: c3a423851c10e95459f0ba1b8d507509, type: 3}
+  m_PrefabInstance: {fileID: 1362966778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922178eef327815458f1ddd708244435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerUI
 --- !u!1 &1783785007
 GameObject:
   m_ObjectHideFlags: 0
@@ -149544,10 +149523,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6154740611636000164, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
-      propertyPath: onAddItemEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 5eb564990c8144a44aecdf0013e69cf2, type: 2}
     - target: {fileID: 6959566062996760124, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
       propertyPath: itemToCarry
       value: 
@@ -149588,14 +149563,6 @@ PrefabInstance:
       propertyPath: iconTransform
       value: 
       objectReference: {fileID: 2146516899}
-    - target: {fileID: 6997152024642478459, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
-      propertyPath: onToggledTimerEventBool
-      value: 
-      objectReference: {fileID: 11400000, guid: 75e094c44cb49c749a717111b4c02d6a, type: 2}
-    - target: {fileID: 6997152024642478459, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
-      propertyPath: onDisplayTimerRequestedEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 1df673f99a8252946bea4d47b769c069, type: 2}
     - target: {fileID: 8983096950119189619, guid: cd1631c7ec4fc1544a3f66003548a924, type: 3}
       propertyPath: bttnColorFlash
       value: 
