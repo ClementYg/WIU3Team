@@ -94,5 +94,8 @@ public class QuestNPC : MonoBehaviour
 
         // Remove the item from the inventory
         Inventory.Instance.RemoveSelectedItem();
+
+        // Trigger the item submission conversation
+        DialogueManager.Instance.StartConversation(npcData.questCompletionConvo);
     }
 }

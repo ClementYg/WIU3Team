@@ -6,8 +6,9 @@ public class QuestNPCData : NPCData
     [Header("Quest Item")]
     public ItemQuestEffect effect;
 
-    [Header("Quest Dialogue")]
-    public DialogueConversation questConvo;
+    [Header("Dialogue")]
+    public DialogueConversation questAssignmentConvo;
+    public DialogueConversation questCompletionConvo;
 
     public int AssignQuest(QuestInstance toAssign)
     {
@@ -22,9 +23,9 @@ public class QuestNPCData : NPCData
     public void SubscribeToConvo(System.Action function)
     {
         // Validate quest convo
-        if (questConvo != null && questConvo.onConvoEndedEvent != null)
+        if (questAssignmentConvo != null && questAssignmentConvo.onConvoEndedEvent != null)
         {
-            questConvo.onConvoEndedEvent.Subscribe(function);
+            questAssignmentConvo.onConvoEndedEvent.Subscribe(function);
         }
         else
         {
@@ -35,9 +36,9 @@ public class QuestNPCData : NPCData
     public void UnsubscribeToConvo(System.Action function)
     {
         // Validate quest convo
-        if (questConvo != null && questConvo.onConvoEndedEvent != null)
+        if (questAssignmentConvo != null && questAssignmentConvo.onConvoEndedEvent != null)
         {
-            questConvo.onConvoEndedEvent.Unsubscribe(function);
+            questAssignmentConvo.onConvoEndedEvent.Unsubscribe(function);
         }
     }
 }
